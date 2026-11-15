@@ -13,14 +13,14 @@ body { background: var(--ink); }
 /* ---------------------------------------------------------------- top bar */
 .topbar { display: grid; grid-template-columns: auto minmax(260px, 520px) 1fr auto; align-items: center; gap: 18px; padding: 12px 24px; background: rgb(6 8 12 / .86); backdrop-filter: blur(18px) saturate(1.4); -webkit-backdrop-filter: blur(18px) saturate(1.4); box-shadow: 0 1px 0 var(--line); }
 .topbar .brand { display: flex; align-items: center; gap: 10px; white-space: nowrap; }
-.topbar .brand-title { margin: 0; font-size: 16px; font-weight: 650; letter-spacing: -.02em; }
+.topbar .brand-title { margin: 0; font-size: 15px; font-weight: 650; letter-spacing: -.02em; }
 .topbar .brand-mark { width: 22px; height: 22px; border-radius: 50%; background: radial-gradient(circle at 35% 35%, #fff6e6, #e9c48f 45%, #6b4f2a 100%); box-shadow: 0 0 18px rgb(233 196 143 / .35); }
 .topbar .search { display: flex; gap: 6px; align-items: center; margin: 0; flex: none; }
-.topbar .search input { flex: 1; height: 38px; padding: 0 16px 0 38px; border-radius: 999px; background: rgb(255 255 255 / .06) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%23a3abb6' stroke-width='1.6'%3E%3Ccircle cx='7' cy='7' r='5'/%3E%3Cpath d='m11 11 3.5 3.5'/%3E%3C/svg%3E") 14px 50% no-repeat; font-size: 16px; }
+.topbar .search input { flex: 1; height: 38px; padding: 0 16px 0 38px; border-radius: 999px; background: rgb(255 255 255 / .06) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%23a3abb6' stroke-width='1.6'%3E%3Ccircle cx='7' cy='7' r='5'/%3E%3Cpath d='m11 11 3.5 3.5'/%3E%3C/svg%3E") 14px 50% no-repeat; font-size: 13.5px; }
 .topbar .search select { height: 38px; }
 .topbar .search button[type=submit] { height: 38px; padding: 0 16px; background: var(--text); color: #0b0d11; font-weight: 600; }
 .space-switch { justify-self: center; display: inline-flex; gap: 2px; padding: 4px; border-radius: 999px; background: rgb(255 255 255 / .05); box-shadow: inset 0 0 0 1px var(--line); }
-.space-switch button { display: inline-flex; align-items: center; gap: 7px; height: 34px; padding: 0 18px; border-radius: 999px; background: transparent; color: var(--dim); font-size: 16px; font-weight: 550; }
+.space-switch button { display: inline-flex; align-items: center; gap: 7px; height: 34px; padding: 0 18px; border-radius: 999px; background: transparent; color: var(--dim); font-size: 13.5px; font-weight: 550; }
 .space-switch button i { font-style: normal; opacity: .7; }
 .space-switch button:hover { color: var(--text); }
 .space-switch button.on { background: var(--text); color: #0b0d11; }
@@ -29,11 +29,11 @@ body { background: var(--ink); }
 
 /* featured targets: one quiet strip, current target is the only bright chip */
 .target-strip { display: flex; align-items: center; gap: 4px; padding: 10px 24px; background: transparent; border: 0; overflow-x: auto; scrollbar-width: none; }
-.target-strip .strip-label { font-size: 16px; color: var(--faint); margin-right: 8px; white-space: nowrap; }
-.target-strip button { height: 32px; padding: 0 14px; border-radius: 999px; background: transparent; color: var(--dim); font-size: 16px; white-space: nowrap; box-shadow: inset 0 0 0 1px var(--line); }
+.target-strip .strip-label { font-size: 12px; color: var(--faint); margin-right: 8px; white-space: nowrap; }
+.target-strip button { height: 32px; padding: 0 14px; border-radius: 999px; background: transparent; color: var(--dim); font-size: 13px; white-space: nowrap; box-shadow: inset 0 0 0 1px var(--line); }
 .target-strip button:hover { color: var(--text); box-shadow: inset 0 0 0 1px var(--line-2); }
 .target-strip button.active { background: rgb(242 207 107 / .12); color: var(--target); box-shadow: inset 0 0 0 1px rgb(242 207 107 / .45); font-weight: 600; }
-.target-strip .tab-patch { height: 32px; display: inline-flex; align-items: center; padding: 0 14px; border-radius: 999px; background: rgb(141 182 255 / .12); color: #b9ccff; font-size: 16px; }
+.target-strip .tab-patch { height: 32px; display: inline-flex; align-items: center; padding: 0 14px; border-radius: 999px; background: rgb(141 182 255 / .12); color: #b9ccff; font-size: 13px; }
 .target-strip .sky-shortcut { margin-left: auto; box-shadow: none; }
 
 /* ---------------------------------------------------------------- desk */
@@ -46,7 +46,7 @@ body { background: var(--ink); }
 .now-date { font-size: 20px; font-weight: 650; }
 .viewports { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px; align-items: start; }
 .viewport { border-radius: 22px; padding: 14px 14px 16px; background: var(--panel); box-shadow: inset 0 0 0 1px var(--line); }
-.vp-title { font-size: 16px; font-weight: 600; color: var(--dim); letter-spacing: -.01em; margin: 2px 4px 12px; }
+.vp-title { font-size: 13px; font-weight: 600; color: var(--dim); letter-spacing: -.01em; margin: 2px 4px 12px; }
 .vp-title .small { display: none; }
 
 /* image controls: one toolbar of three groups, then the wavelength band and the A·B popover */
@@ -54,7 +54,7 @@ body { background: var(--ink); }
 .blink .ctl-row { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 .stage-bar { justify-content: space-between; }
 .stage-bar > div { display: inline-flex; gap: 2px; padding: 3px; border-radius: 999px; background: rgb(255 255 255 / .05); }
-.stage-bar button { height: 30px; padding: 0 12px; border-radius: 999px; background: transparent; color: var(--dim); font-size: 16px; }
+.stage-bar button { height: 30px; padding: 0 12px; border-radius: 999px; background: transparent; color: var(--dim); font-size: 12.5px; }
 .stage-bar button:hover { color: var(--text); background: rgb(255 255 255 / .06); }
 .stage-bar button.active, .stage-bar button.primary.active { background: var(--text); color: #0b0d11; }
 .stage-bar .transport button.primary { color: var(--text); font-weight: 600; }
@@ -64,11 +64,11 @@ body { background: var(--ink); }
 /* wavelength band: a calm spectrum strip. Which detectors a visit has is a soft dot under each
    segment (fades), never a border change, so playback no longer makes the strip flicker. */
 .ruler { display: flex; align-items: flex-start; gap: 8px; }
-.ruler-all { height: 26px; padding: 0 11px; border-radius: 999px; font-size: 16px; background: rgb(255 255 255 / .05); color: var(--dim); }
+.ruler-all { height: 26px; padding: 0 11px; border-radius: 999px; font-size: 12px; background: rgb(255 255 255 / .05); color: var(--dim); }
 .ruler-all.on { background: var(--text); color: #0b0d11; }
 .ruler-track { flex: 1; min-width: 0; }
 .ruler-bar { display: flex; gap: 2px; height: 26px; }
-.ruler .seg-d { position: relative; height: 26px; min-width: 0; padding: 0; border: 0 !important; border-radius: 6px; font-size: 16px; font-weight: 600; color: rgb(255 255 255 / .62);
+.ruler .seg-d { position: relative; height: 26px; min-width: 0; padding: 0; border: 0 !important; border-radius: 6px; font-size: 11px; font-weight: 600; color: rgb(255 255 255 / .62);
   background: color-mix(in srgb, var(--c) 16%, rgb(255 255 255 / .03)); box-shadow: none; transition: background .35s var(--ease), color .35s var(--ease); }
 .ruler .seg-d:first-child { border-radius: 999px 6px 6px 999px; }
 .ruler .seg-d:last-child { border-radius: 6px 999px 999px 6px; }
@@ -79,10 +79,10 @@ body { background: var(--ink); }
 .ruler .seg-d.absent::after { opacity: 0; }
 .ruler .seg-d.absent.on { background: var(--c); }
 .ruler-axis { position: relative; height: 16px; margin-top: 8px; }
-.ruler-axis span { position: absolute; top: 0; transform: translateX(-50%); font-size: 16px; color: var(--faint); white-space: nowrap; }
+.ruler-axis span { position: absolute; top: 0; transform: translateX(-50%); font-size: 10.5px; color: var(--faint); white-space: nowrap; }
 
 details.pop { position: relative; }
-details.pop > summary { list-style: none; cursor: pointer; height: 26px; display: inline-flex; align-items: center; padding: 0 12px; border-radius: 999px; font-size: 16px; color: var(--dim); background: rgb(255 255 255 / .05); white-space: nowrap; }
+details.pop > summary { list-style: none; cursor: pointer; height: 26px; display: inline-flex; align-items: center; padding: 0 12px; border-radius: 999px; font-size: 12px; color: var(--dim); background: rgb(255 255 255 / .05); white-space: nowrap; }
 details.pop > summary::-webkit-details-marker { display: none; }
 details.pop[open] > summary { color: var(--text); background: rgb(255 255 255 / .1); }
 details.pop .pop-body { position: absolute; right: 0; top: 34px; z-index: 20; display: grid; gap: 10px; padding: 14px; min-width: 300px; border-radius: 18px; background: rgb(18 23 31 / .94); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); box-shadow: inset 0 0 0 1px var(--line-2), 0 24px 60px rgb(0 0 0 / .55); }
@@ -91,32 +91,32 @@ details.pop .ab-pick { display: flex; flex-wrap: wrap; gap: 8px; align-items: ce
 /* the image frame: centred, generous, overlays crisp */
 .blink .stage { display: flex; justify-content: center; }
 .frame { border-radius: 14px; overflow: hidden; }
-.frame-tag { left: 10px; bottom: 10px; top: auto; font-size: 16px; background: rgb(0 0 0 / .55); }
+.frame-tag { left: 10px; bottom: 10px; top: auto; font-size: 11.5px; background: rgb(0 0 0 / .55); }
 .marks { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; margin-top: 12px; }
-.marks .mark { height: 28px; padding: 0 11px; border-radius: 999px; font-size: 16px; background: rgb(255 255 255 / .05); color: var(--dim); box-shadow: none; }
+.marks .mark { height: 28px; padding: 0 11px; border-radius: 999px; font-size: 12px; background: rgb(255 255 255 / .05); color: var(--dim); box-shadow: none; }
 .marks .mark.active { background: rgb(242 207 107 / .14); color: var(--target); }
 .marks .mark.gaia.active { background: rgb(141 182 255 / .16); color: #b9ccff; }
-.marks .field { font-size: 16px; color: var(--faint); margin-left: auto; }
-.ab-caption { margin-top: 10px; font-size: 16px; line-height: 1.6; color: var(--dim); }
+.marks .field { font-size: 12px; color: var(--faint); margin-left: auto; }
+.ab-caption { margin-top: 10px; font-size: 12.5px; line-height: 1.6; color: var(--dim); }
 .blink .more { margin-top: 10px; border-top: 1px solid var(--line); padding-top: 8px; }
-.blink .more summary { font-size: 16px; }
+.blink .more summary { font-size: 12px; }
 
 /* ---------------------------------------------------------------- timeline: crisp, grouped */
 .timeline { border-radius: 22px; padding: 14px 20px 30px; background: var(--panel); box-shadow: inset 0 0 0 1px var(--line); }
 .tl-row { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
-.tl-play { height: 32px; padding: 0 16px; border-radius: 999px; background: var(--text); color: #0b0d11; font-weight: 600; font-size: 16px; }
+.tl-play { height: 32px; padding: 0 16px; border-radius: 999px; background: var(--text); color: #0b0d11; font-weight: 600; font-size: 13px; }
 .tl-play.active { background: var(--accent); color: #1b1510; }
 .tl-speed select { height: 32px; }
-.tl-now-label b { font-size: 16px; font-weight: 650; letter-spacing: -.01em; }
-.tl-now-label span { font-size: 16px; color: var(--faint); margin-left: 6px; }
-.tl-state { margin-left: auto; font-size: 16px; color: var(--faint); }
+.tl-now-label b { font-size: 15px; font-weight: 650; letter-spacing: -.01em; }
+.tl-now-label span { font-size: 12px; color: var(--faint); margin-left: 6px; }
+.tl-state { margin-left: auto; font-size: 12.5px; color: var(--faint); }
 .tl-state.on { color: var(--target); }
 .tl-track { position: relative; height: 28px; margin: 0 6px; border: 0; background: transparent !important; cursor: pointer; touch-action: none; }
 .tl-rail { position: absolute; left: 0; right: 0; top: 13px; height: 2px; border-radius: 2px; background: rgb(255 255 255 / .1); }
 .tl-fill { position: absolute; left: 0; right: 0; top: 13px; height: 2px; width: auto !important; border-radius: 2px; background: linear-gradient(90deg, rgb(242 207 107 / .25), rgb(242 207 107 / .8)); transform-origin: 0 50%; }
 .tl-group { position: absolute; top: 4px; height: 20px; min-width: 20px; margin-left: -10px; padding: 0 10px; box-sizing: content-box; border-radius: 999px; background: rgb(255 255 255 / .035); pointer-events: none; }
 .tl-group-end .tl-group-label { left: auto; right: 10px; }
-.tl-group-label { position: absolute; top: 26px; left: 10px; font-size: 16px; color: var(--faint); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.tl-group-label { position: absolute; top: 26px; left: 10px; font-size: 10.5px; color: var(--faint); white-space: nowrap; font-variant-numeric: tabular-nums; }
 .tl-marker { position: absolute; top: 9px; width: 10px !important; height: 10px !important; margin-left: -5px; padding: 0 !important; border: 0 !important; border-radius: 50% !important; min-height: 0 !important; background: #5f6977 !important; box-shadow: 0 0 0 2px var(--panel); transform: none !important; transition: background .25s var(--ease), box-shadow .25s var(--ease); }
 .tl-marker.past { background: rgb(242 207 107 / .7) !important; }
 .tl-marker:hover { background: #fff !important; }

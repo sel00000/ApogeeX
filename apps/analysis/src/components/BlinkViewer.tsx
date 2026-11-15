@@ -28,16 +28,12 @@ const EXAGGERATIONS = [1, 5, 20, 100, 1000] as const
 type Overlays = { circle: boolean; arrow: boolean; region: boolean; meas: boolean; track: boolean; compass: boolean; scalebar: boolean }
 type Px = [number, number]
 
-export function BlinkViewer({ meta,compact=false }: { meta: TargetMeta;compact?:boolean }) {
+export function BlinkViewer({ meta }: { meta: TargetMeta }) {
   const L = useL()
-  const [comparing,setComparing]=useState(false),[wipe,setWipe]=useState(50)
-  const wipeDrag=useRef(false)
-  const wipeA=useRef<HTMLCanvasElement>(null),wipeB=useRef<HTMLCanvasElement>(null)
   const gaiaOn = useTime((s) => s.gaia)
   const setGaia = useTime.getState().setGaia
   const tMjd = useTime((s) => s.tMjd)
   const playing = useTime((s) => s.playing)
-  const blinkFps = useTime((s) => s.blinkFps)
   const playMode = useTime((s) => s.playMode)
   const ab = useTime((s) => s.ab)
   const X = useTime((s) => s.exaggeration)
@@ -52,7 +48,7 @@ export function BlinkViewer({ meta,compact=false }: { meta: TargetMeta;compact?:
   const [smooth, setSmooth] = useState(false) // crisp native pixels by default; smoothing is an opt-in display choice
   // a sky patch has no known target: no predicted positions, whole field by default
   const isPatch = meta.kind === 'patch'
-  const [ov, setOv] = useState<Overlays>({ circle: !compact, arrow: !compact, region: false, meas: !compact, track: !compact, compass: true, scalebar: true })
+  const [ov, setOv] = useState<Overlays>({ circle: true, arrow: true, region: false, meas: true, track: true, compass: true, scalebar: true })
 
   const vs = meta.visits ?? []
   const k = visitIndexAt(meta, tMjd)
@@ -70,8 +66,6 @@ export function BlinkViewer({ meta,compact=false }: { meta: TargetMeta;compact?:
   const cold = useMemo(() => coldVisits(meta), [meta])
   const coldOn = view === 'cold' && cold.length > 0
   const shownView = coldOn ? 'cold' : view === 'diff' ? 'diff' : 'image'
-
-  const wipeOn=compact&&comparing&&!playing&&shownView==='image'
 
   // raw frames (float32 MJy/sr); failures are shown, never replaced
   const [frames, setFrames] = useState<Frame[] | null>(null)
@@ -121,18 +115,15 @@ export function BlinkViewer({ meta,compact=false }: { meta: TargetMeta;compact?:
   }, [gaiaOn, meta, N])
   useEffect(() => () => { gaiaStarted.current = false; gaiaRequest.current?.abort() }, [])
 
-  // Start free comparison with two visits sharing a detector where available.
-  useEffect(() => {
-    if (compact) useTime.getState().initComparison(meta)
-    else setAB([0, Math.max(0, vs.length - 1)])
-  }, [meta, vs.length, compact, setAB])
+  // default A/B = first and last visit of the target
+  useEffect(() => setAB([0, Math.max(0, vs.length - 1)]), [meta, vs.length, setAB])
 
   // keyboard: ←/→ previous/next visit, space = blink
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (useTime.getState().suspended) return
       const tag = (e.target as HTMLElement)?.tagName
-      if (['INPUT','SELECT','TEXTAREA','BUTTON','A','SUMMARY'].includes(tag) || (e.target as HTMLElement)?.isContentEditable) return
+      if (tag === 'INPUT' || tag === 'SELECT' || tag === 'TEXTAREA') return
       if (e.key === 'ArrowLeft') goToVisit(meta, k - (between ? 0 : 1))
       else if (e.key === 'ArrowRight') goToVisit(meta, k + 1)
       else if (e.key === ' ') {
@@ -182,18 +173,6 @@ export function BlinkViewer({ meta,compact=false }: { meta: TargetMeta;compact?:
     const d = comparison.blocked ? new Float32Array(N * N).fill(NaN) : subtract(frames[gA[0]], frames[gB[0]])
     return { d, scale: diffScale(d, N, contrast === 'local' ? win : { x0: 0, y0: 0, w: N }) }
   }, [frames, shownView, keyA, keyB, comparison.blocked, contrast, N, win.x0, win.y0, win.w]) // eslint-disable-line
-  useEffect(()=>{
-    if(!wipeOn)return
-    ;[wipeA.current,wipeB.current].forEach((cv,j)=>{
-      if(!cv)return
-      const ctx=cv.getContext('2d')!;ctx.clearRect(0,0,PX,PX)
-      if(!frames||!stats||comparison.blocked)return
-      const source=document.createElement('canvas');source.width=source.height=N
-      source.getContext('2d')!.putImageData(toImageData(frames[j?ab[1]:ab[0]],N,stats.stretch),0,0)
-      ctx.imageSmoothingEnabled=smooth
-      ctx.drawImage(source,win.x0,win.y0,win.w,win.w,0,0,PX,PX)
-    })
-  },[wipeOn,frames,stats,comparison.blocked,ab,N,smooth,win.x0,win.y0,win.w])
   const rendered = useMemo(() => new Map<string, HTMLCanvasElement>(), [shown, stats, N])
   useEffect(() => {
     const cv = canvas.current
@@ -251,7 +230,9 @@ export function BlinkViewer({ meta,compact=false }: { meta: TargetMeta;compact?:
     goToVisit(meta, next)
   }
 
-  const advancedControls = (<div className="controls" onClick={()=>{if(compact)setComparing(false)}}>
+  return (
+    <div className="blink" data-tutorial="analysis-viewer">
+      <div className="controls">
         <div className="ctl-row stage-bar">
           <div className="transport" role="group" aria-label={L('관측 넘기기', 'Step through visits')}>
             <button onClick={() => step(-1)} title={L('이전 관측 (←)', 'Previous visit (←)')}>{L('‹ 이전', '‹ Prev')}</button>
@@ -296,12 +277,174 @@ export function BlinkViewer({ meta,compact=false }: { meta: TargetMeta;compact?:
               </select>
             </label>
           </div>
-              <span className="fps" data-testid="fixed-fps">{L(`${blinkFps} 장/초`, `${blinkFps} fps`)}</span>
+              <span className="fps" data-testid="fixed-fps">{L('8 장/초', '8 fps')}</span>
             </div>
           </details>
         </div>
-      </div>)
-  const imageDetails = (<>      {!isPatch && (
+      </div>
+
+      {coldOn && (
+        <div className="cold-panel" data-testid="cold-panel">
+          <div className="cold-row">
+            <span>D6 − k × D5</span>
+            <input type="range" min={0.5} max={1.1} step={0.01} value={coldK} onChange={(e) => setColdK(+e.target.value)} aria-label={L('빼는 비율 k', 'Subtraction ratio k')} />
+            <b>k = {coldK.toFixed(2)}</b>
+            <button className="link" onClick={() => setColdK(RJ_K)} disabled={Math.abs(coldK - RJ_K) < 1e-6}>{L('이론값', 'theory')} {RJ_K.toFixed(2)}</button>
+            <Badge kind="model" detail={L('레일리–진스 비율', 'Rayleigh–Jeans ratio')} />
+          </div>
+          <p className="dim small">
+            {L('보통 별은 3.8–5 µm에서 밝기가 파장의 제곱에 반비례해 거의 지워집니다. 남는 점은 4.4 µm 너머에서 빛나는 차가운 천체 후보입니다. 한 장에만 찍힌 우주선 흔적과 포화된 밝은 별 둘레도 남을 수 있으니, 여러 관측에서 같은 자리에(또는 같은 방향으로 움직이며) 남는지 확인하세요.',
+              'Ordinary stars fade as 1/λ² at 3.8–5 µm and cancel. What stays is a candidate cold object shining beyond 4.4 µm. Cosmic-ray hits in a single exposure and rings around saturated stars can stay too, so check that a source stays (or moves consistently) over several visits.')}
+            {' '}{L(`D5·D6가 함께 있는 관측 ${cold.length}/${vs.length}회만 만듭니다.`, `Made only for the ${cold.length}/${vs.length} visits with both D5 and D6.`)}
+          </p>
+          {!cold.includes(k) && <p className="warn small" data-testid="cold-missing">{L(`관측 ${k + 1}에는 D5·D6가 함께 없어 필터 영상을 만들 수 없습니다.`, `Visit ${k + 1} lacks D5 or D6, so no filtered frame exists.`)}</p>}
+          {keep !== null && (
+            <p className="small" data-testid="cold-survival">
+              {L('대상 위치에 D6 빛의', 'At the target,')} <b>{Math.round(keep * 100)}%</b>{L('가 남았습니다', ' of the D6 light remains')} <Badge kind="spherex" /> <span className="dim">{L('(보통 별은 0% 근처)', '(ordinary stars: near 0%)')}</span>
+            </p>
+          )}
+        </div>
+      )}
+
+      {isControl && (
+        <div className="control-note" data-testid="control-note">
+          {VARIABLE.has(meta.id) ? (
+            <>
+              <strong>{L('변광성', 'Variable star')}</strong>: {L(`${meta.display_name}의 예측 이동은 ${fmtShift(spanPx)}입니다. 같은 검출기를 골라도 픽셀별 파장이 다를 수 있으므로, 밝기 변화는 파장·품질 조건을 확인해 해석하세요.`, `${meta.display_name} has a predicted shift of ${fmtShift(spanPx)}. Even within one detector, pixel wavelengths can differ: check wavelength and quality conditions before interpreting brightness changes.`)}
+            </>
+          ) : (
+            <>
+              <strong>{L('거의 안 움직이는 대상', 'Nearly fixed target')}</strong>: {L(`관측 기간 내내 ${fmtShift(spanPx)}밖에 움직이지 않아 영상에서 움직임이 보이지 않는 것이 정상입니다.`, `It moves only ${fmtShift(spanPx)} over all visits, so no motion is expected in the images.`)}
+            </>
+          )}
+        </div>
+      )}
+      {loadErr && <div className="failure" data-testid="fetch-failed">{L('영상 데이터를 불러오지 못함', 'Could not load image data')}: {loadErr}</div>}
+
+      <div className="stage">
+        <div className="frame" style={{ width: DISPLAY, height: DISPLAY }} data-testid="blink-frame" data-visit={k} data-view={shownView} data-frame-size={N} data-offset={o} data-window-x={win.x0} data-window-y={win.y0} data-window-width={win.w}>
+          <canvas ref={canvas} width={PX} height={PX} style={{ width: DISPLAY, height: DISPLAY }} />
+          {!shown && !loadErr && <div className="frame-loading dim">{L('영상 불러오는 중…', 'Loading images…')}</div>}
+          {shown && !shownHasData && (
+            <div className="frame-loading warn" data-testid="no-frame-data">
+              {coldOn ? L('이 관측은 D5·D6가 함께 없어 필터 영상이 없습니다.', 'This visit lacks D5 or D6: no filtered frame.') : L('이 시점·검출기의 영상 데이터가 없습니다.', 'No image data for this visit and detector.')} {L('다른 관측이나 검출기를 선택하세요. (D5·D6)', 'Pick another visit or detector. (D5·D6)')}
+            </div>
+          )}
+          <svg className="overlay" width={DISPLAY} height={DISPLAY}>
+            {!isPatch && ov.region && regionCube && (() => {
+              const [x0, y0] = S([regionCube.cx - regionCube.half, regionCube.cy - regionCube.half])
+              const w = 2 * regionCube.half * s * zoom
+              return (
+                <g>
+                  <rect x={x0} y={y0} width={w} height={w} fill="none" stroke="#6cb6ff" strokeOpacity={0.7} strokeWidth={1} strokeDasharray="4 3" />
+                  <text x={x0 + 3} y={y0 - 4} fontSize={10} fill="#6cb6ff">{L('3D 영역', '3D region')}</text>
+                </g>
+              )
+            })()}
+            {!isPatch && ov.track && (
+              <polyline points={vs.map((v) => S(E(v.pred_px)).join(',')).join(' ')} fill="none" stroke="#ffd34d" strokeOpacity={0.55} strokeWidth={1.5} strokeDasharray="3 2" />
+            )}
+            {!isPatch && ov.circle && (
+              <g fill="none" strokeWidth={2}>
+                {/* A and B: where the target is in each of the two compared frames */}
+                {([['A', pa, gA], ['B', pb, gB]] as const).map(([name, q, g]) => {
+                  const cur = shownView === 'diff' || (g.includes(k) && !between)
+                  const col = shownView === 'diff' ? (name === 'A' ? '#ff9a5c' : '#5cb6ff') : cur ? '#ffd34d' : '#9fe8d0'
+                  return (
+                    <g key={name}>
+                      <circle cx={q[0]} cy={q[1]} r={15} stroke="#000" strokeOpacity={0.5} strokeWidth={4} />
+                      <circle cx={q[0]} cy={q[1]} r={15} stroke={col} strokeDasharray={cur ? undefined : '4 3'} />
+                      <text x={q[0] + (name === 'A' ? -24 : 24)} y={q[1] + 4} textAnchor="middle" fontSize={12} fontWeight={700} fill={col} stroke="#000" strokeWidth={3} paintOrder="stroke">{name}</text>
+                    </g>
+                  )
+                })}
+                {shownView !== 'diff' && !gNow.some((i) => gA.includes(i) || gB.includes(i)) && <circle cx={px} cy={py} r={15} stroke="#ffd34d" />}
+                <text x={shownView === 'diff' ? pb[0] : px} y={(shownView === 'diff' ? pb[1] : py) - 22} textAnchor="middle" fontSize={12} fontWeight={700} fill="#ffd34d" stroke="#000" strokeWidth={3} paintOrder="stroke">{meta.display_name}</text>
+              </g>
+            )}
+            {!isPatch && ov.arrow && (() => {
+              // dashed A→B displacement as drawn, plus a fixed-length arrow for the direction
+              const dx = pb[0] - pa[0]
+              const dy = pb[1] - pa[1]
+              const len = Math.hypot(dx, dy)
+              if (len < 0.5) return null
+              const ux = dx / len
+              const uy = dy / len
+              const head = (x: number, y: number, size: number) =>
+                `${x},${y} ${x - ux * size - uy * size * 0.55},${y - uy * size + ux * size * 0.55} ${x - ux * size + uy * size * 0.55},${y - uy * size - ux * size * 0.55}`
+              const d0 = [pb[0] + ux * 19, pb[1] + uy * 19]
+              const d1 = [pb[0] + ux * 60, pb[1] + uy * 60]
+              return (
+                <g>
+                  {len > 8 && (
+                    <>
+                      <line x1={pa[0]} y1={pa[1]} x2={pb[0]} y2={pb[1]} stroke="#000" strokeOpacity={0.5} strokeWidth={4} />
+                      <line x1={pa[0]} y1={pa[1]} x2={pb[0]} y2={pb[1]} stroke="#9fe8d0" strokeWidth={2} strokeDasharray="5 3" />
+                      <polygon points={head(pb[0], pb[1], Math.min(9, len * 0.5))} fill="#9fe8d0" />
+                    </>
+                  )}
+                  <line x1={d0[0]} y1={d0[1]} x2={d1[0]} y2={d1[1]} stroke="#000" strokeOpacity={0.5} strokeWidth={5} />
+                  <line x1={d0[0]} y1={d0[1]} x2={d1[0]} y2={d1[1]} stroke="#9fe8d0" strokeWidth={2.5} />
+                  <polygon points={head(d1[0], d1[1], 9)} fill="#9fe8d0" stroke="#000" strokeOpacity={0.4} />
+                  <text x={d1[0] + ux * 16} y={d1[1] + uy * 16 + 4} textAnchor="middle" fontSize={11} fontWeight={700} fill="#9fe8d0" stroke="#000" strokeWidth={3} paintOrder="stroke">{L('이동 방향', 'motion')}</text>
+                </g>
+              )
+            })()}
+            {ov.meas && meas && (
+              <g stroke="#4ea1ff" strokeWidth={2} fill="none">
+                <line x1={meas[0] - 6} y1={meas[1]} x2={meas[0] + 6} y2={meas[1]} />
+                <line x1={meas[0]} y1={meas[1] - 6} x2={meas[0]} y2={meas[1] + 6} />
+                {visit.meas_err_px && <circle cx={meas[0]} cy={meas[1]} r={Math.max(2, visit.meas_err_px * s * zoom)} strokeOpacity={0.8} />}
+              </g>
+            )}
+            {gaiaOn && gaia.state === 'ok' && (
+              <g data-testid="gaia-overlay" fill="none" stroke="#7aa2ff" strokeWidth={1.3}>
+                {gaia.stars.map((st) => {
+                  const [ra, dec] = propagate(st, visit.mjd)
+                  const [x, y] = S(skyToGridPx(meta.wcs.crval, meta.wcs.cdelt_arcsec, n, ra, dec))
+                  if (x < -8 || y < -8 || x > DISPLAY + 8 || y > DISPLAY + 8) return null
+                  const r = st.g === undefined ? 4 : Math.max(3, Math.min(9, 13 - st.g * 0.5))
+                  return (
+                    <g key={st.id}>
+                      <circle cx={x} cy={y} r={r} strokeOpacity={0.9}><title>{`Gaia DR3 ${st.id}${st.g !== undefined ? ` · G ${st.g.toFixed(1)}` : ''}`}</title></circle>
+                      {st.g !== undefined && st.g < 11.5 && <text x={x + r + 2} y={y - r} fontSize={10} fill="#a9c2ff" stroke="#000" strokeWidth={2.5} paintOrder="stroke">G {st.g.toFixed(1)}</text>}
+                    </g>
+                  )
+                })}
+              </g>
+            )}
+            {ov.compass && (
+              <g stroke="#e8eefb" strokeWidth={1.6} fill="#e8eefb" fontSize={12} fontWeight={700}>
+                <line x1={DISPLAY - 22} y1={46} x2={DISPLAY - 22} y2={18} />
+                <polygon points={`${DISPLAY - 26},22 ${DISPLAY - 18},22 ${DISPLAY - 22},14`} stroke="none" />
+                <text x={DISPLAY - 22} y={11} textAnchor="middle" stroke="none">N</text>
+                <line x1={DISPLAY - 22} y1={46} x2={DISPLAY - 50} y2={46} />
+                <polygon points={`${DISPLAY - 46},42 ${DISPLAY - 46},50 ${DISPLAY - 54},46`} stroke="none" />
+                <text x={DISPLAY - 62} y={50} textAnchor="middle" stroke="none">E</text>
+              </g>
+            )}
+            {ov.scalebar && (
+              <g fill="#e8eefb" fontSize={11}>
+                <rect x={12} y={DISPLAY - 16} width={barW} height={3} />
+                <text x={12 + barW / 2} y={DISPLAY - 22} textAnchor="middle">{bar.label}</text>
+              </g>
+            )}
+          </svg>
+          <div className="frame-tag">
+            {shownView === 'diff' ? L('A − B 차이', 'A − B difference') : shownView === 'cold' ? `${L('차가운 천체 필터', 'Cold-object filter')} · ${nameOf(gNow)} · ${vs[gNow[0]].utc.slice(0, 10)}` : `${nameOf(gNow)} · ${vs[gNow[0]].utc.slice(0, 10)}`}
+            {shownView !== 'cold' && det > 0 && ` · D${det}`}
+            {` · ${L('시야', 'field')} ${fieldArcmin.toFixed(fieldArcmin < 4 ? 1 : 0)}′`}
+          </div>
+          {between && shownView !== 'diff' && (
+            <div className="between" data-testid="between">
+              {L('관측 사이: 직전 관측 영상 표시 중', 'Between visits: showing the previous visit')}
+              {nextDays !== null && <> · {L(`다음 관측까지 ${nextDays.toFixed(1)}일`, `next visit in ${nextDays.toFixed(1)} d`)}</>}
+            </div>
+          )}
+        </div>
+      </div>
+
+      {!isPatch && (
         <div className="marks" role="group" aria-label={L('표시', 'Markers')}>
           <button className={ov.circle ? 'active mark' : 'mark'} onClick={() => toggle('circle')} title={L('A·B에서 대상 위치를 동그라미로 표시 (예측 위치)', 'Circle the target at A and B (predicted positions)')} data-testid="mark-circle">{L('◯ 동그라미', '◯ Circles')}</button>
           <button className={ov.arrow ? 'active mark' : 'mark'} onClick={() => toggle('arrow')} title={L('A→B 이동 화살표와 이동 방향', 'A→B motion arrow and direction')} data-testid="mark-arrow">{L('➜ 화살표', '➜ Arrow')}</button>
@@ -412,177 +555,7 @@ export function BlinkViewer({ meta,compact=false }: { meta: TargetMeta;compact?:
             ) : '—'}
           </dd>
         </dl>
-      </details></>)
-
-  return (
-    <div className="blink" data-tutorial="analysis-viewer">
-      {compact?<><div className="fw-image-controls"><div className="fw-image-modes" role="group" aria-label={L('영상 보기 방식','Image display mode')}><button className={!wipeOn?'active':''} aria-pressed={!wipeOn} onClick={()=>{stop();setComparing(false);setView('image')}}>{L('한 장','Single')}</button><button className={wipeOn?'active':''} aria-pressed={wipeOn} onClick={()=>{stop();setView('image');goToVisit(meta,ab[0]);setComparing(true);if(det===0){const common=[6,5,4,3,2,1].find(d=>vs[ab[0]].detectors.includes(d)&&vs[ab[1]].detectors.includes(d));if(common)setDet(common)}}}>{L('비교','Compare')}</button></div><div className="fw-image-selects"><label><span>{L('파장','Band')}</span><select aria-label={L('영상 검출기','Image detector')} value={det} onChange={e=>{setDet(+e.target.value);setView('image')}}><option value={0}>{L('전체 파장','All bands')}</option>{[1,2,3,4,5,6].map(d=><option key={d} value={d} disabled={!vs.some(v=>v.detectors.includes(d))}>D{d} · {['','0.75–1.09','1.10–1.62','1.63–2.41','2.42–3.82','3.83–4.41','4.42–5.00'][d]} μm</option>)}</select></label><label><span>{L('시야','Field')}</span><select value={zoom} aria-label={L('관측 영상 시야','Image field of view')} onChange={e=>setZoom(+e.target.value)}>{zooms.map(z=><option key={z} value={z}>{((N*meta.wcs.cdelt_arcsec)/60/z).toFixed(z>=6?1:0)}′</option>)}</select></label></div></div>{wipeOn&&<><div className="fw-compare-pickers">{([0,1] as const).map(j=><label key={j}>{j?'B · 비교 관측':'A · 기준 관측'}<select aria-label={j?L('비교 관측 B','Comparison observation B'):L('기준 관측 A','Reference observation A')} value={selVal(ab[j])} onChange={e=>{stop();setAB(j?[ab[0],+e.target.value]:[+e.target.value,ab[1]]);if(j===0)goToVisit(meta,+e.target.value)}}>{selOpts.map(o=><option key={o.v} value={o.v}>{o.label}</option>)}</select></label>)}</div></>}</>:advancedControls}
-
-      {coldOn && (
-        <div className="cold-panel" data-testid="cold-panel">
-          <div className="cold-row">
-            <span>D6 − k × D5</span>
-            <input type="range" min={0.5} max={1.1} step={0.01} value={coldK} onChange={(e) => setColdK(+e.target.value)} aria-label={L('빼는 비율 k', 'Subtraction ratio k')} />
-            <b>k = {coldK.toFixed(2)}</b>
-            <button className="link" onClick={() => setColdK(RJ_K)} disabled={Math.abs(coldK - RJ_K) < 1e-6}>{L('이론값', 'theory')} {RJ_K.toFixed(2)}</button>
-            <Badge kind="model" detail={L('레일리–진스 비율', 'Rayleigh–Jeans ratio')} />
-          </div>
-          <p className="dim small">
-            {L('보통 별은 3.8–5 µm에서 밝기가 파장의 제곱에 반비례해 거의 지워집니다. 남는 점은 4.4 µm 너머에서 빛나는 차가운 천체 후보입니다. 한 장에만 찍힌 우주선 흔적과 포화된 밝은 별 둘레도 남을 수 있으니, 여러 관측에서 같은 자리에(또는 같은 방향으로 움직이며) 남는지 확인하세요.',
-              'Ordinary stars fade as 1/λ² at 3.8–5 µm and cancel. What stays is a candidate cold object shining beyond 4.4 µm. Cosmic-ray hits in a single exposure and rings around saturated stars can stay too, so check that a source stays (or moves consistently) over several visits.')}
-            {' '}{L(`D5·D6가 함께 있는 관측 ${cold.length}/${vs.length}회만 만듭니다.`, `Made only for the ${cold.length}/${vs.length} visits with both D5 and D6.`)}
-          </p>
-          {!cold.includes(k) && <p className="warn small" data-testid="cold-missing">{L(`관측 ${k + 1}에는 D5·D6가 함께 없어 필터 영상을 만들 수 없습니다.`, `Visit ${k + 1} lacks D5 or D6, so no filtered frame exists.`)}</p>}
-          {keep !== null && (
-            <p className="small" data-testid="cold-survival">
-              {L('대상 위치에 D6 빛의', 'At the target,')} <b>{Math.round(keep * 100)}%</b>{L('가 남았습니다', ' of the D6 light remains')} <Badge kind="spherex" /> <span className="dim">{L('(보통 별은 0% 근처)', '(ordinary stars: near 0%)')}</span>
-            </p>
-          )}
-        </div>
-      )}
-
-      {!compact && isControl && (
-        <div className="control-note" data-testid="control-note">
-          {VARIABLE.has(meta.id) ? (
-            <>
-              <strong>{L('변광성', 'Variable star')}</strong>: {L(`${meta.display_name}의 예측 이동은 ${fmtShift(spanPx)}입니다. 같은 검출기를 골라도 픽셀별 파장이 다를 수 있으므로, 밝기 변화는 파장·품질 조건을 확인해 해석하세요.`, `${meta.display_name} has a predicted shift of ${fmtShift(spanPx)}. Even within one detector, pixel wavelengths can differ: check wavelength and quality conditions before interpreting brightness changes.`)}
-            </>
-          ) : (
-            <>
-              <strong>{L('거의 안 움직이는 대상', 'Nearly fixed target')}</strong>: {L(`관측 기간 내내 ${fmtShift(spanPx)}밖에 움직이지 않아 영상에서 움직임이 보이지 않는 것이 정상입니다.`, `It moves only ${fmtShift(spanPx)} over all visits, so no motion is expected in the images.`)}
-            </>
-          )}
-        </div>
-      )}
-      {loadErr && <div className="failure" data-testid="fetch-failed">{L('영상 데이터를 불러오지 못함', 'Could not load image data')}: {loadErr}</div>}
-
-      <div className="stage">
-        <div className="frame" style={{ width: DISPLAY, height: DISPLAY }} data-testid="blink-frame" data-visit={k} data-view={wipeOn?'compare':shownView} data-frame-size={N} data-offset={o} data-window-x={win.x0} data-window-y={win.y0} data-window-width={win.w}>
-          <canvas ref={canvas} width={PX} height={PX} style={{ width: DISPLAY, height: DISPLAY,visibility:wipeOn?'hidden':'visible' }} aria-label={L('실제 SPHEREx 관측 영상','Real SPHEREx observation')}/>
-          {wipeOn&&<><canvas className="fw-wipe-image" ref={wipeB} width={PX} height={PX} aria-hidden="true"/><canvas className="fw-wipe-image" ref={wipeA} width={PX} height={PX} style={{clipPath:`inset(0 ${100-wipe}% 0 0)`}} aria-hidden="true"/></>}
-          {!shown && !loadErr && <div className="frame-loading dim">{L('영상 불러오는 중…', 'Loading images…')}</div>}
-          {shown && (wipeOn?(!frames?.[ab[0]].some(Number.isFinite)||!frames?.[ab[1]].some(Number.isFinite)||comparison.blocked):!shownHasData) && (
-            <div className="frame-loading warn" data-testid="no-frame-data">
-              {coldOn ? L('이 관측은 D5·D6가 함께 없어 필터 영상이 없습니다.', 'This visit lacks D5 or D6: no filtered frame.') : L('이 시점·검출기의 영상 데이터가 없습니다.', 'No image data for this visit and detector.')} {L('다른 관측이나 검출기를 선택하세요. (D5·D6)', 'Pick another visit or detector. (D5·D6)')}
-            </div>
-          )}
-          <svg className="overlay" width={DISPLAY} height={DISPLAY} viewBox={`0 0 ${DISPLAY} ${DISPLAY}`}>
-            {!isPatch && ov.region && regionCube && (() => {
-              const [x0, y0] = S([regionCube.cx - regionCube.half, regionCube.cy - regionCube.half])
-              const w = 2 * regionCube.half * s * zoom
-              return (
-                <g>
-                  <rect x={x0} y={y0} width={w} height={w} fill="none" stroke="#6cb6ff" strokeOpacity={0.7} strokeWidth={1} strokeDasharray="4 3" />
-                  <text x={x0 + 3} y={y0 - 4} fontSize={16} fill="#6cb6ff">{L('3D 영역', '3D region')}</text>
-                </g>
-              )
-            })()}
-            {!isPatch && ov.track && (
-              <polyline points={vs.map((v) => S(E(v.pred_px)).join(',')).join(' ')} fill="none" stroke="#ffd34d" strokeOpacity={0.55} strokeWidth={1.5} strokeDasharray="3 2" />
-            )}
-            {!isPatch && ov.circle && (
-              <g fill="none" strokeWidth={2}>
-                {/* A and B: where the target is in each of the two compared frames */}
-                {([['A', pa, gA], ['B', pb, gB]] as const).map(([name, q, g]) => {
-                  const cur = shownView === 'diff' || (g.includes(k) && !between)
-                  const col = shownView === 'diff' ? (name === 'A' ? '#ff9a5c' : '#5cb6ff') : cur ? '#ffd34d' : '#9fe8d0'
-                  return (
-                    <g key={name}>
-                      <circle cx={q[0]} cy={q[1]} r={15} stroke="#000" strokeOpacity={0.5} strokeWidth={4} />
-                      <circle cx={q[0]} cy={q[1]} r={15} stroke={col} strokeDasharray={cur ? undefined : '4 3'} />
-                      <text x={q[0] + (name === 'A' ? -24 : 24)} y={q[1] + 4} textAnchor="middle" fontSize={16} fontWeight={700} fill={col} stroke="#000" strokeWidth={3} paintOrder="stroke">{name}</text>
-                    </g>
-                  )
-                })}
-                {shownView !== 'diff' && !gNow.some((i) => gA.includes(i) || gB.includes(i)) && <circle cx={px} cy={py} r={15} stroke="#ffd34d" />}
-                <text x={shownView === 'diff' ? pb[0] : px} y={(shownView === 'diff' ? pb[1] : py) - 22} textAnchor="middle" fontSize={16} fontWeight={700} fill="#ffd34d" stroke="#000" strokeWidth={3} paintOrder="stroke">{meta.display_name}</text>
-              </g>
-            )}
-            {!isPatch && ov.arrow && (() => {
-              // dashed A→B displacement as drawn, plus a fixed-length arrow for the direction
-              const dx = pb[0] - pa[0]
-              const dy = pb[1] - pa[1]
-              const len = Math.hypot(dx, dy)
-              if (len < 0.5) return null
-              const ux = dx / len
-              const uy = dy / len
-              const head = (x: number, y: number, size: number) =>
-                `${x},${y} ${x - ux * size - uy * size * 0.55},${y - uy * size + ux * size * 0.55} ${x - ux * size + uy * size * 0.55},${y - uy * size - ux * size * 0.55}`
-              const d0 = [pb[0] + ux * 19, pb[1] + uy * 19]
-              const d1 = [pb[0] + ux * 60, pb[1] + uy * 60]
-              return (
-                <g>
-                  {len > 8 && (
-                    <>
-                      <line x1={pa[0]} y1={pa[1]} x2={pb[0]} y2={pb[1]} stroke="#000" strokeOpacity={0.5} strokeWidth={4} />
-                      <line x1={pa[0]} y1={pa[1]} x2={pb[0]} y2={pb[1]} stroke="#9fe8d0" strokeWidth={2} strokeDasharray="5 3" />
-                      <polygon points={head(pb[0], pb[1], Math.min(9, len * 0.5))} fill="#9fe8d0" />
-                    </>
-                  )}
-                  <line x1={d0[0]} y1={d0[1]} x2={d1[0]} y2={d1[1]} stroke="#000" strokeOpacity={0.5} strokeWidth={5} />
-                  <line x1={d0[0]} y1={d0[1]} x2={d1[0]} y2={d1[1]} stroke="#9fe8d0" strokeWidth={2.5} />
-                  <polygon points={head(d1[0], d1[1], 9)} fill="#9fe8d0" stroke="#000" strokeOpacity={0.4} />
-                  <text x={d1[0] + ux * 16} y={d1[1] + uy * 16 + 4} textAnchor="middle" fontSize={16} fontWeight={700} fill="#9fe8d0" stroke="#000" strokeWidth={3} paintOrder="stroke">{L('이동 방향', 'motion')}</text>
-                </g>
-              )
-            })()}
-            {ov.meas && meas && (
-              <g stroke="#4ea1ff" strokeWidth={2} fill="none">
-                <line x1={meas[0] - 6} y1={meas[1]} x2={meas[0] + 6} y2={meas[1]} />
-                <line x1={meas[0]} y1={meas[1] - 6} x2={meas[0]} y2={meas[1] + 6} />
-                {visit.meas_err_px && <circle cx={meas[0]} cy={meas[1]} r={Math.max(2, visit.meas_err_px * s * zoom)} strokeOpacity={0.8} />}
-              </g>
-            )}
-            {gaiaOn && gaia.state === 'ok' && (
-              <g data-testid="gaia-overlay" fill="none" stroke="#7aa2ff" strokeWidth={1.3}>
-                {gaia.stars.map((st) => {
-                  const [ra, dec] = propagate(st, visit.mjd)
-                  const [x, y] = S(skyToGridPx(meta.wcs.crval, meta.wcs.cdelt_arcsec, n, ra, dec))
-                  if (x < -8 || y < -8 || x > DISPLAY + 8 || y > DISPLAY + 8) return null
-                  const r = st.g === undefined ? 4 : Math.max(3, Math.min(9, 13 - st.g * 0.5))
-                  return (
-                    <g key={st.id}>
-                      <circle cx={x} cy={y} r={r} strokeOpacity={0.9}><title>{`Gaia DR3 ${st.id}${st.g !== undefined ? ` · G ${st.g.toFixed(1)}` : ''}`}</title></circle>
-                      {st.g !== undefined && st.g < 11.5 && <text x={x + r + 2} y={y - r} fontSize={16} fill="#a9c2ff" stroke="#000" strokeWidth={2.5} paintOrder="stroke">G {st.g.toFixed(1)}</text>}
-                    </g>
-                  )
-                })}
-              </g>
-            )}
-            {ov.compass && (
-              <g stroke="#e8eefb" strokeWidth={1.6} fill="#e8eefb" fontSize={16} fontWeight={700}>
-                <line x1={DISPLAY - 22} y1={46} x2={DISPLAY - 22} y2={18} />
-                <polygon points={`${DISPLAY - 26},22 ${DISPLAY - 18},22 ${DISPLAY - 22},14`} stroke="none" />
-                <text x={DISPLAY - 22} y={11} textAnchor="middle" stroke="none">N</text>
-                <line x1={DISPLAY - 22} y1={46} x2={DISPLAY - 50} y2={46} />
-                <polygon points={`${DISPLAY - 46},42 ${DISPLAY - 46},50 ${DISPLAY - 54},46`} stroke="none" />
-                <text x={DISPLAY - 62} y={50} textAnchor="middle" stroke="none">E</text>
-              </g>
-            )}
-            {ov.scalebar && (
-              <g fill="#e8eefb" fontSize={16}>
-                <rect x={12} y={DISPLAY - 16} width={barW} height={3} />
-                <text x={12 + barW / 2} y={DISPLAY - 22} textAnchor="middle">{bar.label}</text>
-              </g>
-            )}
-          </svg>
-          {wipeOn&&<><span className="fw-compare-tag a">A · {vs[ab[0]].utc.slice(0,10)}</span><span className="fw-compare-tag b">B · {vs[ab[1]].utc.slice(0,10)}</span><div className="fw-wipe-slider" style={{left:`${wipe}%`}} role="slider" tabIndex={0} aria-label={L('두 관측 비교 경계','Observation comparison boundary')} aria-valuemin={3} aria-valuemax={97} aria-valuenow={Math.round(wipe)} onPointerDown={e=>{e.preventDefault();wipeDrag.current=true;e.currentTarget.setPointerCapture(e.pointerId)}} onPointerMove={e=>{if(!wipeDrag.current)return;const r=e.currentTarget.parentElement!.getBoundingClientRect();setWipe(Math.max(3,Math.min(97,(e.clientX-r.left)/r.width*100)))}} onPointerUp={e=>{wipeDrag.current=false;if(e.currentTarget.hasPointerCapture(e.pointerId))e.currentTarget.releasePointerCapture(e.pointerId)}} onPointerCancel={()=>{wipeDrag.current=false}} onKeyDown={e=>{if(!['ArrowLeft','ArrowRight','Home','End'].includes(e.key))return;e.preventDefault();e.stopPropagation();setWipe(v=>e.key==='Home'?3:e.key==='End'?97:Math.max(3,Math.min(97,v+(e.key==='ArrowLeft'?-5:5))))}}><span>↔</span></div></>}
-          {!wipeOn&&<div className="frame-tag">
-            {shownView === 'diff' ? L('A − B 차이', 'A − B difference') : shownView === 'cold' ? `${L('차가운 천체 필터', 'Cold-object filter')} · ${nameOf(gNow)} · ${vs[gNow[0]].utc.slice(0, 10)}` : `${nameOf(gNow)} · ${vs[gNow[0]].utc.slice(0, 10)}`}
-            {shownView !== 'cold' && det > 0 && ` · D${det}`}
-            {` · ${L('시야', 'field')} ${fieldArcmin.toFixed(fieldArcmin < 4 ? 1 : 0)}′`}
-          </div>}
-          {between && shownView !== 'diff' && (
-            <div className="between" data-testid="between">
-              {L('관측 사이: 직전 관측 영상 표시 중', 'Between visits: showing the previous visit')}
-              {nextDays !== null && <> · {L(`다음 관측까지 ${nextDays.toFixed(1)}일`, `next visit in ${nextDays.toFixed(1)} d`)}</>}
-            </div>
-          )}
-        </div>
-      </div>
-
-      {compact?<><div className="fw-image-bottom">{!isPatch&&<button aria-pressed={ov.circle} onClick={()=>setOv(v=>({...v,circle:!v.circle,arrow:!v.circle,track:!v.circle}))}>{L('예상 위치','Predicted positions')}</button>}<details className="fw-image-advanced" onKeyDown={e=>{if(e.key==='Escape'){e.currentTarget.open=false;e.stopPropagation()}}}><summary>{L('영상 설정','Image settings')}</summary><div className="fw-settings-content">{advancedControls}{imageDetails}</div></details></div></>:imageDetails}
-
+      </details>
     </div>
   )
 }

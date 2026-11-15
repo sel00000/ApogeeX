@@ -10,7 +10,6 @@ import { Badge } from './Badge'
 import { TargetCard } from './TargetCard'
 import { VariableLab } from './VariableExplorer'
 import { SpectrumLab } from './SpectrumLab'
-import { FreeSpectrum } from '../free/FreeSpectrum'
 import { dataText, useL } from '../lib/i18n'
 
 type Meta = TargetMeta & { photometry?: PhotRow[] }
@@ -18,18 +17,17 @@ type Meta = TargetMeta & { photometry?: PhotRow[] }
 const LABEL: Record<AnalysisTab, [string, string]> = { motion: ['위치 측정', 'Positions'], variable: ['변광 분석실', 'Variability lab'], spectrum: ['분광 실험실', 'Spectrum lab'], provenance: ['자료 출처', 'Provenance'] }
 
 /** Research tools under the stage. Labs stay mounted once opened so their settings survive. */
-export function AnalysisTabs({ meta, standalone=false, activeTab }: { meta: Meta; standalone?: boolean; activeTab?: AnalysisTab }) {
+export function AnalysisTabs({ meta }: { meta: Meta }) {
   const variable = VARIABLES.has(meta.id)
   const L = useL()
   const tabs: AnalysisTab[] = variable ? ['variable', 'spectrum', 'motion', 'provenance'] : ['motion', 'spectrum', 'provenance']
   const want = useTime((s) => s.tab)
-  const tab: AnalysisTab = activeTab ?? (want && tabs.includes(want) ? want : tabs[0])
+  const tab: AnalysisTab = want && tabs.includes(want) ? want : tabs[0]
   const [opened, setOpened] = useState<Set<AnalysisTab>>(() => new Set([tab]))
   useEffect(() => setOpened((o) => (o.has(tab) ? o : new Set(o).add(tab))), [tab])
   useEffect(() => writeView({ tab }), [tab])
   const pick = (t: AnalysisTab) => useTime.getState().setTab(t)
   const show = (t: AnalysisTab) => ({ display: tab === t ? 'contents' : 'none' })
-  if (standalone) return <section className="analysis fw-analysis" data-testid="analysis">{tab==='motion'?<MotionPanel meta={meta} compact/>:tab==='spectrum'?<FreeSpectrum key={meta.id} meta={meta}/>:tab==='variable'?<VariableLab key={meta.id} meta={meta} compact/>:<ProvenancePanel meta={meta}/>}</section>
   return (
     <section className="analysis" data-testid="analysis">
       <div className="science-tabs" role="tablist" aria-label={L('분석 도구', 'Analysis tools')}>
@@ -87,13 +85,13 @@ function ResidualChart({ meta }: { meta: TargetMeta }) {
   )
 }
 
-function MotionPanel({ meta,compact=false }: { meta: TargetMeta;compact?:boolean }) {
+function MotionPanel({ meta }: { meta: TargetMeta }) {
   const L = useL()
   return (
     <div className="motion-panel" data-testid="motion-panel">
       <h3>{L('SPHEREx로 잰 위치 − 목록으로 계산한 위치', 'SPHEREx position minus catalogue prediction')}</h3>
       <ResidualChart meta={meta} />
-      {compact?<details className="fw-details"><summary>{L('대상 정보와 측정값','Target and measurement details')}</summary><TargetCard meta={meta}/></details>:<TargetCard meta={meta}/>}
+      <TargetCard meta={meta} />
     </div>
   )
 }

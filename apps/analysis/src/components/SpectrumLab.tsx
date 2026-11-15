@@ -48,7 +48,7 @@ function verdict(d: BandDepth, expected = true): { text: string; cls: string } {
   return { text: L('뚜렷하지 않음', 'not distinct'), cls: 'dim' }
 }
 
-export function SpectrumLab({ meta,compact=false }: { meta: Meta;compact?:boolean }) {
+export function SpectrumLab({ meta }: { meta: Meta }) {
   const L = useL()
   const info = TARGET_SPECTRAL[meta.id]
   const rows = useMemo(() => meta.photometry ?? [], [meta])
@@ -56,7 +56,7 @@ export function SpectrumLab({ meta,compact=false }: { meta: Meta;compact?:boolea
   const init = saved.get(meta.id) ?? { epoch: VARIABLE.has(meta.id) ? 'auto' : 'all', T: null, step: 0, on: info?.expect ?? [] }
   const [epoch, setEpoch] = useState<Epoch>(init.epoch)
   const [Tsel, setT] = useState<number | null>(init.T)
-  const [step, setStep] = useState(compact?3:init.step)
+  const [step, setStep] = useState(init.step)
   const [on, setOn] = useState<Set<string>>(new Set(init.on))
   const [hover, setHover] = useState<string | null>(null)
   const [copied, setCopied] = useState(false)
@@ -80,7 +80,7 @@ export function SpectrumLab({ meta,compact=false }: { meta: Meta;compact?:boolea
   if (points.length < 5) {
     return (
       <section className="spec-lab" data-testid="spectrum-lab">
-        {!compact&&<Intro meta={meta} info={info}/>}
+        <Intro meta={meta} info={info} />
         <div className="spec-card warn-card" data-testid="spectrum-unavailable">
           <h4>{L('이 대상은 분광 측광으로 스펙트럼을 그릴 수 없습니다', 'No spectrum can be drawn from this target\'s photometry')}</h4>
           <p>{L(`품질·불확도 조건을 통과한 노출 ${allValid}/${rows.length}개 · 이 시기 ${points.length}개.`, `${allValid}/${rows.length} exposures pass quality and uncertainty checks · ${points.length} in this period.`)} {meta.id === 'r_dra' ? L('너무 밝아 거의 모든 노출의 중심이 포화됐습니다. 포화 바깥 고리 밝기는 파장마다 별 모양(PSF)이 달라 스펙트럼 모양 비교에 쓰지 않습니다.', 'So bright that the core saturates in almost every exposure. The ring brightness outside it depends on the PSF at each wavelength, so it is not used for spectral shape.') : L('불량·포화·잔상 플래그와 불확도가 없는 값은 제외했습니다. 다른 시기나 대상을 선택하세요.', 'Defective, saturated, persistent and unquantified values were excluded. Pick another period or target.')}</p>
@@ -128,10 +128,10 @@ export function SpectrumLab({ meta,compact=false }: { meta: Meta;compact?:boolea
 
   return (
     <section className="spec-lab" data-testid="spectrum-lab">
-      {!compact&&<Intro meta={meta} info={info}/>}
+      <Intro meta={meta} info={info} />
       <p className="control-note" data-testid="spectral-quality">{L(`품질·불확도 조건을 통과한 노출 ${allValid}/${rows.length}개를 사용합니다. 불량·포화·잔상 플래그 또는 불확도가 없는 값은 제외합니다. 흡수 깊이는 탐색용이며 분자 검출 유의도가 아닙니다.`, `${allValid}/${rows.length} exposures pass quality and uncertainty checks. Defective, saturated, persistent or unquantified values are excluded. Band depths are exploratory, not molecular-detection significance.`)}</p>
 
-      {!compact&&<><ol className="stepper" role="tablist" aria-label={L('탐구 단계', 'Inquiry steps')}>
+      <ol className="stepper" role="tablist" aria-label={L('탐구 단계', 'Inquiry steps')}>
         {STEPS.map((st, i) => (
           <li key={st.key}>
             <button role="tab" aria-selected={step === i} className={step === i ? 'on' : i < step ? 'done' : ''} onClick={() => setStep(i)}>
@@ -145,7 +145,6 @@ export function SpectrumLab({ meta,compact=false }: { meta: Meta;compact?:boolea
         <div><b>{L('프라운호퍼', 'Fraunhofer')}</b> <span className="badge badge-model">{L('교육용 창작 대사', 'fictional guide for teaching')}</span><p>{L(STEPS[step].guide, STEPS[step].guideEn)}</p></div>
       </div>
 
-      </>}
       <div className="spec-controls">
         <label>{L('시기', 'Period')}
           <select aria-label={L('분광 시기', 'Spectrum period')} value={String(epoch)} onChange={(e) => setEpoch(e.target.value === 'all' || e.target.value === 'auto' ? e.target.value : +e.target.value)}>
@@ -167,7 +166,7 @@ export function SpectrumLab({ meta,compact=false }: { meta: Meta;compact?:boolea
               onClick={() => setHover(hover === f.id ? null : f.id)} role="button" tabIndex={0} aria-label={L(`${f.label} 설명`, `About ${f.label}`)}
               onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setHover(hover === f.id ? null : f.id) } }}>
               <rect x={X(f.band[0])} width={X(f.band[1]) - X(f.band[0])} y={M.t} height={Hm - M.t - M.b} fill={f.color} fillOpacity={hover === f.id ? 0.22 : 0.1} />
-              <text x={(X(f.band[0]) + X(f.band[1])) / 2} y={M.t - 8} textAnchor="middle" fill={f.color} fontSize={16} fontWeight={600}>{f.molecule}</text>
+              <text x={(X(f.band[0]) + X(f.band[1])) / 2} y={M.t - 8} textAnchor="middle" fill={f.color} fontSize={10.5} fontWeight={600}>{f.molecule}</text>
               {hover === f.id && f.continuum.map((c, i) => <rect key={i} x={X(c[0])} width={X(c[1]) - X(c[0])} y={Hm - M.b - 6} height={6} fill="#e8eefb" fillOpacity={0.55} />)}
             </g>
           ))}
@@ -252,7 +251,7 @@ export function SpectrumLab({ meta,compact=false }: { meta: Meta;compact?:boolea
         </div>
       )}
 
-      {!compact && step >= 4 && (
+      {step >= 4 && (
         <div className="spec-card note-card" data-testid="research-note">
           <h4>{L('연구 노트', 'Research note')}</h4>
           <pre>{note}</pre>
@@ -260,10 +259,10 @@ export function SpectrumLab({ meta,compact=false }: { meta: Meta;compact?:boolea
         </div>
       )}
 
-      {!compact&&<div className="spec-nav">
+      <div className="spec-nav">
         <button onClick={() => setStep(Math.max(0, step - 1))} disabled={step === 0}>{L('← 이전 단계', '← Previous step')}</button>
         <button className="primary" onClick={() => setStep(Math.min(4, step + 1))} disabled={step === 4}>{L('다음 단계 →', 'Next step →')}</button>
-      </div>}
+      </div>
       <p className="dim small">{L('SPHEREx 분광 분해능(R≈40–130)으로는 원자 흡수선 하나하나가 아니라 넓은 분자 띠만 구별됩니다. 띠 위치는 문헌 기준의 대략적 범위입니다.', 'At SPHEREx resolution (R≈40–130) only broad molecular bands can be told apart, not single atomic lines. Band positions are approximate ranges from the literature.')}</p>
     </section>
   )

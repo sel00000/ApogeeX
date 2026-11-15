@@ -74,7 +74,7 @@ const StaticVolume = memo(function StaticVolume({ h,H,points,path,projection,en 
     return {edges,trail,projected,rays,frame}
   },[h,H,points,floor])
   return <>
-    <Segments vertices={geometry.edges} color="#6e5d3f" opacity={.45}/>
+    <Segments vertices={geometry.edges} color="#3b4d72" opacity={.45}/>
     <YellowDots points={points}/>
     {path&&<Segments vertices={geometry.trail} color="#ffd34d"/>}
     {projection&&<>
@@ -82,7 +82,7 @@ const StaticVolume = memo(function StaticVolume({ h,H,points,path,projection,en 
       <Segments vertices={geometry.rays} color="#6cbfa5" opacity={.15}/>
       <Segments vertices={geometry.projected} color="#80e2ba"/>
     </>}
-    <Caption text={en?'SPHEREx line of sight ↓':'SPHEREx 시선 ↓'} position={[0,0,H+h]} width={h*2.2} height={h*0.236}/>
+    <Caption text={en?'SPHEREx line of sight ↓':'SPHEREx 시선 ↓'} position={[0,0,H+h]} width={h*1.4} height={h*.15}/>
   </>
 })
 let dotTexture: THREE.Texture | null = null
@@ -110,7 +110,7 @@ function SpaceTime({ meta, cube, mode, image, showImage, resetKey, showPath, sho
   useEffect(()=>()=>{if(pending.current!==null)clearTimeout(pending.current)},[])
   const h = cube.half, H = cube.height
   const mid = useMemo<P3>(() => [0,0,H/2], [H])
-  const t = useTime(s => s.tMjd)
+  const t = useTime(s => s.tMjd), k = visitIndexAt(meta,t)
   const z = toCube(cube,pxAt(meta,t),t)[2]
   const points = useMemo(() => meta.visits.map(v => toCube(cube,pxAt(meta,v.mjd),v.mjd)), [meta,cube])
   const skyTrail = useMemo(() => {
@@ -195,17 +195,18 @@ function SpaceTime({ meta, cube, mode, image, showImage, resetKey, showPath, sho
       {showImage&&texture&&<mesh renderOrder={-1}><planeGeometry args={[h*2,h*2]}/><meshBasicMaterial map={texture} transparent side={THREE.DoubleSide} toneMapped={false}/></mesh>}
       {mode==='los'&&showPath&&<Segments vertices={skyTrail} color="#ffd34d"/>}
       {mode==='los'&&<YellowDots points={[[toCube(cube,pxAt(meta,t),t)[0],toCube(cube,pxAt(meta,t),t)[1],h*.002]]}/>}
-      <Segments vertices={planeEdges} color="#c9a86e"/>
+      <Segments vertices={planeEdges} color="#a8bfdc"/>
       {/* E = -X and N = +Y on this plane. N × E = +T. */}
       {mode==='overview'&&<>
         <Segments vertices={compassEdges} color="#edf3ff"/>
-        <Caption text="N" position={[h*.85,h*.96,.01*h]} width={h*.34} height={h*.22}/>
-        <Caption text="E" position={[h*.44,h*.55,.01*h]} width={h*.34} height={h*.22}/>
+        <Caption text="N" position={[h*.85,h*.96,.01*h]} width={h*.2} height={h*.13}/>
+        <Caption text="E" position={[h*.44,h*.55,.01*h]} width={h*.2} height={h*.13}/>
+        <Caption text={`${meta.visits[k].utc.replace('T',' ').slice(0,19)} UTC`} position={[0,-h*1.13,0]} width={h*1.8} height={h*.17}/>
       </>}
     </group>
   </>
 }
-export function Scene3D({ meta,compact=false }: { meta: TargetMeta;compact?:boolean }) {
+export function Scene3D({ meta }: { meta: TargetMeta }) {
   const L=useL()
   const mode=useTime(s=>s.mode),t=useTime(s=>s.tMjd)
   const suspended=useTime(s=>s.suspended)
@@ -218,26 +219,26 @@ export function Scene3D({ meta,compact=false }: { meta: TargetMeta;compact?:bool
   const cube=useMemo<Cube>(()=>geometryImage?{...base,cx:geometryImage.window.x0+geometryImage.window.w/2-geometryImage.offset,cy:geometryImage.window.y0+geometryImage.window.w/2-geometryImage.offset,half:geometryImage.window.w/2,height:geometryImage.window.w*4/3}:base,[base,geometryImage.window.x0,geometryImage.window.y0,geometryImage.window.w,geometryImage.offset]) // eslint-disable-line
   const showImage=useTime(s=>s.showImage3d),setShowImage=useTime.getState().setShowImage3d
   const [resetKey,setResetKey]=useState(0)
-  const [showPath,setShowPath]=useState(true),[showProjection,setShowProjection]=useState(!compact)
+  const [showPath,setShowPath]=useState(true),[showProjection,setShowProjection]=useState(true)
   const box=useRef<HTMLDivElement>(null),[side,setSide]=useState(400)
   useEffect(()=>{const el=box.current!;const ro=new ResizeObserver(()=>setSide(Math.max(1,Math.floor(Math.min(el.clientWidth,el.clientHeight)))));ro.observe(el);return()=>ro.disconnect()},[])
   const k=visitIndexAt(meta,t),px=pxAt(meta,t),err=onVisit(meta,t)?pxDistance(px,meta.visits[k].pred_px):null
   return <div className="scene">
-    {compact?<div className="fw-scene-tools"><button className={mode==='los'?'active':''} aria-pressed={mode==='los'} data-testid="los-btn" onClick={()=>useTime.getState().setMode(mode==='los'?'overview':'los')}>{mode==='los'?L('3D로 보기','3D view'):L('시선으로 보기','Line of sight')}</button><button onClick={()=>setResetKey(x=>x+1)} aria-label={L('3D 시점 초기화','Reset 3D view')}>{L('초기화','Reset')}</button><details className="fw-popover"><summary>{L('3D 설정','3D settings')}</summary><div><label><input type="checkbox" checked={showImage} onChange={e=>setShowImage(e.target.checked)}/>{L('관측 영상','Observation image')}</label><label><input type="checkbox" checked={showPath} onChange={e=>setShowPath(e.target.checked)}/>{L('예측 이동 경로','Predicted path')}</label><label><input type="checkbox" checked={showProjection} onChange={e=>setShowProjection(e.target.checked)}/>{L('바닥 정사영','Floor projection')}</label></div></details></div>:<div className="toolbar">
+    <div className="toolbar">
       {mode==='overview'?<button className="primary" data-testid="los-btn" onClick={()=>useTime.getState().setMode('los')}>{L('◎ SPHEREx 시선으로 보기','◎ SPHEREx line of sight')}</button>:<button onClick={()=>useTime.getState().setMode('overview')}>{L('← 3D로 돌아가기','← Back to 3D')}</button>}
       <button onClick={()=>setResetKey(x=>x+1)}>{L('시점 초기화','Reset view')}</button>
       <label className="check"><input type="checkbox" checked={showImage} onChange={e=>setShowImage(e.target.checked)}/>{L('SPHEREx 영상 겹치기','Overlay SPHEREx image')}</label>
       <label className="check"><input type="checkbox" checked={showPath} onChange={e=>setShowPath(e.target.checked)}/>{L('3D 이동 경로','3D path')}</label>
       <label className="check"><input type="checkbox" checked={showProjection} onChange={e=>setShowProjection(e.target.checked)}/>{L('바닥 정사영','Floor projection')}</label>
-    </div>}
-    {!compact&&<div className="dim small scene-legend" data-testid="measurement-coverage"><span><i className="sw-dot" style={{background:'#ffd34d'}}/>{L('관측 시각의 계산 위치','Computed position at each visit')} <Badge kind="model"/></span><span><i className="sw-line" style={{background:'#80e2ba'}}/>{L('바닥 정사영','Floor projection')}</span><span>{L('위치 측정','Measured positions')} {meta.visits.filter(v=>v.meas_px).length}/{meta.visits.length}{L('회','')} <Badge kind="spherex"/></span></div>}
+    </div>
+    <div className="dim small scene-legend" data-testid="measurement-coverage"><span><i className="sw-dot" style={{background:'#ffd34d'}}/>{L('관측 시각의 계산 위치','Computed position at each visit')} <Badge kind="model"/></span><span><i className="sw-line" style={{background:'#80e2ba'}}/>{L('바닥 정사영','Floor projection')}</span><span>{L('위치 측정','Measured positions')} {meta.visits.filter(v=>v.meas_px).length}/{meta.visits.length}{L('회','')} <Badge kind="spherex"/></span></div>
     <div className="scene-box" ref={box}><div className="scene-canvas" style={{width:side,height:side}} data-testid="space-time" data-visit={k} data-image-version={image?.version??0} data-image-visible={showImage} data-path-visible={showPath} data-projection-visible={showProjection} data-window-width={cube.half*2}>
       <Canvas frameloop={suspended ? 'never' : 'demand'} dpr={[1, 2]} gl={{antialias:true,alpha:true,powerPreference:"high-performance"}} camera={{position:[0,0,10],fov:38}}><SpaceTime meta={meta} cube={cube} mode={mode} image={image} showImage={showImage} resetKey={resetKey} showPath={showPath} showProjection={showProjection}/></Canvas>
-      {mode==='los'&&<><svg className="overlay" width={side} height={side}><g stroke="#e8eefb" strokeWidth={1.6} fill="#e8eefb" fontSize={16}><path d={`M ${side-22} 18 V 46 H ${side-50}`} fill="none"/><text x={side-22} y={12} textAnchor="middle" stroke="none">N</text><text x={side-60} y={50} stroke="none">E</text></g></svg><div className="scene-note">{meta.visits[k].utc.replace('T',' ').slice(0,19)} UTC · {L('좌우 같은 영상·시야','same image and field on both sides')}</div></>}
+      {mode==='los'&&<><svg className="overlay" width={side} height={side}><g stroke="#e8eefb" strokeWidth={1.6} fill="#e8eefb" fontSize={12}><path d={`M ${side-22} 18 V 46 H ${side-50}`} fill="none"/><text x={side-22} y={12} textAnchor="middle" stroke="none">N</text><text x={side-60} y={50} stroke="none">E</text></g></svg><div className="scene-note">{meta.visits[k].utc.replace('T',' ').slice(0,19)} UTC · {L('좌우 같은 영상·시야','same image and field on both sides')}</div></>}
     </div></div>
     <div className="los-readout dim small" data-testid={mode==='los'?'los-error':undefined}>
-      {compact?null:mode==='los'?(err!==null?L(`SPHEREx 시선과 일치 (오차 ${err.toFixed(4)} px)`,`Matches the SPHEREx line of sight (error ${err.toFixed(4)} px)`):L('관측 사이: 직전 관측 영상 유지','Between visits: previous image kept')):L('바닥은 하늘(E 왼쪽, N 위), 높이는 시간입니다. 끌어서 돌려 보세요.','The floor is the sky (E left, N up); height is time. Drag to turn it.')}
-      {!compact&&showImage&&<> <Badge kind="spherex"/> {L('왼쪽과 같은 영상·시야','same image and field as on the left')}</>}
+      {mode==='los'?(err!==null?L(`SPHEREx 시선과 일치 (오차 ${err.toFixed(4)} px)`,`Matches the SPHEREx line of sight (error ${err.toFixed(4)} px)`):L('관측 사이: 직전 관측 영상 유지','Between visits: previous image kept')):L('바닥은 하늘(E 왼쪽, N 위), 높이는 시간입니다. 끌어서 돌려 보세요.','The floor is the sky (E left, N up); height is time. Drag to turn it.')}
+      {showImage&&<> <Badge kind="spherex"/> {L('왼쪽과 같은 영상·시야','same image and field as on the left')}</>}
     </div>
   </div>
 }
