@@ -26,3 +26,23 @@ export function dataText(s: string, L: L): string {
   for (const [re, t] of DATA_EN) if (re.test(s)) return t
   return s
 }
+
+// Messages thrown by lib/api.ts are Korean. On an English screen they get an English rendering
+// when they are shown, so that switching the language also switches a message already on screen.
+const ERROR_EN: [RegExp, string][] = [
+  [/^현재 웹사이트에는 새 관측 자료를 처리하는 Python 분석 서버가 연결되어 있지 않습니다\.[\s\S]*$/, 'This website has no Python analysis server connected, so it cannot process a new place in the sky. The observations and analyses of the prepared targets can still be viewed. To analyse a new place, run the site on your own computer with the Python services.'],
+  [/^관측 분석 서버의 세션에 연결할 수 없습니다\. 다시 시도하세요\. \(([\s\S]*)\)$/, 'Could not open a session with the observation analysis server. Try again. ($1)'],
+  [/^분석 서버 세션 응답 HTTP (\d+)$/, 'Analysis server session response: HTTP $1'],
+  [/^분석 서버 세션 응답 형식이 올바르지 않습니다\.$/, 'The analysis server sent a session response in an unexpected format.'],
+  [/^관측 자료를 받거나 처리하지 못했습니다\. 다시 시도할 수 있습니다\.$/, 'The observations could not be fetched or processed. You can try again.'],
+  [/^관측 분석 서버에 연결할 수 없습니다\. 잠시 후 다시 시도하세요\. \(([\s\S]*)\)$/, 'Could not reach the observation analysis server. Try again shortly. ($1)'],
+  [/^서버 응답 HTTP (\d+)$/, 'Server response: HTTP $1'],
+  [/^분석 작업 식별자가 올바르지 않습니다\.$/, 'The analysis job identifier is not valid.'],
+  [/^관측 자료 다운로드에 실패했습니다\.$/, 'Downloading the observations failed.'],
+  [/^관측 결과 형식이 올바르지 않습니다\.$/, 'The observation result has an unexpected format.'],
+]
+export function errorText(s: string, L: L): string {
+  if (L('', 'en') !== 'en') return s
+  for (const [re, t] of ERROR_EN) if (re.test(s)) return s.replace(re, t)
+  return s
+}

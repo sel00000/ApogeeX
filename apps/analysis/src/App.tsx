@@ -8,7 +8,7 @@ import type { Radec } from './lib/coords'
 import { readView, writeView } from './lib/urlState'
 import { LANG_KEY, appTitle, langMessage, readStoredLang, writeStoredLang } from './lib/lang'
 import { missionFor } from './lib/missions'
-import { useL } from './lib/i18n'
+import { errorText, useL } from './lib/i18n'
 import { sesame } from './lib/sky'
 import { useTime, visitIndexAt } from './store'
 import type { TargetMeta, TargetsIndex } from './types'
@@ -37,7 +37,7 @@ function Failure({ title, error }: { title: string; error: DataError }) {
   return (
     <div className="failure" role="alert" data-testid="fetch-failed">
       <strong>{title}</strong>
-      <div>{error.message}</div>
+      <div>{errorText(error.message, L)}</div>
       <code>{error.url}</code>
       <p>{L('실제 데이터를 읽지 못했습니다. 대체 데이터는 표시하지 않습니다.', 'The real data could not be read. Nothing is substituted.')}</p>
     </div>
@@ -428,7 +428,7 @@ export default function App() {
           {jobErr ? (
             <div className="failure" data-testid="fetch-failed">
               <strong>{L('이 좌표의 SPHEREx 영상을 만들지 못함', 'Could not build SPHEREx images for these coordinates')}</strong>
-              <div>{jobErr}</div>
+              <div>{errorText(jobErr, L)}</div>
               <p>{L('실제 데이터를 읽지 못했습니다. 대체 데이터는 표시하지 않습니다.', 'The real data could not be read. Nothing is substituted.')}</p>
               {patch.frame && !['ICRS', 'ASTROM'].includes(patch.frame)
                 ? <button className="ghost" onClick={() => notifyShell({ type:'spherex-navigate', view:'asteroids' })}>{L('소행성 분석으로', 'Open asteroid analysis')}</button>

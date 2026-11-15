@@ -323,6 +323,10 @@ h1 {
 #sky-credit {
   color: #708997;
 }
+/* Hint line: wrap between items, never inside a Korean word. */
+#scene-caption {
+  word-break: keep-all;
+}
 .scene-foot .compass {
   position: static;
   align-self: flex-start;
