@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="ko">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>실행과 배포 안내 · Stellarium Web Lab</title>
+<style>body{font:16px/1.8 system-ui,sans-serif;background:#101925;color:#e9eef5;max-width:840px;margin:48px auto;padding:0 24px}a{color:#82dfe6}h1{font-size:2rem;line-height:1.3}h2{font-size:1.25rem;margin-top:2rem}pre,code{background:#1d2a3b;border-radius:6px}pre{padding:18px;overflow:auto}code{padding:2px 5px}li{margin:.6rem 0}small{color:#aab8ca}a:focus-visible{outline:2px solid white;outline-offset:4px}</style>
+<a href="./">← 하늘로 돌아가기</a>
+<h1>브라우저에서 탐색하는<br>나만의 Stellarium.</h1>
+<p>Sky Lab v2.1.0의 플라네타리움은 공식 Stellarium Web Engine을 소스에서 빌드한 웹 천체 탐색기입니다. 데스크톱 앱과는 별도의 브라우저 버전이며, 선택한 천체를 TrueBlink의 SPHEREx 분석 도구로 연결합니다. 통합 프로젝트 루트의 Start-Web.cmd로 실행하세요.</p>
+<h2>하늘 탐색</h2>
+<p><strong>전천 지도:</strong> 탐색 도구의 ‘전천 지도’ 또는 오른쪽 ‘전천’ 버튼을 누르세요. 360° 하늘을 2:1 타원형 몰바이데 투영으로 펼칩니다. 드래그·확대·검색을 사용할 수 있고, ‘전체 보기’로 돌아갈 수 있습니다. 지도에서는 지형·대기를 숨기며, 하늘 보기로 돌아오면 이전 시야와 레이어를 복원합니다. 현재 지도는 Stellarium 자료입니다. SPHEREx 관측 영상과 파장별 분석은 천체 정보창의 분석 버튼으로 별도 분석창에서 엽니다.</p>
+<p><strong>천구 좌표계:</strong> ‘좌표계’ 메뉴 또는 오른쪽 ‘천구’ 버튼으로 지평 좌표계와 천구 좌표계를 전환합니다. 천구 모드에서는 ICRF 기준 적경·적위 격자와 화면 중심 좌표가 표시됩니다. 적경 0~24시간, 적위 −90~+90°를 입력하면 해당 방향으로 이동합니다. 24h는 0h와 같습니다. 전환 시 중심 방향을 유지하며 천체 추적은 해제합니다. 천구 모드의 시야 초기화는 적경 0h·적위 0°입니다. 지표면은 별도로 켜고 끌 수 있고, 공유 링크에는 좌표계도 포함됩니다.</p>
+<ul><li>드래그로 시야를 움직이고 휠이나 +/−로 확대하세요.</li><li>처음에는 현재 시각의 서울 하늘을 표시하고 실시간 ×1로 재생합니다. &lt;와 &gt;를 누를 때마다 … −100 → −10 → −1 → 정지 → +1 → +10 → +100 … 순서로 배속이 한 단계씩 바뀝니다. ⏹는 즉시 정지입니다. 오른쪽 표시창은 실제 재생 방향과 배속을 보여줍니다.</li><li>한국어 추천 검색을 제공합니다. 관측 위치·시간·별자리·대기·지형도 조절할 수 있습니다.</li><li>DSS 사진 레이어는 시야 10° 이하에서 표시됩니다. IRSA 인터넷 연결이 필요하며 SPHEREx 영상은 아닙니다.</li><li>화면 공유는 현재 위치·시간·시야를 URL로 복사합니다. 다른 사람에게는 공개 배포 후의 주소를 공유하세요.</li></ul>
+<p><strong>지표면 켜기·끄기:</strong> 하늘 보기를 열면 지표면이 켜진 상태로 시작합니다. 전천 지도에서는 지형을 숨깁니다. 오른쪽 ‘지표면’ 버튼 또는 <kbd>G</kbd> 키를 누르세요. 레이어 메뉴의 스위치와 같은 기능이며, 지표면을 끄면 지평선 안개도 함께 사라집니다.</p>
+<p><strong>시간 도구:</strong> 윗줄은 &lt; · ⏹ · &gt; 조작 버튼입니다. 아랫줄 왼쪽에서 배속을 입력한 뒤 Enter 또는 입력칸 밖을 클릭하면 적용됩니다. 음수는 역방향, 0은 정지입니다. 가운데 ‘현재시간’은 현재 시각으로 돌아가 ×1로 재생하며, 오른쪽은 실제 방향과 배속을 표시합니다.</p>
+<p><strong>관측 위치:</strong> 국가·수도 이름으로 검색한 뒤 선택하면 해당 도시의 좌표를 즉시 적용합니다. ‘사용자 위치’를 선택하면 위도·경도를 직접 입력할 수 있습니다. 남위·서경에는 음수를 입력하고 ‘적용’을 누르세요. 마지막으로 적용한 사용자 좌표는 이 브라우저에 저장됩니다.</p>
+<p>수도 좌표 자료: <a href="https://www.geonames.org/">GeoNames</a>, 한국어 도시명 보완: <a href="https://www.naturalearthdata.com/">Natural Earth</a>. <a href="./source/project/docs/CAPITALS.md">자료 범위와 출처</a></p>
+<h2>내 컴퓨터에서 실행</h2>
+<p>프로젝트 폴더의 <code>Start-Web.cmd</code>를 더블 클릭하세요. Node.js 22 이상이 필요하며 패키지 설치는 필요하지 않습니다. 서버 창은 사용 중 열어 두세요.</p>
+<pre>npm run build
+npm run preview</pre>
+<h2>웹에 배포</h2>
+<p><code>npm run build</code> 실행 후 <code>dist</code> 안의 전체 파일을 정적 호스팅에 올리세요. 소스·라이선스 폴더도 포함합니다. 빌드 명령은 <code>npm run build</code>, 출력 디렉터리는 <code>dist</code>입니다.</p>
+<p>GitHub Pages용 워크플로도 들어 있습니다. 이 프로젝트를 저장소 루트에 올리고 Settings → Pages → Source에서 GitHub Actions를 선택하세요. main 브랜치 푸시 또는 Actions 수동 실행으로 배포됩니다.</p>
+<p><a href="./source/project/README.md" download>전체 실행·배포 안내 다운로드</a> · <a href="./source/">대응 소스와 빌드 절차</a> · <a href="./LICENSE-AGPL-3.0.txt">AGPL 라이선스</a></p>
+<p><small>기본 별 데이터는 약 7등급까지 포함하는 시작용 카탈로그입니다. SPHEREx 분석에는 인터넷 연결이 필요합니다. 태양계 천체는 선택한 시각의 좌표 주변 자료를 조회하며 과거 위치를 자동 추적하지 않습니다. Stellarium, NASA 또는 IRSA의 공식 서비스가 아닙니다.</small></p>
+</html>

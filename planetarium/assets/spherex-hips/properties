@@ -1,0 +1,11 @@
+hips_version = 1.4
+hips_order = 1
+hips_order_min = 0
+hips_tile_width = 512
+hips_tile_format = webp
+hips_frame = equatorial
+dataproduct_type = image
+obs_title = SPHEREx StarsRGB original TIFF-derived map
+obs_description = Galactic Mollweide original reprojected to equatorial HEALPix; unchanged Stellarium catalogs and ephemerides
+obs_copyright = NASA/JPL-Caltech
+obs_copyright_url = https://spherex.caltech.edu/image/spherex20251218b-spherex-all-sky-map-2025-stars-and-galaxies

@@ -1,0 +1,343 @@
+{
+  "sourceImage": "spherex-original.png",
+  "sourceSHA256": "ac109eb6530da7d00b370c6a2f56999892b52961d58ec67965d9f993b70ee390",
+  "sourceShape": [
+    4160,
+    2340
+  ],
+  "processing": "bilinear raster resampling into lossless WebP; samples kept at rho<=0.993 inside the drawn ellipse outline (measured rho>=0.996; seam fix); no synthesis or catalog substitution",
+  "coordinateFrame": "equatorial ICRS/ASTROM HiPS",
+  "projection": "input Galactic Mollweide, l=0 centered, north up, longitude increases to left",
+  "ellipsePixels": {
+    "center": [
+      2079.5,
+      1169.5
+    ],
+    "rx": 2004.03385674,
+    "ry": 1004.45331586
+  },
+  "matrixICRSToGalactic": [
+    [
+      -0.0548755604162154,
+      -0.873437090234885,
+      -0.4838350155487132
+    ],
+    [
+      0.4941094278755837,
+      -0.4448296299600112,
+      0.746982244497219
+    ],
+    [
+      -0.8676661490190047,
+      -0.1980763734312015,
+      0.4559837761750669
+    ]
+  ],
+  "engineReference": [
+    "src/algos/healpix.c",
+    "src/uv_map.c",
+    "src/hips.c:render_visitor UV swap"
+  ],
+  "tiles": [
+    {
+      "file": "Norder0/Dir0/Npix0.webp",
+      "bytes": 470930,
+      "sha256": "548125b4495010d220a6fb01862ba57c2d24e055f9983ebeea472e50a30ea1d8"
+    },
+    {
+      "file": "Norder0/Dir0/Npix1.webp",
+      "bytes": 431292,
+      "sha256": "9986f2896b7069d870019d6b6c09a31828dbbbdb5bcd95a6b9f739c9480478de"
+    },
+    {
+      "file": "Norder0/Dir0/Npix2.webp",
+      "bytes": 422288,
+      "sha256": "46e7dadee9bca707c5f023e81654a17b725d1a674a75fe951a58a05730687bbb"
+    },
+    {
+      "file": "Norder0/Dir0/Npix3.webp",
+      "bytes": 477456,
+      "sha256": "d3adfd3e4666a9b86739537a23cf477c1dd5512eb58e6579bb6f8efefc3b66b0"
+    },
+    {
+      "file": "Norder0/Dir0/Npix4.webp",
+      "bytes": 416920,
+      "sha256": "3e7413546572a619f2ba013eace3fea9650fc31403acf36ff97b28876a608bb2"
+    },
+    {
+      "file": "Norder0/Dir0/Npix5.webp",
+      "bytes": 467402,
+      "sha256": "b3a0a53644bd67d7828f09fa966e7d58a2a70d30f2ac00e58b8de3e908725517"
+    },
+    {
+      "file": "Norder0/Dir0/Npix6.webp",
+      "bytes": 419610,
+      "sha256": "b0709a12ee30823f65bf2f17adab1170d2fb05b1c8eaa6084ad4a9b07d31ea0c"
+    },
+    {
+      "file": "Norder0/Dir0/Npix7.webp",
+      "bytes": 450462,
+      "sha256": "dd31f1e22ad68ba0955e6d16b3b6ba0360af56b46857c4189ed0dd4e2c7fd533"
+    },
+    {
+      "file": "Norder0/Dir0/Npix8.webp",
+      "bytes": 407888,
+      "sha256": "e72ccd3ca5ce83ebda588b84cd37b62a9efedaac11406abd473f51ab065ba387"
+    },
+    {
+      "file": "Norder0/Dir0/Npix9.webp",
+      "bytes": 478892,
+      "sha256": "7ce0395da341219d81304de01a4d683d80c726488e75d9de4ca7146034069557"
+    },
+    {
+      "file": "Norder0/Dir0/Npix10.webp",
+      "bytes": 459240,
+      "sha256": "d97f33380c5f76fdd229d5a336d0487a73de872e0e90fdd06872813f67a14b31"
+    },
+    {
+      "file": "Norder0/Dir0/Npix11.webp",
+      "bytes": 465434,
+      "sha256": "0909a474bf2bce906de48010e5540b952d37637b1dcdf6d6b220f9e5bc005e72"
+    },
+    {
+      "file": "Norder1/Dir0/Npix0.webp",
+      "bytes": 312412,
+      "sha256": "3c3175f01cdf952416e60bc2479348f3928096dca5a4699a7b035bb51a654196"
+    },
+    {
+      "file": "Norder1/Dir0/Npix1.webp",
+      "bytes": 374658,
+      "sha256": "1832a3209cd5cb8f6412b787b698305b93beb587309d976694a6c07a9574a6ef"
+    },
+    {
+      "file": "Norder1/Dir0/Npix2.webp",
+      "bytes": 378770,
+      "sha256": "f286e13b9a78a0141cfbf830364fc684d7f5e33f3fea085a3faa0dfa58539d51"
+    },
+    {
+      "file": "Norder1/Dir0/Npix3.webp",
+      "bytes": 387034,
+      "sha256": "7db2ed512737e508c369d3352ca2d3b937e94b40cd7b0104ed75b671a42a3d9d"
+    },
+    {
+      "file": "Norder1/Dir0/Npix4.webp",
+      "bytes": 349786,
+      "sha256": "c154db6cdf239972fe12075f07c8add198b7238c77f016de3e90469ce114df42"
+    },
+    {
+      "file": "Norder1/Dir0/Npix5.webp",
+      "bytes": 305544,
+      "sha256": "9170696ed60b4514d60f090b117f80813e92503b0e9a639c90eece8e426d7a0e"
+    },
+    {
+      "file": "Norder1/Dir0/Npix6.webp",
+      "bytes": 343054,
+      "sha256": "81072be239e1d9630492d9f973f0ceec7723975cb7563b3b0d8d88283bfb9026"
+    },
+    {
+      "file": "Norder1/Dir0/Npix7.webp",
+      "bytes": 318748,
+      "sha256": "6c1e088289a1a532f762787f4c578501b3712c1ecf9051aac7665b3ad6652dc7"
+    },
+    {
+      "file": "Norder1/Dir0/Npix8.webp",
+      "bytes": 318834,
+      "sha256": "3dd0930cee05370181d9e704c0c880c6d84a773c4b2660ad2917fb253753ab66"
+    },
+    {
+      "file": "Norder1/Dir0/Npix9.webp",
+      "bytes": 339070,
+      "sha256": "6b1a17b96636bcdadc1af7a353ec7243df7e96d0db08bc1de544b1d64ef95f61"
+    },
+    {
+      "file": "Norder1/Dir0/Npix10.webp",
+      "bytes": 307180,
+      "sha256": "9c279b32cb629c3c6d035f907ab9fb0d61605d7797f4b514ecc1dd112854f86b"
+    },
+    {
+      "file": "Norder1/Dir0/Npix11.webp",
+      "bytes": 329300,
+      "sha256": "2856cb398669c7517bfd09b4dab28c3397bdafaf0fa79d0a359abdfec004e947"
+    },
+    {
+      "file": "Norder1/Dir0/Npix12.webp",
+      "bytes": 352920,
+      "sha256": "fc2655266d451f43c094912c5c7f8d3d351ab1616a2f949142881096bf36b2d6"
+    },
+    {
+      "file": "Norder1/Dir0/Npix13.webp",
+      "bytes": 381782,
+      "sha256": "1eb20750abc26613179e8771a1f1a34fd999f3e03f2bc8841a5829c75ff731cc"
+    },
+    {
+      "file": "Norder1/Dir0/Npix14.webp",
+      "bytes": 352738,
+      "sha256": "bec58f35625c367b88b1b20222ecc22a05930d7adb83cd21a34da27a5d934a08"
+    },
+    {
+      "file": "Norder1/Dir0/Npix15.webp",
+      "bytes": 357240,
+      "sha256": "e47d21e56695698d0e893cfa49edf3f794b52aa62f7006183b61e357e869c00a"
+    },
+    {
+      "file": "Norder1/Dir0/Npix16.webp",
+      "bytes": 299886,
+      "sha256": "491b08e60b91419bca811298c2478ce6d86f21bd6760b65cca1abf4b44ec8f9d"
+    },
+    {
+      "file": "Norder1/Dir0/Npix17.webp",
+      "bytes": 301324,
+      "sha256": "a85e582dab6f98e0a1c5010208767b1b1d5cf8c4da80c0e20ad3bf67df73e3f8"
+    },
+    {
+      "file": "Norder1/Dir0/Npix18.webp",
+      "bytes": 321784,
+      "sha256": "1c18027a9660e5a2f38b95c21eb0af38405140081b4b37f4532b8173ec347d89"
+    },
+    {
+      "file": "Norder1/Dir0/Npix19.webp",
+      "bytes": 332716,
+      "sha256": "8b10bf72cb8bc7dbd0adcbe9ce5d90f7ea94f79f3a7b160141951e146d8a7cd1"
+    },
+    {
+      "file": "Norder1/Dir0/Npix20.webp",
+      "bytes": 354222,
+      "sha256": "2b9f069dab7f7de1576cdcb269219c3f04589db81009f73cbefdd6e6eea218ca"
+    },
+    {
+      "file": "Norder1/Dir0/Npix21.webp",
+      "bytes": 374242,
+      "sha256": "ccfeb20011a21ea4f06f1cb312de3c11422fcbb78df3c91076ee11f2f0812e4d"
+    },
+    {
+      "file": "Norder1/Dir0/Npix22.webp",
+      "bytes": 311578,
+      "sha256": "5d140a820df6d9e3eb2d6aa434b8b813d4eb98762585115dd89a18ec1a4a7a0d"
+    },
+    {
+      "file": "Norder1/Dir0/Npix23.webp",
+      "bytes": 355766,
+      "sha256": "88c02c022320b28b13a4d6a2ce44bc8ce0522e7c4a87bd475b09232bc626783d"
+    },
+    {
+      "file": "Norder1/Dir0/Npix24.webp",
+      "bytes": 329382,
+      "sha256": "b4c3f61e1568bc3d1c74f5f7213bbcf3ff14c8e02b4c4606fc5daea80e9672da"
+    },
+    {
+      "file": "Norder1/Dir0/Npix25.webp",
+      "bytes": 317006,
+      "sha256": "418f220e692c96413f8f78d6228bf3b003cc24875706fa7765d788c0ab427ec7"
+    },
+    {
+      "file": "Norder1/Dir0/Npix26.webp",
+      "bytes": 329916,
+      "sha256": "eab91eee652e7718d6f9b17fa8ff07d41e50417dee806d87ad0dd988891fbbfe"
+    },
+    {
+      "file": "Norder1/Dir0/Npix27.webp",
+      "bytes": 292626,
+      "sha256": "1b3e235448532d13da9e6cb8a678e922dfed2694ee9f49ebf845b6078201d580"
+    },
+    {
+      "file": "Norder1/Dir0/Npix28.webp",
+      "bytes": 281988,
+      "sha256": "010667810151cc16cb560c625d1accdcb2ab3601bd71ea9c93b3972d9bdec0fc"
+    },
+    {
+      "file": "Norder1/Dir0/Npix29.webp",
+      "bytes": 330478,
+      "sha256": "78c364ef40decc01d534ae9ebe78277efd878d3fda082401d0f0fd9dff10dabd"
+    },
+    {
+      "file": "Norder1/Dir0/Npix30.webp",
+      "bytes": 345820,
+      "sha256": "fd275b9d02d212776f64553cc5711c507892d9f50f2b0fd2955ff9b479edd493"
+    },
+    {
+      "file": "Norder1/Dir0/Npix31.webp",
+      "bytes": 359362,
+      "sha256": "475312eed80100fa692943b7fa6d705d5763e94f6ee45b960cebd2e1af0024be"
+    },
+    {
+      "file": "Norder1/Dir0/Npix32.webp",
+      "bytes": 320736,
+      "sha256": "6f261380fc5c84284a52437b4e4dfe9a665fc1ee9d9c2f9855cb7028930d6423"
+    },
+    {
+      "file": "Norder1/Dir0/Npix33.webp",
+      "bytes": 316486,
+      "sha256": "f5a4a00bc4298158ab46fb5c1af3da2c04ba75e2b1ca68220d631e4528133ab5"
+    },
+    {
+      "file": "Norder1/Dir0/Npix34.webp",
+      "bytes": 302696,
+      "sha256": "ecb1573adc397e9abf57bf50487abc2dc96cecd37c7b736f6a1119b2b56c6594"
+    },
+    {
+      "file": "Norder1/Dir0/Npix35.webp",
+      "bytes": 285964,
+      "sha256": "6ce9a9baef29aa9641bda28a5516d1e0634953b19fce01fe6ff2291c25e26111"
+    },
+    {
+      "file": "Norder1/Dir0/Npix36.webp",
+      "bytes": 365732,
+      "sha256": "cc84b8e68f594a8674b2290e51cf0e1a26904f051ba7d675e7978c84e1cb0197"
+    },
+    {
+      "file": "Norder1/Dir0/Npix37.webp",
+      "bytes": 368262,
+      "sha256": "9ddc9801c90ad0d1f252f51671db4c1d7f2d39343b708d1f8f0d2e928c9dac98"
+    },
+    {
+      "file": "Norder1/Dir0/Npix38.webp",
+      "bytes": 373718,
+      "sha256": "9049fb29eebcf0afde245d14fa5ef34ad6607bdbfb7ba6dd17cb03d2a7240a7b"
+    },
+    {
+      "file": "Norder1/Dir0/Npix39.webp",
+      "bytes": 360402,
+      "sha256": "e05b07bdf66850b0c95502c5459c88c8947bb6f26e63b1d8efaf5afa75932f36"
+    },
+    {
+      "file": "Norder1/Dir0/Npix40.webp",
+      "bytes": 347424,
+      "sha256": "23e3f77a9bae0ad235669421915587f80857642e98ea51597ea94ec3f634b4cf"
+    },
+    {
+      "file": "Norder1/Dir0/Npix41.webp",
+      "bytes": 323324,
+      "sha256": "87b8f81448f7ad9f72a90e73043e9af9f9b1c635044f68219866a2fdc3fd1b50"
+    },
+    {
+      "file": "Norder1/Dir0/Npix42.webp",
+      "bytes": 380522,
+      "sha256": "a7d536650d3731b22360cbf9582246dc6b23aa7fda3da96f178b3e80531b829e"
+    },
+    {
+      "file": "Norder1/Dir0/Npix43.webp",
+      "bytes": 345014,
+      "sha256": "56241de6584ff823f210a15f690b1dcb92502ede49205056349efcbe3337fa9e"
+    },
+    {
+      "file": "Norder1/Dir0/Npix44.webp",
+      "bytes": 365634,
+      "sha256": "9d71284d2da885da38f432c6b57c6fe559c6fa85ca539b6966f961c418a61d66"
+    },
+    {
+      "file": "Norder1/Dir0/Npix45.webp",
+      "bytes": 339836,
+      "sha256": "74c4619176e348275248315156117cb0d094ff08132d437c2051765dc91e055b"
+    },
+    {
+      "file": "Norder1/Dir0/Npix46.webp",
+      "bytes": 374646,
+      "sha256": "ba0ea148e266b404b9c072c62f64000a75998e3744be1e46b74b5031218c284e"
+    },
+    {
+      "file": "Norder1/Dir0/Npix47.webp",
+      "bytes": 354888,
+      "sha256": "ecb03e6302ae6a28b2c46f1ba6034334c227383218963b677a06291984eef70a"
+    }
+  ]
+}

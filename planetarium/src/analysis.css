@@ -1,0 +1,38 @@
+.selection-panel { right: 100px; width: 300px; max-height: calc(100dvh - var(--topbar-height) - 110px); overflow: auto; }
+.selection-analysis { border-top: 1px solid var(--line); margin-top: 16px; padding-top: 14px; }
+.selection-analysis .button { width: 100%; margin-top: 10px; }
+.selection-coordinates { margin: 0; color: var(--cyan); font-size: 11px; overflow-wrap: anywhere; font-variant-numeric: tabular-nums; }
+.selection-analysis .field-note { margin-bottom: 0; }
+.analysis-entry { padding: 18px 20px; border-bottom: 1px solid var(--line); }
+.analysis-entry strong { color: var(--cyan); font-size: 13px; }
+.analysis-entry p { color: var(--muted); font-size: 12px; line-height: 1.65; margin: 8px 0 0; }
+.analysis-entry > .button { width: 100%; }
+.analysis-entry > .button[aria-pressed="true"] { background: #83e3d7; color: #061b22; box-shadow: 0 0 0 2px #b7fff2; }
+.analysis-field-label { display: flex; align-items: center; gap: 12px; margin-top: 12px; font-size: 12px; color: var(--muted); }
+.analysis-field-label select { width: auto; flex: 1; }
+.analysis-picker-overlay { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 11; pointer-events: none; overflow: hidden; }
+#analysis-picker-outline { fill: rgba(100, 235, 218, .12); stroke: #8dfff0; stroke-width: 2; vector-effect: non-scaling-stroke; }
+#analysis-picker-crosshair { fill: none; stroke: #fff; stroke-width: 1; vector-effect: non-scaling-stroke; }
+#analysis-picker-label { fill: #cbfff6; font: 12px system-ui, sans-serif; stroke: #06131c; stroke-width: 4px; paint-order: stroke fill; }
+.analysis-picking #sky-canvas, .analysis-picking #sky-canvas:active { cursor: crosshair; }
+.analysis-picking .sky-hint { color: #b7fff2; }
+/* Keep CSS display bounds equal to the engine's content viewport. */
+.allsky-view #sky-canvas { border: 0; outline: 1px solid #375261; }
+.analysis-dialog { color: var(--ivory); background: #080f18; border: 1px solid #395366; padding: 0; width: min(1560px, 96vw); max-width: none; height: 94dvh; max-height: none; border-radius: 16px; overflow: hidden; }
+.analysis-dialog[open] { display: flex; flex-direction: column; }
+.analysis-dialog::backdrop { background: rgba(3, 9, 16, .88); }
+.analysis-heading { display: flex; justify-content: space-between; gap: 20px; align-items: center; padding: 14px 20px 8px; flex-shrink: 0; }
+.analysis-heading h2 { margin: 0; font-size: 17px; letter-spacing: -.02em; overflow-wrap: anywhere; }
+.analysis-heading p { margin: 3px 0 0; color: var(--muted); font-size: 11px; font-variant-numeric: tabular-nums; }
+.analysis-actions { display: flex; gap: 12px; align-items: center; flex-shrink: 0; font-size: 12px; }
+.analysis-context { margin: 0; padding: 0 20px 12px; color: #a9bbc9; font-size: 12px; border-bottom: 1px solid var(--line); }
+.analysis-loading { margin: 0; padding: 12px 20px; color: var(--cyan); }
+.analysis-frame { width: 100%; flex: 1; min-height: 0; border: 0; background: #080f18; }
+@media (max-width: 760px) {
+  .analysis-dialog { width: 100vw; height: 100dvh; border: 0; border-radius: 0; margin: 0; }
+  .analysis-heading { align-items: flex-start; padding: 12px; gap: 10px; }
+  .analysis-heading h2 { font-size: 14px; }
+  .analysis-actions { gap: 8px; }
+  .analysis-context { padding: 0 12px 10px; font-size: 11px; }
+  .selection-panel { right: 84px; width: min(300px, calc(100vw - 108px)); }
+}

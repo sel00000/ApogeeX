@@ -1,0 +1,291 @@
+{
+  "source": "VizieR I/311/hip2 — van Leeuwen 2007",
+  "sourceUrl": "https://cdsarc.cds.unistra.fr/viz-bin/cat/I/311",
+  "sourceSha256": "567723d9738878711337a1033beb48d39306e17a1b1b9eb998bb6287df32722f",
+  "epochJulian": 1991.25,
+  "encodedEpochBesselian": 1991.2510906221548,
+  "astrometricColumnBytes": 8,
+  "stats": {
+    "catalogRows": 15527,
+    "tileRows": 15527,
+    "updatedRows": 15527,
+    "updatedUniqueHip": 15527,
+    "nonHipRows": 0,
+    "missingHipRows": 0,
+    "positiveParallaxBelow2Mas": 1004,
+    "nonpositiveParallax": 95,
+    "tiles": 44,
+    "unmatchedHip": []
+  },
+  "examples": {
+    "11767": {
+      "tile": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder0/Dir0/Npix0.eph",
+      "ra": 0.6622851337825987,
+      "de": 1.5579531082148617,
+      "plx": 0.00754,
+      "pra": 2.156451253575216e-07,
+      "pde": -5.7450421211480006e-08,
+      "epoc": 1991.2510906221548,
+      "catalogRaDeg": 37.946143,
+      "catalogDecDeg": 89.26413778,
+      "pmRaCosDecMasYr": 44.48,
+      "pmDecMasYr": -11.85,
+      "parallaxMas": 7.54
+    },
+    "91262": {
+      "tile": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder0/Dir0/Npix3.eph",
+      "ra": 4.873554572832762,
+      "de": 0.6768909261657692,
+      "plx": 0.13022999999999998,
+      "pra": 9.741846108215015e-07,
+      "pde": 1.3876821994398248e-06,
+      "epoc": 1991.2510906221548,
+      "catalogRaDeg": 279.23410825,
+      "catalogDecDeg": 38.78299326,
+      "pmRaCosDecMasYr": 200.94,
+      "pmDecMasYr": 286.23,
+      "parallaxMas": 130.23
+    },
+    "32349": {
+      "tile": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder0/Dir0/Npix5.eph",
+      "ra": 1.7678185358639344,
+      "de": -0.2916993747538402,
+      "plx": 0.37921,
+      "pra": -2.6471311802261773e-06,
+      "pde": -5.9296106895464015e-06,
+      "epoc": 1991.2510906221548,
+      "catalogRaDeg": 101.28854105,
+      "catalogDecDeg": -16.71314306,
+      "pmRaCosDecMasYr": -546.01,
+      "pmDecMasYr": -1223.07,
+      "parallaxMas": 379.21
+    }
+  },
+  "files": [
+    {
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder0/Dir0/Npix0.eph",
+      "sha256Before": "37b44221e523dc144ab6779cfb79f18152e68fd6862833a1dd25a64c46766db3",
+      "sha256After": "0cb9aa53018188ca8744a9e2e0b1ba98531f2d2111cae294d6d78b2a428b8d5a"
+    },
+    {
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder0/Dir0/Npix1.eph",
+      "sha256Before": "2285fc42a5fd72d55a6dfbf5c140be6d6476f9ebed30d5ab70ef1b4ec3b4b246",
+      "sha256After": "c4093395107818ae84df3f2919f2e67a3bd5f9a45355821bd4b1d83eb2d928d5"
+    },
+    {
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder0/Dir0/Npix10.eph",
+      "sha256Before": "c12da0c95e122e3ad39e4fa4f71022a9d2fdfe4f99eae55a3d30a9fb4a69afd8",
+      "sha256After": "8054b1d301709941f95e774b334cc0098d5dc674c4e8597b0b25866f9445bd64"
+    },
+    {
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder0/Dir0/Npix11.eph",
+      "sha256Before": "50216e3d61a3d9218400f14717024763ac1093b415f70e8120fee612abb48bd1",
+      "sha256After": "b772de24f7836321394891bfbc64e645a14db13ea77f5dcbe5e9fe725885ad7a"
+    },
+    {
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder0/Dir0/Npix2.eph",
+      "sha256Before": "dbcc82070accf6bdfd4bc41d959fb20d6f5a6477b6f64fcce142d932362bc7d0",
+      "sha256After": "73bbb3218e95009f3d8e27a45ed94e143ce423a724a8b40e39f918557659d949"
+    },
+    {
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder0/Dir0/Npix3.eph",
+      "sha256Before": "9eff7891bdae518ba671283cf7cc6e1ef3d218345ccb0341e57e2f35a30bd6eb",
+      "sha256After": "6bc02212aa8b683747d1ede3b3cb3c846d20632e3dedb70fe59f9adbae599b77"
+    },
+    {
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder0/Dir0/Npix4.eph",
+      "sha256Before": "07e70a2b3fa50a14e32db304c5bdc87710438a0e227dbd2a5fc7f3769e2d19f4",
+      "sha256After": "82b4c881e22a583cdf5bf336ac4ab779c9bdc052d54abda056078c65192ba3bc"
+    },
+    {
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder0/Dir0/Npix5.eph",
+      "sha256Before": "6d35b3116abe86b81296b5fb49e44e176c392364c1339e9d3a177c443826bfba",
+      "sha256After": "d00dac0f154980303e6e6773548f03969283d39b0740411a6987427b588480f9"
+    },
+    {
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder0/Dir0/Npix6.eph",
+      "sha256Before": "273f87d16c6954c4b8fa5852e300e6b4fda380892482552208839a754dccc8ff",
+      "sha256After": "a304084d6641c9a55b494a72f1ff5501ee78799164369aa03e6c42415378b4c6"
+    },
+    {
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder0/Dir0/Npix7.eph",
+      "sha256Before": "28a5fbf62514f0b5e9a9596e936ee93eb98b12692b5b935448ad844fb482f3c5",
+      "sha256After": "5cf498840133c6b14889a5bbe9b65390684a6354abe408922986c6015f13b0b1"
+    },
+    {
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder0/Dir0/Npix8.eph",
+      "sha256Before": "a95296e7f9dea672c842acdf1abbfdae6ecef3b8830a3fb82936c9e94340118f",
+      "sha256After": "f1e6ac085248b5a786718ec6e300f509c0f268b42c45c08c8fd076c4497e4ec4"
+    },
+    {
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder0/Dir0/Npix9.eph",
+      "sha256Before": "ca037ccb0cd4f0716e169ed0f76305afde77ac885f2a532e219506d19c20d128",
+      "sha256After": "cbb01427b64aeb038a93d497da584522f697e0a7ade4cc371a85bc7eecb9b9f0"
+    },
+    {
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder1/Dir0/Npix0.eph",
+      "sha256Before": "510cd63ffdf651424e0e6397cb366e120af1b72f81dbf046981a19e0d8541d91",
+      "sha256After": "2024796a702799befb50669504a049efd46d84d9865e139e98e70b390548801f"
+    },
+    {
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder1/Dir0/Npix1.eph",
+      "sha256Before": "e3c0615624629395b3e39b751ba6300e043791bf0cb1ff699df4355db8d66384",
+      "sha256After": "f4af25e94f8c5ef14f1b85465889214f9479d3b33a1511abdacc831df6ed8e12"
+    },
+    {
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder1/Dir0/Npix12.eph",
+      "sha256Before": "f9f1634d1d49d8e1f9570463e8689a5f9756d22547155471f7967ab3d2e837ad",
+      "sha256After": "97d27bf250b44dbeb6a1e7b1e9d31f26fe7ead8f05a2964140564e3c97d69cf4"
+    },
+    {
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder1/Dir0/Npix13.eph",
+      "sha256Before": "2df17b87e8512968e3139df48e923f7e5d593e87087b36294c2ddcd4fd3b7b46",
+      "sha256After": "012a6b00a16d592ba9b7762ebee3a7f2cf17274f16b537095e6fcf83c4f3700e"
+    },
+    {
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder1/Dir0/Npix14.eph",
+      "sha256Before": "ef1c7ae662904861f8af53edc8e4fcb5ee45e5265fb3cfc08233eba618717564",
+      "sha256After": "59996edce3d9c840a34943aa5b1a1d4fd24d35d3a3748a54f2f086e9532bc59d"
+    },
+    {
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder1/Dir0/Npix15.eph",
+      "sha256Before": "a24edc8f5fe20dd2d52ba7c639edad8511c4d76752697b7ee63199b85c830d66",
+      "sha256After": "65513945c91aea4c4ab7809e7a4db3b52609b8dcd8abe1e1da1c33c11c6507ba"
+    },
+    {
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder1/Dir0/Npix2.eph",
+      "sha256Before": "7846f1fc1760bc44302ede8fb600969a24bf6cbfda1eb8084719f41be05b5a51",
+      "sha256After": "f23a31329cdbbca685db6543d67f918c091aef63be967b600966437377742c0a"
+    },
+    {
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder1/Dir0/Npix20.eph",
+      "sha256Before": "92470d9c1c86cef389ca367917a6679e3d59c09f1c4ade74fa6632c1cc37ffe2",
+      "sha256After": "f4bb15928017d3725cb8d377113333f9fb4cd71c642eb605387e63bd778ebcb6"
+    },
+    {
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder1/Dir0/Npix21.eph",
+      "sha256Before": "0c999461ad1971e5d8e6c8eb43336995d6f643128d1172f8624e8512b8ebac13",
+      "sha256After": "5ac639796f0cdda35778442f78b23c8e309747270177b294a1d35635a85cf040"
+    },
+    {
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder1/Dir0/Npix22.eph",
+      "sha256Before": "23a64ccc08390e7391799bfbc7dc62ce7dec9856e6c8538f3894cc51e313f04b",
+      "sha256After": "511a16543296448d76539714671a2dc0a127b8d646e4840cbb2d8ab03419ca9a"
+    },
+    {
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder1/Dir0/Npix23.eph",
+      "sha256Before": "fa6440c25d05e2be9b3860f437b5aea75ed725e2050250fc074989f42b86674d",
+      "sha256After": "c410d347186a5b75c5a7d3ba419556097bf8bf95397d43c097a6ec608229e99a"
+    },
+    {
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder1/Dir0/Npix28.eph",
+      "sha256Before": "e4c433325cf3442788fe00a2ac0787bcbe112f02282aeb703ca5bc86a501a5f2",
+      "sha256After": "a20da24e472059142e329b038f2447a3f54585e947bc3c36cc69191bf0948bbb"
+    },
+    {
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder1/Dir0/Npix29.eph",
+      "sha256Before": "68be0e6776ebf1b5cda92fa39d96d856f85896e6551f6c4f0f3c32d191211cf7",
+      "sha256After": "ac6f477dc583caa0532fe708a01d9932c257d5c57b735a38d3cf79001ec0029f"
+    },
+    {
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder1/Dir0/Npix3.eph",
+      "sha256Before": "d3e28538a51ec18f33261fec47488d79e2b9aca3b92011b6b5b735a6f228f872",
+      "sha256After": "ba05f880f6735942c46e5fc2c11938cc17c43d65ef1ce179f15c1184ce0ab7e4"
+    },
+    {
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder1/Dir0/Npix30.eph",
+      "sha256Before": "1b32dbb0b2cd1e3cf2d015bb22a522fbace162a31b8ea93eb879fe0671e2ee72",
+      "sha256After": "d4dd9c8006a78d77cea4a04911158d797c0664078bf947f9a827ede61966af43"
+    },
+    {
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder1/Dir0/Npix31.eph",
+      "sha256Before": "33483a621a5687583cf508f08629bc5396aa5320b44c0f6017dbe3b3e95da30d",
+      "sha256After": "10d18ef9af0e243cc544038fdbe108d8d58fac4fd90f23c52ca4028f70da5c59"
+    },
+    {
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder1/Dir0/Npix36.eph",
+      "sha256Before": "0b78b9e67c1a3369b1b59045e77350065b06742a97bb3a71cb6befa1dac1eb4d",
+      "sha256After": "7d9455fa57e13a777962c970d51b25c1893d710bd7a789165fb64fca8931b304"
+    },
+    {
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder1/Dir0/Npix37.eph",
+      "sha256Before": "edbb0165c273bbe1e85799efa1e639b53616b4c926bd3f025102ccf13af0f86b",
+      "sha256After": "969a3b5ec638dddeb21de0ee185bd09da6a94c68025c06b74e7f89454009008b"
+    },
+    {
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder1/Dir0/Npix38.eph",
+      "sha256Before": "89df7261bfab41c2dd595f68d3eada51f749c9fa51613744b2f852a197ca4b4b",
+      "sha256After": "9a66d764dc0e5f06967b92fa6d45a4eac67a8b043dbb58e94247d6bea62ee2be"
+    },
+    {
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder1/Dir0/Npix39.eph",
+      "sha256Before": "30000bca4dc6841ff45b4b52e78336b5ab82e80cd6c17db5b641c16edd86c29a",
+      "sha256After": "503eb99e1fdb39f5189e1acc0338a4a99f460b280e86038e19cfc1c2b07c261d"
+    },
+    {
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder1/Dir0/Npix4.eph",
+      "sha256Before": "98dba3626adca65612d7d051685bebdecfa0d6557c408870919f86524a3e10a3",
+      "sha256After": "50adfdb96db40e06827a432c6a6840ce38337a853b189f3c35d49ec033abc7a4"
+    },
+    {
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder1/Dir0/Npix40.eph",
+      "sha256Before": "d243c2023d7f98dee1c93349f301d409f5b2761b9fcc2570300e8a9ffa195cb2",
+      "sha256After": "4c3e8eab7a7de6bc3e1b1642986cc53a84cee364fad5696b4677a742725ec041"
+    },
+    {
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder1/Dir0/Npix41.eph",
+      "sha256Before": "f361efed98d0f8d8207fd0e2353fcf665217facb6f358f530383820ed11cce33",
+      "sha256After": "d1409bd2bca7bdd82e88cd2a15d111e25d7435bfa3d4f258f99bb5c57d34d6b9"
+    },
+    {
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder1/Dir0/Npix42.eph",
+      "sha256Before": "95f3d2c549434f3585ce40ec32e83172e7924659f163df62cdf957871cbb7368",
+      "sha256After": "92c131ed4b6d7bf320f613cb4075ee40136cfda4f36ccc3d47ead32f43ede585"
+    },
+    {
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder1/Dir0/Npix43.eph",
+      "sha256Before": "170ec363feb62d1261bcdabed39566d245c0b335734297c5cc5d7fd1e13e1f04",
+      "sha256After": "37c6bc72baea2f858fc3e9ed1c381fad7830e60a802a0f6404c4996fb809d617"
+    },
+    {
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder1/Dir0/Npix44.eph",
+      "sha256Before": "8057fba8ab63afeae23ec17cdc438895df7bc57e1497ab9455e11c61059817e1",
+      "sha256After": "9d3af44e658378c23e7c96cdecfe3af02b2b08e61c703ff85209a6f73f7e7d5b"
+    },
+    {
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder1/Dir0/Npix45.eph",
+      "sha256Before": "b21b3cb24752607c4febfb7e219d000ec80c76e185991c314b628f8ae333f8b5",
+      "sha256After": "65539bf8e6fecd3a778cc28a8c0b84fcfe597b788dfdedd72cec71a71f2fef91"
+    },
+    {
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder1/Dir0/Npix46.eph",
+      "sha256Before": "5695bbbc828ef7f6e85ea6d9bfdc2f88773a2f023b3f1f8d95d798edca3998b0",
+      "sha256After": "ba62f8c4d891055bae8dd13084e4be15423f5ae29a44268dd8a7ead7d48f2f33"
+    },
+    {
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder1/Dir0/Npix47.eph",
+      "sha256Before": "a51c715b34d4337885ca4a61f0f7556f6f1814861f4b1cd595c5dee3835c3df0",
+      "sha256After": "3f2d16cfd0f8c63924207c5169590090cca3128e9dcc73d87d9706059b941455"
+    },
+    {
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder1/Dir0/Npix5.eph",
+      "sha256Before": "944e59b8f64fb8e1b6a336669191fb9079b6252aa03b04c795c9c8ecfe90d988",
+      "sha256After": "dd8652e7c0027a7fa62329f739581a3e5af958e5fe225dc679fcd208b57d4ede"
+    },
+    {
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder1/Dir0/Npix6.eph",
+      "sha256Before": "fd3fd61f72abf2af37fa9aa73f53109da2d96543f2ea7ec6e716a031d3b31402",
+      "sha256After": "a506eb18e46a37c81a6a120fe22f7033b4a9cd576dd9e286bcb9b0f250509e0d"
+    },
+    {
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder1/Dir0/Npix7.eph",
+      "sha256Before": "228f26a5f34785d28e8af4d164f2976f7a800bdbe594094d3884acf6fd01ad4e",
+      "sha256After": "f7aa4622639c6218e26073d9d53bf68a556eeea61020b72343abc3d6bedc59ce"
+    }
+  ],
+  "limitations": [
+    "Hipparcos reference positions and proper motions have measurement uncertainties.",
+    "The native stellar model assumes zero radial velocity and does not model binary orbits.",
+    "Non-HIP entries and any missing HIP remain original and are listed explicitly."
+  ]
+}

@@ -1,0 +1,3295 @@
+{
+  "files": [
+    {
+      "sha256": "524b7ebdb612fb97327830b8d5e7d39a2cb9a26f24fbaf6a6a5e9e0427420599",
+      "path": "engine/build-info.json"
+    },
+    {
+      "sha256": "cd08d9a231e0acf7f547d6dc7b4d4bd432288d56e56f2c80202d21a38961488b",
+      "path": "engine/stellarium-web-engine.js"
+    },
+    {
+      "sha256": "0d545639ceafc38733f604e4fec63777692e34c70bb9b68c02e43564e35071c1",
+      "path": "engine/stellarium-web-engine.wasm"
+    },
+    {
+      "sha256": "5dc10f8729fc774c59a65b384026f05c58968fce9da1af12abee93c660ca2bda",
+      "path": "vendor/stellarium-web-engine/.dockerignore"
+    },
+    {
+      "sha256": "2a07eaa7812006b5d1e30d843660a8df0b4d4e5c8655747cd74eef832e18e98c",
+      "path": "vendor/stellarium-web-engine/.gitattributes"
+    },
+    {
+      "sha256": "81fbfa9e72ef7afdbf2cf94f0685d50d354cc17bbed9e611757028b3ab164192",
+      "path": "vendor/stellarium-web-engine/.gitignore"
+    },
+    {
+      "sha256": "e0eedba615d5cd1b986afb6c5b3a4b1ae33713e7e9dc74d19daec5e3221f9d2e",
+      "path": "vendor/stellarium-web-engine/LICENSE-AGPL-3.0.txt"
+    },
+    {
+      "sha256": "1cbe3fafa7cb0cba1f721a5393991a86f0cc7ea0d0e0564f208452c711b2734f",
+      "path": "vendor/stellarium-web-engine/Makefile"
+    },
+    {
+      "sha256": "7f2f9c7769c220d503d78fafd1b6851a29648f007bc7c0f6ec20c7cd5fcd41d2",
+      "path": "vendor/stellarium-web-engine/README.md"
+    },
+    {
+      "sha256": "b1f09aed9cac1a4e6e4e36e0895dd9855eef34c4c4586c4e2c2c6c3a55580cd2",
+      "path": "vendor/stellarium-web-engine/SConstruct"
+    },
+    {
+      "sha256": "ee1f0f73257d0a0a126ad55a832a7c2469e9fc1fa385d7d71e605d18e0978859",
+      "path": "vendor/stellarium-web-engine/apps/simple-html/README.md"
+    },
+    {
+      "sha256": "e38de1ee344ad27ecc1572f2d57853ce5f4e437f2496dbc27cad3385855d8213",
+      "path": "vendor/stellarium-web-engine/apps/simple-html/debug-page.html"
+    },
+    {
+      "sha256": "4c45180593aaa401e76d7e4d9b47eabbee2a406d6403032c800a53ad786bdb25",
+      "path": "vendor/stellarium-web-engine/apps/simple-html/scss/ephemeride.scss"
+    },
+    {
+      "sha256": "7d0b991ee3e0be7af01ad7ea8cd2beea6c00a25e679a0226b6737f079aafff86",
+      "path": "vendor/stellarium-web-engine/apps/simple-html/static/fonts/Roboto-Bold.ttf"
+    },
+    {
+      "sha256": "79e851404657dac2106b3d22ad256d47824a9a5765458edb72c9102a45816d95",
+      "path": "vendor/stellarium-web-engine/apps/simple-html/static/fonts/Roboto-Regular.ttf"
+    },
+    {
+      "sha256": "3efde03bd94b68c951e73bfd04dc33c0615aafd777eaf28a23e71ed0b2151283",
+      "path": "vendor/stellarium-web-engine/apps/simple-html/static/imgs/symbols/btn-atmosphere.svg"
+    },
+    {
+      "sha256": "4430504294cf8db9aa7b8f21fd8d87fdada3044c0da69f0e7e399e40d2092f35",
+      "path": "vendor/stellarium-web-engine/apps/simple-html/static/imgs/symbols/btn-azimuthal-grid.svg"
+    },
+    {
+      "sha256": "66df869ec8a76f77124eae61555904dde8400e725a2c04fa411321573f967821",
+      "path": "vendor/stellarium-web-engine/apps/simple-html/static/imgs/symbols/btn-cst-art.svg"
+    },
+    {
+      "sha256": "c1f02a8e2c664b75a3f7273f0f2919f371f66b798ad7f907f2b6fda5fabe8a47",
+      "path": "vendor/stellarium-web-engine/apps/simple-html/static/imgs/symbols/btn-cst-lines.svg"
+    },
+    {
+      "sha256": "6148fd7b87b7ee9c98e107999e873573a8e971f17a5fea8c0ee6a68280b67802",
+      "path": "vendor/stellarium-web-engine/apps/simple-html/static/imgs/symbols/btn-equatorial-grid.svg"
+    },
+    {
+      "sha256": "8960539d1c23e0a8c108c5d501a89f008c383aad88c1762b806000d5b2230d26",
+      "path": "vendor/stellarium-web-engine/apps/simple-html/static/imgs/symbols/btn-landscape.svg"
+    },
+    {
+      "sha256": "afb6d09beb6b0d7052c8ef67a5554b0a0c9762d0c8134639e88baf21aa5a0838",
+      "path": "vendor/stellarium-web-engine/apps/simple-html/static/imgs/symbols/btn-nebulae.svg"
+    },
+    {
+      "sha256": "2db16de9932f831d5ebaa00df178254711cc6de92ac7113407e454658c0e59a0",
+      "path": "vendor/stellarium-web-engine/apps/simple-html/static/imgs/symbols/neb-bright-emission-nebula.svg"
+    },
+    {
+      "sha256": "2db4280430ed8289d037da5c0bab17386a398da1091a70f2b6d3937bf95205d2",
+      "path": "vendor/stellarium-web-engine/apps/simple-html/static/imgs/symbols/neb-cluster-nebula.svg"
+    },
+    {
+      "sha256": "3019e6d80d870dd11833cb2ed2d3868440bd5fa257d74e42bc34b33693dd684f",
+      "path": "vendor/stellarium-web-engine/apps/simple-html/static/imgs/symbols/neb-default.svg"
+    },
+    {
+      "sha256": "6fd7b9c9d9a24d8abb1325fe565cea2b998bb0a5763fa18d7ce8004650ddf20a",
+      "path": "vendor/stellarium-web-engine/apps/simple-html/static/imgs/symbols/neb-galaxy.svg"
+    },
+    {
+      "sha256": "1e5b8cc84a505909cecf4e20adf114c8cb9ba3d8161056b3044af87255e230fd",
+      "path": "vendor/stellarium-web-engine/apps/simple-html/static/imgs/symbols/neb-globular-star-cluster.svg"
+    },
+    {
+      "sha256": "6e57023dd81d5b4759a8fbd285651cf05b888487b9af12260ec7bb58d255f136",
+      "path": "vendor/stellarium-web-engine/apps/simple-html/static/imgs/symbols/neb-open-star-cluster.svg"
+    },
+    {
+      "sha256": "593eb3dab6eeb057e738685837bdcf7afc9a621fd4264e2e25485e380a1b2f70",
+      "path": "vendor/stellarium-web-engine/apps/simple-html/static/imgs/symbols/neb-planetary-nebula.svg"
+    },
+    {
+      "sha256": "118a6d941f140fba89a033d8f4e347f257b95100de5eb5e663c45a0dc480a36f",
+      "path": "vendor/stellarium-web-engine/apps/simple-html/static/imgs/symbols/pointer.svg"
+    },
+    {
+      "sha256": "34bc7cb732e99901ccb4b86e33b2488689efeead9af3d0e9a0ddf4f1ad468137",
+      "path": "vendor/stellarium-web-engine/apps/simple-html/static/js/polyfill.js"
+    },
+    {
+      "sha256": "2bc34631b775f6bbd62ca265d35614940e8bf6d89c6627b69fb564a9215b10f7",
+      "path": "vendor/stellarium-web-engine/apps/simple-html/static/js/touch-emulator.js"
+    },
+    {
+      "sha256": "434dbebfe748afdd777e5c5230333f1c632bbe30ffe054deba0ad5d66a376dda",
+      "path": "vendor/stellarium-web-engine/apps/simple-html/stellarium-web-engine.html"
+    },
+    {
+      "sha256": "0c315e7ae5500f65f870ccdc8f6fdfb6047ee0d95629cfac590768d0cd8f779e",
+      "path": "vendor/stellarium-web-engine/apps/simple-html/tests.js"
+    },
+    {
+      "sha256": "a52df1c3f02dfe16a1e53aafd8cf20b14692d3e5d6f67b583df4625ef7ff386b",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/CometEls.txt"
+    },
+    {
+      "sha256": "7b46a3d41d888de5de0368b9830ae16ad550e3a5a0e9095ecaf38a9b2854f00f",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/dso/Norder0/Dir0/Npix0.eph"
+    },
+    {
+      "sha256": "42276aa340e1a2e3d7335990b0fdc3e3c98c54f8c11af4bb92664ac639957adc",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/dso/Norder0/Dir0/Npix1.eph"
+    },
+    {
+      "sha256": "285eb6542266cacdc7c20f91508456f1c7c6b0f93ce52439686c986c1de4037d",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/dso/Norder0/Dir0/Npix10.eph"
+    },
+    {
+      "sha256": "73b0ae1678b9ab2c97c0db54c30ade96ef3a3703a08339c86acd99ab93521c90",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/dso/Norder0/Dir0/Npix11.eph"
+    },
+    {
+      "sha256": "b45c232b7a165a56cab700eb9d350d3c7af47e4fc88d69e4089e0bba2ff07820",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/dso/Norder0/Dir0/Npix2.eph"
+    },
+    {
+      "sha256": "abc30183657792e2ffa3a4c1192f3e100e78bb3fca7a91924931ffb42bb4e388",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/dso/Norder0/Dir0/Npix3.eph"
+    },
+    {
+      "sha256": "62d7d0b8815dd3c953a03f222598f46c93f61f32efa1334e2177617d4aab05ac",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/dso/Norder0/Dir0/Npix4.eph"
+    },
+    {
+      "sha256": "37fce7509decb285711297917beec4f8109c2b42d19f6ec840173c8dd95bb087",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/dso/Norder0/Dir0/Npix5.eph"
+    },
+    {
+      "sha256": "5f83ec98e81b0f68c5ff4225418355a8da8aef604978f426466cbd5c43830746",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/dso/Norder0/Dir0/Npix6.eph"
+    },
+    {
+      "sha256": "6e4e6b959f13a9b6ca3dde0866f2358b07a944863765013847b481a4ad2f48e9",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/dso/Norder0/Dir0/Npix7.eph"
+    },
+    {
+      "sha256": "b8d6b93fa3eafdb15d0e5a8b68e296ea272d340a8919c33f450064f7094950b1",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/dso/Norder0/Dir0/Npix8.eph"
+    },
+    {
+      "sha256": "113f8cac52c0ba527f82e06b62192860c6530fe08a918c09879d28c801af8357",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/dso/Norder0/Dir0/Npix9.eph"
+    },
+    {
+      "sha256": "93f09cbe40bc0a65e8a5cec8f3059e3c9d233e79f68d21898fa6e461e080ddc3",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/dso/properties"
+    },
+    {
+      "sha256": "b9c55069dcba5b77110297dcc28465e0743d36da381a40958752c1582dcc3d54",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/landscapes/guereins/Norder0/Allsky.webp"
+    },
+    {
+      "sha256": "97fda134c498cc7dd288498febcba901a0efa846b17314fc52b5a95e69c1056e",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/landscapes/guereins/Norder0/Dir0/Npix0.webp"
+    },
+    {
+      "sha256": "c4aa931689b478dce4173a7bcb36f734ea5cb08044e59fd33facdc123373fdc0",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/landscapes/guereins/Norder0/Dir0/Npix1.webp"
+    },
+    {
+      "sha256": "f213317cb282e7bcc7378dcfe32037d89df9a5f3e0e990e3fe0bac566bc7eb5a",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/landscapes/guereins/Norder0/Dir0/Npix10.webp"
+    },
+    {
+      "sha256": "51728b5533abed8ed2df9a1e7c108e79b73cab74611051f62084a7a78d2caa21",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/landscapes/guereins/Norder0/Dir0/Npix11.webp"
+    },
+    {
+      "sha256": "aadcb00b3868523663b73c0567787ec5ac21582be8adb46d86246770a88a69b9",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/landscapes/guereins/Norder0/Dir0/Npix2.webp"
+    },
+    {
+      "sha256": "0b0b6cb1843c2d186d9e7d0039c435ae57a597314b41ef2049af3a4fb3d52f7e",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/landscapes/guereins/Norder0/Dir0/Npix3.webp"
+    },
+    {
+      "sha256": "f0eb9a4df12881552116aa6c2a117c3a6c54052145b759e6fe084958172b7ca4",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/landscapes/guereins/Norder0/Dir0/Npix4.webp"
+    },
+    {
+      "sha256": "9017f37dfa5d854aa04f8e06c08e5e7c14e338bd1c42ac75b140a060301b7b9b",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/landscapes/guereins/Norder0/Dir0/Npix5.webp"
+    },
+    {
+      "sha256": "d1da9636145249fa37f93f9ef5d27d85040d000ba60867a60612380f86fdcf5a",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/landscapes/guereins/Norder0/Dir0/Npix6.webp"
+    },
+    {
+      "sha256": "6b3b932ca54a53aa4d0d8e53abe3bac68b512ca3396a04730c5695a6f59cd436",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/landscapes/guereins/Norder0/Dir0/Npix7.webp"
+    },
+    {
+      "sha256": "ecb6656cc8231f14933e036b2100996ce5a44b68cc7615929b805ea8cea69836",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/landscapes/guereins/Norder0/Dir0/Npix8.webp"
+    },
+    {
+      "sha256": "fe2831e152ffcc812a5a2e65160398a5513eefd09fdc78b20e1e9a1dfdfe7f26",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/landscapes/guereins/Norder0/Dir0/Npix9.webp"
+    },
+    {
+      "sha256": "92a4d2757d5b386b629a42e57c3c8168e682ddbcfaacd96a9cd33526c57822f3",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/landscapes/guereins/description.ar.utf8"
+    },
+    {
+      "sha256": "962a73e5a8d7ba8453e2cf16b561dd7293ca7eaf5849c34b64856a6d28a85479",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/landscapes/guereins/description.be.utf8"
+    },
+    {
+      "sha256": "8436aff821768fd512da7017ddfe5158ce43f64129b930dab0a43d72a926db9b",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/landscapes/guereins/description.bg.utf8"
+    },
+    {
+      "sha256": "cfd697104571c3f999e745aa4cc52d20143b0e3b8a5ce5a2b0cd3e1f243e696d",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/landscapes/guereins/description.bn.utf8"
+    },
+    {
+      "sha256": "5e5868f2410014bc0644f9e6f64cd9aa386f60314620f62a65a3f5db888d41f2",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/landscapes/guereins/description.de.utf8"
+    },
+    {
+      "sha256": "158239d056052f376e95d729b95baeadeaa262e01a8569973b17873edd5e8758",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/landscapes/guereins/description.en.html"
+    },
+    {
+      "sha256": "158239d056052f376e95d729b95baeadeaa262e01a8569973b17873edd5e8758",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/landscapes/guereins/description.en.utf8"
+    },
+    {
+      "sha256": "5b72cef7858a6405900a9e6a7df3431ecc452aef102ac2cd99ed5372f5a56f4a",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/landscapes/guereins/description.fr.utf8"
+    },
+    {
+      "sha256": "054ffcdb119ebdc614dd7ca7af228ef4bfc356622ae75505a1915cd91e392ef0",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/landscapes/guereins/description.gd.utf8"
+    },
+    {
+      "sha256": "72cfd4e1369fd93a4455032458773d656a7b5ccc47eb582f8acee0009e090e3e",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/landscapes/guereins/description.hu.utf8"
+    },
+    {
+      "sha256": "81fd9d5aca15a6539506074134a0750fbfca234917f53856d18102867495dba5",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/landscapes/guereins/description.ko.utf8"
+    },
+    {
+      "sha256": "625904610a2e61328493b2b9cb02b502398206374a27fa214a35f957d2467677",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/landscapes/guereins/description.nb.utf8"
+    },
+    {
+      "sha256": "620e86cbb4f9f9a86c220214defbefaa7be679c7ee42cccd5c3db27437a6cbdd",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/landscapes/guereins/description.pt_BR.utf8"
+    },
+    {
+      "sha256": "0324fe39e2abe98e58aa022ea02934b4a3202e133d0cff7a170d63cfcbffa729",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/landscapes/guereins/description.ru.utf8"
+    },
+    {
+      "sha256": "8e6cd821cdf8473fbfcfbff6b1ae2bd52ae11528b3c2ae26f8c9e6ecbb2a3378",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/landscapes/guereins/description.uk.utf8"
+    },
+    {
+      "sha256": "8f2bceab55c496d9d11c424ef2d0f02b01712a913b455a0bdf4408f0ea046e63",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/landscapes/guereins/description.zh_CN.utf8"
+    },
+    {
+      "sha256": "f41c4bed33db920f5c90a623516c45cbe1544661151b3d75ec5c810bd4ece77f",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/landscapes/guereins/properties"
+    },
+    {
+      "sha256": "48a6bc0d7584c206fa652837c2cac64b050a641c33ae5f7357d52655a067fa55",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/mpcorb.dat"
+    },
+    {
+      "sha256": "a0365ece642d1feedc99c9d30431740aab0f6f7c938d50dd288ac6d8d997bb1e",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/README.md"
+    },
+    {
+      "sha256": "da5e916807ebad48cd0e4be473df294dcb48b3037192a7889f4757bbfb060f7b",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/belarusian/description.md"
+    },
+    {
+      "sha256": "c6eacf779dd773ab196bf34bf4424bbff09f4ec69d18b025029a808efa381b42",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/belarusian/illustrations/elias_s-cart.webp"
+    },
+    {
+      "sha256": "6d7012477801f036a1673c55f319f83fe9035d6fc2e9c93ed6243c018aa38f1d",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/belarusian/illustrations/poland-and-lithuania.webp"
+    },
+    {
+      "sha256": "5fcaefcd97027aa7dc70e5aeba9e200d0c7052c97dfd547e21133e44b18ec9b1",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/belarusian/illustrations/the-bride.webp"
+    },
+    {
+      "sha256": "36aa5ef58ec6f3dec7d5cda67b9d97d435c878b577a3f4e12dc657ecac2f784a",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/belarusian/illustrations/the-chicks.webp"
+    },
+    {
+      "sha256": "14e57a94c250dceca1ba7a152618edbd55d9508714ccef53283ff0ecab40d447",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/belarusian/illustrations/the-cross.webp"
+    },
+    {
+      "sha256": "4984a0ef5c2690d76c33466df30c20b0d47da99bab599c7d407c983634cc46bd",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/belarusian/illustrations/the-crown.webp"
+    },
+    {
+      "sha256": "5f5f2a9859229b920e671543899f8f1fabe39546c63d32837aed92c7234aa41c",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/belarusian/illustrations/the-goat.webp"
+    },
+    {
+      "sha256": "53a02cae53697fbe6107417cf31173f9fa1f0bcbd65cb67a752b590aeacffef1",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/belarusian/illustrations/the-goose_s-way.webp"
+    },
+    {
+      "sha256": "c31dfe01d1288a7daf2c29f6afb426327092970b6cf021f12f9c78fcff32321b",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/belarusian/illustrations/the-grass-snakes.webp"
+    },
+    {
+      "sha256": "e1cb87141dd7f077b3126e4e5e8acbc1ac839fc7626e0552b43025cc783008e1",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/belarusian/illustrations/the-mowers.webp"
+    },
+    {
+      "sha256": "3acb86ae99703108eb44316b85baee2748f2a077f962afac84d8379b4e9353c5",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/belarusian/illustrations/the-nail.webp"
+    },
+    {
+      "sha256": "1d1529d305c1f6930c919baf9613b39196a46580dd0fc1cf0be6a63b72dadd31",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/belarusian/illustrations/the-ploughman.webp"
+    },
+    {
+      "sha256": "033efb2f8a933f69042e7dd70232685e53d1d9da48d093818806c04b883ff443",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/belarusian/illustrations/the-rake.webp"
+    },
+    {
+      "sha256": "86d161e5fbe31873c593e96a15a76f3564013ad5f9f26823cd4c473fc449c496",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/belarusian/illustrations/the-ram.webp"
+    },
+    {
+      "sha256": "679db7cdf2b153eac3b46b10c2352ec3b20f1c10a30a21dc5689f5da4136595e",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/belarusian/illustrations/the-serpent.webp"
+    },
+    {
+      "sha256": "13a117be5e58d1c3d35ab43be33e52c40e4b894ae13d4c37cb47d73c059cbd01",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/belarusian/illustrations/the-sieve.webp"
+    },
+    {
+      "sha256": "622fe8d7f5d3b68e0e7e5ba0e59f844661bc46d9f9d7b9e5cf218931a0ecaf02",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/belarusian/illustrations/the-small-cart.webp"
+    },
+    {
+      "sha256": "a81f7ca5e6c9422db103ab58b5d09bd8d44c12e942ce7dc6303568099300b9cf",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/belarusian/illustrations/the-throne.webp"
+    },
+    {
+      "sha256": "ea18bb9a6e50e884b8683152021da557e43632b7aee32fd8a3660ce0779b9066",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/belarusian/illustrations/the-twins.webp"
+    },
+    {
+      "sha256": "f487fe8b9d57fac6f65a2f2986440c97fedfc05ece99325ec506012a6628f9ef",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/belarusian/illustrations/the-wild-goat.webp"
+    },
+    {
+      "sha256": "af10b5e9d20fbefeedab2bdc967eeed64d65a8bb04a9d64b0da27c4654139f9d",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/belarusian/index.json"
+    },
+    {
+      "sha256": "898d03d657a6c303523472863024cc02bb44fe9e0f34875eba6cccc9a15f35bb",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/belarusian/po/fr.po"
+    },
+    {
+      "sha256": "bdd0707f66fcb64485bd00fd2a7b5822a0f47f0afdd587baefd9827499c0109a",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/index.json"
+    },
+    {
+      "sha256": "fa9799bea015c750fae13a490e98bf674f281b5a64072a257600b4683157c05a",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/western/description.md"
+    },
+    {
+      "sha256": "8cf9d504368991d7b6eb942816fb02f2091e7d8afc368b7965aec2e4d783442e",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/western/illustrations/andromeda.webp"
+    },
+    {
+      "sha256": "f78d5e37831a51727a0386c8fea7485d10563effb4d25d25ab385eece2c46161",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/western/illustrations/antlia.webp"
+    },
+    {
+      "sha256": "947d434144b50448227bff6b8be3d5011a14d6aa489919a52c0d27ac0782051b",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/western/illustrations/apus.webp"
+    },
+    {
+      "sha256": "760877e220491a01c65a2281e74bc5021ca1d2d5323c27ff3c0a5dc58bcf9c51",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/western/illustrations/aquarius.webp"
+    },
+    {
+      "sha256": "e8a0c535522c6928453443a008ea0b52c41df7eaf5f385294db654f98e42a856",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/western/illustrations/aquila.webp"
+    },
+    {
+      "sha256": "9b2856e8e4eb807c70c9c86f7bedeaf29b6a701e6401a0146b614d32bae79248",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/western/illustrations/ara.webp"
+    },
+    {
+      "sha256": "b8fb909dfb84ccfce76f1cadb8b0e6760d1d25b355b45bf1adcfd9db1f59a8ef",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/western/illustrations/argonavis.webp"
+    },
+    {
+      "sha256": "e4e2c2998cb4e6d33b6fc415baf7a99e4206c1a07fb9208959916d83d433bba1",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/western/illustrations/aries.webp"
+    },
+    {
+      "sha256": "befb680b430e23c08bcf1278347e24b6b10dc73ed980e369a2a7c1d95e538113",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/western/illustrations/auriga.webp"
+    },
+    {
+      "sha256": "31d66ae05f6bc74e481819a0c930c54eb035629e992d4435e898cbfcb07d8ada",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/western/illustrations/bootes.webp"
+    },
+    {
+      "sha256": "24c60ad36bf7b4206e28b4d4b3be3b2d31d17f17d3e17195ed4ffb64a584451e",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/western/illustrations/caelum.webp"
+    },
+    {
+      "sha256": "51098d362be9152610cbaf47e1dfc1455eb53bfc0146f8bb4a6be2edbd4e45e8",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/western/illustrations/camelopardalis.webp"
+    },
+    {
+      "sha256": "400fcfbeb0e4250ebcecb8e74806de91de069e78b5f6d83a45f645fb4b7dc375",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/western/illustrations/cancer.webp"
+    },
+    {
+      "sha256": "6dec35c20466b038254064d81c8525dbd90c63e423f8f45088a38baa493f82c0",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/western/illustrations/canes-venatici.webp"
+    },
+    {
+      "sha256": "f8bc86e4da5fd1399114758dddd7c3324d4fa05f1b0f26595893a2eef5b2bd45",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/western/illustrations/canis-major.webp"
+    },
+    {
+      "sha256": "14c9979b3c4089adf684ab74e600ea4e1d9b2589c4970bc812ccc6fc57f5bf17",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/western/illustrations/canis-minor.webp"
+    },
+    {
+      "sha256": "31e1644f89d0ed914b8e30feb0f6393b9f824ad930ed88c59672d92317592c2f",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/western/illustrations/capricornus.webp"
+    },
+    {
+      "sha256": "e014cf9fbcefe9955b6e4b5b5d1724601490dc02ed75880d073e7a92e43165aa",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/western/illustrations/cassiopeia.webp"
+    },
+    {
+      "sha256": "e18618dad16fcb877a9cb52fabef08d9c4de0784f8366b83e88d0974a16218a3",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/western/illustrations/centaurus.webp"
+    },
+    {
+      "sha256": "21ca1ce9dbf7c813b805698ba27d1ed44be31c7f70508268103856750106c1bb",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/western/illustrations/cepheus.webp"
+    },
+    {
+      "sha256": "f37d54cc34b48fdf88a3c5a6ad3d240b4913f78b45e6a814fe76b98ceb4d1013",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/western/illustrations/cetus.webp"
+    },
+    {
+      "sha256": "3a8331b220f9f8eb580b65feb8618664db986d7a573d33dc09429c6388df5ceb",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/western/illustrations/chamaeleon.webp"
+    },
+    {
+      "sha256": "a12046ad719ec4a8670e8ee1b9ff9da81ac168d5f4701d2d8d3e7c96aac0d6f5",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/western/illustrations/circinus.webp"
+    },
+    {
+      "sha256": "0c3cf045284b237d1cc31c783751c22b8364ac64bc73bc2c1cfc3629e6f2203d",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/western/illustrations/columba.webp"
+    },
+    {
+      "sha256": "007aee37c425354c6d1ce7a39b6f8e179bd874e09b2530aca85b4884e7c292d6",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/western/illustrations/coma-berenices.webp"
+    },
+    {
+      "sha256": "ebb2c73efe11c89871332225ef12edc7c866700f796b8c3283109f77d747baa6",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/western/illustrations/corona-australis.webp"
+    },
+    {
+      "sha256": "c8039259f50acbcf7d836e44d35cd6ecc624d5f009dbc2515e77456dcc5219a8",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/western/illustrations/corona-borealis.webp"
+    },
+    {
+      "sha256": "9d97cb30a68d4c441b4a902eeecf5864051fc1b21f4273e9c3d1200fdf99936b",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/western/illustrations/corvus.webp"
+    },
+    {
+      "sha256": "dfb106b98cf28053a3ae781979a80212111b4729cc60997b285df026f0487f92",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/western/illustrations/crater.webp"
+    },
+    {
+      "sha256": "14e86d5a1034d71e1a0f8c4333b0d373b7e1f45777dbf432fa29378fd1288d35",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/western/illustrations/crux.webp"
+    },
+    {
+      "sha256": "7879f2737b5743fe24d3322dbfe10ce5856228e7917b0594304c574c33eefc52",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/western/illustrations/cygnus.webp"
+    },
+    {
+      "sha256": "29d405f64051194cb3e30627ab5b63c7846cff516b484065679bd3e788b9f73f",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/western/illustrations/delphinus.webp"
+    },
+    {
+      "sha256": "4c42f42dc82ddd757d70c368a69078380bca3d0675fc65c8d5a8822862b25a7d",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/western/illustrations/dorado.webp"
+    },
+    {
+      "sha256": "1428284afec66aaa387f4c04bbf46f4a43b45d7c27271d5b924202e68505cab3",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/western/illustrations/draco.webp"
+    },
+    {
+      "sha256": "2b3d52bfe26a551fbe2cb88f27ef3643f73461292ec672ef9caa40f61aa03715",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/western/illustrations/equuleus.webp"
+    },
+    {
+      "sha256": "82a3e6fc27d77ddc73cf48d3040821ef78182ae2231824b7f2202bbf5de0dbd3",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/western/illustrations/eridanus.webp"
+    },
+    {
+      "sha256": "fd5c8f43bbd5f0d0d4f18121cae0d0ea1450c1b4371eaaefa1f90c9cb5246bd0",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/western/illustrations/fornax.webp"
+    },
+    {
+      "sha256": "b0ec54e1e416ec3bae4ee7fda5b5c49c1cdc610d9d45802aae4e7ffff33fc362",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/western/illustrations/gemini.webp"
+    },
+    {
+      "sha256": "1fb8192a062bb26d391ec2a8d10ed29f37e2b370e9b3a27559bc15a057d72cc7",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/western/illustrations/grus.webp"
+    },
+    {
+      "sha256": "ec55ab6703d7c084027dd9f0e795e8d9ac6b4da6d84f6776c358064a3ab4f757",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/western/illustrations/hercules.webp"
+    },
+    {
+      "sha256": "009a9900b0bc0e18d5ed9436986f1d3cb4e36b1d0ab17906936837da54db69c5",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/western/illustrations/horlogium.webp"
+    },
+    {
+      "sha256": "e9800421df3b558b5a6cacae75e5d0e2c3b2ed3ec9513650b82dd09d2aee415b",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/western/illustrations/hydra.webp"
+    },
+    {
+      "sha256": "c5f22158936e6f18b4ede1d64a92c6892c39e953422d3fa2f8a23609f9fd3723",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/western/illustrations/hydrus.webp"
+    },
+    {
+      "sha256": "7be1d79194e1d265929774348e729c42e371d737173ab14f49ef1fec3a678262",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/western/illustrations/indus.webp"
+    },
+    {
+      "sha256": "71b904de644280aa45a4315bd038238b69d7f88bb571533810cf58297e546f29",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/western/illustrations/lacerta.webp"
+    },
+    {
+      "sha256": "043ce427f7480e6d4c31f36c8ae50069d8e89d07be5ae7c598cde44914bbda30",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/western/illustrations/leo-minor.webp"
+    },
+    {
+      "sha256": "921e49c2a2381240db5ae3873014fb8c68c86db95a335f6314f0f6b2a67a0c54",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/western/illustrations/leo.webp"
+    },
+    {
+      "sha256": "e26665cbcc33611a62610b2524fabadd97ce0dd3fb5194fe0ec8a3e4c092b455",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/western/illustrations/lepus.webp"
+    },
+    {
+      "sha256": "0f4de0b32ce9ba9f5714d1ad2d09cbd45fd6d0d1fcb85c515bd38066763b71d8",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/western/illustrations/libra.webp"
+    },
+    {
+      "sha256": "3133f72d6b53100d74953e07f0b093a46ee202b59dab9055cca906129f2c64e7",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/western/illustrations/lupus.webp"
+    },
+    {
+      "sha256": "46adc6b2881978cd331fd0a7baa54375787649bc4230b1036294445352240a40",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/western/illustrations/lynx.webp"
+    },
+    {
+      "sha256": "9e3bbd26639c768e41f5073edd3c346c2e1865535b9adbce4afc00db0b531dfb",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/western/illustrations/lyra.webp"
+    },
+    {
+      "sha256": "1174bfa839b53d345142d8c6194132d5dc64a43dbfd90374c791101f74cd9833",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/western/illustrations/mensa.webp"
+    },
+    {
+      "sha256": "30004ce9de62d17165e2d92cbd857ef02f1fa95507e038adcc46d6c81d83e43c",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/western/illustrations/microscopium.webp"
+    },
+    {
+      "sha256": "f63c776c09c7afc400a5797273e9ada6fb85464a7ca09c3381edc75886190fac",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/western/illustrations/monoceros.webp"
+    },
+    {
+      "sha256": "299b6b924fb7c2913f3c157dd706e5c647e3b29789d18d235864e1875f98d77f",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/western/illustrations/musca.webp"
+    },
+    {
+      "sha256": "225151e0872036d2ca826f5eaf4bcc3ee378996055c1518959ffc0ac556d5ac2",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/western/illustrations/norma.webp"
+    },
+    {
+      "sha256": "1ea578243d1eabecf2c494febb1fb60986012e7d7569a9b77f53f70076fc54e1",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/western/illustrations/octans.webp"
+    },
+    {
+      "sha256": "aa6192522943c76fdad1604716d29c6440692a7f55771c34167b410887744825",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/western/illustrations/ophiuchus.webp"
+    },
+    {
+      "sha256": "189e13817e832f77f05a690f08509a5e73252ed8693d39bf225afaa36a96eddc",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/western/illustrations/orion.webp"
+    },
+    {
+      "sha256": "e6697e8b53f2296834855865f4e2675020a42a6ec68b957dd613a0a13d9ba672",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/western/illustrations/pavo.webp"
+    },
+    {
+      "sha256": "175965a1adcea646c4f6ead99cc196b066c822bd3ac3e9653b73413ba701626e",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/western/illustrations/pegasus.webp"
+    },
+    {
+      "sha256": "4e8bcce6d7b0fb473b71c3458f54954983df97bec5e78d2a319468b2bbcf284a",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/western/illustrations/perseus.webp"
+    },
+    {
+      "sha256": "3f1b646572081ace11302fb3023840f9b940b140d0efd5b9f155864a0e762e34",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/western/illustrations/phoenix.webp"
+    },
+    {
+      "sha256": "dc9de6ad19bdaa9094403894775b130f8f53feb5515bf3ffc5861bb4ac73be7e",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/western/illustrations/pictor.webp"
+    },
+    {
+      "sha256": "e932aea19c5fb4978da820cca33673d731b8580862299ac9f5c7fe3877cd9407",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/western/illustrations/pisces.webp"
+    },
+    {
+      "sha256": "3a2bbaf7e249624b663904066f72c239e970f0f6cfba76a9ef910934bd6f3cb1",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/western/illustrations/piscis-austrinus.webp"
+    },
+    {
+      "sha256": "2cc250858962eacb6d6b051e22522b356e4ce2e4a2e16d34f211d2a70e712a3a",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/western/illustrations/pyxis.webp"
+    },
+    {
+      "sha256": "863a04aaf2aae884272417a0c3e1a8ee5092a0c50e202bd3f4c8799098b115e1",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/western/illustrations/reticulum.webp"
+    },
+    {
+      "sha256": "b848c08967de9acc9b7e9ebcdfe5676e1cb99072d6a036c391083515c8db620d",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/western/illustrations/sagitta.webp"
+    },
+    {
+      "sha256": "54bb63dbbf78859415f7c5667325300188cb299ed2a67230624865b0b1a0eeba",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/western/illustrations/sagittarius.webp"
+    },
+    {
+      "sha256": "ee64498b867dd1ce883afd9034f6520a8639477d7b841117b2e319f21d7e475f",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/western/illustrations/scorpius.webp"
+    },
+    {
+      "sha256": "42786a6f8c47b7e01a667fb1ffc21d68641ef1e93f4a83f6e48cef8fce0f9441",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/western/illustrations/sculptor.webp"
+    },
+    {
+      "sha256": "68896d3e7a407526e0edd38f47ec3c6a26fc7701b16af657b2e4c37c5f271319",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/western/illustrations/scutum.webp"
+    },
+    {
+      "sha256": "70938fa5b4cbe76239ba483bc187e0d656123928480faecdccff47c17df4552a",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/western/illustrations/sextans.webp"
+    },
+    {
+      "sha256": "b152c526f2c700d91e9495194c2dfedd71478d01f473bfb90886dc194bc0538d",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/western/illustrations/taurus.webp"
+    },
+    {
+      "sha256": "4a5779a10d8e3b31faf2763edee71cb31bc5bb0ced832a9c1567f15f97eeb911",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/western/illustrations/telescopium.webp"
+    },
+    {
+      "sha256": "6ea5a02a0f5575a399674197ed27e34c4d0d56bbcead0e835110a2ecb5133a69",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/western/illustrations/triangulum-australe.webp"
+    },
+    {
+      "sha256": "5ebb94e5e5e1ced5c4670b39f0574c53378b7e2712fdab94577325ad139a3396",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/western/illustrations/triangulum.webp"
+    },
+    {
+      "sha256": "cca58e32e53165716e267e3c00b4b671692ead021c7fe749a4213ff8aa981194",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/western/illustrations/tucana.webp"
+    },
+    {
+      "sha256": "e5a691680d6921a5b26c00a2d3cd7b799ef3fd69eed7cff787cebe01641b9ef0",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/western/illustrations/ursa-major.webp"
+    },
+    {
+      "sha256": "a976a4f27d9f8435720479f5d0446f470040bae03b81c7a4cf994ac9ae6c291d",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/western/illustrations/ursa-minor.webp"
+    },
+    {
+      "sha256": "d9307d6790de3ef5b7711479e818ee9b9b1832bdd9c2a291d45790b68b56a4a9",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/western/illustrations/virgo.webp"
+    },
+    {
+      "sha256": "cadfa186367a163b69fe9dd46cf791d21142fac96b831907bb7bd968219372e4",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/western/illustrations/volans.webp"
+    },
+    {
+      "sha256": "4b42f425081d1ccf9d19090ee8997f01ee29d2a11b60a8ea65cfc7eb676030e5",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/western/illustrations/vulpecula.webp"
+    },
+    {
+      "sha256": "d206983eee84a73279324845c1e7a5b114317a59042f8bc3af83b18651c6e065",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/skycultures/western/index.json"
+    },
+    {
+      "sha256": "0cb9aa53018188ca8744a9e2e0b1ba98531f2d2111cae294d6d78b2a428b8d5a",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder0/Dir0/Npix0.eph"
+    },
+    {
+      "sha256": "c4093395107818ae84df3f2919f2e67a3bd5f9a45355821bd4b1d83eb2d928d5",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder0/Dir0/Npix1.eph"
+    },
+    {
+      "sha256": "8054b1d301709941f95e774b334cc0098d5dc674c4e8597b0b25866f9445bd64",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder0/Dir0/Npix10.eph"
+    },
+    {
+      "sha256": "b772de24f7836321394891bfbc64e645a14db13ea77f5dcbe5e9fe725885ad7a",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder0/Dir0/Npix11.eph"
+    },
+    {
+      "sha256": "73bbb3218e95009f3d8e27a45ed94e143ce423a724a8b40e39f918557659d949",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder0/Dir0/Npix2.eph"
+    },
+    {
+      "sha256": "6bc02212aa8b683747d1ede3b3cb3c846d20632e3dedb70fe59f9adbae599b77",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder0/Dir0/Npix3.eph"
+    },
+    {
+      "sha256": "82b4c881e22a583cdf5bf336ac4ab779c9bdc052d54abda056078c65192ba3bc",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder0/Dir0/Npix4.eph"
+    },
+    {
+      "sha256": "d00dac0f154980303e6e6773548f03969283d39b0740411a6987427b588480f9",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder0/Dir0/Npix5.eph"
+    },
+    {
+      "sha256": "a304084d6641c9a55b494a72f1ff5501ee78799164369aa03e6c42415378b4c6",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder0/Dir0/Npix6.eph"
+    },
+    {
+      "sha256": "5cf498840133c6b14889a5bbe9b65390684a6354abe408922986c6015f13b0b1",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder0/Dir0/Npix7.eph"
+    },
+    {
+      "sha256": "f1e6ac085248b5a786718ec6e300f509c0f268b42c45c08c8fd076c4497e4ec4",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder0/Dir0/Npix8.eph"
+    },
+    {
+      "sha256": "cbb01427b64aeb038a93d497da584522f697e0a7ade4cc371a85bc7eecb9b9f0",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder0/Dir0/Npix9.eph"
+    },
+    {
+      "sha256": "2024796a702799befb50669504a049efd46d84d9865e139e98e70b390548801f",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder1/Dir0/Npix0.eph"
+    },
+    {
+      "sha256": "f4af25e94f8c5ef14f1b85465889214f9479d3b33a1511abdacc831df6ed8e12",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder1/Dir0/Npix1.eph"
+    },
+    {
+      "sha256": "97d27bf250b44dbeb6a1e7b1e9d31f26fe7ead8f05a2964140564e3c97d69cf4",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder1/Dir0/Npix12.eph"
+    },
+    {
+      "sha256": "012a6b00a16d592ba9b7762ebee3a7f2cf17274f16b537095e6fcf83c4f3700e",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder1/Dir0/Npix13.eph"
+    },
+    {
+      "sha256": "59996edce3d9c840a34943aa5b1a1d4fd24d35d3a3748a54f2f086e9532bc59d",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder1/Dir0/Npix14.eph"
+    },
+    {
+      "sha256": "65513945c91aea4c4ab7809e7a4db3b52609b8dcd8abe1e1da1c33c11c6507ba",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder1/Dir0/Npix15.eph"
+    },
+    {
+      "sha256": "f23a31329cdbbca685db6543d67f918c091aef63be967b600966437377742c0a",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder1/Dir0/Npix2.eph"
+    },
+    {
+      "sha256": "f4bb15928017d3725cb8d377113333f9fb4cd71c642eb605387e63bd778ebcb6",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder1/Dir0/Npix20.eph"
+    },
+    {
+      "sha256": "5ac639796f0cdda35778442f78b23c8e309747270177b294a1d35635a85cf040",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder1/Dir0/Npix21.eph"
+    },
+    {
+      "sha256": "511a16543296448d76539714671a2dc0a127b8d646e4840cbb2d8ab03419ca9a",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder1/Dir0/Npix22.eph"
+    },
+    {
+      "sha256": "c410d347186a5b75c5a7d3ba419556097bf8bf95397d43c097a6ec608229e99a",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder1/Dir0/Npix23.eph"
+    },
+    {
+      "sha256": "a20da24e472059142e329b038f2447a3f54585e947bc3c36cc69191bf0948bbb",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder1/Dir0/Npix28.eph"
+    },
+    {
+      "sha256": "ac6f477dc583caa0532fe708a01d9932c257d5c57b735a38d3cf79001ec0029f",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder1/Dir0/Npix29.eph"
+    },
+    {
+      "sha256": "ba05f880f6735942c46e5fc2c11938cc17c43d65ef1ce179f15c1184ce0ab7e4",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder1/Dir0/Npix3.eph"
+    },
+    {
+      "sha256": "d4dd9c8006a78d77cea4a04911158d797c0664078bf947f9a827ede61966af43",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder1/Dir0/Npix30.eph"
+    },
+    {
+      "sha256": "10d18ef9af0e243cc544038fdbe108d8d58fac4fd90f23c52ca4028f70da5c59",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder1/Dir0/Npix31.eph"
+    },
+    {
+      "sha256": "7d9455fa57e13a777962c970d51b25c1893d710bd7a789165fb64fca8931b304",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder1/Dir0/Npix36.eph"
+    },
+    {
+      "sha256": "969a3b5ec638dddeb21de0ee185bd09da6a94c68025c06b74e7f89454009008b",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder1/Dir0/Npix37.eph"
+    },
+    {
+      "sha256": "9a66d764dc0e5f06967b92fa6d45a4eac67a8b043dbb58e94247d6bea62ee2be",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder1/Dir0/Npix38.eph"
+    },
+    {
+      "sha256": "503eb99e1fdb39f5189e1acc0338a4a99f460b280e86038e19cfc1c2b07c261d",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder1/Dir0/Npix39.eph"
+    },
+    {
+      "sha256": "50adfdb96db40e06827a432c6a6840ce38337a853b189f3c35d49ec033abc7a4",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder1/Dir0/Npix4.eph"
+    },
+    {
+      "sha256": "4c3e8eab7a7de6bc3e1b1642986cc53a84cee364fad5696b4677a742725ec041",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder1/Dir0/Npix40.eph"
+    },
+    {
+      "sha256": "d1409bd2bca7bdd82e88cd2a15d111e25d7435bfa3d4f258f99bb5c57d34d6b9",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder1/Dir0/Npix41.eph"
+    },
+    {
+      "sha256": "92c131ed4b6d7bf320f613cb4075ee40136cfda4f36ccc3d47ead32f43ede585",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder1/Dir0/Npix42.eph"
+    },
+    {
+      "sha256": "37c6bc72baea2f858fc3e9ed1c381fad7830e60a802a0f6404c4996fb809d617",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder1/Dir0/Npix43.eph"
+    },
+    {
+      "sha256": "9d3af44e658378c23e7c96cdecfe3af02b2b08e61c703ff85209a6f73f7e7d5b",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder1/Dir0/Npix44.eph"
+    },
+    {
+      "sha256": "65539bf8e6fecd3a778cc28a8c0b84fcfe597b788dfdedd72cec71a71f2fef91",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder1/Dir0/Npix45.eph"
+    },
+    {
+      "sha256": "ba62f8c4d891055bae8dd13084e4be15423f5ae29a44268dd8a7ead7d48f2f33",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder1/Dir0/Npix46.eph"
+    },
+    {
+      "sha256": "3f2d16cfd0f8c63924207c5169590090cca3128e9dcc73d87d9706059b941455",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder1/Dir0/Npix47.eph"
+    },
+    {
+      "sha256": "dd8652e7c0027a7fa62329f739581a3e5af958e5fe225dc679fcd208b57d4ede",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder1/Dir0/Npix5.eph"
+    },
+    {
+      "sha256": "a506eb18e46a37c81a6a120fe22f7033b4a9cd576dd9e286bcb9b0f250509e0d",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder1/Dir0/Npix6.eph"
+    },
+    {
+      "sha256": "f7aa4622639c6218e26073d9d53bf68a556eeea61020b72343abc3d6bedc59ce",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/stars/Norder1/Dir0/Npix7.eph"
+    },
+    {
+      "sha256": "4b0ee9fe8f3d5cb59377c2d397314e520731d6899050d4cf5944cbe014c01835",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/stars/properties"
+    },
+    {
+      "sha256": "c7d6b4e5cacb6ad2e73c63ef7d6c6be2c3c2088487467f05cc2d3c81d847eba2",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/surveys/milkyway/Norder0/Allsky.webp"
+    },
+    {
+      "sha256": "35799a4d9a4b4226a772eab5fa6bef9e9c65c765cb91b05d1ff82e18590922c2",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/surveys/milkyway/Norder0/Dir0/Npix0.webp"
+    },
+    {
+      "sha256": "875a183431d3667fcd3df6ff5cf84789122bc36de8e0910e1d003935ff49b6f7",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/surveys/milkyway/Norder0/Dir0/Npix1.webp"
+    },
+    {
+      "sha256": "591d0fe48ff9931fdcb3f30aaca6ee2baa65c0c5d6782d081f90e8d72cf9342f",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/surveys/milkyway/Norder0/Dir0/Npix10.webp"
+    },
+    {
+      "sha256": "971f281908985c7537d82a81f834fbee8a5cba24452ea33a000322097156f2bd",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/surveys/milkyway/Norder0/Dir0/Npix11.webp"
+    },
+    {
+      "sha256": "0a8b4253f0fd1f2e0b42616646cdbc72ae181d9edf19fedbb0eda24ac275e069",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/surveys/milkyway/Norder0/Dir0/Npix2.webp"
+    },
+    {
+      "sha256": "73ec575dfdb604d032caf9fb677f2c7cb95da6888878087fac88164d90ff8ae1",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/surveys/milkyway/Norder0/Dir0/Npix3.webp"
+    },
+    {
+      "sha256": "ad3f3f37e4b34fc6a59b049da4e02f195be3811e088fa04c6d708bb19cb6c7be",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/surveys/milkyway/Norder0/Dir0/Npix4.webp"
+    },
+    {
+      "sha256": "9c3868e4c7ed8046720550f564be534cdfad25a8cd75a5dec3e807de3bb8b0d4",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/surveys/milkyway/Norder0/Dir0/Npix5.webp"
+    },
+    {
+      "sha256": "8102f45bb133e3f79895e698541c23490dafd5704696cba9766801140bf628d4",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/surveys/milkyway/Norder0/Dir0/Npix6.webp"
+    },
+    {
+      "sha256": "f12ebf3cba97a8d3ab6228b657c0d67c0bde118ff637040478983a7670836aae",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/surveys/milkyway/Norder0/Dir0/Npix7.webp"
+    },
+    {
+      "sha256": "bc933603550fdca67d4afec278cf6eb367112401d64461f8780c206e08d99408",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/surveys/milkyway/Norder0/Dir0/Npix8.webp"
+    },
+    {
+      "sha256": "e37292cd43f77e4a77018eeecaba27a4ff9bd5226f0c4f0e7de3ad524d805ef8",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/surveys/milkyway/Norder0/Dir0/Npix9.webp"
+    },
+    {
+      "sha256": "763b2391b787c3399de814268ec73a6bd2ced27ddd8b28204997ff282f4b7a60",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/surveys/milkyway/properties"
+    },
+    {
+      "sha256": "d6f838934287448100296d05825fafb01f4b29f948a021550eafa6cd210b1960",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/surveys/sso/moon/Norder0/Allsky.webp"
+    },
+    {
+      "sha256": "4f0c9200b243b989f932a7cb76c8f90ee6a2cbc4ae1ed4fdc6863241f32dabc6",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/surveys/sso/moon/Norder0/Dir0/Npix0.webp"
+    },
+    {
+      "sha256": "b911b4253863e377ac4c88375ac52f6bae365cf7c0f5e31e0a95b81639045174",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/surveys/sso/moon/Norder0/Dir0/Npix1.webp"
+    },
+    {
+      "sha256": "959d9750d4bb30a1fcfff0f0111543c3603e12e6a3b60844c2fec6ab16f0ada4",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/surveys/sso/moon/Norder0/Dir0/Npix10.webp"
+    },
+    {
+      "sha256": "10aaf1984ddccc22207b084b16c8328515bd7d2d1e455cfea6288af1f1722cc3",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/surveys/sso/moon/Norder0/Dir0/Npix11.webp"
+    },
+    {
+      "sha256": "d38533246fa717d19767ad1e0110c5385ba3941192766afb6de4d91cb4ab0bd2",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/surveys/sso/moon/Norder0/Dir0/Npix2.webp"
+    },
+    {
+      "sha256": "c0fd5c8850e952ff2b0a4ba8d3e14dc8c6e242daa37e00288abe5b64d7578509",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/surveys/sso/moon/Norder0/Dir0/Npix3.webp"
+    },
+    {
+      "sha256": "6e7800dbd50165ef4ba96d8bc59ba77003e69421829d1730caf1e2dbd863c0c2",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/surveys/sso/moon/Norder0/Dir0/Npix4.webp"
+    },
+    {
+      "sha256": "7cedbb0417007e7b17b9fadfc519cdac5821e44f8f9740b37d25a140ff2e3f30",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/surveys/sso/moon/Norder0/Dir0/Npix5.webp"
+    },
+    {
+      "sha256": "d5f70fa4d54782d62533dc2053222f9afddf1a303502d57dbbc7256ff9133f21",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/surveys/sso/moon/Norder0/Dir0/Npix6.webp"
+    },
+    {
+      "sha256": "cc0fe1af0ed5496b5615484d5f758bf3a218a1f47bcc0953ea3f3491022c0e3b",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/surveys/sso/moon/Norder0/Dir0/Npix7.webp"
+    },
+    {
+      "sha256": "1f28f27fd1f2fa4635cd27317df45a5ed38fb72e1db03f8f33f6a6e4248b3df4",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/surveys/sso/moon/Norder0/Dir0/Npix8.webp"
+    },
+    {
+      "sha256": "1dd59f96a7179e5ab5ffe1cb8b6cd7e6bf5f3a5c3f55a3616e709c8f07d52b62",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/surveys/sso/moon/Norder0/Dir0/Npix9.webp"
+    },
+    {
+      "sha256": "a69510657c42258b2289f7dd25ae2dce5201b7b262e92651778d492162e3f419",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/surveys/sso/moon/properties"
+    },
+    {
+      "sha256": "d98abc60e96fdb18bc014591b510c3d82a43fdea1eb0ae0fd5de33452022df27",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/surveys/sso/sun/Norder0/Allsky.webp"
+    },
+    {
+      "sha256": "6b25402a329283a98a5295e54fc695c1b8077b182291a77f07bd8e2e30a879ed",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/surveys/sso/sun/Norder0/Dir0/Npix0.webp"
+    },
+    {
+      "sha256": "6dc199f8740e08d12a262da4c1efdd139f0a86e5daa841542bb8887ee57b8f50",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/surveys/sso/sun/Norder0/Dir0/Npix1.webp"
+    },
+    {
+      "sha256": "ba0aae3bb22c6eb3ee72056d93cfe68376b3650c544b0e06c7ba836580040539",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/surveys/sso/sun/Norder0/Dir0/Npix10.webp"
+    },
+    {
+      "sha256": "54caefc082251728e7e3eac7ad24dd96e91476b151f5d506c86051dd47b3224d",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/surveys/sso/sun/Norder0/Dir0/Npix11.webp"
+    },
+    {
+      "sha256": "72d831afad40444d5181c2ea3c7cb71b39a7feafb40d4786e62600367af96687",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/surveys/sso/sun/Norder0/Dir0/Npix2.webp"
+    },
+    {
+      "sha256": "9a31f7c7a36c77c2faa749476af722af7b58761b3027efab09c169c067889434",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/surveys/sso/sun/Norder0/Dir0/Npix3.webp"
+    },
+    {
+      "sha256": "801b9d1d4cc129b7a7ba9c0b4a6e3f70963eb2877a6f04d8598bea6ad326d449",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/surveys/sso/sun/Norder0/Dir0/Npix4.webp"
+    },
+    {
+      "sha256": "6a7d313ce0d0481eb3d97422a3d7cd7059afae39fe8b8b41c26d067741c40622",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/surveys/sso/sun/Norder0/Dir0/Npix5.webp"
+    },
+    {
+      "sha256": "ec7189cb3b98f058c05fd599775f04f1a4cea233b5df33f11a252af14125c4f8",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/surveys/sso/sun/Norder0/Dir0/Npix6.webp"
+    },
+    {
+      "sha256": "483d4219a4db3fa993fc5f72f2d2b8a14fb64b3d5d48e8d5676db02ea1b05409",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/surveys/sso/sun/Norder0/Dir0/Npix7.webp"
+    },
+    {
+      "sha256": "d14fc72bd142448d66d969cf7055a74e41ac028c1d71de996269229c0acfe66e",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/surveys/sso/sun/Norder0/Dir0/Npix8.webp"
+    },
+    {
+      "sha256": "2af3ba91a1c55209125bd2ed362ac400468c10c1bed2097dc639d4344dd0f3ed",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/surveys/sso/sun/Norder0/Dir0/Npix9.webp"
+    },
+    {
+      "sha256": "b1b4e70d580e96dcd1ee4601364f4ca0df012149c19e0f55757dd0aa4e8cf00c",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/surveys/sso/sun/properties"
+    },
+    {
+      "sha256": "304d4cf9f276b2144fc6a9923a78cbcc4e894e76c8d5a97390a9b069572192df",
+      "path": "vendor/stellarium-web-engine/apps/test-skydata/tle_satellite.jsonl.gz"
+    },
+    {
+      "sha256": "4f8b6f8ac892654f5419abe292e40760e0cd67ade6e0e8ae4503db55761b5ffa",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/.editorconfig"
+    },
+    {
+      "sha256": "4ad4200c1247bc96120980cdf803687cd232f5a9e243514903049a73cb46d2f9",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/.env"
+    },
+    {
+      "sha256": "d517de6db9aaea3e7869f531218a922410f08736b0d77b5a8fa9af5dc7535f30",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/.env.development"
+    },
+    {
+      "sha256": "a862a9ccd4f5fb03b3372c6688d31ebdfb69028dd6a2acca8f7e7325bdf9ef42",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/.env.production"
+    },
+    {
+      "sha256": "9d0c4267e1faef2b77b505286bb89be1d527d22e8441c66f48c5f01e94c2440f",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/.gitignore"
+    },
+    {
+      "sha256": "3d221841aa5865361f2044c04ea3445d22e2b757945339d17447d4b5a9d141c5",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/.postcssrc.js"
+    },
+    {
+      "sha256": "a87c3e7ca57639ef8f16b1d5adb5bb0f7f6b7e784c3604bed05bdc96cf4f8a5d",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/Dockerfile"
+    },
+    {
+      "sha256": "84ce5a08e28fe3dba6f7f3adc6c2e03b8f18f1da202ed660864dd2a8efdf07ec",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/Dockerfile.jsbuild"
+    },
+    {
+      "sha256": "d13456ac49f2902267fade47720a1d7e88e22cda660fb3803f72d59c57b4e53a",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/Makefile"
+    },
+    {
+      "sha256": "68c5380336503ea96bf25dfd3ef2777088f0d4f8ab57f1aa740c670f8d5cfe89",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/README.md"
+    },
+    {
+      "sha256": "2216d08f80a2ddc1382902dbedc589e792b5d4a80da8f244448bb4140447ffa8",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/babel.config.js"
+    },
+    {
+      "sha256": "4c0f6d7a5e7021b88f4c8b54f491442bf80c1026828d03bfb68d9f5121b52c0b",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/package.json"
+    },
+    {
+      "sha256": "acdf5baef765f0dec63123f2ba7ba8e769176e4585d20683c9fda79930d80b8e",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/public/favicon.ico"
+    },
+    {
+      "sha256": "7d0b991ee3e0be7af01ad7ea8cd2beea6c00a25e679a0226b6737f079aafff86",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/public/fonts/Roboto-Bold.ttf"
+    },
+    {
+      "sha256": "79e851404657dac2106b3d22ad256d47824a9a5765458edb72c9102a45816d95",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/public/fonts/Roboto-Regular.ttf"
+    },
+    {
+      "sha256": "6c686e8bf7b5dea362490220d6e7a34db080ef926d6556e0e39fa0c1f2a17f50",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/public/images/svg/target_types/artificial_satellite.svg"
+    },
+    {
+      "sha256": "2db16de9932f831d5ebaa00df178254711cc6de92ac7113407e454658c0e59a0",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/public/images/svg/target_types/bright_emission_nebula.svg"
+    },
+    {
+      "sha256": "f5304be12f9fde0a004e848c1d417602af749a2c301d42ef9eda96915fab9833",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/public/images/svg/target_types/comet.svg"
+    },
+    {
+      "sha256": "4fd66401aae158ca304211dff8f4542578885fa78879c0dd52ed5c4f3912ce29",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/public/images/svg/target_types/conjunction.svg"
+    },
+    {
+      "sha256": "c1f02a8e2c664b75a3f7273f0f2919f371f66b798ad7f907f2b6fda5fabe8a47",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/public/images/svg/target_types/constellation.svg"
+    },
+    {
+      "sha256": "afb6d09beb6b0d7052c8ef67a5554b0a0c9762d0c8134639e88baf21aa5a0838",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/public/images/svg/target_types/deep_sky.svg"
+    },
+    {
+      "sha256": "36dd9758431d7e15841e3f05a36bd4d8de705e6ead50495b7a6a2189443bba04",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/public/images/svg/target_types/double_star.svg"
+    },
+    {
+      "sha256": "08c42cc1c134db46c8b7a0516dd7732927d2d2ccd188b5d645fb931e52cd2e0a",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/public/images/svg/target_types/galaxy.svg"
+    },
+    {
+      "sha256": "b99f32e3d186d8fbd30cdb3cb257857f6d8da3a1458a5e2b0ff5dff840f7ff70",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/public/images/svg/target_types/globular_cluster.svg"
+    },
+    {
+      "sha256": "1e5b8cc84a505909cecf4e20adf114c8cb9ba3d8161056b3044af87255e230fd",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/public/images/svg/target_types/globular_star_cluster.svg"
+    },
+    {
+      "sha256": "f39932229a1a224e323db0b7b1cfdddda5664866c6e6be5f315da0431335defa",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/public/images/svg/target_types/group_of_galaxies.svg"
+    },
+    {
+      "sha256": "2d7978b4dcc9d4ad76cc210d4097e6e0b69346d3ef713f455d73e99a763c87af",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/public/images/svg/target_types/group_of_stars.svg"
+    },
+    {
+      "sha256": "5c94ddc36764bb535260b8901317594a64b9e8416a08db829a108aeeecba5e23",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/public/images/svg/target_types/interacting_galaxy.svg"
+    },
+    {
+      "sha256": "343f5d8292adc885ee95eaed036315c2727c2ab2ccd7fff5249dc753065678f6",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/public/images/svg/target_types/interstellar_matter.svg"
+    },
+    {
+      "sha256": "bf1d009a3307c8c1bd0c4e609d3c3ea70bb8d2f2a09e8422155444ea337ccb97",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/public/images/svg/target_types/minor_planet.svg"
+    },
+    {
+      "sha256": "412397e494e506e006a3797cbe85615964d8abcec376ed1417d36ab062748962",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/public/images/svg/target_types/moon.svg"
+    },
+    {
+      "sha256": "7028d6e82b1ad39c5d40425e845f07d0cbb94aa77e32494176be5cb3824d4610",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/public/images/svg/target_types/moon_eclipse.svg"
+    },
+    {
+      "sha256": "802faefaea078a96f9eb41c3e150f2d6007792b8748e7426784e9b2b33308e47",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/public/images/svg/target_types/moon_first_quarter.svg"
+    },
+    {
+      "sha256": "07e92f557ff7332add6adc30b3b4fb6e1ce06ea31b1e35320239be9e8ba3c87d",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/public/images/svg/target_types/moon_full.svg"
+    },
+    {
+      "sha256": "75dc9de56a4b701b35acb2f34ae50e3a7f241f46875ef33026ee410644da3d0b",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/public/images/svg/target_types/moon_last_quarter.svg"
+    },
+    {
+      "sha256": "7f91b9a34e6d0c1cb15e80939ebf446825078c8f773db5966dfab7a1cfffd621",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/public/images/svg/target_types/moon_new.svg"
+    },
+    {
+      "sha256": "3208b612b8c4febfdc8979877a52d710d08156cf91f932e59f5fb31b721b3d98",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/public/images/svg/target_types/multiple_objects.svg"
+    },
+    {
+      "sha256": "2db4280430ed8289d037da5c0bab17386a398da1091a70f2b6d3937bf95205d2",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/public/images/svg/target_types/nebula_cluster.svg"
+    },
+    {
+      "sha256": "3019e6d80d870dd11833cb2ed2d3868440bd5fa257d74e42bc34b33693dd684f",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/public/images/svg/target_types/nebula_default.svg"
+    },
+    {
+      "sha256": "d41d9dc91b6e031f3db6348dd33f640d6f0ebea029924ad3d97008596b2bf4d9",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/public/images/svg/target_types/open_galactic_cluster.svg"
+    },
+    {
+      "sha256": "6e57023dd81d5b4759a8fbd285651cf05b888487b9af12260ec7bb58d255f136",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/public/images/svg/target_types/open_star_cluster.svg"
+    },
+    {
+      "sha256": "a8073c8ccc296cba9502e3774648ca07da5ca23fc795604fdcf6052350c02c9b",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/public/images/svg/target_types/pair_of_galaxies.svg"
+    },
+    {
+      "sha256": "ef1ad513cdb92837cbe8525912a33679acfddd09b21b8ce3080989ddbce80f49",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/public/images/svg/target_types/part_of_galaxy.svg"
+    },
+    {
+      "sha256": "d2caaec6844ac82f47d7b6c07cf253ace2589c35e2e05a41d333592a0e4bfc1d",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/public/images/svg/target_types/planet.svg"
+    },
+    {
+      "sha256": "bf35f7d5273c3b9ee6be5f2cfd2bed19f2194ec132646985b7fe545028632fa3",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/public/images/svg/target_types/planetary_nebula.svg"
+    },
+    {
+      "sha256": "501697588b19bfdf3c7741f0a7439ef76bd46f0949414db23426862b580e0c11",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/public/images/svg/target_types/quasar.svg"
+    },
+    {
+      "sha256": "251be1cd1feef506b7aed4f58176d5100bcff52acc504665d5fa2b8197a6f69f",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/public/images/svg/target_types/region_defined_in_the_sky.svg"
+    },
+    {
+      "sha256": "59e115e7aec52b49ae761e9ea8b3ca9a5379ead3626ec546c53d12f1292d0ea5",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/public/images/svg/target_types/shooting_star.svg"
+    },
+    {
+      "sha256": "8731cdc4dc021aef31fadd47004ceb5db49c882d33c5e5c01e8693883636d05d",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/public/images/svg/target_types/star.svg"
+    },
+    {
+      "sha256": "468262e3b513ff82bf1ec8864c53556634fa7c5d610ba6931fd8ca5a8e263ef8",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/public/images/svg/target_types/sun.svg"
+    },
+    {
+      "sha256": "ef8d0dad91c85ef079180322c0030c6c5f5aae75ba2840877947ec979753693e",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/public/images/svg/target_types/sun_eclipse.svg"
+    },
+    {
+      "sha256": "706af22c48b39196923f7d4648b7e538947f93f92f7b5e652939e4e18df6afc9",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/public/images/svg/target_types/sun_inf_conjunction.svg"
+    },
+    {
+      "sha256": "869a6d82acd4f786ce11a2fd7e845caa832745b22ed1955f4d95d17e3a12af65",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/public/images/svg/target_types/sun_opposition.svg"
+    },
+    {
+      "sha256": "d61acc876428a165e8cf05b1aa184ef2d959aabf90d29a1cf7ac378805944da7",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/public/images/svg/target_types/sun_sup_conjunction.svg"
+    },
+    {
+      "sha256": "318a11a4bb753d494af9a0ddbff29c35caf0233d1b18348e95ecf7b497fa4932",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/public/images/svg/target_types/transit.svg"
+    },
+    {
+      "sha256": "be782a33e8ca981bd0bc00b85640a9f796e712225f7bef2f552630ae890c978e",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/public/images/svg/target_types/unknown.svg"
+    },
+    {
+      "sha256": "23d58e7ef835934552e3c199ba43566c0e085353adb1b5400d8afa8bb8f8813a",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/public/images/svg/target_types/variable_star.svg"
+    },
+    {
+      "sha256": "706c7e72b9cfa692b9d249c98693b5ce67a237c577a6552553d1c8e41e5725c3",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/public/images/svg/target_types/vertical_alignment.svg"
+    },
+    {
+      "sha256": "f0907b8544193a048c49af9bd61f5f0dc24c00196e47ab7860622fd2d9a3ac48",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/public/index.html"
+    },
+    {
+      "sha256": "c7e3ae5f58818fc3a415265de4bfbf58e83a559e1af558cba49ba731c195d1ad",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/src/App.vue"
+    },
+    {
+      "sha256": "3efde03bd94b68c951e73bfd04dc33c0615aafd777eaf28a23e71ed0b2151283",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/src/assets/images/btn-atmosphere.svg"
+    },
+    {
+      "sha256": "4430504294cf8db9aa7b8f21fd8d87fdada3044c0da69f0e7e399e40d2092f35",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/src/assets/images/btn-azimuthal-grid.svg"
+    },
+    {
+      "sha256": "66df869ec8a76f77124eae61555904dde8400e725a2c04fa411321573f967821",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/src/assets/images/btn-cst-art.svg"
+    },
+    {
+      "sha256": "c1f02a8e2c664b75a3f7273f0f2919f371f66b798ad7f907f2b6fda5fabe8a47",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/src/assets/images/btn-cst-lines.svg"
+    },
+    {
+      "sha256": "6148fd7b87b7ee9c98e107999e873573a8e971f17a5fea8c0ee6a68280b67802",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/src/assets/images/btn-equatorial-grid.svg"
+    },
+    {
+      "sha256": "8960539d1c23e0a8c108c5d501a89f008c383aad88c1762b806000d5b2230d26",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/src/assets/images/btn-landscape.svg"
+    },
+    {
+      "sha256": "afb6d09beb6b0d7052c8ef67a5554b0a0c9762d0c8134639e88baf21aa5a0838",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/src/assets/images/btn-nebulae.svg"
+    },
+    {
+      "sha256": "8198b294d35151cfa9ccc94b9fbf9d59cbab84a50d7a8799309a36b2498ec24b",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/src/assets/images/btn-night-mode.svg"
+    },
+    {
+      "sha256": "cdc71e64ef47d7021f721991b84c49f60b9e9feebfd9a735812707b0e60b7fa5",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/src/assets/images/header.png"
+    },
+    {
+      "sha256": "83a2b115bad3202c196e077cc79642f64a230df884f97205ff5293d2b6e602cb",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/src/assets/images/logo.svg"
+    },
+    {
+      "sha256": "8324f090399f160087b95e654e6dc2cfb4420cfef09ab62d78f3fe4da7dfe814",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/src/assets/images/svg/ui/add_circle_outline.svg"
+    },
+    {
+      "sha256": "c309ebea9952a8995b942cc6a845ee03f692226a338d536ec053939ce179b5ec",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/src/assets/images/svg/ui/fullscreen.svg"
+    },
+    {
+      "sha256": "9f10c0c357ba3c46c811b9ac9b9251a6728f3c55f8b406b8412e5997a10239b1",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/src/assets/images/svg/ui/fullscreen_exit.svg"
+    },
+    {
+      "sha256": "8e5e5bafbf2e92c82f15be54c3a324deb5facd1365f5f4c4e45708ef1159569a",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/src/assets/images/svg/ui/point_to.svg"
+    },
+    {
+      "sha256": "5d74b3d0ed7391d7307a2a80d962376aa0504591e49cb4063f132af6afade4f7",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/src/assets/images/svg/ui/remove_circle_outline.svg"
+    },
+    {
+      "sha256": "bda2ebf3a001e4c573216e5ed040f0a7c48b764acbf2d7fe3cb07401334bdc75",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/src/assets/js/README"
+    },
+    {
+      "sha256": "1eccf63abe93d34124a4c2c9cceadd40f7bdaa5c2941d69077fcf0f458f67a71",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/src/assets/sw_helpers.js"
+    },
+    {
+      "sha256": "d24026c73d9fe3f96e2ceac7f32bbe1ed25f80aa87af9e460122fb85c5bdefde",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/src/components/bottom-bar.vue"
+    },
+    {
+      "sha256": "77aaac31c99d50fe516b5114daf00c1a865e9df3e0d9e832d64c6ee248e5463f",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/src/components/bottom-button.vue"
+    },
+    {
+      "sha256": "b5df2488817228342cdf256518da11959905bd0555e041b8ae02dbe23c8e0ac2",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/src/components/data-credits-dialog.vue"
+    },
+    {
+      "sha256": "8a67fe35f14ec7599b6ce40eb88355029633339575fb5e7f824e438353151d1e",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/src/components/date-time-picker.vue"
+    },
+    {
+      "sha256": "c5b85cb13d2418a7ec1f4222df681d993e009804d000db24f7f641c4ae0d8465",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/src/components/gui-loader.vue"
+    },
+    {
+      "sha256": "2a6ea2c4430189849e549cb863005caf6f4ed8e37d85eedbd28d98a58741164c",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/src/components/gui.vue"
+    },
+    {
+      "sha256": "af11edc59d39315f97b4941f18fad78869bac9d90ef2dfb4235bf0c26de0c6bf",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/src/components/location-dialog.vue"
+    },
+    {
+      "sha256": "307133f1b87aa4ff1f45391d888a2298931080f146c76649391f0a950a632f3f",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/src/components/location-mgr.vue"
+    },
+    {
+      "sha256": "80e1cd62475f014008c626b46d80ae2e9829dd27c465a13a3cfbe07baa3f819e",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/src/components/observing-panel-root-toolbar.vue"
+    },
+    {
+      "sha256": "0508f2d41b4d8c5fbee90749cffce25804966fff901339406c6e62967d3e0955",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/src/components/observing-panel.vue"
+    },
+    {
+      "sha256": "a4cc2319a235265b7c5aa8d9ce5e99a1981bcd325e9dc802a5c3a75f1674669f",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/src/components/planets-visibility.vue"
+    },
+    {
+      "sha256": "45b65ccd31b99a404284874f0069548dd0905fb9946a353a37320ca2e22b60fc",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/src/components/progress-bars.vue"
+    },
+    {
+      "sha256": "fcbab2663a110af0fefec01b48e3b177016fa0ccaabe4a1ec1d055237fe65415",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/src/components/selected-object-info.vue"
+    },
+    {
+      "sha256": "57106e3cc4ca0b2c60f1a9339f0c732b7a8e9262078b57e5db6f6b3d601e445d",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/src/components/skysource-search.vue"
+    },
+    {
+      "sha256": "a3293d02158d8385baae0bb23e5a753f55badf9d7364ccd6d9b11bfd47a93bab",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/src/components/target-search.vue"
+    },
+    {
+      "sha256": "3d994a8a8af9863017e9f2388439ab6ca09d3261748905c893b1b9bd1fc4096b",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/src/components/toolbar.vue"
+    },
+    {
+      "sha256": "d40eef712d7d423b136c66c582b0c23bb8980f517a8e5440152d8ee0b9bf44b5",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/src/components/view-settings-dialog.vue"
+    },
+    {
+      "sha256": "3f6f3ee77b5b4efec85930f6ef9bcafb465fd7fe61e1411b4b67cc6efed3187e",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/src/locales/de.json"
+    },
+    {
+      "sha256": "0ea6163b32c2a1243b21783747976c60ef441fef4e6004488371b2c3844e1482",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/src/locales/en.json"
+    },
+    {
+      "sha256": "246fd7db8c7fc7df52371dbc8b1e8795613196e0fd1039c1ade32b972c99499f",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/src/locales/fr.json"
+    },
+    {
+      "sha256": "d77030312a08da3f521da3185af68fc50fecd5bf75413bbaef3420f632fac964",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/src/main.js"
+    },
+    {
+      "sha256": "ccaa2fd92b4703b5258755a4602a7da83a7b3b42433923731298f4e5d9ac76e7",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/src/plugins/vuetify.js"
+    },
+    {
+      "sha256": "55d1a0b26f90cf569fe8569e8baa6f1db5d21fe601d39ff967703dab69b0848f",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/src/store/index.js"
+    },
+    {
+      "sha256": "6ec3f849712c0aa157282d1d2334a66aa763a1971a6611a61b62628a96a8e8e9",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/tools/update-i18n-en.py"
+    },
+    {
+      "sha256": "b5635f36e2430003469294ffa963433512b922e54a9b7a4d2ed49f2e926ac68d",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/vue.config.js"
+    },
+    {
+      "sha256": "1b430f088c8000d48afec73e8951f07b680c43a80121dccbc0676ca4fbf85d89",
+      "path": "vendor/stellarium-web-engine/apps/web-frontend/yarn.lock"
+    },
+    {
+      "sha256": "a9aea95b308707ac891c491fa8e6ab65c4cd870a5f835bd773fad545f884c15f",
+      "path": "vendor/stellarium-web-engine/data/font/NotoSans-Bold.ttf"
+    },
+    {
+      "sha256": "a614bc0b93185ca9bf013d45938fb26b8c32059118648cba6c9299431ccb382f",
+      "path": "vendor/stellarium-web-engine/data/font/NotoSans-Regular.ttf"
+    },
+    {
+      "sha256": "a5970d9bd29d9f759face196f9e16ba26dc04bee10ad93462d2963b6a818baf9",
+      "path": "vendor/stellarium-web-engine/data/font/OFL.txt"
+    },
+    {
+      "sha256": "2827df87090a03e003f1c6a5a721546bbfa445487e559974392244e41f3d37cb",
+      "path": "vendor/stellarium-web-engine/data/planets.ini"
+    },
+    {
+      "sha256": "afd10c8c422751da7495543dc04ae1c881f53cf2c96be1e5bc8151ab1e37a1c4",
+      "path": "vendor/stellarium-web-engine/data/shaders/atmosphere.glsl"
+    },
+    {
+      "sha256": "03242c3e5601f063a55c1d9b06d45486308b2a7bf654cb609365144a49bcc2b5",
+      "path": "vendor/stellarium-web-engine/data/shaders/blit.glsl"
+    },
+    {
+      "sha256": "392a78c99b77281cb79bb0195c28e3a81d40f59a7d6942076845563a395b01bc",
+      "path": "vendor/stellarium-web-engine/data/shaders/fog.glsl"
+    },
+    {
+      "sha256": "6febe702b1fab8ebabd8ef1f0e1c6848a8582c057771fc60d094bee6e6673e09",
+      "path": "vendor/stellarium-web-engine/data/shaders/lines.glsl"
+    },
+    {
+      "sha256": "4e03a6b83ee88ad84869076b56bc44714102efca1f74f867107815931c04482c",
+      "path": "vendor/stellarium-web-engine/data/shaders/mesh.glsl"
+    },
+    {
+      "sha256": "e14608e4942028d17bc9c21279c6a126c9b64c99cc0f535fe354a121a5578c3c",
+      "path": "vendor/stellarium-web-engine/data/shaders/planet.glsl"
+    },
+    {
+      "sha256": "f7bd3b284d2be6b83be0904f23bf7f9ea6fcc3c5c3df86ba831e325789d3b4bc",
+      "path": "vendor/stellarium-web-engine/data/shaders/points.glsl"
+    },
+    {
+      "sha256": "b03423f41ba01587bcae4ed452276c50629a1b7bb6a454e4631d08f719080323",
+      "path": "vendor/stellarium-web-engine/data/shaders/projections.glsl"
+    },
+    {
+      "sha256": "a26e95d4ed769475a8ce67db42ac90a6f104784da4f52fe396ab4c2ae8ac9ab2",
+      "path": "vendor/stellarium-web-engine/data/shaders/texture_2d.glsl"
+    },
+    {
+      "sha256": "cad0726c81f3bbfedcea68fab496b79f8b3eb06095c390af277d52e4704fb1b0",
+      "path": "vendor/stellarium-web-engine/data/symbols/artificial-satellite.svg"
+    },
+    {
+      "sha256": "56f2c69ab80341bb340b6be8c16df74076d8f7b7282f7282ae796be81da19937",
+      "path": "vendor/stellarium-web-engine/data/symbols.png"
+    },
+    {
+      "sha256": "144966ff528dc2ed233b040dda2c752b6f363b009128d30d2942e7f63e9cc5ef",
+      "path": "vendor/stellarium-web-engine/data/textures/earth_shadow.png"
+    },
+    {
+      "sha256": "9db03fba5f22708c3a112828e11b63ce187fff5f282dd5be37f30aeb7e4f654f",
+      "path": "vendor/stellarium-web-engine/data/textures/halo.png"
+    },
+    {
+      "sha256": "ec7f46aff6dd10180774b90d3a841290b15c4ded451feae6e7f958636000c301",
+      "path": "vendor/stellarium-web-engine/data/textures/saturn_rings.png"
+    },
+    {
+      "sha256": "861cdba4fd7e01c6fd6130ebf6bd6539d4f4fa0cf8d8ee51fb7e4e03342a2000",
+      "path": "vendor/stellarium-web-engine/doc/cla/ccla-1.0.md"
+    },
+    {
+      "sha256": "bcb0abd7fa6b6e84da2ec749521922ae942deaefbf1d5b34ccc805f8029bde90",
+      "path": "vendor/stellarium-web-engine/doc/cla/ccla-1.0.pdf"
+    },
+    {
+      "sha256": "14a2c7297435a4205ac6c629338cb544a67a648d2af701eaef4299673edc7cb5",
+      "path": "vendor/stellarium-web-engine/doc/cla/corporate/stellarium-labs.md"
+    },
+    {
+      "sha256": "dde7d3fd8ce44eb695a4d8cf2399f21f1fce385120c9cef45a6fcacf9486cb94",
+      "path": "vendor/stellarium-web-engine/doc/cla/icla-1.0.md"
+    },
+    {
+      "sha256": "0fc90bfe2f95e8db168bce7f3dfbf937ffb712beffea7ee4aeb857a2a73ab96d",
+      "path": "vendor/stellarium-web-engine/doc/cla/icla-1.0.pdf"
+    },
+    {
+      "sha256": "140a2dbfdc7ad2744dba10caa248ef9989332c2cfb6e3792599da73752c226f6",
+      "path": "vendor/stellarium-web-engine/doc/cla/individual/PawelPleskaczynski.md"
+    },
+    {
+      "sha256": "9a11120100fdb09358838345e52f5a35b613446590ebf0125da2e014d0bb8f16",
+      "path": "vendor/stellarium-web-engine/doc/cla/individual/alx-khramov.md"
+    },
+    {
+      "sha256": "fcef28ad31bb182115f5b240e409a2d41ce3b03a5e9fdbc448c165c92d9b6ba5",
+      "path": "vendor/stellarium-web-engine/doc/cla/individual/dreamalligator.md"
+    },
+    {
+      "sha256": "d84d47cde56d8a6c08d19a44858020e11a43c796e97df47c35e02ec4372bea31",
+      "path": "vendor/stellarium-web-engine/doc/cla/individual/template.md"
+    },
+    {
+      "sha256": "aa93e2ef0ee92bf0ec4a648df06eb74c7be36655ff948ffcd1024270c7e99184",
+      "path": "vendor/stellarium-web-engine/doc/cla/sign-cla.md"
+    },
+    {
+      "sha256": "3f401a4373e72a391f15bd7a48283fb3f87a2d9dea40a702aa2d332444e1bc21",
+      "path": "vendor/stellarium-web-engine/doc/internals.md"
+    },
+    {
+      "sha256": "169c6ecaecf8603273d91f01a0ffd35359d28fedaf6ab80e071b49af101f4f61",
+      "path": "vendor/stellarium-web-engine/ext_src/erfa/erfa.c"
+    },
+    {
+      "sha256": "0ad7ed10abd984794f3fae4dc2ad201476413f417c8dff84865eabf86ef1e369",
+      "path": "vendor/stellarium-web-engine/ext_src/erfa/erfa.h"
+    },
+    {
+      "sha256": "20d5525e7233ed38c312d3fc3ac27ddd3cc168057831d07462d13b383bbbc0ae",
+      "path": "vendor/stellarium-web-engine/ext_src/inih/ini.c"
+    },
+    {
+      "sha256": "e1a8bb7b5416679d756d0d055869d94787ae2f957ff14c2994cee9dd3b2892d5",
+      "path": "vendor/stellarium-web-engine/ext_src/inih/ini.h"
+    },
+    {
+      "sha256": "0d15c0af5a501ec629d9b62a7f11d8f3416659fe1e1f5b3f151ce8be5d294f0c",
+      "path": "vendor/stellarium-web-engine/ext_src/json/json-builder.c"
+    },
+    {
+      "sha256": "8cdb0de138cef883888ed17bdc2052651e3a294a5a1ffdb8af4505a37daa5894",
+      "path": "vendor/stellarium-web-engine/ext_src/json/json-builder.h"
+    },
+    {
+      "sha256": "28060729f6e958a63967fd4917931ba6a5771ea184cb116734c6a7d983e72355",
+      "path": "vendor/stellarium-web-engine/ext_src/json/json.c"
+    },
+    {
+      "sha256": "663eb04420fb2b29a3879367562f9abea3d4c4e84cc1f7bba900e8f8a6032aa1",
+      "path": "vendor/stellarium-web-engine/ext_src/json/json.h"
+    },
+    {
+      "sha256": "a37ad1d64d5b67940c6fb28391e518de0ac6189bf6a3e3d2251c92480391b848",
+      "path": "vendor/stellarium-web-engine/ext_src/libtess2/bucketalloc.c"
+    },
+    {
+      "sha256": "6c65cb76a0a373977a8f6db770cbd01bb04acc78b91d24f2fd9433a23a2a1b63",
+      "path": "vendor/stellarium-web-engine/ext_src/libtess2/bucketalloc.h"
+    },
+    {
+      "sha256": "c0c42d21ebd1f569e43dead6bd6f9fbc819858d93a172b8454adc735bf97d04c",
+      "path": "vendor/stellarium-web-engine/ext_src/libtess2/dict.c"
+    },
+    {
+      "sha256": "568d6fee66c8b84c96a31c162af427530c0f94a0997c22a6e91b8bb169eea68e",
+      "path": "vendor/stellarium-web-engine/ext_src/libtess2/dict.h"
+    },
+    {
+      "sha256": "dde7b6c157c1dad4e5442d86879554a41673887163e5cc3779da83ce239a276b",
+      "path": "vendor/stellarium-web-engine/ext_src/libtess2/geom.c"
+    },
+    {
+      "sha256": "c1f4cea66fa9cfb3f5940b365e21c9dbbe9ef65adc7b15c82b58d520ef8a6369",
+      "path": "vendor/stellarium-web-engine/ext_src/libtess2/geom.h"
+    },
+    {
+      "sha256": "359ed8f73e26a46af7e062db31559f5f0b0cc8eda996cd8ef9628943c96055b3",
+      "path": "vendor/stellarium-web-engine/ext_src/libtess2/mesh.c"
+    },
+    {
+      "sha256": "014eba46d11df1742a22cc50701727d9e36691f2019da8d09cae70c82ca5a837",
+      "path": "vendor/stellarium-web-engine/ext_src/libtess2/mesh.h"
+    },
+    {
+      "sha256": "a5c7c1532d3903277db4508df80e30ddcfe94176025995e4dfb5ea53fc5bcd75",
+      "path": "vendor/stellarium-web-engine/ext_src/libtess2/priorityq.c"
+    },
+    {
+      "sha256": "58cee55671d32336d16a26ca3344d4f08ecee68ed423998f5bf9aa7f70a94ef9",
+      "path": "vendor/stellarium-web-engine/ext_src/libtess2/priorityq.h"
+    },
+    {
+      "sha256": "5c5fad44b4101e8cef175ded3dc86ca0bdf1752e4eee14720e9fc8f16fb5aa44",
+      "path": "vendor/stellarium-web-engine/ext_src/libtess2/sweep.c"
+    },
+    {
+      "sha256": "8c2f315eb1954cd30289baadbe165d4b791c9ba45f73bce210734768c251735b",
+      "path": "vendor/stellarium-web-engine/ext_src/libtess2/sweep.h"
+    },
+    {
+      "sha256": "9c4dc4d9d7ab7950cbb325b7ef0332404dddf1cbed10bfa6f5390b58b0ae89e3",
+      "path": "vendor/stellarium-web-engine/ext_src/libtess2/tess.c"
+    },
+    {
+      "sha256": "080da19a996b218fc3297e31ec1f99ae26b915cf8ba92f58989f314573611dd7",
+      "path": "vendor/stellarium-web-engine/ext_src/libtess2/tess.h"
+    },
+    {
+      "sha256": "729231ccb2414932ae2cd399a6a6dbad65d75c0180426b0f8ef3e3ab58bf11bf",
+      "path": "vendor/stellarium-web-engine/ext_src/libtess2/tesselator.h"
+    },
+    {
+      "sha256": "fae391ac1d41c20eb26a1ac835455b4554ff197eb90baede17fd2de8ba2c4f4f",
+      "path": "vendor/stellarium-web-engine/ext_src/md4c/LICENSE.md"
+    },
+    {
+      "sha256": "bdb507a17438e13ef622e6df0425de2294caf12614934a1d83f2c3c1aa3ae480",
+      "path": "vendor/stellarium-web-engine/ext_src/md4c/README.md"
+    },
+    {
+      "sha256": "29633210e9e1a74568622b91bdc3902e3eb77a4e4763540b8b46a00b8cf05ad9",
+      "path": "vendor/stellarium-web-engine/ext_src/md4c/entity.c"
+    },
+    {
+      "sha256": "d2761bc931c68374b0119bd575c1363c7509e51c55b415fb159cf5f1505c0961",
+      "path": "vendor/stellarium-web-engine/ext_src/md4c/entity.h"
+    },
+    {
+      "sha256": "a75c580f7347a54404b73f0aadc458782d065e74b85d1879df78e3988dac838a",
+      "path": "vendor/stellarium-web-engine/ext_src/md4c/md4c-html.c"
+    },
+    {
+      "sha256": "832bf4421c00b0f308f5f6ee4744f6c684ab00a9bf277926442cec664a30e08f",
+      "path": "vendor/stellarium-web-engine/ext_src/md4c/md4c-html.h"
+    },
+    {
+      "sha256": "01247041988e0846eb5a1ba279460d44cef643626fd67a6d31a2433073122964",
+      "path": "vendor/stellarium-web-engine/ext_src/md4c/md4c.c"
+    },
+    {
+      "sha256": "3c811cf297f94834d646d5b5088bbf81bdd9c1626e61e4b7688ddca4c15d4f56",
+      "path": "vendor/stellarium-web-engine/ext_src/md4c/md4c.h"
+    },
+    {
+      "sha256": "fd9bd49c848d67422b809956bb9239b6068eb5802c89d74f82df72974c25ef3f",
+      "path": "vendor/stellarium-web-engine/ext_src/nanovg/fontstash.h"
+    },
+    {
+      "sha256": "025aa13cf7aa2cdda8f583f22f7d85e71602ea8d4fc85f1981d9b8395b355232",
+      "path": "vendor/stellarium-web-engine/ext_src/nanovg/nanovg.c"
+    },
+    {
+      "sha256": "f3097342d04d22b129c23a3da26332ddca0cd43e9518a31de3c2d4052e39c39a",
+      "path": "vendor/stellarium-web-engine/ext_src/nanovg/nanovg.h"
+    },
+    {
+      "sha256": "8f6ff1f2c1226eb72e34c4cd5c04a763fc01ed6c0ee8f64d98b6e663876fd5d6",
+      "path": "vendor/stellarium-web-engine/ext_src/nanovg/nanovg_gl.h"
+    },
+    {
+      "sha256": "13b6a4e231a54329fa16761faf822e9c6ee9938970b7b58c35442970e4ec51f7",
+      "path": "vendor/stellarium-web-engine/ext_src/sgp4/SGP4.cpp"
+    },
+    {
+      "sha256": "933a7ec9e1606262fe8b4e6513c15dc5ae86f05bd12a13b7d8f1928edca28ca9",
+      "path": "vendor/stellarium-web-engine/ext_src/sgp4/SGP4.h"
+    },
+    {
+      "sha256": "b763b2b402a2402052dae6ea3537b9854da64e12ec5695b7606a5a0c9d73a43b",
+      "path": "vendor/stellarium-web-engine/ext_src/stb/stb_image.h"
+    },
+    {
+      "sha256": "518ec0dfa974ea001296e350a718a217916cad483c6cd6642ac05e67719e6cfd",
+      "path": "vendor/stellarium-web-engine/ext_src/stb/stb_image_write.h"
+    },
+    {
+      "sha256": "7696824704cca78a018eb7164d1cba29b0f8780d802bc812979f5358c3463218",
+      "path": "vendor/stellarium-web-engine/ext_src/stb/stb_rect_pack.h"
+    },
+    {
+      "sha256": "7a8a47b3bc05295ec927164db3cb08c7f24d8e1f15093f4aa6239c50815725a5",
+      "path": "vendor/stellarium-web-engine/ext_src/stb/stb_sprintf.h"
+    },
+    {
+      "sha256": "a17db19635d137ca5f20da8ea2fbff41d478df6b36a77d6e4dd8ac7a8b865af5",
+      "path": "vendor/stellarium-web-engine/ext_src/stb/stb_textedit.h"
+    },
+    {
+      "sha256": "5f8a67ee35c62defed1e294d78284ec62e9f764a8a5fdc35d23ffb6b3083c3be",
+      "path": "vendor/stellarium-web-engine/ext_src/stb/stb_truetype.h"
+    },
+    {
+      "sha256": "ddc00d544937b2b7640339c356dcdb9372c33d204e0b5fb8ea6a95ae63729c30",
+      "path": "vendor/stellarium-web-engine/ext_src/uthash/utarray.h"
+    },
+    {
+      "sha256": "f894860eae9353447c21463304c45764d3c6633337af677cae9880b9b921ac0a",
+      "path": "vendor/stellarium-web-engine/ext_src/uthash/uthash.h"
+    },
+    {
+      "sha256": "8f6885d9e7aacab433f626d3677b890be506625488bc6d432f01e485c2e4193a",
+      "path": "vendor/stellarium-web-engine/ext_src/uthash/utlist.h"
+    },
+    {
+      "sha256": "8c063eebf86071f04c00a71831d41f64a61c5227fa45adc15345527d6d1206a9",
+      "path": "vendor/stellarium-web-engine/ext_src/uthash/utstring.h"
+    },
+    {
+      "sha256": "c82e4dfb6b430834ec15ee900ed3ea8a0e15d12ce73644b0c8ca2b805b4eaf49",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dec/Makefile.am"
+    },
+    {
+      "sha256": "e631ab9faa1ee068a9bacf748962a8a855f70b5fbc5da84eb6c0355d5836fa16",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dec/alpha_dec.c"
+    },
+    {
+      "sha256": "753495e6660a37a686c09e1bc7c24961ae3e5acf09098a4c98b25c54c7735a55",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dec/alphai_dec.h"
+    },
+    {
+      "sha256": "67227465fc9b383b7b44267ee0f8401a1f22765525a9f187714f9d83d248328d",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dec/buffer_dec.c"
+    },
+    {
+      "sha256": "19996c3a9fdd4e3ac53ab82874251a5c0e9384252e61bb9f7d957671d221a87a",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dec/common_dec.h"
+    },
+    {
+      "sha256": "f7a44c2feea65c04aa2ff2d93f9c8cf12fe30a25dcc11d2caca604ec48a3968a",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dec/frame_dec.c"
+    },
+    {
+      "sha256": "6d970b1a582b442d029be64351151b861373bfd3dd335abe4363148626286b67",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dec/idec_dec.c"
+    },
+    {
+      "sha256": "dca3b88cc6c601053a08a6530f063a573710a7e7184daecc5fa5736818f5e344",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dec/io_dec.c"
+    },
+    {
+      "sha256": "e20194c72c53190e8ed8dc63fc3c4a3fcc64fb785af63129db1ae339b0ceeb73",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dec/quant_dec.c"
+    },
+    {
+      "sha256": "a418e70f643ba246fdd23966fc86e5d03befefdb9a19b1a466b32e8163472636",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dec/tree_dec.c"
+    },
+    {
+      "sha256": "f801b7d1b1fb50222a8d32871f7752e2f5d785335aa91d3897b18a7e5e738cc7",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dec/vp8_dec.c"
+    },
+    {
+      "sha256": "23054e622322ea49aa2339939e5079a8c215d2dc3ba318b237964ffc025c528b",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dec/vp8_dec.h"
+    },
+    {
+      "sha256": "07375570e44f419f4ac6e9ad1aff7533aa0f3fa134a17b1772dba5b41d9c9d92",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dec/vp8i_dec.h"
+    },
+    {
+      "sha256": "4752046e053460bf15124e720ea919072a89c3432815cfc31a71606eec6a669c",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dec/vp8l_dec.c"
+    },
+    {
+      "sha256": "f333c86ec100e1f14df8171379b2da7ed684650260a003c88b2e8d9581c0b3c8",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dec/vp8li_dec.h"
+    },
+    {
+      "sha256": "f3d49c4d240c3116a15af231b0ba9a94f4e50809f131f671c60f3f764d9b1add",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dec/webp_dec.c"
+    },
+    {
+      "sha256": "eb3e4e20c43a84fa01aff31c9fff42d1ddb148d8bebecd735aca6bf3ab7db915",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dec/webpi_dec.h"
+    },
+    {
+      "sha256": "b74236908f7f673bdea75031740c8356ee44b39689ad06680ed5b51d7d19ff54",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/demux/Makefile.am"
+    },
+    {
+      "sha256": "fbca2e5199da68239109545da6eb441139baac5ddf073664c652f071d5e50f54",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/demux/anim_decode.c"
+    },
+    {
+      "sha256": "bb1b4d6c4e38d985c860d04d2ef0b6be88b2abc9bbb081cb1b1700d78bef9eca",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/demux/demux.c"
+    },
+    {
+      "sha256": "3b742e897b17b4d851635231bb0932a46d89cb84693049cb46c682c2d49179cb",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/demux/libwebpdemux.pc.in"
+    },
+    {
+      "sha256": "65ecf7b8a5872d15988246e6336f028c6fb07d896dd147c57144b978d065dd74",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/demux/libwebpdemux.rc"
+    },
+    {
+      "sha256": "696c6da25cd06b172236ff2d1b4f645eaef115525dc8ed91c4291ba549e8378f",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dsp/Makefile.am"
+    },
+    {
+      "sha256": "5e9b57772ff02121d1f3e6aebf7bd42eec71ebeacb58b402ea916ef44a6a2185",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dsp/alpha_processing.c"
+    },
+    {
+      "sha256": "2adf2690a1566496ef22e30bc3a63efc1b4c2445b74bd2df86a201fd4ad200c6",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dsp/alpha_processing_mips_dsp_r2.c"
+    },
+    {
+      "sha256": "8147f6132c0dc966f1780f6583c23efac60d06d884ba5b49c2702685b2a6068e",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dsp/alpha_processing_neon.c"
+    },
+    {
+      "sha256": "97935dcc5d9f4289e0b6e856f7e2928b52ae74de9d9db92bd8bfb11bbf5c3fad",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dsp/alpha_processing_sse2.c"
+    },
+    {
+      "sha256": "e1c2cbbf523ed8e53dde5a61ae9757921249222b80c80fa1ed11f701167d0f0e",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dsp/alpha_processing_sse41.c"
+    },
+    {
+      "sha256": "3c873bea0b16e025c9db76fb87275f53e360b83f47a1ae7192999f8c81919e3e",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dsp/common_sse2.h"
+    },
+    {
+      "sha256": "1669d170952f3d313a77ba537d2db6661adf77f221d7631faccefc248adf72bb",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dsp/common_sse41.h"
+    },
+    {
+      "sha256": "c126bf274f5732338ea4f4d4581f2d2726d615ba1ac66c138bcfe7956f3070cf",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dsp/cost.c"
+    },
+    {
+      "sha256": "b03052b4150db5e9e158f262b6ab6ee7ea08ea5ddff852a91e7b738abb1589eb",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dsp/cost_mips32.c"
+    },
+    {
+      "sha256": "ac16c50fa311232e81d90e28129a23396c3ffe0d0dfcf87dd6d0d5c027cac8bb",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dsp/cost_mips_dsp_r2.c"
+    },
+    {
+      "sha256": "15ac925f486e586ad9920368976d1eab46c765dbed385926d228012c886d2368",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dsp/cost_neon.c"
+    },
+    {
+      "sha256": "af139c519396ccd87ed794e039127f5f6752b1a557fbde46af213ecfd2ecdd88",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dsp/cost_sse2.c"
+    },
+    {
+      "sha256": "e5204d50d0862a08f3d77afabeb4f5c7a28570b4d4f86c023eaed20577cb95c2",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dsp/cpu.c"
+    },
+    {
+      "sha256": "5c5b1b70f78bf095edecbca12354d8ac470c060b131dac124b7d5d2b4db2753a",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dsp/dec.c"
+    },
+    {
+      "sha256": "f992789b06cfe259ba0e3cbfb9084b16f87590ecc7d0cf84be5f4481b74fd668",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dsp/dec_clip_tables.c"
+    },
+    {
+      "sha256": "45dc0f3837601998dff0ed51cad13552bbdc91fff63ef8dcbc766a585b26a563",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dsp/dec_mips32.c"
+    },
+    {
+      "sha256": "022025aa238585ee61f78aa4be3cc66ff70ec853a5c1bfc6b904c2d57bdb5102",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dsp/dec_mips_dsp_r2.c"
+    },
+    {
+      "sha256": "1b4da5dbde731b74d9b588cae77947384540ad3af993ba6d6b4fe1adb1e02874",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dsp/dec_msa.c"
+    },
+    {
+      "sha256": "4106861987e7167ae5a056e80deb6065c5c8a5636bcce758449392086a360912",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dsp/dec_neon.c"
+    },
+    {
+      "sha256": "e6078f09657e6fb0fa7c2c51f2c32189a4f0023e1d2e1d58b43207a177e2de66",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dsp/dec_sse2.c"
+    },
+    {
+      "sha256": "e1d940d47f066af5bdc032ff8dda4a448a244b33dc2445d026dda809fa7b1eda",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dsp/dec_sse41.c"
+    },
+    {
+      "sha256": "67b55df2a12d10dcc4b01371c29df9c99336257a9239c5c866345748f4a72834",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dsp/dsp.h"
+    },
+    {
+      "sha256": "b6db1881883db22841775d1e08762af2707f0a52bf7b21410971da8ff9187ccb",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dsp/enc.c"
+    },
+    {
+      "sha256": "b529b573b45d7b1de3f199f0bc7ea8817e5b7abc9d4e5f04849c39c67cc20e5a",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dsp/enc_mips32.c"
+    },
+    {
+      "sha256": "5b896b2c76ecdcfb501fd8ad653e29474556fb9614e9cead157a787cdcc396a8",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dsp/enc_mips_dsp_r2.c"
+    },
+    {
+      "sha256": "d9eb1e82a53d4cf18e82c323dc589ea8fcdda9760236667f2f48bafe2294769b",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dsp/enc_msa.c"
+    },
+    {
+      "sha256": "4e50d7d8e8cd44a4226988c194213c28199660bbc64814f34b90033946441295",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dsp/enc_neon.c"
+    },
+    {
+      "sha256": "5c78b3e280882f806348ea7b86ceeabe425eb9d8c53389af38e5d8b430d20fdc",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dsp/enc_sse2.c"
+    },
+    {
+      "sha256": "5cb12be11a230d9532e6a653d9bd2ff45e61562efe5779248c7b6ec0428d234c",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dsp/enc_sse41.c"
+    },
+    {
+      "sha256": "f6541978a47644c26018a6a88899cb17da19ef0eb1fc68a958a64434d15eeda8",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dsp/filters.c"
+    },
+    {
+      "sha256": "cef41d2b5ebaaa3325b35b9e60c9fa89e229471e96d6b7b2134a529e0bd0e311",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dsp/filters_mips_dsp_r2.c"
+    },
+    {
+      "sha256": "e147d17f7c8b2df75434495e0e5da78ad6925116f9e471808455fc8e35ceb134",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dsp/filters_msa.c"
+    },
+    {
+      "sha256": "5bf17d07c43db8b72cdecc060565812dd21c09c43702eb5a040f2fab11c13006",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dsp/filters_neon.c"
+    },
+    {
+      "sha256": "ebc84ed25d72e4a36b5087686dff01e4a21136deb97f9e3ff6bae9c9e8522f81",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dsp/filters_sse2.c"
+    },
+    {
+      "sha256": "5ed9bd3c0a97818d579d71462e83d1b37bb14a46ff8a596b8a302f7e7b23b23b",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dsp/lossless.c"
+    },
+    {
+      "sha256": "ef8824d0bb3555a875993f89a5c7957e68b50a2d3a8ba680804116f4658603b2",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dsp/lossless.h"
+    },
+    {
+      "sha256": "f7b4da52280b5faaf7446b3055f2ab51b33cb3640e095a43aefca71de2e4ab29",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dsp/lossless_common.h"
+    },
+    {
+      "sha256": "b810b9f2ebb58279217602fa25adb1628b7f448d8f589dc8ef562e34c539eb98",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dsp/lossless_enc.c"
+    },
+    {
+      "sha256": "53062f0aca010803b58f5f10f7448fe094225cf9c3d2438bb2a2d6d09d0fb145",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dsp/lossless_enc_mips32.c"
+    },
+    {
+      "sha256": "bd92f5ba6a41f7c34b1b9c024b97a3adec4552a897bbf391583aee8630b29386",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dsp/lossless_enc_mips_dsp_r2.c"
+    },
+    {
+      "sha256": "74e19906f6a20a165ee7463eec0dcb59959b3d1ba73e33781ac767b72d325076",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dsp/lossless_enc_msa.c"
+    },
+    {
+      "sha256": "0c0cffc9f9b7f9f9d864dd934044d91e054cdb128ea040d32b43df2a20fcda3c",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dsp/lossless_enc_neon.c"
+    },
+    {
+      "sha256": "4808609773948059df7c2c6d767c2987e95a3c30a6df74643a312ce5ac4be0e9",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dsp/lossless_enc_sse2.c"
+    },
+    {
+      "sha256": "b31c5ec7c43eaf8c355e0a23f92280eeb75485f84c6919406179aed83a270142",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dsp/lossless_enc_sse41.c"
+    },
+    {
+      "sha256": "b07e8a5f627cbe2189c32de62531d0db05468ef91bb1662f5c9de195e277ebba",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dsp/lossless_mips_dsp_r2.c"
+    },
+    {
+      "sha256": "d5de27716f4ecab01d798f2585fb53c96ace65dd87ee16de5b6c83644b9e38d6",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dsp/lossless_msa.c"
+    },
+    {
+      "sha256": "66cfcde7e3427faa10a27747154f4de71a14537149b9dc0b83519bc981dcfc19",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dsp/lossless_neon.c"
+    },
+    {
+      "sha256": "7675190f86c94a164b8619340f989c258270d3668f292c337703be539a865767",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dsp/lossless_sse2.c"
+    },
+    {
+      "sha256": "9afbca2bb1953a64d8deb95864014d9d4ac791490a7953779eaaf4588fd61293",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dsp/lossless_sse41.c"
+    },
+    {
+      "sha256": "a5ac40a73160ef132998ac44bb9f0c2ef18d736f5bea2e112feb7689051b7b73",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dsp/mips_macro.h"
+    },
+    {
+      "sha256": "99075db500e0c6832caae15ca3c469baf07c1c132791788d981da959c85cc44c",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dsp/msa_macro.h"
+    },
+    {
+      "sha256": "d38fd76e7748fcae3820fd289df431f48eb8e6fdba16fa5c6a39abb6893b32ae",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dsp/neon.h"
+    },
+    {
+      "sha256": "a8dab55d5225aab97f997b64de567d3baff17ed632fec39cd02b3897c6947ba1",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dsp/quant.h"
+    },
+    {
+      "sha256": "1a98662dc1b2e9d9846ddc50078639f96563ce4d1aa1c8cc913197bceb9f943d",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dsp/rescaler.c"
+    },
+    {
+      "sha256": "3e9fd97a4cbbca88f0d5ed1aa7f2e5e1bbee3de735f64382d506b6d40cc26290",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dsp/rescaler_mips32.c"
+    },
+    {
+      "sha256": "8abb6c9a5809f2bae4c3483e225190163b86b05ac9faba84d6156ab9617945b4",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dsp/rescaler_mips_dsp_r2.c"
+    },
+    {
+      "sha256": "0d0d90be6141f4f2f9c35407cbcd1317239469cc159e07b1abdcc138b8017b2a",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dsp/rescaler_msa.c"
+    },
+    {
+      "sha256": "d811ad91989fff5fb776b0cb6e87cde210b4b4c987fac86dd30b996a33f81c72",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dsp/rescaler_neon.c"
+    },
+    {
+      "sha256": "84fd5b8c47f141ecb56cf8edf709638b1761350ea4c4b78fa340c6e62daae15e",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dsp/rescaler_sse2.c"
+    },
+    {
+      "sha256": "e8b07dff00296fe9be046ef0b48745b710278e87122c8e8822d099ca4e354feb",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dsp/ssim.c"
+    },
+    {
+      "sha256": "80c08a3109e20a9bf9171c6382603cee8e5b1393a399383a0a09e52d9beef557",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dsp/ssim_sse2.c"
+    },
+    {
+      "sha256": "b106cb2c493956492bdef37b55f6a3fb4a1cd08adb5d05513e801ef6695ae84f",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dsp/upsampling.c"
+    },
+    {
+      "sha256": "31b60c8f9d865c96dc3cfe22d96a84c7e0ed3a6d040bfd2addcd8280901a7df3",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dsp/upsampling_mips_dsp_r2.c"
+    },
+    {
+      "sha256": "4bd70a1dd207ffef3580f05f7faabae0cf273b2ff0be5fb7712824dc90c886b4",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dsp/upsampling_msa.c"
+    },
+    {
+      "sha256": "e10079efa2908b0979252242b5f8cf40cceb37763831444cdbf60ab866a8227d",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dsp/upsampling_neon.c"
+    },
+    {
+      "sha256": "3970105b000fde633571c6dfd8c3fd02eb1e53f808dc6bc23322ed93797aaf5b",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dsp/upsampling_sse2.c"
+    },
+    {
+      "sha256": "8e7dcdefe49c720161e6c1669136547803657796bb585ea80e2f3c5fbb4203fa",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dsp/upsampling_sse41.c"
+    },
+    {
+      "sha256": "a927c581c688a056efee554c262f179c2814b8c446e5fd030f25f1ca3873f82a",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dsp/yuv.c"
+    },
+    {
+      "sha256": "7b8a46aeaf4b00d6cbb367bcb3f21cc36f350c5124684d717a32a97edb0ef4aa",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dsp/yuv.h"
+    },
+    {
+      "sha256": "94c5c31d5b6803724c2412606075b2af6242ca6af237ec11969737510e62e80b",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dsp/yuv_mips32.c"
+    },
+    {
+      "sha256": "62ffa70aaee9d1926d6c6ace1f0bceae2b600905affcde375ad05a7675eade62",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dsp/yuv_mips_dsp_r2.c"
+    },
+    {
+      "sha256": "f00a9fb0a87d62ebdee81c0e89a187b275da0d814153331a3ed2c88f257efb33",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dsp/yuv_neon.c"
+    },
+    {
+      "sha256": "46091cc55c1f9b636da2a821afbb7e63da06fda0dfb0a88a0d685218ad5a55a6",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dsp/yuv_sse2.c"
+    },
+    {
+      "sha256": "087f9f80527b54208e97564cfa3ea06da5b7bcc40d50d51978858b727da804f9",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/dsp/yuv_sse41.c"
+    },
+    {
+      "sha256": "e06fbafe9d3e0b1daee3da7f4463c2743ca5586356e6b3a808a28ffc866a1df3",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/enc/Makefile.am"
+    },
+    {
+      "sha256": "2dc5e73c9a348c304ccaecbe1bbb87e4cf219648e2bfcc9a86acce43d34e1fbc",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/enc/alpha_enc.c"
+    },
+    {
+      "sha256": "16d3969115cc641efb2c729ecf77f3605a39e8e2e86665ad07f434fff3a1a27d",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/enc/analysis_enc.c"
+    },
+    {
+      "sha256": "6525bd4469201a63a070ab0b27d15de8af3849922338e954dcb16438a465c14c",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/enc/backward_references_cost_enc.c"
+    },
+    {
+      "sha256": "66f03c686f0d0a176a925aa5d59b8b5b4b59913766e91ce3fac79643dd5d0add",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/enc/backward_references_enc.c"
+    },
+    {
+      "sha256": "77b79dc6597a10cc85d2b43d5af7e39f4a4453742f024eb3548972ba3cf0255e",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/enc/backward_references_enc.h"
+    },
+    {
+      "sha256": "a7b3dc8bb3c0d3af72241533e216b2d7659aecd675a90370e03f34b05326a3a2",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/enc/config_enc.c"
+    },
+    {
+      "sha256": "f9cdf895e2f0910400e0d44176c957eb223cddfe3a7bbe5ca2799774cde553c6",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/enc/cost_enc.c"
+    },
+    {
+      "sha256": "a40950d41a8ca9f077144f8aa340cf6cf8f85cb3333bbffc5583cbef380165cc",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/enc/cost_enc.h"
+    },
+    {
+      "sha256": "4bebb5557a39cc6c73561fc5fc694c359e48556d8203965907ee3d62a66a3903",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/enc/filter_enc.c"
+    },
+    {
+      "sha256": "22a779e50fe6eb64d42b113d63464450ca2d1761007023fa6d221323d52ceca3",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/enc/frame_enc.c"
+    },
+    {
+      "sha256": "460c2e2a09a708d63511970082a88ab336889a4364f771a4f87742b137d1a4f8",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/enc/histogram_enc.c"
+    },
+    {
+      "sha256": "2cbe87d4de1adf1d6fb3a2b6b5054ea5bac872e0958a1e0f1f6e7a85793b8d02",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/enc/histogram_enc.h"
+    },
+    {
+      "sha256": "c8ac78a63b3d695f6d744e20d8f4cb4a114dc8dd4d4bfd723e66555403904ed7",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/enc/iterator_enc.c"
+    },
+    {
+      "sha256": "06146bf253f88b0c61f145727b8018a7455742109baf5c8e0b3cb8b68302160c",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/enc/near_lossless_enc.c"
+    },
+    {
+      "sha256": "abb4d6ccd660337f0fad74ce7c4dca4935493c6891c4c391f8676e93427ae2ca",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/enc/picture_csp_enc.c"
+    },
+    {
+      "sha256": "36a71aaaf05d759ed4b8c3469f7989cbaf8673ffac5ace38c241cb7f24cf8bce",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/enc/picture_enc.c"
+    },
+    {
+      "sha256": "fd3e5385c7be8cac59eddf027dd026fc777a97b605dbe8fa94607d3e953b58f5",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/enc/picture_psnr_enc.c"
+    },
+    {
+      "sha256": "f30d5464ddb6dd56594e50b5b2bdbf57b56d1363ecacd599f03d9fce3e04972b",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/enc/picture_rescale_enc.c"
+    },
+    {
+      "sha256": "6161ca853e67f017d1444ad275971784539ec74efd62cd85115a6a92cfabacf8",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/enc/picture_tools_enc.c"
+    },
+    {
+      "sha256": "274fccb5f3162ec993cfc13765d55b68c377a0be63af6f4759212de6236c29c0",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/enc/predictor_enc.c"
+    },
+    {
+      "sha256": "aa2030fc607ae19eef86653511ca5ca20297abccb77ade3d353a05096f72d829",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/enc/quant_enc.c"
+    },
+    {
+      "sha256": "b62651c505be7b949cee9e7634a1408651a518462dacc7df848257e228265534",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/enc/syntax_enc.c"
+    },
+    {
+      "sha256": "a78e05c774c80741398b9df361d151c0fd3d5a1a00977d4ca44f3df9b52b3c8d",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/enc/token_enc.c"
+    },
+    {
+      "sha256": "aa27c682bf85829199d023545dc4384af1d601b124a5257ae3c509038f77911c",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/enc/tree_enc.c"
+    },
+    {
+      "sha256": "145a05546f73f436df84c9100bb5f0b88a5bd75d7d8760c860660b2ca3c9afdf",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/enc/vp8i_enc.h"
+    },
+    {
+      "sha256": "af52e0970d3321bfc7fb6dd589bfc984f203bd7a00ffade23c0ce1c20dc81894",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/enc/vp8l_enc.c"
+    },
+    {
+      "sha256": "ddf6c0804be9606dc5edc856246bb1eee2fca49dd35abad3bb9df6b9b50d204c",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/enc/vp8li_enc.h"
+    },
+    {
+      "sha256": "43ad480a0da50873860c1a5745c688b2bb840cc20732c0697364ba5a8c2bea43",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/enc/webp_enc.c"
+    },
+    {
+      "sha256": "510b1a2be5c5f6a912b8c6180125e101eff0980d0532a8023a7278012e17ce53",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/mux/Makefile.am"
+    },
+    {
+      "sha256": "6c8bebedf6420491f04bb05e63cf3bc8ec73fcef2cf322c759f5880e809f0d4b",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/mux/anim_encode.c"
+    },
+    {
+      "sha256": "6178a80ea8bbcfc662bb7868153eeffd90dfb96b475807e927635ec332cc5fd6",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/mux/animi.h"
+    },
+    {
+      "sha256": "41ba98cd21ea5d48635fa1754e1b0878129e4ddfc2589f3dc56c9d375262bc78",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/mux/libwebpmux.pc.in"
+    },
+    {
+      "sha256": "b7b9101945c542187fc6f1f6899bab6eb57d11617ba1cd40bd967a002e7ab4da",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/mux/libwebpmux.rc"
+    },
+    {
+      "sha256": "f8b458fb110003a09595f68d9a436ac3a1c750d8b9a27879a9bf29c395c71e61",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/mux/muxedit.c"
+    },
+    {
+      "sha256": "6808b7ac3718cd6c15d0ec9b37fe5782b6517b0b2b31043b38d5865d4acb9ce9",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/mux/muxi.h"
+    },
+    {
+      "sha256": "d4a08f32880349c7587674fafb4d3b68f71f7e820c8377ac5e8ac918fb9223c1",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/mux/muxinternal.c"
+    },
+    {
+      "sha256": "4e88a85a92c18db98bb705c03abd4c3709a48e90bf44f884d4d2119d206038ea",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/mux/muxread.c"
+    },
+    {
+      "sha256": "e87edda40f005a617c4b68b5037ddffd622c3aceebd0bcd18298d54a4da96e80",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/utils/Makefile.am"
+    },
+    {
+      "sha256": "51d391a54ab367de4727787c8abd281df954596d2e988311bb672c9fe1f39338",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/utils/bit_reader_inl_utils.h"
+    },
+    {
+      "sha256": "fe43b4c247c15c9448d5705f8e140089c6163c24ba63c04b6e364de15cdf5a0a",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/utils/bit_reader_utils.c"
+    },
+    {
+      "sha256": "9e119477a451f4e5390b61f2b7db2323f16a3c56150e0dc78d0da254f6f28b73",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/utils/bit_reader_utils.h"
+    },
+    {
+      "sha256": "9574cedefd6e047d148983a0e33d91500d209678efe571ced1e5af35517e2128",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/utils/bit_writer_utils.c"
+    },
+    {
+      "sha256": "55988e60fd8d03901206c7f86028cdba22dbfeb2a06b819f27f463fe7f5be3a7",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/utils/bit_writer_utils.h"
+    },
+    {
+      "sha256": "f4a6d8c9d0931bfabe1211f062969a2c5d5841f8da5b7abae4e9d1c9372d03e2",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/utils/color_cache_utils.c"
+    },
+    {
+      "sha256": "9afc4021e13675cec0aaa10e5ffd694ea5cd6d5ce2d4391dfe3bffe772cc7cd7",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/utils/color_cache_utils.h"
+    },
+    {
+      "sha256": "70835944bb228fb7498604be84494412aa93e56d0823da1689a28954ea1ac33b",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/utils/endian_inl_utils.h"
+    },
+    {
+      "sha256": "b656a558e40ae48bb5f04b4988df862bdb5fddca8fe17c18c51f6bef37042ffb",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/utils/filters_utils.c"
+    },
+    {
+      "sha256": "ba36601c5960306d02d33c2b7b444d99f45caaa6d9c840cee89fc7e4dce1ba09",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/utils/filters_utils.h"
+    },
+    {
+      "sha256": "8e4af4f01327a9386e1ef9e4ce01e063340cc042926c68ec7b0599e844744919",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/utils/huffman_encode_utils.c"
+    },
+    {
+      "sha256": "966a0a8507b38a87680d7481e76a5a2a25154bc6d81d993e22e42949a48a497c",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/utils/huffman_encode_utils.h"
+    },
+    {
+      "sha256": "49fc1b48392eaec4ad9b5c2b8ccf9a24cdca5d3dbe990794e522122dcca9325a",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/utils/huffman_utils.c"
+    },
+    {
+      "sha256": "372cfb12f27abb328e390f5c4cde4ce3a405d683d14f43b8e1e7ef558a728c33",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/utils/huffman_utils.h"
+    },
+    {
+      "sha256": "3c5a0b6a4d4c18c5f2b32f9a28a11dda59d41bc652af19852bdd855515f49caa",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/utils/quant_levels_dec_utils.c"
+    },
+    {
+      "sha256": "5586bf3aa4341aedb67cfde98ccd08f157092c78e746c4b2e765a848666068dd",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/utils/quant_levels_dec_utils.h"
+    },
+    {
+      "sha256": "0d45f3c31f820264be576d9de47b99e30f2d49c48663d0278b1f6d709ef0db8e",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/utils/quant_levels_utils.c"
+    },
+    {
+      "sha256": "be0e849b9a751b7bf5c5bfaef5ad47f37e4ca6a356ae1ffdb81ce679dbf029cb",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/utils/quant_levels_utils.h"
+    },
+    {
+      "sha256": "565b13127bdd93862c8567d68d8ab668b1042ec03a7c85eb01ed513e29ac9355",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/utils/random_utils.c"
+    },
+    {
+      "sha256": "5c626f0da7f4b4a8b8e99234718abeb63f71fdc7d42a6b0112c4ce99177b4eb3",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/utils/random_utils.h"
+    },
+    {
+      "sha256": "e086f277193e5766769ab832e5838d8c77fae1485f902ae6d85ec090fc9a4b80",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/utils/rescaler_utils.c"
+    },
+    {
+      "sha256": "fd55e6048a9f452233e70b5677df8d6f0abe70d3325d8e0289260cbdcd7f720b",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/utils/rescaler_utils.h"
+    },
+    {
+      "sha256": "812ff24a58121f841cf18d3ff2541e8b1ee9e69c4c5e6c369b31ead14b27542c",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/utils/thread_utils.c"
+    },
+    {
+      "sha256": "7449f0b53ba2d4597853557d974d912b9d6ef59094735938bcdb90f05f8cc800",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/utils/thread_utils.h"
+    },
+    {
+      "sha256": "a35c59ee2d58b3ad7dd239f02361ff2dd2003f5106f30326b9955bf9e2aa3f30",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/utils/utils.c"
+    },
+    {
+      "sha256": "eacfdef74d1ee280cd279192a69d7b5dd81b898f811ca58d518946b0b023499d",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/utils/utils.h"
+    },
+    {
+      "sha256": "0bd2f8f004c6eb7461b016dfb8b2e9d814bf683f1a539f04c2b2432e7e855973",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/webp/decode.h"
+    },
+    {
+      "sha256": "ce7ebcda104de0b1a23c8f9fd790ed1b3d183c587b20e25177155b242d12c1ce",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/webp/demux.h"
+    },
+    {
+      "sha256": "473951ddd5e4a8b18af9e48ab5cfef1a9013031f692b8c57123865a7af02a387",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/webp/encode.h"
+    },
+    {
+      "sha256": "1253d3e2cc8f3105dc2547cb039810f377c6e67fb5ad15f28d9d572bd4e5d714",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/webp/format_constants.h"
+    },
+    {
+      "sha256": "def29519b2bd3ac1f6f2b64492f243f2f0dcd7e6dc6e66077fb668f41297ab56",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/webp/mux.h"
+    },
+    {
+      "sha256": "710a01b7778ca9d16883495b3cf868848e46348dbd35d6d3b0a0005a5188ab6a",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/webp/mux_types.h"
+    },
+    {
+      "sha256": "7bb142e952db31d985b15ee2f0a1a558d67257af5e54b8b837cf13deaaaeb453",
+      "path": "vendor/stellarium-web-engine/ext_src/webp/src/webp/types.h"
+    },
+    {
+      "sha256": "77f6a3cb057ed493c15a268ef66a08ca0f28c44c427018e3cf2f22c92e69ea8f",
+      "path": "vendor/stellarium-web-engine/ext_src/zlib/adler32.c"
+    },
+    {
+      "sha256": "c01699a9a671f3660aeef7d569a84cd37c70c978ae235426d6f78c01b19a42a6",
+      "path": "vendor/stellarium-web-engine/ext_src/zlib/compress.c"
+    },
+    {
+      "sha256": "a725577fc519a6280ad0cdc6006fc248749bda46534a2d5ab0eaba2e1744cabf",
+      "path": "vendor/stellarium-web-engine/ext_src/zlib/crc32.c"
+    },
+    {
+      "sha256": "cb2e444abab6cb8672a11c33ca46dfd6c3f3d6106be11524225b3ab99542cbcc",
+      "path": "vendor/stellarium-web-engine/ext_src/zlib/crc32.h"
+    },
+    {
+      "sha256": "8ac2529abc4becd55620976c858c1073945621075a0e05109d5ccdf868eb4a07",
+      "path": "vendor/stellarium-web-engine/ext_src/zlib/deflate.c"
+    },
+    {
+      "sha256": "11debb027e14f744d9f50d31717f6af3869e2b98019d51203fc7c3e519884e75",
+      "path": "vendor/stellarium-web-engine/ext_src/zlib/deflate.h"
+    },
+    {
+      "sha256": "b2ef2ec6d461cf301480e3cfb36d8b4aafc2a3b8b6a937720774264bf6cb3059",
+      "path": "vendor/stellarium-web-engine/ext_src/zlib/gzclose.c"
+    },
+    {
+      "sha256": "10e384a35288c61595a9647decfd51119b69e576047a9d52028b11486c485544",
+      "path": "vendor/stellarium-web-engine/ext_src/zlib/gzguts.h"
+    },
+    {
+      "sha256": "06de4b0b6162465c4f8c27aae03d1a700227c4e83c202421fea8fc1c9798d272",
+      "path": "vendor/stellarium-web-engine/ext_src/zlib/gzlib.c"
+    },
+    {
+      "sha256": "8483a49d92b9c933fd90cb153302d2c96e43155b35254dd2fa59beaed2188059",
+      "path": "vendor/stellarium-web-engine/ext_src/zlib/gzread.c"
+    },
+    {
+      "sha256": "18ea7246c3fa8b49de778638fe0e14dd0ff0f2154d23f752550a84964e8d8d33",
+      "path": "vendor/stellarium-web-engine/ext_src/zlib/gzwrite.c"
+    },
+    {
+      "sha256": "477e5799b4668ca95c9eb102f45b776d69173923dd8ea9cbed097e2711ae86a4",
+      "path": "vendor/stellarium-web-engine/ext_src/zlib/infback.c"
+    },
+    {
+      "sha256": "b3a70f46437d977f226efb15462a6e891a6b482aaff0617e402dfcdbae772fa1",
+      "path": "vendor/stellarium-web-engine/ext_src/zlib/inffast.c"
+    },
+    {
+      "sha256": "69826e9bcdf9ae6a774d8eca4ae2e7f9f7a3c6f77f5d1f30de24b96a2c818780",
+      "path": "vendor/stellarium-web-engine/ext_src/zlib/inffast.h"
+    },
+    {
+      "sha256": "869a9f968e6b85ce2a2364db6325a35eb0f5b283727b40ac74d2cf053f364124",
+      "path": "vendor/stellarium-web-engine/ext_src/zlib/inffixed.h"
+    },
+    {
+      "sha256": "fca92513e8608fba48bfc7a801261a3175b0d42f8de3a5d73231f653a18c8294",
+      "path": "vendor/stellarium-web-engine/ext_src/zlib/inflate.c"
+    },
+    {
+      "sha256": "8aed60896e5329c8af371c5ce8849d22346067fd580d9a488205d0ed3aeead0a",
+      "path": "vendor/stellarium-web-engine/ext_src/zlib/inflate.h"
+    },
+    {
+      "sha256": "fe80cd74aac2dc0606193486e6bc964797a7abef32724961883a39ec304e30de",
+      "path": "vendor/stellarium-web-engine/ext_src/zlib/inftrees.c"
+    },
+    {
+      "sha256": "d7066eba83ae46bd5e290e58ee2b39c692cc8c8466940c176665421420204e8c",
+      "path": "vendor/stellarium-web-engine/ext_src/zlib/inftrees.h"
+    },
+    {
+      "sha256": "c6c1b3beda92808b38e18f998ebf389d7afd7b30d5eedd6d3c953fcccc4ba30d",
+      "path": "vendor/stellarium-web-engine/ext_src/zlib/trees.c"
+    },
+    {
+      "sha256": "ef4025453d5e62f39da4f7d0a04cd256e9091c8d2aff5aada59c31c22491e4dc",
+      "path": "vendor/stellarium-web-engine/ext_src/zlib/trees.h"
+    },
+    {
+      "sha256": "3ff9dadc2a31219f7c31a474130ae73ff3db125e16eb9c22137d42ad0ab9a19c",
+      "path": "vendor/stellarium-web-engine/ext_src/zlib/uncompr.c"
+    },
+    {
+      "sha256": "de38c0a2242acb2b925c42481fff3853cc24efa7ead54b422ee6ed3a203ce2d1",
+      "path": "vendor/stellarium-web-engine/ext_src/zlib/zconf.h"
+    },
+    {
+      "sha256": "86c26fd89560f7c2d9ee7852cacdbc7c8334c3090a6e18e366e7618351a0dbf9",
+      "path": "vendor/stellarium-web-engine/ext_src/zlib/zlib.h"
+    },
+    {
+      "sha256": "1cf92ee1874877e8f4ae3124c7ad1131459d2388440bfd8bc5752a4d9b960ae1",
+      "path": "vendor/stellarium-web-engine/ext_src/zlib/zutil.c"
+    },
+    {
+      "sha256": "92b711ca09e759c27d7c43626a4e0d3f52f84e400319d12ff9ee488ca4c23e95",
+      "path": "vendor/stellarium-web-engine/ext_src/zlib/zutil.h"
+    },
+    {
+      "sha256": "df3b2ffe909da9a153feb2adaa027ba44e31202764dfd9b2ac2345557659f9c3",
+      "path": "vendor/stellarium-web-engine/src/algos/algos.h"
+    },
+    {
+      "sha256": "bce61005f2656e4dd0f365314a0669f8e0c3d5b197a65cac6432ae91f5ec00dd",
+      "path": "vendor/stellarium-web-engine/src/algos/bv_to_rgb.c"
+    },
+    {
+      "sha256": "3baed17a9e8832b17c828b3002b12602a0e59dfa9e026704a22bf36acf2c4ab4",
+      "path": "vendor/stellarium-web-engine/src/algos/cst-boundaries.c"
+    },
+    {
+      "sha256": "34c460932265823e05c5c8ec9a0afbbf5a500f0c53b0e66c22e5e4c09af40b2c",
+      "path": "vendor/stellarium-web-engine/src/algos/deltat.c"
+    },
+    {
+      "sha256": "059ce1a34caa97086a49988476f67c1f68920b9827ea82b3d649fb9ee37185b6",
+      "path": "vendor/stellarium-web-engine/src/algos/format.c"
+    },
+    {
+      "sha256": "0cc27831e6958b656795080021c5836eb62153a643f1e8780448a842da8bb6da",
+      "path": "vendor/stellarium-web-engine/src/algos/gust86.c"
+    },
+    {
+      "sha256": "e155816ec38296c4694e06b6df69813f9c2a3485a0c1228ee7c94081b6b96857",
+      "path": "vendor/stellarium-web-engine/src/algos/healpix.c"
+    },
+    {
+      "sha256": "72f04c7fdfd03462d928a9db54f2a8edc3dc0d53bf5a565787ec70e7f6056264",
+      "path": "vendor/stellarium-web-engine/src/algos/l1.c"
+    },
+    {
+      "sha256": "3b9c691fbb87b8396b075849c288dd06b93a4f63f336bc746342cb8a75eb7e4a",
+      "path": "vendor/stellarium-web-engine/src/algos/moon.c"
+    },
+    {
+      "sha256": "2537df3855549c0fa4fbb78aa56a205e250e12aca9df71a5ffe33d8fd9ac54db",
+      "path": "vendor/stellarium-web-engine/src/algos/orbit.c"
+    },
+    {
+      "sha256": "95f0f4dc8ca18ef9189db14b009f86437df36ce7083d1b306a7c9037d80c70ba",
+      "path": "vendor/stellarium-web-engine/src/algos/pluto.c"
+    },
+    {
+      "sha256": "fde5b83a1a92931572c119d514b1b7180b838fe519c89dabc8b9a905e89c1709",
+      "path": "vendor/stellarium-web-engine/src/algos/refraction.c"
+    },
+    {
+      "sha256": "291f9f9596b453231f130e8238d620d301f282ed9472acc74b40dedbdba8e773",
+      "path": "vendor/stellarium-web-engine/src/algos/satrings.c"
+    },
+    {
+      "sha256": "81cf59bcec09ae04e704bfed0c556c1b45886f2b73d0384adfb8e71c38eb4129",
+      "path": "vendor/stellarium-web-engine/src/algos/tass17.c"
+    },
+    {
+      "sha256": "d4cfac76a3bb9ce3d7c1a2b59f4e1fcfc4e276aaa4c7192150e1861cd50fbbc4",
+      "path": "vendor/stellarium-web-engine/src/algos/utctt.c"
+    },
+    {
+      "sha256": "617e7592fa5c22da420a16585a68d168da316c1201c53d09138ae3ee2ed4b080",
+      "path": "vendor/stellarium-web-engine/src/algos/utctt.h"
+    },
+    {
+      "sha256": "c9b04db53a82679c72b80927f13293c578630b4c336ad0bbdef5251ef6c2a073",
+      "path": "vendor/stellarium-web-engine/src/areas.c"
+    },
+    {
+      "sha256": "74cd44e658c4d5e47d49e648386866cd66d2cbe4e6cd83f013e3297ab78b46b3",
+      "path": "vendor/stellarium-web-engine/src/areas.h"
+    },
+    {
+      "sha256": "8b00e74e0fd13050c2c76431604f15ab30792f7e6e86d45e26f7052d77cf89d4",
+      "path": "vendor/stellarium-web-engine/src/args.c"
+    },
+    {
+      "sha256": "bbe906784b75ffcf56f06b7a5be09035c1479c6b2dba72b9389c55e77a73051e",
+      "path": "vendor/stellarium-web-engine/src/args.h"
+    },
+    {
+      "sha256": "c32131bb8a4c9c595511ac7de42e02b2758b96768292b9a8aa22b705df096eb9",
+      "path": "vendor/stellarium-web-engine/src/assets/font.inl"
+    },
+    {
+      "sha256": "46d2fa3ae6fed3eb4ac91e67531b4f527c851f36bbe88284b2f78062e9462ad6",
+      "path": "vendor/stellarium-web-engine/src/assets/planets.ini.inl"
+    },
+    {
+      "sha256": "ae9e87c9bff26df6bdbf0753cfd51cec4e7843c08fe7e3670712524686b469c8",
+      "path": "vendor/stellarium-web-engine/src/assets/shaders.inl"
+    },
+    {
+      "sha256": "d277bf97c33d364f5c9b9b4d23b0bd4e654d48330450e89fd4aaafc155dfaf84",
+      "path": "vendor/stellarium-web-engine/src/assets/symbols.png.inl"
+    },
+    {
+      "sha256": "254dc2f24628f41b82cdd990a99e092ecfd553d24e580ba775dc63f184aa10db",
+      "path": "vendor/stellarium-web-engine/src/assets/textures.inl"
+    },
+    {
+      "sha256": "85f882880cb2ce40a72941b67a70af071112f376843b6629eff84b466cafb8dd",
+      "path": "vendor/stellarium-web-engine/src/assets.c"
+    },
+    {
+      "sha256": "e07c50acf1fd8117236b8cc83724ae36f92a38ee2ef1955b42c98c9ecd097558",
+      "path": "vendor/stellarium-web-engine/src/assets.h"
+    },
+    {
+      "sha256": "aeefa5147b4defe9fe2df33aaaed39040a51796092087d0a3c0e6030f0810fbe",
+      "path": "vendor/stellarium-web-engine/src/config.h"
+    },
+    {
+      "sha256": "d8b0df565edc9de88203a16dfd3824abaa9e47e19d1b7600a67e4dfbbee06e32",
+      "path": "vendor/stellarium-web-engine/src/constants.h"
+    },
+    {
+      "sha256": "761170757edf3b8f54fd9fcdd514cb13c372933f3f75f174a7e7fe164c39e479",
+      "path": "vendor/stellarium-web-engine/src/core.c"
+    },
+    {
+      "sha256": "7a255b662e9a17536b327ae31aaf6bcc94ad42868512759aef05f3470ec2af3c",
+      "path": "vendor/stellarium-web-engine/src/core.h"
+    },
+    {
+      "sha256": "8681914763e991eb205a06fc646f22d7715821d81e2a2f98c801e4009da18712",
+      "path": "vendor/stellarium-web-engine/src/designation.c"
+    },
+    {
+      "sha256": "c70008e2b1503789d64cec8a74b95daf1459b2c5aa9fd349e3f1ff7abaa3fcc5",
+      "path": "vendor/stellarium-web-engine/src/designation.h"
+    },
+    {
+      "sha256": "a1a7c0fd436edbea32b0cfc0c8efc7e0f97efcc0d6f6cd26bf3abddbb6598f55",
+      "path": "vendor/stellarium-web-engine/src/eph-file.c"
+    },
+    {
+      "sha256": "1a17098e5cb197082643daea1e85e6872d6c58a3c3fde547167d2c059475aff0",
+      "path": "vendor/stellarium-web-engine/src/eph-file.h"
+    },
+    {
+      "sha256": "d7b52fa697dd841c47bdc6feb0912f7eae44a07c3586f4fb92fbdd7d2720b1ca",
+      "path": "vendor/stellarium-web-engine/src/ephemeris_tests.inl"
+    },
+    {
+      "sha256": "b2067341bc69f17f8b101b9b3ed564a4271c6a4c7b188cae2730680b4f1eeed9",
+      "path": "vendor/stellarium-web-engine/src/erfa_wrap.h"
+    },
+    {
+      "sha256": "9cfcf0581e9244af0f432e403173f4136c2fd5fa499d7d65d4f00e533c6aa4c9",
+      "path": "vendor/stellarium-web-engine/src/events.c"
+    },
+    {
+      "sha256": "5ccbde0d4212a4ac11b79ede46bcf23364fabd569428e498534bee04d3a88e2e",
+      "path": "vendor/stellarium-web-engine/src/frames.c"
+    },
+    {
+      "sha256": "d707e0a46db651486b7a9de8574d15282bf18bd5c5066f6ab4dda951edd20327",
+      "path": "vendor/stellarium-web-engine/src/frames.h"
+    },
+    {
+      "sha256": "f89800b80390a0fbbbbfdeafe8900b43b311b7167462639947aab27b06ad7649",
+      "path": "vendor/stellarium-web-engine/src/geojson_parser.c"
+    },
+    {
+      "sha256": "9ceaf09a955c0675bf732cd9ad0c33ebcf64f3a593167a33d1501a3a90063156",
+      "path": "vendor/stellarium-web-engine/src/geojson_parser.h"
+    },
+    {
+      "sha256": "0a4aae706954460f413b0b926ba3bb5e76c85ee32bb093324aa645f8354ee73f",
+      "path": "vendor/stellarium-web-engine/src/gui.h"
+    },
+    {
+      "sha256": "362eba682ded25ccfe87799480fb8d385a744c0f79feeccbee902a621e1353ba",
+      "path": "vendor/stellarium-web-engine/src/hip.c"
+    },
+    {
+      "sha256": "c91d6dc91e7d48e98989abc96eeaa6b05e59936746eef1550f1f347459f3a09d",
+      "path": "vendor/stellarium-web-engine/src/hip.h"
+    },
+    {
+      "sha256": "a4ff8516780a328429402f6d3c9e0210a317f2ce503a01a9ffc3371ea502c24a",
+      "path": "vendor/stellarium-web-engine/src/hip.inl"
+    },
+    {
+      "sha256": "fe4d33bec86c7d3f46f66e50d187e2302298ba84ff66ea331f71673942081f58",
+      "path": "vendor/stellarium-web-engine/src/hips.c"
+    },
+    {
+      "sha256": "a55822f634b1fdc8e2be169ba6ca6f9d134618a201cae5f05dfb5c6682e6af01",
+      "path": "vendor/stellarium-web-engine/src/hips.h"
+    },
+    {
+      "sha256": "be1b98e4868a73a77317358281ec2264bdd2e887a2b437185d3ab80404f063e2",
+      "path": "vendor/stellarium-web-engine/src/js/canvas.js"
+    },
+    {
+      "sha256": "550165edf09cc3df4ffae652e0b0cab816b7f1627b266435fd0b8cb64181d9c0",
+      "path": "vendor/stellarium-web-engine/src/js/geojson.js"
+    },
+    {
+      "sha256": "35a84528b93b2163a35a0355281ffae2ac2dd212714138e6e45e533d7e698640",
+      "path": "vendor/stellarium-web-engine/src/js/obj.js"
+    },
+    {
+      "sha256": "6092c7eb3378688ddc86adfd58c84b9f1c8f7609bf217822906c26bdb226e2ed",
+      "path": "vendor/stellarium-web-engine/src/js/pre.js"
+    },
+    {
+      "sha256": "e9b85cce14e89a22712cf8e279dd3ae915f934bd952d2d4ae50665592005beb1",
+      "path": "vendor/stellarium-web-engine/src/labels.h"
+    },
+    {
+      "sha256": "bb13dc7fe4bfac569d7a1f0541ffa02fca5b7dbe8a54a692be4330e82eabd2d5",
+      "path": "vendor/stellarium-web-engine/src/layer.c"
+    },
+    {
+      "sha256": "b95f86fb718cd8e1b1b4d0158b6be08c63118a85eb06082e6baa8d19130156d6",
+      "path": "vendor/stellarium-web-engine/src/libtess2.c"
+    },
+    {
+      "sha256": "aa0a0b7df3ce59f3a3562c25f0c0e77d69d3b064d6e9a511146ab815a1d98726",
+      "path": "vendor/stellarium-web-engine/src/line_mesh.c"
+    },
+    {
+      "sha256": "0dc0e95d7bc035c377987b2325c471bc5f3111b5492a1292c37432dd36c3e6b0",
+      "path": "vendor/stellarium-web-engine/src/line_mesh.h"
+    },
+    {
+      "sha256": "baf91dadc98dd8eb90ea7ff8085ae10003f4ef73e1e75ce406ca1dbeaca4b2bc",
+      "path": "vendor/stellarium-web-engine/src/log.h"
+    },
+    {
+      "sha256": "8cd2e9f46de8de29e7bb7cf2bb86caf241d71449bba9ec32ea54d06444e468a4",
+      "path": "vendor/stellarium-web-engine/src/module.c"
+    },
+    {
+      "sha256": "a4ecf81ddb77caf834c8b446f8cef8a34548a8b503eb951ac0c2c1e4399b99d3",
+      "path": "vendor/stellarium-web-engine/src/module.h"
+    },
+    {
+      "sha256": "c02e82f75918393e061a4658e41a1985531b2374bdc002c16ba18f746f22af36",
+      "path": "vendor/stellarium-web-engine/src/modules/atmosphere.c"
+    },
+    {
+      "sha256": "46127a65aa948025a4ede672761ce10ed9ac86a2599dd6b01bb3f7438f409576",
+      "path": "vendor/stellarium-web-engine/src/modules/cardinal.c"
+    },
+    {
+      "sha256": "95bb6228337170126d4f164efd48596d4297b5fe8f9da9e4fb01577f1ab93ad5",
+      "path": "vendor/stellarium-web-engine/src/modules/circle.c"
+    },
+    {
+      "sha256": "1cfbf328c2386c14841e3c1d584fc306844dfa6150a0802a1c9b00c22808560c",
+      "path": "vendor/stellarium-web-engine/src/modules/comets.c"
+    },
+    {
+      "sha256": "5cd117c2e6249be86d41dfff50bb81fe28b74a7be6078722b1ac3ee522eda708",
+      "path": "vendor/stellarium-web-engine/src/modules/constellations.c"
+    },
+    {
+      "sha256": "5ed8bc2c976ab455257e3d7a5d0099af88e47801dc426c520cda244d18bb4210",
+      "path": "vendor/stellarium-web-engine/src/modules/coordinates.c"
+    },
+    {
+      "sha256": "0785c37c0845d1526a36c390b613abcafd7474b297f86d6bc1be2c93a1fe20b7",
+      "path": "vendor/stellarium-web-engine/src/modules/debug.c"
+    },
+    {
+      "sha256": "c65a067fe4a3e57d2415d5b10ee9f3c1f8e55b15f7dfaa98158f3f18133fc6e4",
+      "path": "vendor/stellarium-web-engine/src/modules/drag_selection.c"
+    },
+    {
+      "sha256": "b9f8da8247a8c6633ba50ec27c1f4d8570c0851c5a1bdf8ebd81b5c0e35bc8a0",
+      "path": "vendor/stellarium-web-engine/src/modules/dso.c"
+    },
+    {
+      "sha256": "88d8bb18b302ec832257ab8f337297e528fc515667c88fb893b55213311339fd",
+      "path": "vendor/stellarium-web-engine/src/modules/dss.c"
+    },
+    {
+      "sha256": "42ad6f08b1eb6f2cf4557b77f28a1245f367026533e56051b40a500b7b5ea21c",
+      "path": "vendor/stellarium-web-engine/src/modules/geojson.c"
+    },
+    {
+      "sha256": "762c1cb6b66fb5f2767319368d3cce9bf7034c676209328775ec3c5d0f2f176e",
+      "path": "vendor/stellarium-web-engine/src/modules/labels.c"
+    },
+    {
+      "sha256": "cca72d14e56671bc08767e39db5bb2efe56f13bd6155ab85b4809f2993f33990",
+      "path": "vendor/stellarium-web-engine/src/modules/landscape.c"
+    },
+    {
+      "sha256": "d644353d0204fe737b2803ebffdeccfde084733c00f8d7eaf8ffde5ab66c70bf",
+      "path": "vendor/stellarium-web-engine/src/modules/lines.c"
+    },
+    {
+      "sha256": "901903a481385e149a3aeeb5c0b1387608ebf2490aa9b0c98ec3fda210003df8",
+      "path": "vendor/stellarium-web-engine/src/modules/meteors.c"
+    },
+    {
+      "sha256": "d8697b60603fdaedd45c01b451ec366d2f883be5798a1767b3e88c6128a325fb",
+      "path": "vendor/stellarium-web-engine/src/modules/milkyway.c"
+    },
+    {
+      "sha256": "c5a5bc2a01dc6737123698c9f416325e876f73ee4f1554746fc73d90925e5580",
+      "path": "vendor/stellarium-web-engine/src/modules/minorplanets.c"
+    },
+    {
+      "sha256": "3878bbbb82e5330800cf57b93cf99602d0de48ae4807b6763995f93a946c5642",
+      "path": "vendor/stellarium-web-engine/src/modules/movements.c"
+    },
+    {
+      "sha256": "fa29a0df7f55a676b38a1b9b196b7166eab2f554fb53cf14d0c878ac042d7dda",
+      "path": "vendor/stellarium-web-engine/src/modules/photos.c"
+    },
+    {
+      "sha256": "14e3aeb2654191da0e362116db560a57a2607a3ec9e146a9f9a5cfad864ac81d",
+      "path": "vendor/stellarium-web-engine/src/modules/planets.c"
+    },
+    {
+      "sha256": "28d856e240ed4eb872bc04498fe93e20ec44161472ed561f2551a490593a32b3",
+      "path": "vendor/stellarium-web-engine/src/modules/pointer.c"
+    },
+    {
+      "sha256": "f6fd247589aebbc6ff7ffa2bac47a23a912ada8b41bac55acea3a04ddedf2390",
+      "path": "vendor/stellarium-web-engine/src/modules/satellites.c"
+    },
+    {
+      "sha256": "7139b9193c1feae3f05bd38b63894fd4beaf60bd92f07066a6b77dfc3e8e3a8c",
+      "path": "vendor/stellarium-web-engine/src/modules/skycultures.c"
+    },
+    {
+      "sha256": "f3e155e6fef21d9f2c30a8f2bcc44c8d8928ca539dca61a39b8a249dda02b558",
+      "path": "vendor/stellarium-web-engine/src/modules/stars.c"
+    },
+    {
+      "sha256": "1d4ffea4d717c3969ea55b7f4a2339d91cd0ccd45a4eb91843f6349adbe68208",
+      "path": "vendor/stellarium-web-engine/src/mpc.c"
+    },
+    {
+      "sha256": "830498ead412aef70d36f2bee860c6ae8a4c297a6a2488614ba0a005c8cedf39",
+      "path": "vendor/stellarium-web-engine/src/mpc.h"
+    },
+    {
+      "sha256": "db1bf3b7b5d3b9868ab5a9f628bc8e06f8b7ba5d2b13393e7a82b675dd3d7cf0",
+      "path": "vendor/stellarium-web-engine/src/navigation.c"
+    },
+    {
+      "sha256": "4f939806ce247880f7b715a864313f95db1a78ec2348ef7685436b9ab9657163",
+      "path": "vendor/stellarium-web-engine/src/navigation.h"
+    },
+    {
+      "sha256": "55a60c44698e8f5230227e87a2abcfec2e12dbb9371fe95def5a849dffac4064",
+      "path": "vendor/stellarium-web-engine/src/obj.c"
+    },
+    {
+      "sha256": "623372afd885a7bda7d8a86146827f7f983e67e3533e7b60bd1d4814688a948c",
+      "path": "vendor/stellarium-web-engine/src/obj.h"
+    },
+    {
+      "sha256": "c6d37d0a63db6122859f099e31ce0fdfed546719624d12254b09ee4123951de1",
+      "path": "vendor/stellarium-web-engine/src/obj_info.h"
+    },
+    {
+      "sha256": "cd3f0ae353f991fd5d446cdf647f39ec291b1d52f4bf95e4bb8460ffa4a30f42",
+      "path": "vendor/stellarium-web-engine/src/observer.c"
+    },
+    {
+      "sha256": "bdf3901579c6fb86c188b55488e0063dd799ec8cf52d22dab1248193e650451d",
+      "path": "vendor/stellarium-web-engine/src/observer.h"
+    },
+    {
+      "sha256": "6ee46b2f6413178a2a08c962c49afd6e2e2e3cd8674595a123f160dad0b02530",
+      "path": "vendor/stellarium-web-engine/src/otypes.c"
+    },
+    {
+      "sha256": "0333b2fbb70ab1ab0d7a843d4a4d301142aec098de7595f77de09d07f15980dd",
+      "path": "vendor/stellarium-web-engine/src/otypes.h"
+    },
+    {
+      "sha256": "17e865459ec5d6177a342e79b5b884a13563ac7314537ebb48ba7933cf8cad60",
+      "path": "vendor/stellarium-web-engine/src/otypes.inl"
+    },
+    {
+      "sha256": "012519aea42f5b6a03ae586cbe6dccb73fe1656ba1a7d61b851999ac49ffea17",
+      "path": "vendor/stellarium-web-engine/src/painter.c"
+    },
+    {
+      "sha256": "e63bc456d3fb26a1f1972e7df859dd4b6f02becd84c254d62143648f0ea30077",
+      "path": "vendor/stellarium-web-engine/src/painter.h"
+    },
+    {
+      "sha256": "fda056f28ae12bca743e9790ce53dc723965c851e0245c05a73e637dcd863ca2",
+      "path": "vendor/stellarium-web-engine/src/projection.c"
+    },
+    {
+      "sha256": "4bfa023c16b7eac22b0beb07e07bd855951b5481260f9073c26e6a2cbda42452",
+      "path": "vendor/stellarium-web-engine/src/projection.h"
+    },
+    {
+      "sha256": "14e00629a52d2284038f071a2359d0b7d0ff3341bb3c3b510595061316a44001",
+      "path": "vendor/stellarium-web-engine/src/projections/proj_hammer.c"
+    },
+    {
+      "sha256": "3d0e598d8a9144e9bfaafeedabee35ddb2320084854aa7ca475c1feb15685431",
+      "path": "vendor/stellarium-web-engine/src/projections/proj_mercator.c"
+    },
+    {
+      "sha256": "39159ba241a6005bee4170bc614e7fd31c51fc10bdf7a4a6663ff5af7f48f5ba",
+      "path": "vendor/stellarium-web-engine/src/projections/proj_mollweide.c"
+    },
+    {
+      "sha256": "b49198e546d9e9fb4488f772252bbe500d82d88fd652e187237dbb318ca3d79d",
+      "path": "vendor/stellarium-web-engine/src/projections/proj_perspective.c"
+    },
+    {
+      "sha256": "376779bf95e3d672e7d7b582a955503a8908b4c345230641f995837f1e0e7475",
+      "path": "vendor/stellarium-web-engine/src/projections/proj_stereographic.c"
+    },
+    {
+      "sha256": "2e37f04b28f51b74f9f11e9f4a9c250ddb5e04cdb0e73091f82f23299b071045",
+      "path": "vendor/stellarium-web-engine/src/render.h"
+    },
+    {
+      "sha256": "8f42cf47a5eba09a7d1cb86b46a962360aa2935ab649638acfb7bf0b07ab0f5c",
+      "path": "vendor/stellarium-web-engine/src/render_gl.c"
+    },
+    {
+      "sha256": "b95626ef06572c460cddced5965da2721e2c3a09e062e51eadae23b08093202f",
+      "path": "vendor/stellarium-web-engine/src/sgp4.cpp"
+    },
+    {
+      "sha256": "d679b242d04415238ef74d6ade8f1095e86bb1de2fbad7b56cf9d911f346bda5",
+      "path": "vendor/stellarium-web-engine/src/sgp4.h"
+    },
+    {
+      "sha256": "8bfdf12eb2c9a10686158bb3ef99f969f69414c1a59476415cb9667505085217",
+      "path": "vendor/stellarium-web-engine/src/shader_cache.c"
+    },
+    {
+      "sha256": "bcb5f17627fe900642e4c2dbeeae4c863d08550d51da9e8264cb5b9c31636cb3",
+      "path": "vendor/stellarium-web-engine/src/shader_cache.h"
+    },
+    {
+      "sha256": "4d53da2ad4f950b3bbca297354e8ae05262ed4fcd9e02c44b4e8aac7b97054cc",
+      "path": "vendor/stellarium-web-engine/src/skybrightness.c"
+    },
+    {
+      "sha256": "53d82d35e49748910df228370b659258d7eeac8f4cee5d3079ac7af804a4da6a",
+      "path": "vendor/stellarium-web-engine/src/skybrightness.h"
+    },
+    {
+      "sha256": "48a0be5a60c4f4a00d85f05c84d0f7220e727b46ef6cc8c4542c504a6403e2a4",
+      "path": "vendor/stellarium-web-engine/src/skyculture.c"
+    },
+    {
+      "sha256": "4dbee5997c2b04f59214437cbafa41e85d490187c2742afa87ea9ce731b6b0e8",
+      "path": "vendor/stellarium-web-engine/src/skyculture.h"
+    },
+    {
+      "sha256": "bdd0739a05e09eb3259b20e219f2c14313d76f6504666a439c5bf88dfbd934ff",
+      "path": "vendor/stellarium-web-engine/src/sprintf.c"
+    },
+    {
+      "sha256": "b127183982b754200e4645efcbdc165c6b65f32febfddcd4664ac6c164de11d4",
+      "path": "vendor/stellarium-web-engine/src/swe.c"
+    },
+    {
+      "sha256": "3dfe1310c244a24161909ae7af1c6975106acc399180c11e51bed377bb93637b",
+      "path": "vendor/stellarium-web-engine/src/swe.h"
+    },
+    {
+      "sha256": "08490aec9d34f1fb97721adb27dfe90619b8a0cf872d2d1c662734542ecfee0f",
+      "path": "vendor/stellarium-web-engine/src/symbols.c"
+    },
+    {
+      "sha256": "62eaeea45a1dc84858729157da99c5fa3ac054586945e7501f353f08cee9e9a8",
+      "path": "vendor/stellarium-web-engine/src/symbols.h"
+    },
+    {
+      "sha256": "5e836b6c0fdee45e7339b5340c00cb5656a0db6380491b4210d3efea3258486b",
+      "path": "vendor/stellarium-web-engine/src/system.c"
+    },
+    {
+      "sha256": "af8b9999830a3400e6d8fa7c22d121baa1e77f678a41341baf122de3ab211e49",
+      "path": "vendor/stellarium-web-engine/src/system.h"
+    },
+    {
+      "sha256": "e7d9b410abe96ccac51a29b244b176d8c13a8a686c6b583f371ef0109af8607c",
+      "path": "vendor/stellarium-web-engine/src/telescope.c"
+    },
+    {
+      "sha256": "c3c4ec0697cc73cf39bfe9fed21317c604887b2507fce0b4de373b1aa61d3a9d",
+      "path": "vendor/stellarium-web-engine/src/telescope.h"
+    },
+    {
+      "sha256": "a70126126df18d0621358e6e172f6b015f46b8fe3c73237fac559a0b899aa429",
+      "path": "vendor/stellarium-web-engine/src/tests.c"
+    },
+    {
+      "sha256": "7f0161332f1397eb71840a90d73b0abab2a0977105d590eff4080530e7c90978",
+      "path": "vendor/stellarium-web-engine/src/tests.h"
+    },
+    {
+      "sha256": "a4e7eedabff85015a10c36a82188a975a343ecd71f74ea3aa3b20111562a3a60",
+      "path": "vendor/stellarium-web-engine/src/tonemapper.c"
+    },
+    {
+      "sha256": "b7425790eec1dda70d93a8492336ecb8476c0aaa53d86a74a64006f21c7fbee2",
+      "path": "vendor/stellarium-web-engine/src/tonemapper.h"
+    },
+    {
+      "sha256": "6ddf1b46f31f5037cf52e28698bbe9e076198249b24a8677a56856dd178725e5",
+      "path": "vendor/stellarium-web-engine/src/utils/cache.c"
+    },
+    {
+      "sha256": "7b721f098d0a4c2b925c0b9b088e73f1eb114e54ebbd5cfaa75f04fdaf18cb26",
+      "path": "vendor/stellarium-web-engine/src/utils/cache.h"
+    },
+    {
+      "sha256": "fbb2dcf0a282ae110d70afe878cfbeb77d58167e89472f962458fdd52a8b42e9",
+      "path": "vendor/stellarium-web-engine/src/utils/fader.c"
+    },
+    {
+      "sha256": "b3fc97730942a929a657f96e9c92632bcbae0a1cb3c7e8611a0a4a85ae40a8a6",
+      "path": "vendor/stellarium-web-engine/src/utils/fader.h"
+    },
+    {
+      "sha256": "fc5aa1b062d13282c5c1b8cf1310cd4e1510022979cce27c39af36d32e7fe6be",
+      "path": "vendor/stellarium-web-engine/src/utils/fps.c"
+    },
+    {
+      "sha256": "b5d87c6e0c65bd7dcdc73a7d76d14a3b206c57dc5c6a5a32c1b1c952b2830c27",
+      "path": "vendor/stellarium-web-engine/src/utils/fps.h"
+    },
+    {
+      "sha256": "e6c17b7198910f4465d3f204bad1ef2cfbb5156592cc179de87cb50f012e7d9a",
+      "path": "vendor/stellarium-web-engine/src/utils/gesture.c"
+    },
+    {
+      "sha256": "0257e246aba1f930e31138cb80c52d2cf05884b59a6d38e95f856a699a2629c1",
+      "path": "vendor/stellarium-web-engine/src/utils/gesture.h"
+    },
+    {
+      "sha256": "41d477c937cea065172c56de52cb13adeccbba638d3620b7023eebfb4b8e515e",
+      "path": "vendor/stellarium-web-engine/src/utils/gl.c"
+    },
+    {
+      "sha256": "99e757165eae0a5d232a139ab5ebea83742994655c3412246dcb2ae9a5330b6e",
+      "path": "vendor/stellarium-web-engine/src/utils/gl.h"
+    },
+    {
+      "sha256": "07de4a518a13c8ed3b490a2db3df77b4977d6e85f1c31e0ad441df73e492ae1b",
+      "path": "vendor/stellarium-web-engine/src/utils/mesh.c"
+    },
+    {
+      "sha256": "4da22717c0c20e60c74e934b6ee9f6ee52a440022d5354d90e4135b490faa804",
+      "path": "vendor/stellarium-web-engine/src/utils/mesh.h"
+    },
+    {
+      "sha256": "067571838811c0646eaa45cb40406386d90b21a4605eef739990d59f415cf7ff",
+      "path": "vendor/stellarium-web-engine/src/utils/progressbar.c"
+    },
+    {
+      "sha256": "9d1c378d01c4ba6d2c19a30b0256c0494bccf29f4fa29ae93acd9ac7ea27f78f",
+      "path": "vendor/stellarium-web-engine/src/utils/progressbar.h"
+    },
+    {
+      "sha256": "77ad7b0b369827fa648e76c7d36ce90908ec0540f31be7bc1fb712c3b4550de4",
+      "path": "vendor/stellarium-web-engine/src/utils/request.c"
+    },
+    {
+      "sha256": "305de04aabf5b8ce7d0b27e438ffbfd8724e927c7c6f7d86d6fd37de81b1bf60",
+      "path": "vendor/stellarium-web-engine/src/utils/request.h"
+    },
+    {
+      "sha256": "0df55d3770e9422986dd8d036533a1dca0a77fe0c7a81b5fb11ef8a35bfefada",
+      "path": "vendor/stellarium-web-engine/src/utils/request_js.c"
+    },
+    {
+      "sha256": "7244f4040f30ffe6955870b804bb94093258b4839040c57855d20fbff4e07b7a",
+      "path": "vendor/stellarium-web-engine/src/utils/swe_utils.c"
+    },
+    {
+      "sha256": "7ae712e439192ad875c8ee43c8956dc4f6215533724f6e7de1b85cf5ba79eef9",
+      "path": "vendor/stellarium-web-engine/src/utils/texture.c"
+    },
+    {
+      "sha256": "a9f595d8420e423bc1e4c11d16685369e11e529ed462e80150a2b071e365b85f",
+      "path": "vendor/stellarium-web-engine/src/utils/texture.h"
+    },
+    {
+      "sha256": "e2b96665dbf576b9abc7dbb36629ab65e97ee1b661e81a7468f0a8274cecae0e",
+      "path": "vendor/stellarium-web-engine/src/utils/utf8.c"
+    },
+    {
+      "sha256": "2c01f3bed14ef7f85eb1bcdebaab6f2cf71afc70dd3bd179276733c0cec01dcc",
+      "path": "vendor/stellarium-web-engine/src/utils/utf8.h"
+    },
+    {
+      "sha256": "71b5bbef1a153661b86a6475f2888d7cad7d5582698ac63b31f7413dbf8ce506",
+      "path": "vendor/stellarium-web-engine/src/utils/utils.h"
+    },
+    {
+      "sha256": "0ed3e6969e49d67cd4a59d7eacb0e1d07b836b920ffca6390b3c620ca6e0fc18",
+      "path": "vendor/stellarium-web-engine/src/utils/utils_json.c"
+    },
+    {
+      "sha256": "369485fd1f74508dca7a1bd989200d4cde2de71a7733f89ad45a1605938e3515",
+      "path": "vendor/stellarium-web-engine/src/utils/utils_json.h"
+    },
+    {
+      "sha256": "ad4288bca63f207d58ccff9fa0e569cd454fe0cbaead3dea147d35e844c019f7",
+      "path": "vendor/stellarium-web-engine/src/utils/vec.c"
+    },
+    {
+      "sha256": "cbd99529783e6eeec0c054e6e1d667f7e066e4bdab97fb5ea39eaaf364f3dfda",
+      "path": "vendor/stellarium-web-engine/src/utils/vec.h"
+    },
+    {
+      "sha256": "9be4c22bb92ff2e1ecd7628a7c677612d83953eb71ede463b7ff108ced6d5084",
+      "path": "vendor/stellarium-web-engine/src/utils/worker.c"
+    },
+    {
+      "sha256": "ce7b2bdb9708a61752bfe19e328b1863846be3bef13797befaaf8fd85bf0331c",
+      "path": "vendor/stellarium-web-engine/src/utils/worker.h"
+    },
+    {
+      "sha256": "c189a802e4257708fb60fd66abcd4739c49aba157f36e30d2b35ed1653f9658f",
+      "path": "vendor/stellarium-web-engine/src/uv_map.c"
+    },
+    {
+      "sha256": "b2524c1eafcbc48bd860868e93a6467eeebf4499efe7c748e21d6c4386806721",
+      "path": "vendor/stellarium-web-engine/src/uv_map.h"
+    },
+    {
+      "sha256": "0e994e2552800459591eff421fe10ce7d3b85a76ad87614c67135a7c5d7c350f",
+      "path": "vendor/stellarium-web-engine/tools/checkstyle.py"
+    },
+    {
+      "sha256": "c9e2c20b081947e59a231a3139ba0c36c30e73bc098c2a71c1e661611e2647d5",
+      "path": "vendor/stellarium-web-engine/tools/compute-ephemeris.py"
+    },
+    {
+      "sha256": "e52be3942791454040173596f161b8610fac909d272506b8df0b68d8f39a2720",
+      "path": "vendor/stellarium-web-engine/tools/compute-ephemeris2.py"
+    },
+    {
+      "sha256": "8ac785ecdacbcee880101a86cddb92b1605123e256a66b456e96b58c8d5357a5",
+      "path": "vendor/stellarium-web-engine/tools/make-assets.py"
+    },
+    {
+      "sha256": "a3303e60b2617cef5a90580f41af66c19eca06cdcaca8762e5eb780c979a275b",
+      "path": "vendor/stellarium-web-engine/tools/make-fonts.py"
+    },
+    {
+      "sha256": "209315fbc11cc3ece7404f12770a239740797c12e520ccc9277e433a917b1b97",
+      "path": "vendor/stellarium-web-engine/tools/make-hip-lookup.py"
+    },
+    {
+      "sha256": "4f4369cbed33954ea63be6de0200c836ddeb63f6866b4cf813e9ed765c54efed",
+      "path": "vendor/stellarium-web-engine/tools/make-mpc.py"
+    },
+    {
+      "sha256": "73e040aa4cb96934e7d4fc7094589b87c30a091d8b27f47d6b0c82874080831d",
+      "path": "vendor/stellarium-web-engine/tools/make-otypes-hash.py"
+    },
+    {
+      "sha256": "c0c18539570c7f46080c8b42b14b6025d8536aa8dee1d58848729d1136271f2f",
+      "path": "vendor/stellarium-web-engine/tools/make-symbols.py"
+    },
+    {
+      "sha256": "6d22a317c8b1f018b423ee0a91bfc5d3e0fc3a20fc64e6fc07c459f00b43f443",
+      "path": "vendor/stellarium-web-engine/tools/update-planets.py"
+    }
+  ],
+  "source": "v5.0.0 baseline planetarium precision engine and corresponding source",
+  "migration": "Restores calibrated HIP2 catalogue, ICRS grid, precise projection and gesture patches; approved V2 skin retained",
+  "upstreamCommit": "2103935134e09ba1715171241769fce03cebebe4"
+}

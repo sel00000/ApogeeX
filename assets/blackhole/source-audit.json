@@ -1,0 +1,56 @@
+{
+  "source": "한결/BLACKHOLE_BG",
+  "files": [
+    {
+      "file": "bbh-physics.js",
+      "authoritative_source": "../../../BLACKHOLE_BG/bbh-physics.js",
+      "sha256": "fe7f1968f62ab68847bf6ad87665378e6581702ab37a796feefea6f00c687ade",
+      "lines": 225,
+      "byte_identical": true,
+      "main_loaded": true
+    },
+    {
+      "file": "bbh-eob.js",
+      "authoritative_source": "../../../BLACKHOLE_BG/bbh-eob.js",
+      "sha256": "d4f40efb4d01db85a45df5d6a73dac8434de8b9215345e31e8bc593308aa26a5",
+      "lines": 101,
+      "byte_identical": true,
+      "main_loaded": true
+    },
+    {
+      "file": "bbh-sim.js",
+      "authoritative_source": "../../../BLACKHOLE_BG/bbh-sim.js",
+      "sha256": "03b59fdb9a60b07ea6d135bc44b05f1ae2cce30cb7d7fab1b643650ff403c3d5",
+      "lines": 476,
+      "byte_identical": true,
+      "main_loaded": true
+    },
+    {
+      "file": "bbh-nr.js",
+      "authoritative_source": "../../../BLACKHOLE_BG/bbh-nr.js",
+      "sha256": "25a72a0d8937a899b61855f4dd78c5bee41d971b7372c000c34ffb6ddab9cb1f",
+      "lines": 871,
+      "byte_identical": true,
+      "main_loaded": false
+    },
+    {
+      "file": "bbh-nr-id.js",
+      "authoritative_source": "../../../BLACKHOLE_BG/bbh-nr-id.js",
+      "sha256": "720a563676a19af796c1f0a6e7e38264a014a29ac4a821e22bfdacc21ca501a7",
+      "lines": 232,
+      "byte_identical": true,
+      "main_loaded": false
+    },
+    {
+      "file": "gravity-hero.js",
+      "authoritative_source": "../../../BLACKHOLE_BG/gravity-hero.js",
+      "sha256": "6ea1b5bcc3a2c23087c6ffaac39fe86fddca523bd1a989fe9301f4018271ee16",
+      "lines": 775,
+      "byte_identical": true,
+      "main_loaded": true
+    }
+  ],
+  "active_model": "Original PN → EOB → NR-fitted remnant/ringdown, not GPU BSSN",
+  "adapter": "../../home-background.js",
+  "optics": "Original FS_MAIN retained except final TIFF source-coordinate lookup and added TIFF-size uniform"
+}

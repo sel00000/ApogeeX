@@ -1,0 +1,102 @@
+/* 모두를 위한 SPHEREx! V2 — planetarium skin (theme only; every original control stays).
+   Same tokens as the home shell and the analysis workspace. The sky itself is the SPHEREx
+   all-sky map; the chrome floats over it as Liquid Glass so the sky, not the app, is the subject. */
+:root {
+  --ink: #06080c; --bg: #06080c;
+  --panel: rgba(12, 16, 22, .5);
+  --field: rgba(255, 255, 255, .06);
+  --ivory: #f4f2ee; --text: #f4f2ee; --text-primary: #f4f2ee;
+  --muted: #a3abb6; --subtle: #6f7884;
+  --line: rgba(255, 255, 255, .1);
+  --cyan: #e9c48f; --accent: #e9c48f; --cyan-soft: rgba(233, 196, 143, .14);
+  --radius: 24px;
+  --topbar-height: 0px;
+  --glass: blur(26px) saturate(1.7) brightness(1.04);
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Apple SD Gothic Neo", "Noto Sans KR", system-ui, sans-serif;
+}
+body { word-break: keep-all; letter-spacing: -.01em; }
+a { color: var(--accent); }
+
+/* the shell already provides navigation: the inner header becomes three floating glass buttons */
+.topbar { height: auto; top: 18px; left: 18px; right: 18px; padding: 0; border: 0; background: transparent; pointer-events: none; }
+.topbar .brand, .topbar .version-tag, .topbar .engine-status, .topbar .topbar-rule { display: none; }
+.topbar button { pointer-events: auto; }
+.icon-button { border-radius: 999px; color: #dfe3e9; }
+.icon-button:hover { background: rgba(255, 255, 255, .1); border-color: transparent; color: #fff; }
+.topbar .icon-button, .topbar .sky-tutorial-launch, .view-controls { background: rgba(14, 18, 26, .45); backdrop-filter: var(--glass); -webkit-backdrop-filter: var(--glass);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .28), inset 0 0 0 1px rgba(255, 255, 255, .08), 0 10px 30px rgba(0, 0, 0, .3); }
+.topbar .icon-button { width: 42px; height: 42px; }
+.topbar .sky-tutorial-launch { appearance: none; display: inline-flex; align-items: center; justify-content: center; min-height: 42px; padding: 0 17px; border: 0; border-radius: 999px; color: #dfe3e9; font: inherit; font-size: 13px; font-weight: 600; white-space: nowrap; cursor: pointer; }
+.topbar .sky-tutorial-launch:hover { background: rgba(255, 255, 255, .1); color: #fff; }
+.topbar .sky-tutorial-launch:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+/* Liquid Glass panels */
+.floating-panel { border: 0; background: var(--panel); backdrop-filter: var(--glass); -webkit-backdrop-filter: var(--glass);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, .32), inset 0 -1px 1px rgba(255, 255, 255, .06), inset 0 0 0 1px rgba(255, 255, 255, .07), 0 24px 60px rgba(0, 0, 0, .38); }
+.control-panel { top: 74px; left: 18px; bottom: 82px; width: 316px; border-radius: 26px; scrollbar-color: rgba(255, 255, 255, .2) transparent; }
+.control-panel::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, .2); }
+.selection-panel { top: 18px; right: 84px; width: 300px; border-radius: 26px; }
+.view-controls { right: 18px; bottom: 82px; border-radius: 999px; padding: 6px; gap: 2px; }
+.view-controls .ground-toggle { border-radius: 22px; }
+
+/* typography: plain Korean headings, no tracked-out labels or section numbers */
+.eyebrow, .section-index { display: none !important; }
+.panel-heading h1, .selection-panel h2 { font-weight: 700; letter-spacing: -.035em; }
+.heading-dot { color: var(--accent); }
+.section-heading { font-size: 13.5px; font-weight: 650; color: var(--text); }
+.section-icon { color: var(--muted); }
+.field-note, .panel-intro { color: var(--muted); }
+
+/* controls: soft pills like the rest of the app */
+.button { border-radius: 999px; border: 0; }
+.button-secondary { background: rgba(255, 255, 255, .08); color: var(--text); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .08); }
+.button-secondary:hover { background: rgba(255, 255, 255, .14); }
+.button-primary { background: var(--text); color: #0b0d11; }
+.button-primary:hover { background: #fff; }
+.transport-button.is-active { background: rgba(233, 196, 143, .18); color: var(--accent); }
+input, select { border-radius: 12px !important; border-color: transparent !important; background: var(--field) !important; color: var(--text); }
+input:focus, select:focus { box-shadow: 0 0 0 2px rgba(233, 196, 143, .45); }
+.toggle-track { border: 0; background: rgba(255, 255, 255, .14); width: 32px; height: 19px; }
+.toggle-track::after { width: 15px; height: 15px; top: 2px; left: 2px; background: #fff; box-shadow: 0 1px 3px rgba(0, 0, 0, .35); }
+.layer-toggle input:checked + .toggle-track { background: #6fcf8e; }
+.layer-toggle input:checked + .toggle-track::after { transform: translateX(13px); background: #fff; }
+.layer-toggle { color: var(--muted); font-size: 12.5px; }
+.layer-toggle input:checked ~ span:last-child { color: var(--text); }
+.layer-toggle kbd { border-color: var(--line); color: var(--muted); border-radius: 5px; }
+.search-results li, .search-results button { border-radius: 12px; }
+
+/* status line: one quiet glass strip */
+.observation-status { left: 18px; right: 18px; bottom: 18px; min-height: 44px; border: 0; border-radius: 999px; background: rgba(14, 18, 26, .45); backdrop-filter: var(--glass); -webkit-backdrop-filter: var(--glass);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .22), inset 0 0 0 1px rgba(255, 255, 255, .07); color: #d3d8df; padding: 10px 22px; }
+.observation-status .icon { color: var(--muted); }
+.status-fov { border-left-color: var(--line); }
+.status-fov strong { color: var(--text); }
+.sky-hint { bottom: 76px; color: rgba(255, 255, 255, .55); }
+.sky-hint span { color: rgba(255, 255, 255, .8); }
+.toast { border: 0; border-radius: 999px; background: rgba(20, 25, 33, .88); backdrop-filter: var(--glass); color: var(--text); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .12), 0 10px 30px rgba(0, 0, 0, .35); }
+.map-banner { top: 18px; left: 352px; right: 84px; }
+
+/* loading: same ink as the app, starlight orbit */
+.loading-overlay { inset: 0; background: var(--ink); }
+.loading-orbit { border-color: rgba(255, 255, 255, .14); }
+.loading-orbit::before { border-color: rgba(255, 255, 255, .08); }
+.loading-title { font-weight: 700; letter-spacing: -.04em; }
+#loading-message { color: var(--muted); }
+.loading-track { background: rgba(255, 255, 255, .1); }
+
+/* supplemental reference photos (Hubble/Webb) */
+.reference-observation img { border-radius: 16px; }
+.reference-observation { border-top-color: var(--line); }
+
+@media (max-width: 720px) {
+  /* the right edge clears the view-control column (about 52 px wide at right: 12px) */
+  .control-panel { left: 12px; right: 70px; width: auto; }
+  .selection-panel { right: 12px; left: 12px; width: auto; top: auto; bottom: 74px; }
+}
+
+/* selected states: the same light pill used across the app (no teal from the original theme) */
+.view-mode-switch { border-radius: 999px; background: rgba(255, 255, 255, .05); border: 0; padding: 3px; }
+.view-mode-switch .button { background: transparent; box-shadow: none; }
+.view-mode-switch .button[aria-pressed="true"], .ground-toggle[aria-pressed="true"] { background: rgba(255, 255, 255, .9); color: #0b0d11; border-color: transparent; }
+.time-controls .transport-button[aria-pressed="true"], .time-controls .transport-button.is-active { background: rgba(233, 196, 143, .18); color: var(--accent); border-color: transparent; }
+.coordinate-readout, .center-coordinates { border: 0; border-radius: 16px; background: rgba(255, 255, 255, .05); }

@@ -1,0 +1,24 @@
+{
+  "generator": "Blender 4.5.0",
+  "models": [
+    {
+      "variant": "hero",
+      "triangles": 75728,
+      "meshes": 14,
+      "materials": 10,
+      "bytes": 2316908,
+      "drawCalls": 43,
+      "sha256": "13b8c5779b0ff674b0af29e030638139ceb33c71b210e4923a319d441e2972e4"
+    },
+    {
+      "variant": "lite",
+      "triangles": 15544,
+      "meshes": 14,
+      "materials": 10,
+      "bytes": 529848,
+      "drawCalls": 41,
+      "sha256": "f04528a2a2dbbef34e31191b8f49b36fe6021ab861b93d33cf67d188042d574f"
+    }
+  ],
+  "revision": "panel-clearance-2"
+}

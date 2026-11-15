@@ -1,0 +1,46 @@
+[
+  {
+    "target": "vesta",
+    "frames": 3,
+    "actual_FITS_sha256_verified": true,
+    "midpoint_order_and_header_match": true,
+    "fixed_TAN_grid_marker_exact": true,
+    "PNG_dimensions_verified": true,
+    "north_up_east_left": true,
+    "target_position_wavelength_header_match": true,
+    "predicted_motion_pixels": 207.30895791197668,
+    "detection_claim": false
+  },
+  {
+    "target": "atlas",
+    "frames": 4,
+    "actual_FITS_sha256_verified": true,
+    "midpoint_order_and_header_match": true,
+    "fixed_TAN_grid_marker_exact": true,
+    "PNG_dimensions_verified": true,
+    "north_up_east_left": true,
+    "target_position_wavelength_header_match": true,
+    "predicted_motion_pixels": 1.7747977225731462,
+    "detection_claim": false
+  },
+  {
+    "spectrum": "hygiea",
+    "provenance_and_point_count_match": true,
+    "measurements": 257
+  },
+  {
+    "spectrum": "dembowska",
+    "provenance_and_point_count_match": true,
+    "measurements": 186
+  },
+  {
+    "spectrum": "eros",
+    "provenance_and_point_count_match": true,
+    "measurements": 138
+  },
+  {
+    "spectrum": "kollaa",
+    "provenance_and_point_count_match": true,
+    "measurements": 315
+  }
+]

@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.dist-building-*/
+*.log
+.DS_Store
+vendor/stellarium-web-engine/build*/
+vendor/stellarium-web-engine/.sconsign.dblite
+vendor/stellarium-web-engine/.cache/
+__pycache__/
+*.pyc

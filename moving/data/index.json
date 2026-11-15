@@ -1,0 +1,37 @@
+{
+ "schema": "trueblink-asteroid-index-1",
+ "asteroids": [
+  {
+   "id": "hygiea",
+   "number": 10,
+   "name": "Hygiea",
+   "file": "hygiea.json",
+   "nExposures": 129,
+   "catalogueType": "C"
+  },
+  {
+   "id": "dembowska",
+   "number": 349,
+   "name": "Dembowska",
+   "file": "dembowska.json",
+   "nExposures": 93,
+   "catalogueType": "R"
+  },
+  {
+   "id": "eros",
+   "number": 433,
+   "name": "Eros",
+   "file": "eros.json",
+   "nExposures": 69,
+   "catalogueType": "S"
+  },
+  {
+   "id": "kollaa",
+   "number": 1929,
+   "name": "Kollaa",
+   "file": "kollaa.json",
+   "nExposures": 160,
+   "catalogueType": "V"
+  }
+ ]
+}
