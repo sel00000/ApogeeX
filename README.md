@@ -15,7 +15,9 @@
 <a href="README.ko.md">한국어</a> ·
 <a href="#what-it-is">What it does</a> ·
 <a href="#data-and-credits">Data and credits</a> ·
-<a href="#use-of-ai">Use of AI</a>
+<a href="#use-of-ai">Use of AI</a> ·
+<a href="#authors">Authors</a> ·
+<a href="#licences">MIT licence</a>
 </p>
 
 </div>
@@ -163,7 +165,7 @@ Much of the code and text was written with Anthropic's Claude, used through Clau
 
 ## Licences
 
-There is no single licence for the whole repository. Each part carries its own.
+The team's own code and text in this repository are released under the MIT License ([LICENSE](LICENSE)). Parts that come from other projects, or that already carried a licence, keep it:
 
 | Part | Licence |
 |---|---|
@@ -172,10 +174,14 @@ There is no single licence for the whole repository. Each part carries its own.
 | `packages/search` | Apache-2.0 ([LICENSE](packages/search/LICENSE)) |
 | `apps/portal/moving` | Apache-2.0 ([LICENSE](apps/portal/moving/LICENSE)) |
 | `apps/portal/vendor/three` | MIT ([LICENSE](apps/portal/vendor/three/LICENSE)) |
-| `apps/portal` (rest), `apps/asteroids`, `packages/tutorial`, `packages/contracts`, `services`, `scripts` | No licence stated yet |
+| The team's own code elsewhere: `apps/portal` (rest), `apps/asteroids`, `packages/tutorial`, `packages/contracts`, `services`, `scripts`, `docs` | MIT ([LICENSE](LICENSE)) |
 
-## Team
+Data, maps and images from NASA, ESA and others are not covered by these licences. Their terms are listed under [Data and credits](#data-and-credits).
+
+## Authors
 
 Team ApogeeX, NASA Space Apps Challenge 2026.
 
-Members: ______________________________
+<img alt="Team ApogeeX on a video call: four members in front of NASA Space Apps Seoul 2026 backgrounds" src="docs/readme/team.jpg" width="100%">
+
+Kyung-Bo Kim, Jiho Lee, Hankyeol Lee, Joongsun You

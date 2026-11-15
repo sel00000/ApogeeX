@@ -17,7 +17,9 @@
 <a href="README.md">English</a> ·
 <a href="#무엇인가">하는 일</a> ·
 <a href="#자료와-출처">자료와 출처</a> ·
-<a href="#ai-사용">AI 사용</a>
+<a href="#ai-사용">AI 사용</a> ·
+<a href="#만든-사람">만든 사람</a> ·
+<a href="#라이선스">MIT 라이선스</a>
 </p>
 
 </div>
@@ -165,7 +167,7 @@ flowchart LR
 
 ## 라이선스
 
-저장소 전체에 하나의 라이선스는 없습니다. 부분마다 따로 갖습니다.
+이 저장소에서 팀이 직접 쓴 코드와 글은 MIT 라이선스([LICENSE](LICENSE))로 공개합니다. 다른 프로젝트에서 온 부분과 이미 라이선스가 있던 부분은 그 라이선스를 유지합니다.
 
 | 부분 | 라이선스 |
 |---|---|
@@ -174,10 +176,14 @@ flowchart LR
 | `packages/search` | Apache-2.0 ([LICENSE](packages/search/LICENSE)) |
 | `apps/portal/moving` | Apache-2.0 ([LICENSE](apps/portal/moving/LICENSE)) |
 | `apps/portal/vendor/three` | MIT ([LICENSE](apps/portal/vendor/three/LICENSE)) |
-| `apps/portal`(나머지), `apps/asteroids`, `packages/tutorial`, `packages/contracts`, `services`, `scripts` | 아직 라이선스를 정하지 않았습니다 |
+| 그 밖에 팀이 직접 쓴 코드: `apps/portal`(나머지), `apps/asteroids`, `packages/tutorial`, `packages/contracts`, `services`, `scripts`, `docs` | MIT ([LICENSE](LICENSE)) |
 
-## 팀
+NASA, ESA 등이 제공한 자료·지도·영상은 이 라이선스의 대상이 아닙니다. 이용 조건은 [자료와 출처](#자료와-출처)에 적었습니다.
+
+## 만든 사람
 
 Team ApogeeX, NASA Space Apps Challenge 2026.
 
-팀원: ______________________________
+<img alt="화상 회의 중인 Team ApogeeX 네 사람. 배경은 NASA Space Apps Seoul 2026" src="docs/readme/team.jpg" width="100%">
+
+Kyung-Bo Kim, Jiho Lee, Hankyeol Lee, Joongsun You
