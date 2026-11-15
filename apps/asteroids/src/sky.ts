@@ -85,27 +85,13 @@ export const PLANET_POLES: Record<string, [number, number]> = {
   "899": [299.36, 43.46],
 };
 
-/** WASD flight. Speed in AU/s from the distance (AU) to the nearest body surface. */
-export const FLIGHT = { rate: 0.9, min: 0.0004, max: 30, boost: 4, ease: 0.12 };
-export function flightSpeed(surfaceDistance: number, boost = false) {
+/** Flight speed scale. Full throttle in AU/s from the distance (AU) to the nearest body surface,
+ * so the camera slows down by itself near a body. The controls themselves are in flight.ts. */
+export const FLIGHT = { rate: 0.9, min: 0.0004, max: 30 };
+export function flightSpeed(surfaceDistance: number) {
   const d = Number.isFinite(surfaceDistance) ? Math.max(0, surfaceDistance) : Infinity;
-  return Math.min(FLIGHT.max, Math.max(FLIGHT.min, FLIGHT.rate * d)) * (boost ? FLIGHT.boost : 1);
+  return Math.min(FLIGHT.max, Math.max(FLIGHT.min, FLIGHT.rate * d));
 }
-/** Held keys -> camera-local direction [right, up, back] (three.js camera looks along -Z).
- * Normalised so diagonals are not faster. */
-export function flightDirection(keys: ReadonlySet<string>): Vec3 {
-  const x = (keys.has("KeyD") ? 1 : 0) - (keys.has("KeyA") ? 1 : 0),
-    y = (keys.has("KeyE") ? 1 : 0) - (keys.has("KeyQ") ? 1 : 0),
-    z = (keys.has("KeyS") ? 1 : 0) - (keys.has("KeyW") ? 1 : 0),
-    n = Math.hypot(x, y, z);
-  return n ? [x / n, y / n, z / n] : [0, 0, 0];
-}
-/** Fraction of the remaining velocity change applied this frame (0.12 s ease; immediate if reduced). */
-export function easeStep(dt: number, reduced: boolean) {
-  if (reduced) return 1;
-  return 1 - Math.exp(-dt / (FLIGHT.ease / 3));
-}
-export const FLIGHT_KEYS = new Set(["KeyW", "KeyA", "KeyS", "KeyD", "KeyQ", "KeyE"]);
 
 /** The sky picture could not be loaded: untick and disable the box and give its label the reason as a title.
  * The stored preference is deliberately left alone. */
@@ -116,4 +102,38 @@ export function markSkyUnavailable(
   box.checked = false;
   box.disabled = true;
   label?.setAttribute("data-i18n-title", "o.skyFail");
+}
+
+/** Drawn radius (AU) of a body that must show at least minPx CSS pixels in radius, never below its own
+ * radius and never above maxRadius. pxPerAu is the screen scale at the body's distance from the camera. */
+export function drawRadius(base: number, minPx: number, pxPerAu: number, maxRadius: number) {
+  if (!(pxPerAu > 0) || !Number.isFinite(pxPerAu)) return base;
+  return Math.max(base, Math.min(minPx / pxPerAu, maxRadius));
+}
+/** Illustrative planet size: at least minPx on screen, capped at PLANET_SIZE_CAP x the distance from the
+ * Sun so planets never cover the Sun or each other; the true radius in SPHEREx (observer) view. */
+export const PLANET_SIZE_CAP = 0.22;
+export function planetDrawRadius(
+  base: number,
+  minPx: number,
+  pxPerAu: number,
+  sunDistance: number,
+  observer = false,
+) {
+  return observer ? base : drawRadius(base, minPx, pxPerAu, PLANET_SIZE_CAP * sunDistance);
+}
+/** CSS pixels per AU at distance d from a perspective camera with vertical field of view fovDeg. */
+export function pixelsPerAu(d: number, fovDeg: number, viewHeight: number) {
+  return viewHeight / 2 / (Math.max(d, 1e-9) * Math.tan((fovDeg * Math.PI) / 360));
+}
+/** Illustrative weight of a planet drawn s times its true size: 0 at true size, 1 from 2.5 x up. */
+export function illustrativeWeight(s: number) {
+  if (!(s > 1)) return 0;
+  const t = Math.min(1, (s - 1) / 1.5);
+  return t * t * (3 - 2 * t);
+}
+/** Lighting of an illustrative planet: the true day/night light at k = 0, an even light
+ * (never below 0.58, 1 on the day side) at k = 1. Mirrored in PLANET_FRAGMENT in scene.ts. */
+export function illustrativeLight(light: number, k: number) {
+  return light + (0.58 + 0.42 * light - light) * k;
 }

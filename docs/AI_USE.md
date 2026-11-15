@@ -8,7 +8,7 @@ This file covers only the changes made to this repository on the evening of 2026
 
 - Part A: the home page's SPHEREx 3D model gained the kit's Lite variant, used on narrow screens.
 - Part B: the header item "Sky View" opens the Find stage of the analysis app. That stage draws constellation lines and names and has a ground view. The planetarium is its second view, and the view centre is handed over between the two.
-- Part C: the asteroid Orbit 3D scene has a Milky Way background, textured planets and W A S D flight.
+- Part C: the asteroid Orbit 3D scene has a Milky Way background, textured planets that stay visible in the overview, a glowing Sun and keyboard flight.
 - Part D: English is the default language, and one header switch "EN | 한" turns the whole site Korean in place.
 - The documents that describe these changes (README, `docs/architecture.md`, `apps/portal/HANDOFF.md`, `apps/analysis/THIRD_PARTY_NOTICES.md` and this file).
 
@@ -25,11 +25,12 @@ The AI tool was Anthropic's Claude, used through the Claude Code command-line to
 
 - Designed and implemented the merged sky view: the Find stage as the "Sky View" screen, the view switch to the planetarium, the hand-over of the view centre (`sky=ra,dec,fov` and the planetarium state field `center`), and the header highlight and in-place stage message.
 - Built the constellation layer (lines and names) and ported the ground view and horizon code from the team's TrueBlink project into the analysis app.
-- Built the Orbit 3D Milky Way background, the planet textures and the W A S D keyboard flight.
+- Built the Orbit 3D Milky Way background, the planet textures, the rule that keeps planets visible in the overview (sizes are illustrative, as the screen says) and the keyboard flight. The flight controls follow the behaviour of a reference experience (Sojourner by artificial.isabel): the AI read how it behaves and its numbers, and wrote new code; none of its code, text or artwork was copied.
 - Built the language layer: the shared key `spherex-lang`, the dictionaries, the switch, and the following of the choice by every app.
 - Wrote the English texts as translations of the team's existing Korean texts. The Korean texts were not rewritten.
 - Wrote the tests and ran the checks (unit tests, builds, a scan for Korean letters on English screens, and screenshots taken with a headless browser with software WebGL).
 - Wrote the documents listed in section 1.
+- Drew the README's architecture figure and block diagram and wrote its UML, flowchart and entity-relationship diagrams from the code. A separate AI reviewer checked them against the code. Took the README's screenshots with a headless browser.
 
 Limits of the checks, as the agents reported them: they used headless Chromium with software WebGL only. No real GPU, touch device or phone was used. The Playwright end-to-end suites of the analysis app were not run, because they need a development server and live archive services. The portal side of the stage message could not be tried against the analysis app until the trees were merged.
 
@@ -78,7 +79,7 @@ The team fills in these lines. The AI has not filled them in.
 
 - A: 홈의 SPHEREx 3D 모형에 키트의 Lite 변형을 더했습니다(좁은 화면용).
 - B: 상단 메뉴 `천구 관찰`(Sky View)이 분석 앱의 탐색(Find) 화면을 엽니다. 이 화면은 별자리 선과 이름을 그리고 지면 보기를 갖습니다. 플라네타리움은 그 두 번째 보기이며, 둘 사이에 보던 하늘의 중심을 넘깁니다.
-- C: 소행성 궤도 3D 장면에 은하수 배경, 행성 질감, W A S D 비행을 더했습니다.
+- C: 소행성 궤도 3D 장면에 은하수 배경, 전체 보기에서도 보이는 행성 질감, 빛나는 태양, 키보드 비행을 더했습니다.
 - D: 기본 언어는 영어이고, 상단의 `EN | 한` 스위치 하나가 사이트 전체를 그 자리에서 한국어로 바꿉니다.
 - 위 변경을 설명하는 문서(README, `docs/architecture.md`, `apps/portal/HANDOFF.md`, `apps/analysis/THIRD_PARTY_NOTICES.md`, 이 파일).
 
@@ -95,11 +96,12 @@ The team fills in these lines. The AI has not filled them in.
 
 - 합친 천구 보기를 설계하고 구현했습니다. 탐색 화면을 `천구 관찰`로 만든 것, 플라네타리움으로 가는 보기 스위치, 보던 하늘의 중심을 넘기는 방식(`sky=ra,dec,fov`와 플라네타리움 상태의 `center` 필드), 상단 강조와 화면 전환 메시지입니다.
 - 별자리 층(선과 이름)을 만들고, 팀의 TrueBlink 프로젝트에 있던 지면 보기와 지평선 코드를 분석 앱에 옮겼습니다.
-- 궤도 3D의 은하수 배경, 행성 질감, W A S D 키보드 비행을 만들었습니다.
+- 궤도 3D의 은하수 배경, 행성 질감, 전체 보기에서 행성이 보이게 하는 규칙(화면에 적힌 대로 크기는 설명용), 키보드 비행을 만들었습니다. 비행 조작은 참고한 작품(artificial.isabel의 Sojourner)의 동작을 따랐습니다. AI가 그 동작과 수치를 읽고 코드를 새로 썼으며, 그 작품의 코드·글·그림은 옮기지 않았습니다.
 - 언어 층을 만들었습니다. 공유 키 `spherex-lang`, 문구표, 스위치, 모든 앱이 선택을 따라가는 방식입니다.
 - 영어 문구를 팀이 이미 쓴 한국어 문구의 번역으로 썼습니다. 한국어 문구는 고치지 않았습니다.
 - 테스트를 쓰고 검사를 돌렸습니다(단위 시험, 빌드, 영어 화면의 한글 검사, 소프트웨어 WebGL 헤드리스 브라우저로 찍은 화면 캡처).
 - 1절의 문서를 썼습니다.
+- README의 아키텍처 그림과 블록도를 그리고, UML·순서도·개체 관계도를 코드를 보고 썼습니다. 다른 AI 검수자가 코드와 맞춰 보았습니다. README의 화면 캡처는 헤드리스 브라우저로 찍었습니다.
 
 검사의 한계는 에이전트가 보고한 대로입니다. 소프트웨어 WebGL의 헤드리스 Chromium만 썼고, 실제 GPU·터치 기기·휴대전화는 쓰지 않았습니다. 분석 앱의 Playwright 종단 시험은 개발 서버와 실제 아카이브 서비스가 필요해 돌리지 않았습니다. 화면 전환 메시지의 포털 쪽은 작업 폴더를 합치기 전에는 분석 앱과 맞춰 볼 수 없었습니다.
 

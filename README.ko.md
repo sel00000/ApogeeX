@@ -85,45 +85,332 @@ Python 서비스가 없어도 홈, 천구 관찰, 플라네타리움, 준비된 
 
 ## 구조
 
+### 시스템 구조
+
+<img alt="시스템 구조: 브라우저의 포털이 천구 관찰, SPHEREx 분석, 플라네타리움, 소행성 분석을 담고 외부 아카이브를 부르며, 선택 사항인 로컬 Python 서비스가 새 영상과 새 소행성 분석을 더합니다" src="docs/readme/architecture.ko.png" width="100%">
+
+- **브라우저에서 실행.** 공개 사이트의 모든 부분, 즉 포털, 분석 앱(React), 플라네타리움(Stellarium Web Engine), 소행성 앱(three.js), 검색 엔진, 튜토리얼이 방문자의 브라우저에서 돌아갑니다.
+- **포털이 화면을 담음.** 포털은 분석, 플라네타리움, 소행성 앱을 같은 출처의 iframe으로 띄우고 언어, 일시정지, 단계 전환 메시지를 보냅니다. 검색, 튜토리얼, 관측 탭은 포털 페이지 안에서 바로 돌아갑니다.
+- **브라우저가 부르는 외부 서비스.** SPHEREx 전천 지도 타일은 IRSA에서, Gaia 별은 VizieR에서, 이름은 CDS Sesame, SIMBAD TAP, IMCCE SsODNet에서 가져오고, 검색이 아무것도 찾지 못했을 때만 언어 모형 도우미에 묻습니다.
+- **선택 사항인 로컬 서비스.** 로컬 Node gateway가 새 하늘 영역 작업을 Python 서비스에 넘기면 이 서비스가 IRSA에서 SPHEREx 노출을 찾아 잘라 오고, 소행성 분석은 JPL과 IRSA를 쓰는 Python 서비스가 맡습니다. 준비된 천체 다섯 개와 준비된 소행성 결과는 사이트에 함께 들어 있습니다.
+- **빌드와 배포.** `npm run build`가 모든 앱을 `dist` 폴더 하나로 묶고 API 서버가 없는 `config.json`을 넣습니다. 이 폴더를 `gh-pages` 브랜치에 올려 공개합니다.
+
+### 아카이브에서 화면까지
+
+<img alt="블록 다이어그램: 수집, 처리, 분석, 표시" src="docs/readme/pipeline.ko.png" width="100%">
+
+이 블록 다이어그램은 자료가 거치는 네 단계를 보여 줍니다. 아카이브에서 모으고, 영상과 표로 처리하고, 분석한 뒤 화면에 띄웁니다. 왼쪽은 미리 돌려 두거나 로컬 서비스에서 돌아가고, 오른쪽은 브라우저에서 돌아갑니다.
+
+### 방문자가 할 수 있는 일
+
+유스케이스 다이어그램으로, 두 종류의 사용자가 화면마다 할 수 있는 주요 일을 정리했습니다.
+
 ```mermaid
 flowchart LR
-  subgraph Browser["브라우저"]
-    P[포털<br/>apps/portal]
-    A[분석 앱<br/>apps/analysis]
-    PL[플라네타리움<br/>apps/planetarium]
-    AS[소행성·궤도 3D<br/>apps/asteroids]
-    S[검색<br/>packages/search]
-    T[튜토리얼<br/>packages/tutorial]
-    P --> A
-    P --> PL
-    P --> AS
-    P --> S
-    P --> T
+  V(["방문자"])
+  R(["연구자"])
+  subgraph Home["홈"]
+    H1("가시광·적외선 지도 비교")
   end
-  subgraph Local["로컬 서비스 (선택)"]
-    G[Node 서버와 gateway<br/>scripts/serve.mjs, services/gateway]
-    O[관측 처리, Python<br/>services/observations]
-    AN[소행성 분석, Python<br/>services/asteroids]
-    G --> O
-    G --> AN
+  subgraph Sky["천구 관찰"]
+    S1("하늘에서 자리 고르기")
+    S2("준비된 천체 분석 열기")
+    S3("이 자리의 SPHEREx 영상 가져오기")
+    S4("플라네타리움으로 전환")
   end
-  subgraph Outside["외부 자료 서비스"]
-    IRSA[NASA/IPAC IRSA<br/>SPHEREx 영상]
-    JPL[JPL Horizons]
-    CDS[CDS SIMBAD, Sesame, VizieR]
-    IM[IMCCE SsODNet]
-    LLM[언어 모형 도우미<br/>trueblink.pages.dev/api/ask]
+  subgraph SA["SPHEREx 분석"]
+    A1("방문 순서대로 깜빡이기")
+    A2("스펙트럼 실험실")
+    A3("방문 목록 내려받기 (CSV)")
   end
-  A -. /api .-> G
-  AS -. /api .-> G
-  A --> IRSA
-  O --> IRSA
-  AN --> JPL
-  AN --> IRSA
-  S --> CDS
-  S --> IM
-  S -. 엔진이 문장을 읽지 못할 때만 .-> LLM
+  subgraph AA["소행성 분석"]
+    B1("궤도 3D와 시간 슬라이더")
+    B2("준비된 결과 보기")
+    B3("새 분석 실행")
+    B4("FITS 잘라낸 영상 내려받기")
+  end
+  subgraph ST["검색과 튜토리얼"]
+    T1("이름이나 RA/Dec로 검색")
+    T2("일반 과정")
+    T3("연구자 과정")
+  end
+  V --- H1
+  V --- S1
+  V --- S2
+  V --- S4
+  V --- A1
+  V --- B1
+  V --- T1
+  V --- T2
+  A2 --- R
+  A3 --- R
+  B2 --- R
+  B4 --- R
+  T3 --- R
+  S3 -.- R
+  B3 -.- R
 ```
+
+점선으로 이은 두 가지는 로컬 Python 서비스가 있어야 하고, 나머지는 공개 사이트에서 그대로 됩니다.
+
+### 검색이 답을 찾는 과정
+
+검색창에 질의를 넣은 뒤 일어나는 일을 순서도로 그렸습니다.
+
+```mermaid
+flowchart TD
+  Q(["질의 입력"]) --> E{"비었거나 좌표 형식이<br/>잘못됐나?"}
+  E -- 예 --> M1["안내나<br/>좌표 오류 표시"]
+  E -- 아니요 --> B{"준비된 태양계 천체<br/>이름과 정확히 같나?"}
+  B -- 예 --> R1["그 천체들 표시"]
+  B -- 아니요 --> I["자체 엔진이 읽음:<br/>좌표, 이름 색인, 목록 요청"]
+  I --> K{"무엇을 찾았나?"}
+  K -- 좌표 --> R2["결과 하나"]
+  K -- "확실한 이름" --> R3["그 천체 열기"]
+  K -- "목록 요청" --> SB["SIMBAD TAP 질의"]
+  K -- "확실하지 않음" --> X["CDS Sesame와<br/>IMCCE SsODNet에 함께 질의"]
+  X --> MG["합치고 중복 제거"]
+  SB --> N{"결과가 있나?"}
+  MG --> N
+  N -- 예 --> R4["결과 목록"]
+  N -- 아니요 --> H{"config.json에<br/>도우미 URL이 있나?"}
+  H -- "아니요 (꺼짐)" --> NO["맞는 천체 없음"]
+  H -- 예 --> LLM["입력한 글만<br/>언어 모형 도우미에 보냄"]
+  LLM --> OK{"올바른 계획이 왔나?"}
+  OK -- "아니요 (오류 또는 이해 못 함)" --> NO
+  OK -- 예 --> RUN["계획대로 SIMBAD,<br/>Sesame, IMCCE 질의"]
+  RUN --> N2{"결과가 있나?"}
+  N2 -- 예 --> AI["AI 해석 후보<br/>표시를 단 선택지"]
+  N2 -- "아니요, 또는 계획이 none" --> NO
+  classDef web fill:#E6EEFF,stroke:#101826,color:#101826
+  classDef ext fill:#FFF0D2,stroke:#101826,color:#101826
+  classDef llm fill:#FFE3DA,stroke:#101826,color:#101826
+  class Q,E,M1,B,R1,I,K,R2,R3,MG,N,R4,H,NO,OK,N2 web
+  class SB,X,RUN ext
+  class LLM,AI llm
+```
+
+### 천구 관찰에서 시계열까지
+
+천구 관찰에서 자리를 고르고 그 자리의 SPHEREx 방문 자료를 받기까지를 시퀀스 다이어그램으로 그렸습니다.
+
+```mermaid
+sequenceDiagram
+  actor V as 방문자
+  participant P as 포털
+  participant A as 분석 앱
+  participant I as IRSA
+  participant L as 로컬 gateway와 Python 서비스
+  V->>P: 천구 관찰 누름
+  P->>A: iframe에 analysis/?view=sky 띄움
+  A->>A: data/targets.json 읽음
+  A->>I: SPHEREx 전천 HiPS 타일 요청
+  I-->>A: 지도 타일 (PNG)
+  V->>A: 하늘의 한 점 클릭
+  alt 0.3도 안에 준비된 천체가 있음
+    V->>A: 그 천체의 분석 열기 누름
+    A->>A: data/ID/meta.json과 프레임 읽음
+    A->>P: spherex-analysis-url (포털이 주소 갱신)
+    A-->>V: 방문 목록, 깜빡이기 화면, 3D 시공간 모형
+  else 새 자리
+    V->>A: 이 자리의 SPHEREx 영상 가져오기 누름
+    A->>A: config.json 읽음
+    alt 공개 사이트 (localServices false)
+      A-->>V: SPHEREx 영상을 만들지 못함, 대신 채우지 않음
+    else 로컬 Python 서비스 실행 중
+      A->>L: POST /api/patch (ra, dec, fov)
+      L->>I: SPHEREx 노출 검색과 잘라낸 영상 내려받기
+      I-->>L: 노출 영상
+      loop 대기나 실행 중이면 2초마다
+        A->>L: GET /api/patch
+      end
+      A->>L: 하늘 영역 meta.json 읽음
+      A->>P: spherex-analysis-url (포털이 주소 갱신)
+      A-->>V: 방문 목록, 깜빡이기 화면, 3D 시공간 모형
+    end
+  end
+```
+
+### 주요 객체
+
+분석 앱과 소행성 앱의 핵심 자료형을 클래스 다이어그램으로 정리했습니다.
+
+```mermaid
+classDiagram
+  class TargetsIndex {
+    generated_utc
+    code_version
+    targets: TargetEntry[]
+  }
+  class TargetEntry {
+    id
+    display_name
+    status: TargetStatus
+    n_visits
+    ra
+    dec
+  }
+  class TargetMeta {
+    id
+    kind
+    display_name
+    astrometry: Astrometry
+    visits: Visit[]
+    provenance
+  }
+  class Visit {
+    mjd
+    utc
+    png
+    diff_png
+    wave_um
+    earth_au: Vec3
+    target_au: Vec3
+    meas_px
+    exposures: string[]
+    irsa_uris: string[]
+  }
+  class Astrometry {
+    ra
+    dec
+    parallax_mas
+    pmra
+    pmdec
+    ref_epoch
+  }
+  class Body {
+    id
+    name
+    kind
+    samples: number[][]
+  }
+  class Observation {
+    objectId
+    id
+    mjd
+    ra
+    dec
+    detector
+    wavelength
+    image
+  }
+  class Sequence {
+    id
+    objectId
+    frames: Observation[]
+    coverage
+  }
+  TargetsIndex "1" --> "*" TargetEntry : targets
+  TargetEntry "1" --> "1" TargetMeta : id로 meta.json
+  TargetMeta "1" --> "*" Visit : visits
+  TargetMeta "1" --> "1" Astrometry : astrometry
+  Body "1" --> "*" Observation : objectId
+  Sequence "1" --> "*" Observation : frames
+  Sequence "*" --> "1" Body : objectId
+```
+
+### 사이트와 함께 배포하는 자료
+
+미리 만든 소행성 데이터베이스(SQLite)와 브라우저가 읽는 JSON 자료의 관계를 ERD로 그렸습니다(`target_entry`는 `targets.json`의 항목 하나, `catalog_item`은 `analysis-data/index.json`의 항목 하나입니다).
+
+```mermaid
+erDiagram
+  results ||--o{ spectra : "asteroid_id"
+  results ||--o{ observations : "asteroid_id"
+  results ||--o{ provenance : "asteroid_id"
+  observations ||..|| observations_json : "빌드 때 복사"
+  results ||..o{ observations_json : "빌드 때 읽음"
+  bodies_json ||--o{ observations_json : "objectId"
+  bodies_json ||--o{ sequences_json : "objectId"
+  catalog_item ||--|| result_json : "항목마다 폴더 하나"
+  result_json ||--|| temporal_json : "같은 폴더"
+  target_entry ||--|| target_meta_json : "id"
+  target_meta_json ||--|{ visit : "visits"
+  target_meta_json ||--o{ photometry_point : "photometry"
+  visit ||--o{ photometry_point : "방문 번호"
+  results {
+    TEXT asteroid_id PK
+    TEXT official_name
+    TEXT spectral_class
+    TEXT diameter_km
+    TEXT geometric_albedo_pV
+  }
+  spectra {
+    TEXT asteroid_id
+    TEXT obs_id
+    REAL mjd
+    REAL wavelength_um
+    REAL flux_uJy
+  }
+  observations {
+    TEXT asteroid_id
+    TEXT obs_id
+    REAL mjd_mid
+    REAL pred_ra_deg
+    REAL pred_dec_deg
+  }
+  provenance {
+    TEXT asteroid_id
+    TEXT step
+    TEXT record
+  }
+  candidates {
+    TEXT candidate_id PK
+    TEXT obs_id
+    TEXT status
+  }
+  meta {
+    TEXT key PK
+    TEXT value
+  }
+  observations_json {
+    string objectId
+    string id
+    number mjd
+  }
+  bodies_json {
+    string id
+    string name
+  }
+  sequences_json {
+    string id
+    string objectId
+  }
+  catalog_item {
+    string id
+    string objectId
+    string name
+  }
+  result_json {
+    string id
+    object record
+  }
+  temporal_json {
+    number n_points
+    number n_visits
+  }
+  target_entry {
+    string id
+    string display_name
+    string status
+    number n_visits
+  }
+  target_meta_json {
+    string id
+    object astrometry
+  }
+  visit {
+    number mjd
+    string png
+  }
+  photometry_point {
+    number visit
+    string exposure
+    number flux_mjy
+  }
+```
+
+SQLite 테이블끼리는 `asteroid_id`로 이어지지만 외래 키로 선언하지는 않았고, `candidates` 테이블은 비어 있습니다. 브라우저는 SQLite 파일을 열지 않습니다. 이 파일은 빌드 스크립트가 읽고, 로컬 소행성 서비스는 새 작업마다 데이터베이스를 따로 만듭니다. 사용자 계정도 없어서, 방문자별 상태는 브라우저 저장소에만 남습니다.
 
 | 폴더 | 내용 |
 |---|---|
@@ -165,6 +452,19 @@ flowchart LR
 
 코드와 글의 상당 부분은 팀의 지시에 따라 Anthropic의 Claude(Claude Code 명령줄 도구)로 썼으며, 어느 부분인지는 아래 기록에 있습니다. 그 결과물은 다른 AI 에이전트가 검토했습니다. 화면의 영어 문구는 팀이 쓴 한국어 문구를 AI가 번역한 것입니다. 실행 중에는 검색이 자체 엔진으로 읽지 못한 문장을 작은 언어 모형(Cloudflare Workers AI의 Llama 3.1 8B)에 보낼 수 있습니다. 모형은 검색 계획만 돌려주고 천체·위치·숫자를 만들지 않으며, 그런 결과에는 "AI 해석 후보" 표시가 붙습니다. 사이트의 하늘 영상, 행성 지도, 관측은 AI가 만든 것이 아닙니다. 상세는 [docs/AI_USE.md](docs/AI_USE.md), [packages/search/AI_USE.md](packages/search/AI_USE.md), [apps/portal/moving/AI_USE-TrueBlink.md](apps/portal/moving/AI_USE-TrueBlink.md)에 있습니다.
 
+프로젝트에서 팀이 쓴 AI 도구는 다음과 같습니다(팀이 밝힌 목록).
+
+| 도구 | 모델 |
+|---|---|
+| Claude Code | Fable 5.2, Opus 5.5, Sonnet 5.5 |
+| Codex | GPT 6 Astra, 6.1 Sol |
+| NVIDIA | Nemotron 3.5 Lightning |
+| Google Antigravity | Gemini 3.8 Flash |
+| Meta | Llama 3.1 8B |
+| SI | Super Intelligence |
+
+이 README의 그림과 다이어그램은 AI가 코드를 보고 그렸고, 다른 AI 검수자가 상자와 화살표를 하나씩 코드와 맞춰 보았습니다. 화면 캡처는 AI가 헤드리스 브라우저로 실제 사이트를 찍은 것입니다. 팀 사진은 실제 사진입니다.
+
 ## 라이선스
 
 이 저장소에서 팀이 직접 쓴 코드와 글은 MIT 라이선스([LICENSE](LICENSE))로 공개합니다. 다른 프로젝트에서 온 부분과 이미 라이선스가 있던 부분은 그 라이선스를 유지합니다.
@@ -184,6 +484,11 @@ NASA, ESA 등이 제공한 자료·지도·영상은 이 라이선스의 대상�
 
 Team ApogeeX, NASA Space Apps Challenge 2026.
 
-<img alt="화상 회의 중인 Team ApogeeX 네 사람. 배경은 NASA Space Apps Seoul 2026" src="docs/readme/team.jpg" width="100%">
+<img alt="NASA Space Apps Seoul 2026 배경 앞에서 화상 회의 중인 팀. 사진 위에 각자의 이름과 역할이 적혀 있습니다" src="docs/readme/team.jpg" width="100%">
 
-Kyung-Bo Kim, Jiho Lee, Hankyeol Lee, Joongsun You
+| 만든 사람 | 역할 |
+|---|---|
+| Kyung-Bo Kim | Architecture, Data Science (SPHEREx) |
+| Jiho Lee | Data Science (asteroid) |
+| Hankyeol Lee | UX/UI, Architecture, Astrophysical Validation |
+| Joongsun You | Frontend, Data Science, Systems Engineering |

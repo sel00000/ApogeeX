@@ -83,45 +83,332 @@ The project's earlier history is in [github.com/sel00000/Apogee](https://github.
 
 ## How it is built
 
+### System architecture
+
+<img alt="System architecture: the portal in the browser hosts Sky View, SPHEREx Analysis, the planetarium and Asteroid Analysis, and calls outside archives; optional local Python services add new images and new asteroid analyses" src="docs/readme/architecture.en.png" width="100%">
+
+- **In the browser.** Everything on the published site runs in the visitor's browser: the portal, the analysis app (React), the planetarium (Stellarium Web Engine), the asteroid app (three.js), the search engine and the tutorial.
+- **Portal hosts screens.** The portal loads the analysis, planetarium and asteroid apps in same-origin iframes and sends them the language, pause and stage messages, while search, tutorial and the Observations tab run in the portal page itself.
+- **Outside services called.** The browser fetches the SPHEREx all-sky map tiles from IRSA, Gaia stars from VizieR, names from CDS Sesame, SIMBAD TAP and IMCCE SsODNet, and asks the language-model helper only when search finds nothing.
+- **Optional local services.** A local Node gateway passes new sky-patch jobs to a Python service that searches and cuts SPHEREx exposures at IRSA, and runs a Python asteroid service that uses JPL and IRSA; the five prepared targets and the prepared asteroid results ship with the site.
+- **Build and publish.** `npm run build` builds every app into one `dist` folder with a `config.json` that has no API server, and that folder is pushed to the `gh-pages` branch.
+
+### From archive to screen
+
+<img alt="Block diagram: collect, process, analyse and show" src="docs/readme/pipeline.en.png" width="100%">
+
+This block diagram follows the data through four steps: collect from the archives, process into images and tables, analyse, and show on screen. The left part runs ahead of time or in the optional local services, and the right part runs in the browser.
+
+### What a visitor can do
+
+A use-case diagram: two kinds of user and the main things each can do on each screen.
+
 ```mermaid
 flowchart LR
-  subgraph Browser
-    P[Portal<br/>apps/portal]
-    A[Analysis app<br/>apps/analysis]
-    PL[Planetarium<br/>apps/planetarium]
-    AS[Asteroids and Orbit 3D<br/>apps/asteroids]
-    S[Search<br/>packages/search]
-    T[Tutorial<br/>packages/tutorial]
-    P --> A
-    P --> PL
-    P --> AS
-    P --> S
-    P --> T
+  V(["Visitor"])
+  R(["Researcher"])
+  subgraph Home
+    H1("Slide visible vs infrared map")
   end
-  subgraph Local["Local services (optional)"]
-    G[Node server and gateway<br/>scripts/serve.mjs, services/gateway]
-    O[Observations, Python<br/>services/observations]
-    AN[Asteroid analysis, Python<br/>services/asteroids]
-    G --> O
-    G --> AN
+  subgraph Sky["Sky View"]
+    S1("Pick a position")
+    S2("Open target analysis")
+    S3("Fetch SPHEREx images here")
+    S4("Switch to Planetarium")
   end
-  subgraph Outside["Outside data services"]
-    IRSA[NASA/IPAC IRSA<br/>SPHEREx images]
-    JPL[JPL Horizons]
-    CDS[CDS SIMBAD, Sesame, VizieR]
-    IM[IMCCE SsODNet]
-    LLM[Language model helper<br/>trueblink.pages.dev/api/ask]
+  subgraph SA["SPHEREx Analysis"]
+    A1("Blink the visits in order")
+    A2("Spectrum lab")
+    A3("Download visit list (CSV)")
   end
-  A -. /api .-> G
-  AS -. /api .-> G
-  A --> IRSA
-  O --> IRSA
-  AN --> JPL
-  AN --> IRSA
-  S --> CDS
-  S --> IM
-  S -. only when the engine cannot read a sentence .-> LLM
+  subgraph AA["Asteroid Analysis"]
+    B1("Orbit 3D with time slider")
+    B2("Browse prepared results")
+    B3("Run analysis")
+    B4("Download FITS cut-out")
+  end
+  subgraph ST["Search and Tutorial"]
+    T1("Search by name or RA/Dec")
+    T2("General course")
+    T3("Researcher course")
+  end
+  V --- H1
+  V --- S1
+  V --- S2
+  V --- S4
+  V --- A1
+  V --- B1
+  V --- T1
+  V --- T2
+  A2 --- R
+  A3 --- R
+  B2 --- R
+  B4 --- R
+  T3 --- R
+  S3 -.- R
+  B3 -.- R
 ```
+
+The two dashed links are use cases that need the optional local Python services; everything else works on the published site.
+
+### How a search is answered
+
+A flowchart of what happens after a query is submitted in the search box.
+
+```mermaid
+flowchart TD
+  Q(["Query submitted"]) --> E{"Empty, or broken<br/>coordinates?"}
+  E -- yes --> M1["Show a hint or<br/>a coordinate error"]
+  E -- no --> B{"Exact name of a prepared<br/>Solar System body?"}
+  B -- yes --> R1["Show those bodies"]
+  B -- no --> I["Own engine reads the text:<br/>coordinates, name index, list request"]
+  I --> K{"What did it find?"}
+  K -- coordinates --> R2["One result"]
+  K -- "confident name" --> R3["Open the object"]
+  K -- "list request" --> SB["SIMBAD TAP query"]
+  K -- "not sure" --> X["Ask CDS Sesame and<br/>IMCCE SsODNet together"]
+  X --> MG["Merge, drop duplicates"]
+  SB --> N{"Any result?"}
+  MG --> N
+  N -- yes --> R4["Result list"]
+  N -- no --> H{"Helper URL set<br/>in config.json?"}
+  H -- "no (switched off)" --> NO["No matching object"]
+  H -- yes --> LLM["Send only the typed text<br/>to the language-model helper"]
+  LLM --> OK{"Valid plan back?"}
+  OK -- "no (error or not understood)" --> NO
+  OK -- yes --> RUN["Run the plan with<br/>SIMBAD, Sesame or IMCCE"]
+  RUN --> N2{"Any result?"}
+  N2 -- yes --> AI["Choices labelled<br/>AI-interpreted candidate"]
+  N2 -- "no, or plan says none" --> NO
+  classDef web fill:#E6EEFF,stroke:#101826,color:#101826
+  classDef ext fill:#FFF0D2,stroke:#101826,color:#101826
+  classDef llm fill:#FFE3DA,stroke:#101826,color:#101826
+  class Q,E,M1,B,R1,I,K,R2,R3,MG,N,R4,H,NO,OK,N2 web
+  class SB,X,RUN ext
+  class LLM,AI llm
+```
+
+### From Sky View to a time series
+
+A sequence diagram of picking a place in Sky View and getting SPHEREx visits for it.
+
+```mermaid
+sequenceDiagram
+  actor V as Visitor
+  participant P as Portal
+  participant A as Analysis app
+  participant I as IRSA
+  participant L as Local gateway and Python service
+  V->>P: Click "Sky View"
+  P->>A: Load analysis/?view=sky in an iframe
+  A->>A: Read data/targets.json
+  A->>I: Fetch SPHEREx all-sky HiPS tiles
+  I-->>A: Map tiles (PNG)
+  V->>A: Click a point on the sky
+  alt Prepared target within 0.3 degrees
+    V->>A: Open NAME analysis
+    A->>A: Read data/ID/meta.json and frames
+    A->>P: spherex-analysis-url (portal updates the address)
+    A-->>V: Visits, blink viewer and 3D space-time model
+  else New place
+    V->>A: Fetch SPHEREx images here
+    A->>A: Read config.json
+    alt Published site (localServices false)
+      A-->>V: Could not build SPHEREx images, nothing is substituted
+    else Local Python service running
+      A->>L: POST /api/patch (ra, dec, fov)
+      L->>I: Search SPHEREx exposures and download cut-outs
+      I-->>L: Exposures
+      loop every 2 s while queued or running
+        A->>L: GET /api/patch
+      end
+      A->>L: Read the patch meta.json
+      A->>P: spherex-analysis-url (portal updates the address)
+      A-->>V: Visits, blink viewer and 3D space-time model
+    end
+  end
+```
+
+### Main objects
+
+A class diagram of the central data types in the analysis and asteroid apps.
+
+```mermaid
+classDiagram
+  class TargetsIndex {
+    generated_utc
+    code_version
+    targets: TargetEntry[]
+  }
+  class TargetEntry {
+    id
+    display_name
+    status: TargetStatus
+    n_visits
+    ra
+    dec
+  }
+  class TargetMeta {
+    id
+    kind
+    display_name
+    astrometry: Astrometry
+    visits: Visit[]
+    provenance
+  }
+  class Visit {
+    mjd
+    utc
+    png
+    diff_png
+    wave_um
+    earth_au: Vec3
+    target_au: Vec3
+    meas_px
+    exposures: string[]
+    irsa_uris: string[]
+  }
+  class Astrometry {
+    ra
+    dec
+    parallax_mas
+    pmra
+    pmdec
+    ref_epoch
+  }
+  class Body {
+    id
+    name
+    kind
+    samples: number[][]
+  }
+  class Observation {
+    objectId
+    id
+    mjd
+    ra
+    dec
+    detector
+    wavelength
+    image
+  }
+  class Sequence {
+    id
+    objectId
+    frames: Observation[]
+    coverage
+  }
+  TargetsIndex "1" --> "*" TargetEntry : targets
+  TargetEntry "1" --> "1" TargetMeta : id gives meta.json
+  TargetMeta "1" --> "*" Visit : visits
+  TargetMeta "1" --> "1" Astrometry : astrometry
+  Body "1" --> "*" Observation : objectId
+  Sequence "1" --> "*" Observation : frames
+  Sequence "*" --> "1" Body : objectId
+```
+
+### Data that ships with the site
+
+An entity-relationship diagram of the prepared asteroid database (SQLite) and the JSON data that the browser reads (`target_entry` is one item of `targets.json`, `catalog_item` one item of `analysis-data/index.json`).
+
+```mermaid
+erDiagram
+  results ||--o{ spectra : "asteroid_id"
+  results ||--o{ observations : "asteroid_id"
+  results ||--o{ provenance : "asteroid_id"
+  observations ||..|| observations_json : "copied at build"
+  results ||..o{ observations_json : "read at build"
+  bodies_json ||--o{ observations_json : "objectId"
+  bodies_json ||--o{ sequences_json : "objectId"
+  catalog_item ||--|| result_json : "one folder per item"
+  result_json ||--|| temporal_json : "same folder"
+  target_entry ||--|| target_meta_json : "id"
+  target_meta_json ||--|{ visit : "visits"
+  target_meta_json ||--o{ photometry_point : "photometry"
+  visit ||--o{ photometry_point : "visit index"
+  results {
+    TEXT asteroid_id PK
+    TEXT official_name
+    TEXT spectral_class
+    TEXT diameter_km
+    TEXT geometric_albedo_pV
+  }
+  spectra {
+    TEXT asteroid_id
+    TEXT obs_id
+    REAL mjd
+    REAL wavelength_um
+    REAL flux_uJy
+  }
+  observations {
+    TEXT asteroid_id
+    TEXT obs_id
+    REAL mjd_mid
+    REAL pred_ra_deg
+    REAL pred_dec_deg
+  }
+  provenance {
+    TEXT asteroid_id
+    TEXT step
+    TEXT record
+  }
+  candidates {
+    TEXT candidate_id PK
+    TEXT obs_id
+    TEXT status
+  }
+  meta {
+    TEXT key PK
+    TEXT value
+  }
+  observations_json {
+    string objectId
+    string id
+    number mjd
+  }
+  bodies_json {
+    string id
+    string name
+  }
+  sequences_json {
+    string id
+    string objectId
+  }
+  catalog_item {
+    string id
+    string objectId
+    string name
+  }
+  result_json {
+    string id
+    object record
+  }
+  temporal_json {
+    number n_points
+    number n_visits
+  }
+  target_entry {
+    string id
+    string display_name
+    string status
+    number n_visits
+  }
+  target_meta_json {
+    string id
+    object astrometry
+  }
+  visit {
+    number mjd
+    string png
+  }
+  photometry_point {
+    number visit
+    string exposure
+    number flux_mjy
+  }
+```
+
+The links between the SQLite tables follow `asteroid_id` but are not declared as foreign keys, and the `candidates` table is empty. The browser never opens the SQLite file; build scripts read it, and the local asteroid service writes a separate database for each new job. There are no user accounts: per-visitor state lives only in browser storage.
 
 | Folder | What it holds |
 |---|---|
@@ -163,6 +450,19 @@ Where a row says there is no licence text in this repository, the source is cred
 
 Much of the code and text was written with Anthropic's Claude, used through Claude Code, under the direction of the team; the notes below say which parts, and other AI agents reviewed that work. The English interface texts were written by the AI as translations of the team's Korean texts. At run time the search can send a sentence that its own engine cannot read to a small language model (Llama 3.1 8B on Cloudflare Workers AI); the model returns a search plan only, never objects, positions or numbers, and such results are labelled "AI-interpreted candidate". No sky image, planet map or observation on the site is AI-generated. The details are in [docs/AI_USE.md](docs/AI_USE.md), [packages/search/AI_USE.md](packages/search/AI_USE.md) and [apps/portal/moving/AI_USE-TrueBlink.md](apps/portal/moving/AI_USE-TrueBlink.md).
 
+AI tools the team used during the project, as listed by the team:
+
+| Tool | Models |
+|---|---|
+| Claude Code | Fable 5.2, Opus 5.5, Sonnet 5.5 |
+| Codex | GPT 6 Astra, 6.1 Sol |
+| NVIDIA | Nemotron 3.5 Lightning |
+| Google Antigravity | Gemini 3.8 Flash |
+| Meta | Llama 3.1 8B |
+| SI | Super Intelligence |
+
+The figures and diagrams in this README were drawn by the AI from the code, and a separate AI reviewer checked each box and arrow against the code. The screenshots were taken by the AI with a headless browser from the real site. The team photograph is a real photograph.
+
 ## Licences
 
 The team's own code and text in this repository are released under the MIT License ([LICENSE](LICENSE)). Parts that come from other projects, or that already carried a licence, keep it:
@@ -182,6 +482,11 @@ Data, maps and images from NASA, ESA and others are not covered by these licence
 
 Team ApogeeX, NASA Space Apps Challenge 2026.
 
-<img alt="Team ApogeeX on a video call: four members in front of NASA Space Apps Seoul 2026 backgrounds" src="docs/readme/team.jpg" width="100%">
+<img alt="The team on a video call in front of NASA Space Apps Seoul 2026 backgrounds, with each member's name and role written on the picture" src="docs/readme/team.jpg" width="100%">
 
-Kyung-Bo Kim, Jiho Lee, Hankyeol Lee, Joongsun You
+| Author | Role |
+|---|---|
+| Kyung-Bo Kim | Architecture, Data Science (SPHEREx) |
+| Jiho Lee | Data Science (asteroid) |
+| Hankyeol Lee | UX/UI, Architecture, Astrophysical Validation |
+| Joongsun You | Frontend, Data Science, Systems Engineering |

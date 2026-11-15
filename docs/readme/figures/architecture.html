@@ -1,0 +1,166 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>Architecture figure</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="figure.css">
+<style>
+.top{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:0;row-gap:28px}
+.lw{grid-column:1/8;grid-row:1/3;margin-right:44px;display:flex;flex-direction:column;gap:28px}.left{flex:1}
+.rt{grid-column:8/13;grid-row:1;margin-left:44px;padding-right:58px}
+.rb{grid-column:8/13;grid-row:2;margin-left:44px;padding-right:58px}
+.stack{display:flex;flex-direction:column;gap:14px}
+.row3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.row3 .box{padding:12px 12px}
+.pad{padding-left:64px}
+.toks{display:flex;align-items:center;flex-wrap:wrap;gap:8px 22px}
+.lane{height:44px}
+.optin{display:flex;flex-direction:column;gap:30px;padding-left:40px}
+.build{display:grid;grid-template-columns:auto auto auto;gap:34px 40px;align-items:center;justify-content:space-between}
+.build .gt{margin:0;grid-column:1/4}
+.chip{border:2.5px solid var(--ink);border-radius:12px;background:#fff;padding:8px 14px;font-size:20px;line-height:1.3;white-space:nowrap}
+</style></head>
+<body><div id="fig">
+<div class="top">
+  <div class="lw">
+  <div class="cont blue left" id="browser">
+    <div class="gt" data-t="g.browser"></div>
+    <div class="box sb" id="portal"><div class="bt" data-t="portal.t"></div><div class="b2" data-t="portal.s"></div></div>
+    <div class="pad" style="margin-top:14px">
+      <div class="toks"><span class="cap" data-t="tok.cap"></span>
+        <span><span class="tok" style="background:var(--bs)"></span><span data-t="tok.lang"></span></span>
+        <span><span class="tok" style="background:#fff"></span><span data-t="tok.route"></span></span>
+        <span><span class="tok" style="background:var(--as)"></span><span data-t="tok.sky"></span></span></div>
+      <div class="b2" data-t="tok.how" style="margin-top:6px"></div>
+      <div class="cap" data-t="cap.frame" style="margin-top:14px"></div>
+    </div>
+    <div class="lane" id="laneA"></div>
+    <div class="row3" id="framed">
+      <div class="box" id="sky"><div class="bt" data-t="sky.t"></div><div class="b2" data-t="sky.s"></div></div>
+      <div class="box" id="planet"><div class="bt" data-t="pl.t"></div><div class="b2" data-t="pl.s"></div></div>
+      <div class="box" id="ast"><div class="bt" data-t="ast.t"></div><div class="b2" data-t="ast.s"></div></div>
+    </div>
+    <div class="lane" id="laneB" style="height:80px"></div>
+    <div class="cap pad" data-t="cap.page"></div>
+    <div class="row3" style="margin-top:12px">
+      <div class="box" id="search"><div class="bt" data-t="se.t"></div><div class="b2" data-t="se.s"></div></div>
+      <div class="box" id="tut"><div class="bt" data-t="tu.t"></div><div class="b2" data-t="tu.s"></div></div>
+      <div class="box" id="mov"><div class="bt" data-t="mv.t"></div><div class="b2" data-t="mv.s"></div></div>
+    </div>
+    <div class="lane" id="laneC" style="height:96px"></div>
+    <div class="box sa" id="data"><div class="bt" data-t="data.t"></div><div class="b2" data-t="data.s"></div></div>
+  </div>
+  <div class="cont slate build" id="buildstrip" style="padding:16px 24px 22px">
+  <div class="gt" data-t="g.build"></div>
+  <div class="chip" id="k1" data-t="k1"></div>
+  <div class="chip" id="k2">npm run build<br>scripts/build.mjs</div>
+  <div class="chip" id="k3" data-t="k3"></div>
+  <div class="chip" id="k4" data-t="k4"></div>
+  <div class="night" id="k5" style="grid-column:2/4;justify-self:start">GitHub Pages<br><span style="font-weight:400;font-size:20px">sel00000.github.io/ApogeeX</span></div>
+</div>
+  </div>
+  <div class="cont amber rt" id="outside">
+    <div class="gt" data-t="g.out"></div>
+    <div class="stack">
+      <div class="box" id="irsa"><div class="bt">NASA/IPAC IRSA</div><div class="b2" data-t="irsa.s"></div></div>
+      <div class="box" id="cds"><div class="bt">CDS</div><div class="b2" data-t="cds.s"></div></div>
+      <div class="box" id="imcce"><div class="bt">IMCCE SsODNet</div><div class="b2" data-t="imcce.s"></div></div>
+      <div class="box dash sc" id="llm"><div class="bt" data-t="llm.t"></div><div class="b2" data-t="llm.s"></div></div>
+      <div class="box" id="jpl"><div class="bt">JPL Horizons, SBDB</div><div class="b2" data-t="jpl.s"></div></div>
+    </div>
+  </div>
+  <div class="cont slate opt rb" id="local">
+    <div class="gt" data-t="g.local"></div>
+    <div class="optin">
+      <div class="box ss" id="gw"><div class="bt" data-t="gw.t"></div><div class="b2">scripts/serve.mjs, services/gateway</div></div>
+      <div class="box" id="obs"><div class="bt" data-t="obs.t"></div><div class="b2" data-t="obs.s"></div></div>
+      <div class="box" id="apy"><div class="bt" data-t="apy.t"></div><div class="b2">services/asteroids</div></div>
+    </div>
+  </div>
+</div>
+<div class="legend">
+  <span><span class="sw" style="background:#fff"></span><span data-t="lg.solid"></span></span>
+  <span><span class="sw" style="background:#fff;border-style:dashed"></span><span data-t="lg.dash"></span></span>
+  <span><span class="sw" style="background:var(--bs)"></span><span data-t="lg.blue"></span></span>
+  <span><span class="sw" style="background:var(--as)"></span><span data-t="lg.amber"></span></span>
+  <span><span class="sw" style="background:var(--cs)"></span><span data-t="lg.coral"></span></span>
+  <span><span class="sw" style="background:var(--ss)"></span><span data-t="lg.slate"></span></span>
+</div>
+</div>
+<script src="figure.js"></script>
+<script>
+const T = {
+ 'g.browser':{en:"In the visitor's browser",ko:'방문자의 브라우저 안'},
+ 'portal.t':{en:'Portal · apps/portal',ko:'포털 · apps/portal'},
+ 'portal.s':{en:'home, menu, router, language switch EN | 한; hosts the screens',ko:'홈, 메뉴, router, 언어 전환 EN | 한. 모든 화면을 담는 틀'},
+ 'tok.cap':{en:'sent to every screen:',ko:'모든 화면에 전달:'},
+ 'tok.lang':{en:'language',ko:'언어'},'tok.route':{en:'route',ko:'경로'},'tok.sky':{en:'sky position',ko:'하늘 위치'},
+ 'tok.how':{en:"postMessage, and localStorage 'spherex-lang'",ko:"postMessage와 localStorage 'spherex-lang'"},
+ 'cap.frame':{en:'each in its own frame (iframe)',ko:'각자 자기 iframe 안에서 실행'},
+ 'cap.page':{en:'inside the portal page',ko:'포털 페이지 안에서 실행'},
+ 'sky.t':{en:'Sky View, Observe, Analyse',ko:'천구 관찰, 관측, 분석'},
+ 'sky.s':{en:'apps/analysis; React and three.js',ko:'apps/analysis; React, three.js'},
+ 'pl.t':{en:'Planetarium',ko:'플라네타리움'},
+ 'pl.s':{en:'apps/planetarium; Stellarium Web Engine',ko:'apps/planetarium; Stellarium Web Engine'},
+ 'ast.t':{en:'Results and Orbit 3D',ko:'분석 결과, 궤도·3D'},
+ 'ast.s':{en:'apps/asteroids; three.js',ko:'apps/asteroids; three.js'},
+ 'se.t':{en:'Search',ko:'검색'},'se.s':{en:'packages/search',ko:'packages/search'},
+ 'tu.t':{en:'Tutorial',ko:'튜토리얼'},'tu.s':{en:'packages/tutorial',ko:'packages/tutorial'},
+ 'mv.t':{en:'Asteroid Observations',ko:'소행성 관측 자료'},'mv.s':{en:'apps/portal/moving',ko:'apps/portal/moving'},
+ 'data.t':{en:'Prepared data shipped with the site',ko:'사이트에 함께 들어 있는 준비된 자료'},
+ 'data.s':{en:'5 prepared SPHEREx targets (frames and meta.json) · 23 prepared asteroid results (analysis-data) · search index of 19,975 sky objects',ko:'준비된 SPHEREx 대상 5개 (frames, meta.json) · 준비된 소행성 분석 결과 23개 (analysis-data) · 천체 19,975개 검색 색인'},
+ 'g.out':{en:'Outside archives and services',ko:'외부 아카이브와 서비스'},
+ 'irsa.s':{en:'SPHEREx all-sky map tiles; DSS2 colour layer',ko:'SPHEREx 전천 지도 타일, DSS2 컬러 레이어'},
+ 'cds.s':{en:'Sesame names, SIMBAD, VizieR Gaia DR3',ko:'Sesame 이름 조회, SIMBAD, VizieR Gaia DR3'},
+ 'imcce.s':{en:'Solar System object names',ko:'태양계 천체 이름 조회'},
+ 'llm.t':{en:'Language-model helper',ko:'언어 모델 도우미'},
+ 'llm.s':{en:'trueblink.pages.dev/api/ask; Llama 3.1 8B on Cloudflare Workers AI; only when the search engine cannot read a sentence',ko:'trueblink.pages.dev/api/ask; Cloudflare Workers AI의 Llama 3.1 8B. 검색 엔진이 문장을 읽지 못할 때만 사용'},
+ 'jpl.s':{en:'reached only by the Python asteroid service',ko:'Python 소행성 서비스만 사용'},
+ 'g.local':{en:'Optional local services, not on the published site',ko:'선택 사항인 로컬 서비스 (공개 사이트에는 없음)'},
+ 'gw.t':{en:'Node gateway',ko:'Node gateway'},
+ 'obs.t':{en:'Observations, Python',ko:'관측 처리, Python'},
+ 'obs.s':{en:'services/observations: a new place in the sky (IRSA search and cut-outs)',ko:'services/observations: 새 하늘 위치를 IRSA에서 검색하고 잘라 옴'},
+ 'apy.t':{en:'Asteroid analysis, Python',ko:'소행성 분석, Python'},
+ 'g.build':{en:'Build and publish',ko:'빌드와 배포'},
+ 'k1':{en:'source',ko:'소스 코드'},
+ 'k3':{en:'dist<br>static files, config.json',ko:'dist<br>정적 파일, config.json'},
+ 'k4':{en:'gh-pages<br>branch',ko:'gh-pages<br>브랜치'},
+ 'lg.solid':{en:'solid outline = always present',ko:'실선 = 항상 있음'},
+ 'lg.dash':{en:'dashed outline or arrow = optional or conditional',ko:'점선 테두리·화살표 = 선택 또는 조건부'},
+ 'lg.blue':{en:'browser',ko:'브라우저'},'lg.amber':{en:'outside data',ko:'외부 자료'},
+ 'lg.coral':{en:'language model',ko:'언어 모델'},'lg.slate':{en:'local services, build',ko:'로컬 서비스, 빌드'},
+ 'l.sentence':{en:'a sentence only',ko:'문장일 때만'},
+ 'l.api':{en:'/api, local only',ko:'/api, 로컬 전용'},
+};
+const G = 'right:browser'; // gutter between left and right blocks: x = right edge + 44
+const LX = 0;
+const W = [
+ // portal -> framed screens (bus in laneA)
+ {from:'portal',fromSide:'bottom',ft:.035,to:'sky',toSide:'top',via:[{y:'cy:laneA'}]},
+ {from:'portal',fromSide:'bottom',ft:.035,to:'planet',toSide:'top',via:[{y:'cy:laneA'}]},
+ {from:'portal',fromSide:'bottom',ft:.035,to:'ast',toSide:'top',via:[{y:'cy:laneA'}]},
+ // Sky View -> IRSA, CDS
+ {from:'sky',fromSide:'bottom',ft:.7,to:'irsa',toSide:'left',tt:.6,via:[{y:'top:laneB',d:14},{x:G,d:16}]},
+ {from:'sky',fromSide:'bottom',ft:.7,to:'cds',toSide:'left',tt:.4,via:[{y:'top:laneB',d:14},{x:G,d:16}]},
+ // Planetarium -> IRSA
+ {from:'planet',fromSide:'bottom',ft:.3,to:'irsa',toSide:'left',tt:.3,via:[{y:'top:laneB',d:30},{x:G,d:30}]},
+ // framed screens -> gateway (dashed)
+ {from:'sky',fromSide:'bottom',ft:.3,to:'gw',toSide:'left',dashed:true,label:'l.api',lseg:2,lx:LX,tt:.3,via:[{y:'top:laneB',d:52},{x:G,d:44}]},
+ {from:'ast',fromSide:'bottom',ft:.7,endY:'top:laneB',endYd:52,dashed:true,nohead:true},
+ // Search -> CDS, IMCCE, LLM
+ {from:'search',fromSide:'bottom',ft:.3,to:'cds',toSide:'left',tt:.75,via:[{y:'top:laneC',d:20},{x:G,d:60}]},
+ {from:'search',fromSide:'bottom',ft:.3,to:'imcce',toSide:'left',via:[{y:'top:laneC',d:20},{x:G,d:60}]},
+ {from:'search',fromSide:'bottom',ft:.75,to:'llm',toSide:'left',dashed:true,label:'l.sentence',lseg:2,via:[{y:'top:laneC',d:66},{x:G,d:76}]},
+ // gateway -> python
+ {from:'gw',fromSide:'bottom',to:'obs',toSide:'top'},
+ {from:'gw',fromSide:'left',ft:.75,to:'apy',toSide:'left',via:[{x:'left:gw',d:-20}]},
+ // python -> outside
+ {from:'obs',fromSide:'right',to:'irsa',toSide:'right',via:[{x:'right:obs',d:20},{y:'cy:irsa'}]},
+ {from:'apy',fromSide:'right',to:'jpl',toSide:'right',dashed:true,via:[{x:'right:obs',d:40},{y:'cy:jpl'}]},
+ // build
+ {from:'k1',fromSide:'right',to:'k2',toSide:'left'},{from:'k2',fromSide:'right',to:'k3',toSide:'left'},
+ {from:'k3',fromSide:'bottom',to:'k4',toSide:'top',via:[{y:'bottom:k3',d:17}]},{from:'k4',fromSide:'right',to:'k5',toSide:'left'},
+];
+window.figReady = (async()=>{ const lang=Fig.fill(T);
+  for(const w of W) if(w.label) w.label=T[w.label][lang];
+  await document.fonts.ready; await new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)));
+  Fig.draw(W); })();
+</script>
+</body></html>

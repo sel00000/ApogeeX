@@ -6,8 +6,6 @@ import {
   poleToEcliptic,
   PLANET_POLES,
   flightSpeed,
-  flightDirection,
-  easeStep,
   FLIGHT,
   OBLIQUITY_DEG,
 } from "../src/sky";
@@ -111,23 +109,8 @@ describe("WASD flight", () => {
     expect(flightSpeed(1e6)).toBe(FLIGHT.max);
     expect(flightSpeed(Infinity)).toBe(FLIGHT.max);
   });
-  it("Shift makes it four times faster", () =>
-    expect(flightSpeed(0.5, true)).toBeCloseTo(4 * flightSpeed(0.5), 12));
-  it("maps keys to camera-local axes and normalises diagonals", () => {
-    expect(flightDirection(new Set(["KeyW"]))).toEqual([0, 0, -1]);
-    expect(flightDirection(new Set(["KeyS"]))).toEqual([0, 0, 1]);
-    expect(flightDirection(new Set(["KeyD"]))).toEqual([1, 0, 0]);
-    expect(flightDirection(new Set(["KeyQ"]))).toEqual([0, -1, 0]);
-    expect(flightDirection(new Set(["KeyW", "KeyS"]))).toEqual([0, 0, 0]);
-    expect(Math.hypot(...flightDirection(new Set(["KeyW", "KeyD", "KeyE"])))).toBeCloseTo(1, 12);
-  });
-  it("eases over about 0.12 s and is immediate with reduced motion", () => {
-    let v = 0;
-    for (let t = 0; t < 0.12; t += 1 / 60) v += (1 - v) * easeStep(1 / 60, false);
-    expect(v).toBeGreaterThan(0.9);
-    expect(easeStep(1 / 60, false)).toBeLessThan(0.5);
-    expect(easeStep(1 / 60, true)).toBe(1);
-  });
+  it("has no boost: one speed for a given distance", () =>
+    expect(flightSpeed.length).toBe(1));
 });
 
 import { markSkyUnavailable } from "../src/sky";

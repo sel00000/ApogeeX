@@ -11,10 +11,20 @@ import {
   poleToEcliptic,
   PLANET_POLES,
   flightSpeed,
-  flightDirection,
-  easeStep,
-  FLIGHT_KEYS,
 } from "./sky";
+import {
+  CONTROLS,
+  FLIGHT_KEYS,
+  IDLE,
+  dragLook,
+  liftStep,
+  lookAngles,
+  lookInput,
+  lookVector,
+  throttleStep,
+  turn,
+  type Throttle,
+} from "./flight";
 /** Gaia background display stretch: screen = clamp((map - SKY_BLACK) / (1 - SKY_BLACK)) x SKY_DIM.
  * Chosen from screenshots so the thinnest orbit lines and labels stay readable over the Milky Way. */
 export const SKY_DIM = 0.75;
@@ -24,6 +34,7 @@ export const FAINT_ORBIT_OPACITY = 0.22;
 export const FAINT_ORBIT_OPACITY_SKY = 0.3;
 /** Mip footprint scale (>1 samples a slightly coarser mip level so the magnified map reads less grainy). */
 export const SKY_SOFTEN = 2.5;
+import { drawRadius, planetDrawRadius, pixelsPerAu, illustrativeWeight } from "./sky";
 /** Planet maps (ESA/NASA public products copied to public/sky; see SOURCES.json). */
 const PLANET_MAPS: Record<string, { map: string; coverage?: string }> = {
   "199": { map: "mercury.jpg" },
@@ -45,6 +56,36 @@ const SATURN_RINGS_KM: [number, number, number][] = [
   [122340, 136780, 0.5], // A
 ];
 const PLANET_TEXTURE_PX = 6;
+/** Illustrative minimum radius on screen (CSS px) in the Solar system / Follow views; 1:1 in SPHEREx view. */
+const PLANET_MIN_PX: Record<string, number> = {
+  "199": 7, "299": 9, "399": 9, "499": 8, "599": 14, "699": 12, "799": 10, "899": 10,
+};
+/** Lit-limb atmosphere tint and strength (0 = none). Mercury has no atmosphere. */
+const PLANET_ATMOSPHERE: Record<string, [number, number]> = {
+  "299": [0xf3e2b6, 0.45],
+  "399": [0x7fb2ff, 0.55],
+  "499": [0xe8a27c, 0.2],
+  "599": [0xf0dcc0, 0.2],
+  "699": [0xf1e2b8, 0.2],
+  "799": [0xb7f0f0, 0.45],
+  "899": [0x7fa8ff, 0.45],
+};
+/** Sun disc (AU), its on-screen minimum (px) and cap (AU), and its additive halo (radius in disc radii). */
+const SUN_RADIUS = 0.12;
+const SUN_MIN_PX = 11;
+const SUN_MAX_RADIUS = 0.3;
+const SUN_GLOW_SCALE = 4.5;
+/** Halo stops [radius in disc radii, alpha]: 0.62 at the disc edge, 0.26 at 2x, 0.08 at 3x, 0 at 4.5x. */
+const SUN_GLOW_STOPS: [number, number][] = [
+  [0, 0.75], [1, 0.62], [1.4, 0.44], [2, 0.26], [2.5, 0.15], [3, 0.08], [3.7, 0.025], [4.5, 0],
+];
+/** Halo colour #ffcf8a near the disc to #ff9a4a outside; disc gradient #fff3d6 centre to #ffb65c edge. */
+const SUN_GLOW_NEAR = [255, 207, 138], SUN_GLOW_FAR = [255, 154, 74];
+const SUN_VERTEX = `varying vec3 vN;varying vec3 vP;
+void main(){vN=normalize(mat3(modelMatrix)*normal);vec4 w=modelMatrix*vec4(position,1.0);vP=w.xyz;gl_Position=projectionMatrix*viewMatrix*w;}`;
+const SUN_FRAGMENT = `varying vec3 vN;varying vec3 vP;
+void main(){float m=clamp(dot(normalize(vN),normalize(cameraPosition-vP)),0.0,1.0);
+gl_FragColor=vec4(mix(vec3(1.0,0.714,0.361),vec3(1.0,0.953,0.839),smoothstep(0.0,0.9,m)),1.0);}`;
 const SKY_VERTEX = `varying vec3 vDir;
 void main(){vDir=position;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0);}`;
 // Mirrors eclipticToSkyUv() in sky.ts (unit-tested there).
@@ -60,12 +101,18 @@ const PLANET_VERTEX = `varying vec2 vUv;varying vec3 vN;varying vec3 vP;
 void main(){vUv=uv;vN=normalize(mat3(modelMatrix)*normal);vec4 w=modelMatrix*vec4(position,1.0);vP=w.xyz;gl_Position=projectionMatrix*viewMatrix*w;}`;
 // Own lighting: Sun at the origin, night side 0.12, no specular; independent of the rock lights.
 // Unobserved pixels are black in these maps, so map + (1 - coverage) x mean colour stays right at every mip level.
+// Atmosphere: a view-angle rim inside the disc, weighted by the day side only, so the night side never glows.
+// k = illustrativeWeight(scale) (sky.ts): a planet drawn larger than true is a symbol, so it is lit evenly
+// (illustrativeLight in sky.ts) and its rim runs all round the limb at 0.6; k = 0 at true size.
 const PLANET_FRAGMENT = `uniform sampler2D map;uniform sampler2D coverage;uniform float hasCoverage;uniform vec3 fill;
+uniform vec3 rim;uniform float rimStrength;uniform float k;
 varying vec2 vUv;varying vec3 vN;varying vec3 vP;
 void main(){vec3 c=texture2D(map,vUv).rgb;
 if(hasCoverage>0.5){c=clamp(c+(1.0-texture2D(coverage,vUv).r)*fill,0.0,1.0);}
-float ndl=dot(normalize(vN),normalize(-vP));float light=0.12+0.88*smoothstep(-0.04,0.55,ndl);
-gl_FragColor=vec4(c*light,1.0);}`;
+vec3 n=normalize(vN);float ndl=dot(n,normalize(-vP));float light=0.12+0.88*smoothstep(-0.04,0.55,ndl);light=mix(light,0.58+0.42*light,k);
+float edge=1.0-clamp(dot(n,normalize(cameraPosition-vP)),0.0,1.0);
+float day=smoothstep(-0.05,0.35,ndl);day=mix(day,max(day,0.6),k);
+gl_FragColor=vec4(clamp(c*light+rim*(rimStrength*pow(edge,2.5)*day),0.0,1.0),1.0);}`;
 const RING_VERTEX = `varying vec2 vXY;void main(){vXY=position.xy;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.0);}`;
 export class SolarScene {
   private byId: Map<string, Body>;
@@ -75,6 +122,8 @@ export class SolarScene {
   controls: OrbitControls;
   private instances: T.InstancedMesh[] = [];
   private planets: T.Mesh[] = [];
+  private sun!: T.Mesh;
+  private sunGlow!: T.Sprite;
   private dummy = new T.Object3D();
   private p = [0, 0, 0];
   private chosen = "";
@@ -179,10 +228,14 @@ export class SolarScene {
   private photoBacking: T.Mesh;
   // WASD flight
   private keys = new Set<string>();
-  private boost = false;
   private pointerOver = false;
   private velocity = new T.Vector3();
   private flightActive = false;
+  private throttle: Throttle = IDLE;
+  /** Vertical speed, fraction of the local full speed (+ = up). */
+  private lift = 0;
+  /** Left-button look drag in progress. */
+  private lookDrag: { id: number; x: number; y: number } | null = null;
   onTick: (dt: number) => void = () => {};
   onSelect: (id: string) => void = () => {};
   onError: (message: () => string) => void = () => {};
@@ -209,12 +262,15 @@ export class SolarScene {
     this.controls.enableDamping = false;
     this.controls.minDistance = 0.01;
     this.controls.maxDistance = 90;
+    // Left drag looks around in place (lookStart/lookMove); right drag orbits the target; no panning.
+    this.controls.mouseButtons = {
+      LEFT: null,
+      MIDDLE: T.MOUSE.DOLLY,
+      RIGHT: T.MOUSE.ROTATE,
+    };
+    this.controls.enablePan = false;
     this.controls.addEventListener("change", () => this.request());
-    this.controls.addEventListener("start", () => {
-      this.tween = null;
-      this.observer = false;
-      this.following = false;
-    });
+    this.controls.addEventListener("start", () => this.takeOver());
     const g = transpose(GALACTIC_TO_ECLIPTIC);
     (this.skyMaterial.uniforms.toGalactic.value as T.Matrix3).set(
       ...g[0],
@@ -228,10 +284,43 @@ export class SolarScene {
     this.scene.add(new T.HemisphereLight(0xc9dfff, 0x4f413b, 2.4));
     this.scene.add(new T.PointLight(0xffe9b5, 3, 0, 0));
     const sun = new T.Mesh(
-      new T.IcosahedronGeometry(0.12, 2),
-      new T.MeshBasicMaterial({ color: 0xffd595 }),
+      new T.SphereGeometry(SUN_RADIUS, 48, 24),
+      new T.ShaderMaterial({ vertexShader: SUN_VERTEX, fragmentShader: SUN_FRAGMENT }),
     );
     this.scene.add(sun);
+    sun.userData.radius = SUN_RADIUS;
+    this.sun = sun;
+    {
+      // Additive warm halo drawn as a camera-facing sprite; it only adds light, so orbit lines stay visible.
+      const c = document.createElement("canvas");
+      c.width = c.height = 256;
+      const ctx = c.getContext("2d");
+      if (ctx) {
+        const g = ctx.createRadialGradient(128, 128, 0, 128, 128, 128);
+        for (const [at, a] of SUN_GLOW_STOPS) {
+          const f = Math.min(1, Math.max(0, (at - 1) / 2)),
+            [r, gr, b] = SUN_GLOW_NEAR.map((x, i) => Math.round(x + (SUN_GLOW_FAR[i] - x) * f));
+          g.addColorStop(at / SUN_GLOW_SCALE, `rgba(${r},${gr},${b},${a})`);
+        }
+        ctx.fillStyle = g;
+        ctx.fillRect(0, 0, 256, 256);
+      }
+      const texture = new T.CanvasTexture(c);
+      texture.colorSpace = T.SRGBColorSpace;
+      this.textures.push(texture);
+      this.sunGlow = new T.Sprite(
+        new T.SpriteMaterial({
+          map: texture,
+          blending: T.AdditiveBlending,
+          transparent: true,
+          depthWrite: false,
+          toneMapped: false,
+        }),
+      );
+      this.sunGlow.scale.setScalar(2 * SUN_GLOW_SCALE * SUN_RADIUS);
+      this.sunGlow.renderOrder = -1;
+      this.scene.add(this.sunGlow);
+    }
     this.photoTexture.colorSpace = T.SRGBColorSpace;
     this.photoTexture.minFilter = this.photoTexture.magFilter = T.NearestFilter;
     this.photoTexture.generateMipmaps = false;
@@ -380,7 +469,13 @@ export class SolarScene {
       down = [e.clientX, e.clientY];
       if (e.pointerType === "mouse" && document.activeElement !== canvas)
         canvas.focus({ preventScroll: true });
+      this.lookStart(e);
     });
+    canvas.addEventListener("pointermove", (e) => this.lookMove(e));
+    for (const type of ["pointerup", "pointercancel", "lostpointercapture"])
+      canvas.addEventListener(type, (e) => {
+        if (this.lookDrag?.id === (e as PointerEvent).pointerId) this.lookDrag = null;
+      });
     const signal = this.lifecycle.signal;
     window.addEventListener("keydown", (e) => this.keyDown(e), { signal });
     window.addEventListener("keyup", (e) => this.keyUp(e), { signal });
@@ -402,8 +497,34 @@ export class SolarScene {
         this.camera,
       );
       const hit = raycaster.intersectObjects(this.instances)[0];
-      if (hit && hit.instanceId !== undefined)
+      if (hit && hit.instanceId !== undefined) {
         this.onSelect(hit.object.userData.ids[hit.instanceId]);
+        return;
+      }
+      // Distant asteroids are only a few pixels wide: fall back to the
+      // nearest instance centre within a 12 px pick tolerance on screen.
+      const m = new T.Matrix4(),
+        v = new T.Vector3();
+      let best: string | undefined,
+        bestD = 12;
+      for (const mesh of this.instances) {
+        if (!mesh.visible) continue;
+        const ids: string[] = mesh.userData.ids;
+        for (let i = 0; i < ids.length; i++) {
+          mesh.getMatrixAt(i, m);
+          v.setFromMatrixPosition(m).applyMatrix4(mesh.matrixWorld).project(this.camera);
+          if (v.z < -1 || v.z > 1) continue;
+          const d = Math.hypot(
+            ((v.x + 1) / 2) * r.width + r.left - e.clientX,
+            ((1 - v.y) / 2) * r.height + r.top - e.clientY,
+          );
+          if (d < bestD) {
+            bestD = d;
+            best = ids[i];
+          }
+        }
+      }
+      if (best) this.onSelect(best);
     });
     this.resizeObserver = new ResizeObserver(() => {
       const w = element.clientWidth,
@@ -442,9 +563,8 @@ export class SolarScene {
   ready() {
     return this.warmup;
   }
-  // ---------- WASD flight ----------
+  // ---------- Flight: you travel where you look ----------
   private keyDown(e: KeyboardEvent) {
-    if (e.key === "Shift") this.boost = true;
     if (!FLIGHT_KEYS.has(e.code)) return;
     if (e.ctrlKey || e.altKey || e.metaKey || this.observer || this.disposed || !this.active) return;
     const canvas = this.renderer.domElement,
@@ -453,31 +573,49 @@ export class SolarScene {
       focus &&
       focus !== canvas &&
       (focus.isContentEditable ||
-        /^(INPUT|SELECT|TEXTAREA|BUTTON)$/.test(focus.tagName))
+        /^(INPUT|SELECT|TEXTAREA)$/.test(focus.tagName))
     )
       return;
-    if (!this.pointerOver && focus !== canvas) return;
+    if (focus && focus !== canvas && focus.tagName === "BUTTON") {
+      // A button that was just clicked (Follow, play) keeps the focus. With the pointer over
+      // the scene the keys belong to the scene, so the focus moves there and Space does not
+      // press the button again. Without the pointer over the scene the button keeps its keys.
+      if (!this.pointerOver) return;
+      canvas.focus({ preventScroll: true });
+    }
+    if (!this.pointerOver && document.activeElement !== canvas) return;
     e.preventDefault();
-    this.boost = e.shiftKey;
     if (this.keys.has(e.code)) return;
     this.keys.add(e.code);
+    if (e.code === "KeyX") this.throttle = { ...this.throttle, braking: true };
     this.takeOver();
+    this.startFlight();
+  }
+  private keyUp(e: KeyboardEvent) {
+    if (this.keys.delete(e.code)) this.request();
+  }
+  private releaseKeys() {
+    this.keys.clear();
+    this.lookDrag = null;
+    this.request();
+  }
+  /** Wake the per-frame flight step. */
+  private startFlight() {
     if (!this.flightActive) {
       this.flightActive = true;
       if (!this.playing) this.previous = 0;
     }
     this.request();
   }
-  private keyUp(e: KeyboardEvent) {
-    if (e.key === "Shift") this.boost = false;
-    if (this.keys.delete(e.code)) this.request();
-  }
-  private releaseKeys() {
+  /** Full stop: throttle 0, no vertical motion, keys forgotten (view buttons, SPHEREx view). */
+  private stopFlight() {
     this.keys.clear();
-    this.boost = false;
-    this.request();
+    this.throttle = IDLE;
+    this.lift = 0;
+    this.velocity.set(0, 0, 0);
+    this.flightActive = false;
   }
-  /** Starting to fly is treated like starting a drag: follow released, running tween cancelled. */
+  /** Starting to fly, to look or to drag the controls: follow and SPHEREx view released, running tween cancelled. */
   private takeOver() {
     if (this.tween) {
       this.camera.up.copy(this.tween.up);
@@ -485,7 +623,47 @@ export class SolarScene {
       this.controls.enabled = true;
       this.controls.update();
     }
+    this.observer = false;
     this.following = false;
+  }
+  private lookStart(e: PointerEvent) {
+    if (e.pointerType !== "mouse" || e.button !== 0 || this.observer || this.disposed) return;
+    this.lookDrag = { id: e.pointerId, x: e.clientX, y: e.clientY };
+  }
+  private lookMove(e: PointerEvent) {
+    const drag = this.lookDrag;
+    if (!drag || drag.id !== e.pointerId) return;
+    if (this.observer || !(e.buttons & 1)) {
+      this.lookDrag = null;
+      return;
+    }
+    const dx = e.clientX - drag.x,
+      dy = e.clientY - drag.y;
+    if (!dx && !dy) return;
+    drag.x = e.clientX;
+    drag.y = e.clientY;
+    this.takeOver();
+    this.turnView(...dragLook(dx, dy));
+    this.request();
+  }
+  /** Turn the view in place about +Z (yaw) and the camera's right axis (pitch); no roll. */
+  private turnView(dYaw: number, dPitch: number) {
+    const dir = this.camera.getWorldDirection(new T.Vector3()),
+      [yaw, pitch] = turn(...lookAngles(dir.toArray() as [number, number, number]), dYaw, dPitch);
+    this.camera.up.set(0, 0, 1);
+    this.camera.lookAt(this.camera.position.clone().add(new T.Vector3(...lookVector(yaw, pitch))));
+    this.syncTarget();
+  }
+  /** Keep the orbit target straight ahead at the current target distance, so wheel zoom and right-drag
+   * orbit continue from the new pose and a later controls.update() does not snap back. */
+  private syncTarget() {
+    const distance = Math.max(
+        this.controls.minDistance,
+        this.camera.position.distanceTo(this.controls.target),
+      ),
+      dir = this.camera.getWorldDirection(new T.Vector3());
+    this.controls.target.copy(this.camera.position).addScaledVector(dir, distance);
+    this.camera.updateMatrixWorld();
   }
   private nearestSurface() {
     const c = this.camera.position;
@@ -501,27 +679,33 @@ export class SolarScene {
   private flightStep(dt: number) {
     if (!this.flightActive) return false;
     if (this.observer || this.tween) {
-      this.keys.clear();
+      this.stopFlight();
+      return false;
+    }
+    const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    this.throttle = throttleStep(this.throttle, this.keys, dt, reduced);
+    this.lift = liftStep(this.lift, this.keys, dt, reduced);
+    const [yawRate, pitchRate] = lookInput(this.keys);
+    if (dt > 0 && (yawRate || pitchRate))
+      this.turnView(yawRate * CONTROLS.lookRate * dt, pitchRate * CONTROLS.lookRate * dt);
+    const speed = flightSpeed(this.nearestSurface()),
+      forward = this.camera.getWorldDirection(new T.Vector3()),
+      // Lift follows the camera's own up, as in the reference experience (not the scene's +Z).
+      up = new T.Vector3(0, 1, 0).applyQuaternion(this.camera.quaternion);
+    this.velocity
+      .copy(forward)
+      .multiplyScalar(this.throttle.value * speed)
+      .addScaledVector(up, this.lift * speed);
+    const moving = this.throttle.value !== 0 || this.lift !== 0;
+    if (!moving && this.keys.size === 0 && !this.throttle.braking) {
       this.velocity.set(0, 0, 0);
       this.flightActive = false;
       return false;
     }
-    const dir = flightDirection(this.keys),
-      held = dir[0] !== 0 || dir[1] !== 0 || dir[2] !== 0,
-      speed = flightSpeed(this.nearestSurface(), this.boost),
-      q = this.camera.quaternion,
-      desired = new T.Vector3(...dir).applyQuaternion(q).multiplyScalar(speed),
-      reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (dt > 0) this.velocity.lerp(desired, easeStep(dt, reduced));
-    if (!held && this.velocity.length() < speed * 0.02) {
-      this.velocity.set(0, 0, 0);
-      this.flightActive = this.keys.size > 0;
-      return this.flightActive;
-    }
-    if (dt > 0) {
-      const delta = this.velocity.clone().multiplyScalar(dt);
-      this.camera.position.add(delta);
-      this.controls.target.add(delta);
+    if (dt > 0 && moving) {
+      const distance = this.camera.position.distanceTo(this.controls.target);
+      this.camera.position.addScaledVector(this.velocity, dt);
+      this.controls.target.copy(this.camera.position).addScaledVector(forward, distance);
       this.camera.updateMatrixWorld();
     }
     return true;
@@ -601,7 +785,7 @@ export class SolarScene {
       r: number = mesh.userData.radius;
     if (d <= r) return Infinity;
     return (
-      (Math.asin(r / d) / ((this.camera.fov * Math.PI) / 360)) *
+      (Math.asin(Math.min(1, (r * mesh.scale.x) / d)) / ((this.camera.fov * Math.PI) / 360)) *
       (this.element.clientHeight / 2)
     );
   }
@@ -641,6 +825,9 @@ export class SolarScene {
           coverage: { value: coverage },
           hasCoverage: { value: coverage ? 1 : 0 },
           fill: { value: new T.Vector3(...fill) },
+          rim: { value: new T.Color(PLANET_ATMOSPHERE[id]?.[0] ?? 0) },
+          rimStrength: { value: PLANET_ATMOSPHERE[id]?.[1] ?? 0 },
+          k: { value: illustrativeWeight(mesh.scale.x) },
         },
         vertexShader: PLANET_VERTEX,
         fragmentShader: PLANET_FRAGMENT,
@@ -812,6 +999,7 @@ export class SolarScene {
     up: T.Vector3;
     fov: number;
   }) {
+    this.stopFlight();
     const end = this.camera.clone();
     end.position.copy(pose.position);
     end.up.copy(pose.up);
@@ -1073,8 +1261,32 @@ export class SolarScene {
     }
     const flying = this.flightStep(dt);
     this.sky.position.copy(this.camera.position);
+    // Illustrative sizes: each body at least its minimum on screen, true size close up and in SPHEREx view.
+    const viewHeight = this.element.clientHeight;
+    for (const mesh of this.planets) {
+      const base: number = mesh.userData.radius,
+        ppa = pixelsPerAu(this.camera.position.distanceTo(mesh.position), this.camera.fov, viewHeight);
+      mesh.scale.setScalar(
+        planetDrawRadius(base, PLANET_MIN_PX[mesh.userData.id] ?? 0, ppa, mesh.position.length(), this.observer) / base,
+      );
+      // Even illustrative light (sky.ts illustrativeLight): shader uniform once mapped, emissive floor of the flat fill before.
+      const k = illustrativeWeight(mesh.scale.x),
+        material = mesh.material as T.ShaderMaterial & T.MeshStandardMaterial;
+      mesh.userData.k = k;
+      if (material.uniforms?.k) material.uniforms.k.value = k;
+      else if (material.emissive) material.emissive.copy(material.color).multiplyScalar(0.58 * k);
+    }
+    {
+      const ppa = pixelsPerAu(this.camera.position.length(), this.camera.fov, viewHeight),
+        r = this.observer ? SUN_RADIUS : drawRadius(SUN_RADIUS, SUN_MIN_PX, ppa, SUN_MAX_RADIUS);
+      this.sun.scale.setScalar(r / SUN_RADIUS);
+      this.sunGlow.scale.setScalar(2 * SUN_GLOW_SCALE * r);
+      // No glow in Low power, nor in SPHEREx view where nothing may brighten the photograph plane.
+      this.sunGlow.visible = !this.low && !this.observer;
+    }
     for (const mesh of this.planets)
       if (
+        !this.low &&
         mesh.userData.map === "none" &&
         this.planetPixels(mesh) >= PLANET_TEXTURE_PX
       )
@@ -1096,7 +1308,25 @@ export class SolarScene {
       ).project(this.camera);
       el.hidden = v.z < -1 || v.z > 1 || Math.abs(v.x) > 1 || Math.abs(v.y) > 1;
       if (!el.hidden) {
-        el.style.left = ((v.x + 1) * labelWidth) / 2 + 8 + "px";
+        // Planet names start 6 px right of the drawn disc, or left of it when the box would cover the Sun's disc.
+        const planet = body.kind === "planet" ? this.planets.find((m) => m.userData.id === body.id) : undefined;
+        let left = ((v.x + 1) * labelWidth) / 2 + 8;
+        if (planet) {
+          const x = ((v.x + 1) * labelWidth) / 2,
+            y = ((-v.y + 1) * labelHeight) / 2,
+            r = Math.min(this.planetPixels(planet), labelWidth),
+            w = el.offsetWidth,
+            h = el.offsetHeight,
+            s = new T.Vector3().project(this.camera),
+            sx = ((s.x + 1) * labelWidth) / 2,
+            sy = ((-s.y + 1) * labelHeight) / 2,
+            sr = this.planetPixels(this.sun);
+          left = x + r + 6;
+          const dx = Math.max(left - sx, 0, sx - left - w),
+            dy = Math.max(y - 8 - sy, 0, sy - (y - 8 + h));
+          if (s.z < 1 && dx * dx + dy * dy < sr * sr) left = x - r - 6 - w;
+        }
+        el.style.left = left + "px";
         el.style.top = ((-v.y + 1) * labelHeight) / 2 - 8 + "px";
       }
     }
@@ -1220,8 +1450,23 @@ export class SolarScene {
       sky: { enabled: this.skyEnabled, shown: this.sky.visible, level: this.skyLevel, failed: this.skyFailed, dim: this.skyMaterial.uniforms.dim.value, black: this.skyMaterial.uniforms.black.value, soften: this.skyMaterial.uniforms.soften.value },
       planetMaps: Object.fromEntries(this.planets.map((m) => [m.userData.id, m.userData.map])),
       wasdFlying: this.flightActive,
+      flight: {
+        throttle: this.throttle.value,
+        braking: this.throttle.braking,
+        lift: this.lift,
+        keys: [...this.keys],
+        speed: this.velocity.length(),
+        look: this.camera.getWorldDirection(new T.Vector3()).toArray(),
+        position: this.camera.position.toArray(),
+      },
       planetFill: Object.fromEntries(this.planets.map((m) => [m.userData.id, m.userData.fill ?? null])),
       planetPositions: Object.fromEntries(this.planets.map((m) => [m.userData.id, m.position.toArray()])),
+      planetScale: Object.fromEntries(this.planets.map((m) => [m.userData.id, m.scale.x])),
+      planetRadiusPx: Object.fromEntries(this.planets.map((m) => [m.userData.id, this.planetPixels(m)])),
+      sunRadiusPx: this.planetPixels(this.sun),
+      planetK: Object.fromEntries(this.planets.map((m) => [m.userData.id, m.userData.k ?? 0])),
+      sunScreen: (() => { const s = new T.Vector3().project(this.camera); return [((s.x + 1) * this.element.clientWidth) / 2, ((-s.y + 1) * this.element.clientHeight) / 2]; })(),
+      sunGlow: this.sunGlow.visible,
       controlsTarget: this.controls.target.toArray(),
       photoVertices:
         this.photoPlane.geometry.getAttribute("position")?.count ?? 0,
