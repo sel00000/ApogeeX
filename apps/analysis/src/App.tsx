@@ -427,17 +427,25 @@ export default function App() {
       {patch && !m && (
         <div className="job pad" data-testid="patch-job">
           {jobErr ? (
-            <div className="failure" data-testid="fetch-failed">
-              <strong>{L('이 좌표의 SPHEREx 영상을 만들지 못함', 'Could not build SPHEREx images for these coordinates')}</strong>
-              <div>{errorText(jobErr, L)}</div>
-              <p>{L('실제 데이터를 읽지 못했습니다. 대체 데이터는 표시하지 않습니다.', 'The real data could not be read. Nothing is substituted.')}</p>
+            <div className={jobErr === NO_SERVER_MESSAGE ? 'failure notice' : 'failure'} data-testid="fetch-failed">
+              {jobErr === NO_SERVER_MESSAGE ? <>
+                <strong>{L('이 좌표는 공개 사이트에 준비되어 있지 않습니다', 'This place is not prepared on the public site')}</strong>
+                <div>{L('공개 사이트는 준비된 다섯 대상의 실제 관측을 보여 줍니다. 새 좌표를 처리하려면 Python 분석 서비스가 필요하고, 그 서비스는 자기 컴퓨터에서 사이트를 실행할 때만 켜집니다.', 'The public site shows the real observations of the five prepared targets. A new place needs the Python analysis service, which runs only when you run the site on your own computer.')}</div>
+                <p>{L('대체 데이터는 표시하지 않습니다.', 'No substitute data is shown.')}</p>
+              </> : <>
+                <strong>{L('이 좌표의 SPHEREx 영상을 만들지 못함', 'Could not build SPHEREx images for these coordinates')}</strong>
+                <div>{errorText(jobErr, L)}</div>
+                <p>{L('실제 데이터를 읽지 못했습니다. 대체 데이터는 표시하지 않습니다.', 'The real data could not be read. Nothing is substituted.')}</p>
+              </>}
               {jobErr === NO_SERVER_MESSAGE && !(patch.frame && !['ICRS', 'ASTROM'].includes(patch.frame)) && <>
                 <a className="ghost" data-testid="open-trueblink" href={trueBlinkUrl({ ra: patch.c.ra, dec: patch.c.dec, fovDeg: patch.fov, lang })} target="_blank" rel="noopener noreferrer">{L('이 좌표를 TrueBlink에서 열기', 'Open this place in TrueBlink')}</a>
                 <p className="dim small">{L('TrueBlink는 팀원이 만든 사이트로, 어느 좌표든 아카이브에서 실제 SPHEREx 노출을 실시간으로 받아 옵니다. 새 탭에서 열립니다.', 'TrueBlink is our teammate\'s site. It fetches the real SPHEREx exposures of any place from the archive, live. It opens in a new tab.')}</p>
               </>}
               {patch.frame && !['ICRS', 'ASTROM'].includes(patch.frame)
                 ? <button className="ghost" onClick={() => notifyShell({ type:'spherex-navigate', view:'asteroids' })}>{L('소행성 분석으로', 'Open asteroid analysis')}</button>
-                : <button className="ghost" onClick={() => setPatch({ ...patch, retry: true })}>{L('다시 시도', 'Try again')}</button>}
+                : jobErr === NO_SERVER_MESSAGE
+                  ? <button className="ghost" data-testid="back-to-sky" onClick={() => { setPatch(null); openSky() }}>{L('천구로 돌아가기', 'Back to the sky map')}</button>
+                  : <button className="ghost" onClick={() => setPatch({ ...patch, retry: true })}>{L('다시 시도', 'Try again')}</button>}
             </div>
           ) : meta?.state === 'ok' && meta.value.visits.length === 0 ? (
             <div className="failure" data-testid="no_data">
