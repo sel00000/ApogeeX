@@ -15,6 +15,7 @@
 <p>
 <a href="https://sel00000.github.io/ApogeeX/">공개 사이트</a> ·
 <a href="README.md">English</a> ·
+<a href="Apogee_Presentation.pdf">발표 자료 (PDF)</a> ·
 <a href="#무엇인가">하는 일</a> ·
 <a href="#자료와-출처">자료와 출처</a> ·
 <a href="#ai-사용">AI 사용</a> ·

@@ -13,6 +13,7 @@
 <p>
 <a href="https://sel00000.github.io/ApogeeX/">Live site</a> ·
 <a href="README.ko.md">한국어</a> ·
+<a href="Apogee_Presentation.pdf">Presentation (PDF)</a> ·
 <a href="#what-it-is">What it does</a> ·
 <a href="#data-and-credits">Data and credits</a> ·
 <a href="#use-of-ai">Use of AI</a> ·
