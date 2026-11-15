@@ -41,7 +41,7 @@ For people who are not astronomers, the tutorial's general course and the plain-
 </tr>
 <tr>
 <td width="50%" valign="top"><img alt="Analyse" src="docs/readme/analyse.jpg" width="100%"><br><b>Analyse.</b> Positions, variability, spectrum and provenance for each prepared target.</td>
-<td width="50%" valign="top"><img alt="Orbit 3D" src="docs/readme/orbit-3d.jpg" width="100%"><br><b>Orbit 3D.</b> Asteroid orbits from JPL linked to real SPHEREx images, with W A S D flight against the Milky Way.</td>
+<td width="50%" valign="top"><img alt="Orbit 3D" src="docs/readme/orbit-3d.jpg" width="100%"><br><b>Orbit 3D.</b> Asteroid orbits from JPL linked to real SPHEREx images, with keyboard flight past the planets against the Milky Way.</td>
 </tr>
 <tr>
 <td width="50%" valign="top"><img alt="Search" src="docs/readme/search.jpg" width="100%"><br><b>Search.</b> Our own engine answers first; a small language model reads a sentence only when the engine cannot, and such results are labelled.</td>
@@ -104,34 +104,43 @@ This block diagram follows the data through four steps: collect from the archive
 A use-case diagram: two kinds of user and the main things each can do on each screen.
 
 ```mermaid
-flowchart LR
+flowchart TB
   V(["Visitor"])
-  R(["Researcher"])
   subgraph Home
+    direction TB
     H1("Slide visible vs infrared map")
   end
   subgraph Sky["Sky View"]
+    direction TB
     S1("Pick a position")
     S2("Open target analysis")
     S3("Fetch SPHEREx images here")
     S4("Switch to Planetarium")
+    S1 ~~~ S2 ~~~ S3 ~~~ S4
   end
   subgraph SA["SPHEREx Analysis"]
+    direction TB
     A1("Blink the visits in order")
     A2("Spectrum lab")
     A3("Download visit list (CSV)")
+    A1 ~~~ A2 ~~~ A3
   end
   subgraph AA["Asteroid Analysis"]
+    direction TB
     B1("Orbit 3D with time slider")
     B2("Browse prepared results")
     B3("Run analysis")
     B4("Download FITS cut-out")
+    B1 ~~~ B2 ~~~ B3 ~~~ B4
   end
   subgraph ST["Search and Tutorial"]
+    direction TB
     T1("Search by name or RA/Dec")
     T2("General course")
     T3("Researcher course")
+    T1 ~~~ T2 ~~~ T3
   end
+  R(["Researcher"])
   V --- H1
   V --- S1
   V --- S2

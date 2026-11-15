@@ -43,7 +43,7 @@
 </tr>
 <tr>
 <td width="50%" valign="top"><img alt="분석" src="docs/readme/analyse.jpg" width="100%"><br><b>분석.</b> 준비된 대상마다 위치, 변광, 스펙트럼, 자료 출처를 봅니다.</td>
-<td width="50%" valign="top"><img alt="궤도 3D" src="docs/readme/orbit-3d.jpg" width="100%"><br><b>궤도 3D.</b> JPL의 소행성 궤도를 실제 SPHEREx 영상과 잇고, 은하수를 배경으로 W A S D로 날아다닙니다.</td>
+<td width="50%" valign="top"><img alt="궤도 3D" src="docs/readme/orbit-3d.jpg" width="100%"><br><b>궤도 3D.</b> JPL의 소행성 궤도를 실제 SPHEREx 영상과 잇고, 은하수를 배경으로 행성 사이를 키보드로 날아다닙니다.</td>
 </tr>
 <tr>
 <td width="50%" valign="top"><img alt="검색" src="docs/readme/search.jpg" width="100%"><br><b>검색.</b> 자체 검색 엔진이 먼저 답합니다. 엔진이 읽지 못한 문장만 작은 언어 모형이 읽으며, 그런 결과에는 표시가 붙습니다.</td>
@@ -106,34 +106,43 @@ Python 서비스가 없어도 홈, 천구 관찰, 플라네타리움, 준비된 
 유스케이스 다이어그램으로, 두 종류의 사용자가 화면마다 할 수 있는 주요 일을 정리했습니다.
 
 ```mermaid
-flowchart LR
+flowchart TB
   V(["방문자"])
-  R(["연구자"])
   subgraph Home["홈"]
+    direction TB
     H1("가시광·적외선 지도 비교")
   end
   subgraph Sky["천구 관찰"]
+    direction TB
     S1("하늘에서 자리 고르기")
     S2("준비된 천체 분석 열기")
     S3("이 자리의 SPHEREx 영상 가져오기")
     S4("플라네타리움으로 전환")
+    S1 ~~~ S2 ~~~ S3 ~~~ S4
   end
   subgraph SA["SPHEREx 분석"]
+    direction TB
     A1("방문 순서대로 깜빡이기")
     A2("스펙트럼 실험실")
     A3("방문 목록 내려받기 (CSV)")
+    A1 ~~~ A2 ~~~ A3
   end
   subgraph AA["소행성 분석"]
+    direction TB
     B1("궤도 3D와 시간 슬라이더")
     B2("준비된 결과 보기")
     B3("새 분석 실행")
     B4("FITS 잘라낸 영상 내려받기")
+    B1 ~~~ B2 ~~~ B3 ~~~ B4
   end
   subgraph ST["검색과 튜토리얼"]
+    direction TB
     T1("이름이나 RA/Dec로 검색")
     T2("일반 과정")
     T3("연구자 과정")
+    T1 ~~~ T2 ~~~ T3
   end
+  R(["연구자"])
   V --- H1
   V --- S1
   V --- S2
