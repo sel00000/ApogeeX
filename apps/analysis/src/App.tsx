@@ -1,7 +1,8 @@
 import { lazy, Suspense, useEffect, useRef, useState } from 'react'
 import { DataError, isMock, loadMeta, loadTargets } from './lib/data'
 import { usePlayer } from './lib/usePlayer'
-import { cancelPatch, loadPatchMeta, patchError, pollPatch, requestPatch, resolveName } from './lib/api'
+import { NO_SERVER_MESSAGE, cancelPatch, loadPatchMeta, patchError, pollPatch, requestPatch, resolveName } from './lib/api'
+import { trueBlinkUrl } from './lib/trueblink'
 import type { PatchJob } from './lib/api'
 import { fmtRadec, parseCoords } from './lib/coords'
 import type { Radec } from './lib/coords'
@@ -430,6 +431,10 @@ export default function App() {
               <strong>{L('이 좌표의 SPHEREx 영상을 만들지 못함', 'Could not build SPHEREx images for these coordinates')}</strong>
               <div>{errorText(jobErr, L)}</div>
               <p>{L('실제 데이터를 읽지 못했습니다. 대체 데이터는 표시하지 않습니다.', 'The real data could not be read. Nothing is substituted.')}</p>
+              {jobErr === NO_SERVER_MESSAGE && !(patch.frame && !['ICRS', 'ASTROM'].includes(patch.frame)) && <>
+                <a className="ghost" data-testid="open-trueblink" href={trueBlinkUrl({ ra: patch.c.ra, dec: patch.c.dec, fovDeg: patch.fov, lang })} target="_blank" rel="noopener noreferrer">{L('이 좌표를 TrueBlink에서 열기', 'Open this place in TrueBlink')}</a>
+                <p className="dim small">{L('TrueBlink는 팀원이 만든 사이트로, 어느 좌표든 아카이브에서 실제 SPHEREx 노출을 실시간으로 받아 옵니다. 새 탭에서 열립니다.', 'TrueBlink is our teammate\'s site. It fetches the real SPHEREx exposures of any place from the archive, live. It opens in a new tab.')}</p>
+              </>}
               {patch.frame && !['ICRS', 'ASTROM'].includes(patch.frame)
                 ? <button className="ghost" onClick={() => notifyShell({ type:'spherex-navigate', view:'asteroids' })}>{L('소행성 분석으로', 'Open asteroid analysis')}</button>
                 : <button className="ghost" onClick={() => setPatch({ ...patch, retry: true })}>{L('다시 시도', 'Try again')}</button>}

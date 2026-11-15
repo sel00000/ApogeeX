@@ -3,6 +3,8 @@ import type { TargetMeta } from '../types'
 import type { Radec } from './coords'
 import { normalizeApiBase, patchMetaUrl } from './api-location'
 
+export const NO_SERVER_MESSAGE = '현재 웹사이트에는 새 관측 자료를 처리하는 Python 분석 서버가 연결되어 있지 않습니다. 준비된 대상의 관측·분석 결과는 계속 볼 수 있습니다. 서버 연결 후 다시 시도하거나 로컬 프로그램에서 실행하세요.'
+
 const CONFIG_TTL_MS = 5000
 let hostingMode: { url: string; expires: number; apiBase?: unknown; localServices?: boolean; publicMode?: boolean } | null = null
 const pageURL = () => typeof document === 'undefined' ? 'http://localhost/' : document.baseURI
@@ -34,7 +36,7 @@ async function observationService(signal?: AbortSignal | null): Promise<Service>
   signal?.throwIfAborted()
   const apiBase = normalizeApiBase(hostingMode.apiBase, pageURL())
   if (!apiBase && !hostingMode.publicMode && hostingMode.localServices === false) {
-    throw new Error('현재 웹사이트에는 새 관측 자료를 처리하는 Python 분석 서버가 연결되어 있지 않습니다. 준비된 대상의 관측·분석 결과는 계속 볼 수 있습니다. 서버 연결 후 다시 시도하거나 로컬 프로그램에서 실행하세요.')
+    throw new Error(NO_SERVER_MESSAGE)
   }
   return {apiBase,sessionRequired:!!apiBase || !!hostingMode.publicMode}
 }
