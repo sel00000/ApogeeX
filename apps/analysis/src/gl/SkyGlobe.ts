@@ -280,7 +280,7 @@ export class SkyGlobe {
     this.root.appendChild(canvas);
 
     this.overlay = document.createElement('div');
-    Object.assign(this.overlay.style, { position: 'absolute', inset: '0', pointerEvents: 'none', overflow: 'hidden', font: `11px ${cssVar(container, '--font', 'system-ui, sans-serif')}` });
+    Object.assign(this.overlay.style, { position: 'absolute', inset: '0', pointerEvents: 'none', overflow: 'hidden', font: `16px ${cssVar(container, '--font', 'system-ui, sans-serif')}` });
     this.root.appendChild(this.overlay);
 
     this.noteEl = document.createElement('div');
@@ -292,7 +292,7 @@ export class SkyGlobe {
       borderRadius: '6px',
       background: 'rgba(0,0,0,0.6)',
       color: cssVar(container, '--warn', '#f2c14e'),
-      font: `12px ${cssVar(container, '--font', 'system-ui, sans-serif')}`,
+      font: `16px ${cssVar(container, '--font', 'system-ui, sans-serif')}`,
       pointerEvents: 'none',
       display: 'none',
     } satisfies Partial<CSSStyleDeclaration>);
@@ -483,7 +483,7 @@ export class SkyGlobe {
         borderLeft: `2px solid ${color}`,
         padding: '1px 5px',
         borderRadius: '3px',
-        fontSize: '12px',
+        fontSize: '16px',
         lineHeight: '14px',
       } satisfies Partial<CSSStyleDeclaration>);
       el.append(ring, label);
@@ -537,7 +537,7 @@ export class SkyGlobe {
           color: this.colors.constLabel,
           textShadow: '0 0 3px #000, 0 0 2px #000',
           whiteSpace: 'nowrap',
-          fontSize: '11px',
+          fontSize: '16px',
           lineHeight: '13px',
           pointerEvents: 'none',
         } satisfies Partial<CSSStyleDeclaration>);
@@ -961,7 +961,7 @@ export class SkyGlobe {
         color: this.colors.label,
         textShadow: '0 0 3px #000, 0 0 2px #000',
         whiteSpace: 'nowrap',
-        fontSize: '11px',
+        fontSize: '16px',
       } satisfies Partial<CSSStyleDeclaration>);
       this.overlay.appendChild(s);
       this.gridLabels.push(s);
@@ -996,7 +996,7 @@ export class SkyGlobe {
           display: 'none',
           willChange: 'transform',
           fontWeight: north ? '700' : '600',
-          fontSize: north ? '17px' : '13px',
+          fontSize: north ? '17px' : '16px',
           lineHeight: '1',
           letterSpacing: '0.02em',
           color: north ? this.colors.accent : '#aab6cf',

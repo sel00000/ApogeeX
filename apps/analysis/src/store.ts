@@ -24,6 +24,7 @@ interface TimeState {
   speed: number
   blinkFps: number
   ab: [number, number]
+  abTargetId: string | null
   mode: ViewMode
   /** motion exaggeration for markers / 3D track only (never the image); always badged */
   exaggeration: number
@@ -52,6 +53,7 @@ interface TimeState {
   setSpeed: (s: number) => void
   setBlinkFps: (f: number) => void
   setAB: (ab: [number, number]) => void
+  initComparison: (meta: TargetMeta) => void
   setMode: (m: ViewMode) => void
   setExaggeration: (x: number) => void
   goToVisit: (meta: TargetMeta, i: number) => void
@@ -70,7 +72,7 @@ interface TimeState {
 /** Rayleigh–Jeans flux ratio F_ν(4.71 µm)/F_ν(4.12 µm) = (4.12/4.71)² for the D6 and D5 array centres. */
 export const RJ_K = (4.12 / 4.71) ** 2
 
-export const useTime = create<TimeState>((set) => ({
+export const useTime = create<TimeState>((set, get) => ({
   targetId: null,
   tMjd: 0,
   playing: false,
@@ -79,6 +81,7 @@ export const useTime = create<TimeState>((set) => ({
   speed: 20,
   blinkFps: 8,
   ab: [0, 0],
+  abTargetId: null,
   mode: 'overview',
   exaggeration: 1,
   ui: 'explore',
@@ -86,13 +89,13 @@ export const useTime = create<TimeState>((set) => ({
   det: 0,
   zoom: null,
   coldK: RJ_K,
-  showImage3d: false,
+  showImage3d: true,
   tab: null,
   lang: 'en',
   stage: 'workbench',
   gaia: false,
 
-  setTarget: (id) => set({ targetId: id, playing: false, mode: 'overview', exaggeration: 1, view: 'image', det: 0, zoom: null, coldK: RJ_K, showImage3d: false, tab: null }),
+  setTarget: (id) => set({ targetId: id, abTargetId: null, playing: false, mode: 'overview', exaggeration: 1, view: 'image', det: 0, zoom: null, coldK: RJ_K, showImage3d: true, tab: null }),
   setTime: (mjd) => set({ tMjd: mjd }),
   play: (playMode) => set({ playing: true, playMode }),
   stop: () => set({ playing: false }),
@@ -100,6 +103,12 @@ export const useTime = create<TimeState>((set) => ({
   setSpeed: (speed) => set({ speed }),
   setBlinkFps: (blinkFps) => set({ blinkFps }),
   setAB: (ab) => set({ ab }),
+  initComparison: (meta) => {
+    const state = get()
+    if (state.abTargetId === meta.id && state.ab.every(i => !!meta.visits[i])) return
+    const last = meta.visits.findLastIndex((v, i) => i > 0 && v.detectors.some(d => meta.visits[0].detectors.includes(d)))
+    set({ abTargetId: meta.id, ab: [0, Math.max(0, last)] })
+  },
   setMode: (mode) => set({ mode }),
   setExaggeration: (exaggeration) => set({ exaggeration }),
   goToVisit: (meta, i) => {

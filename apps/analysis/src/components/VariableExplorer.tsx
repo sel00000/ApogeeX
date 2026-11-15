@@ -99,7 +99,7 @@ const CoverageMap = memo(function CoverageMap({ cells, meta, selectedIds, band, 
         )
       })}
       {([['A', ab[0], '#ff9a5c'], ['B', ab[1], '#5cb6ff']] as const).map(([name, i, col]) => vs[i] && (
-        <g key={name} pointerEvents="none"><line x1={X(vs[i].mjd)} x2={X(vs[i].mjd)} y1={M.t - 4} y2={M.t + 4} stroke={col} strokeWidth={2} /><text x={X(vs[i].mjd)} y={M.t - 6} fill={col} fontSize={10} textAnchor="middle">{name}</text></g>
+        <g key={name} pointerEvents="none"><line x1={X(vs[i].mjd)} x2={X(vs[i].mjd)} y1={M.t - 4} y2={M.t + 4} stroke={col} strokeWidth={2} /><text x={X(vs[i].mjd)} y={M.t - 6} fill={col} fontSize={16} textAnchor="middle">{name}</text></g>
       ))}
       {vs[k] && <line x1={X(vs[k].mjd)} x2={X(vs[k].mjd)} y1={M.t} y2={H - M.b} stroke="#fff" strokeOpacity={0.8} strokeDasharray="3 2" pointerEvents="none" />}
       {/* wide invisible hit columns: one per visit */}
@@ -174,7 +174,7 @@ function BandPlot({ points, mode, k, ab, kind, period, relative, q, onPick }: {
       {[0, 0.25, 0.5, 0.75, 1].map((f) => <text key={f} x={52 + 440 * f} y="207" textAnchor="middle" className="ax">{kind === 'phase' ? f.toFixed(2) : fmtDate(t0 + f * span).slice(2)}</text>)}
       {kind === 'time' && ([['A', ab[0], '#ff9a5c'], ['B', ab[1], '#5cb6ff']] as const).map(([name, i, col]) => {
         const p = points.find((p) => p.visit === i)
-        return p ? <g key={name}><line x1={X(p.mjd)} x2={X(p.mjd)} y1={22} y2={190} stroke={col} strokeOpacity={0.6} strokeDasharray="4 3" /><text x={X(p.mjd)} y={18} fill={col} fontSize={11} textAnchor="middle">{name}</text></g> : null
+        return p ? <g key={name}><line x1={X(p.mjd)} x2={X(p.mjd)} y1={22} y2={190} stroke={col} strokeOpacity={0.6} strokeDasharray="4 3" /><text x={X(p.mjd)} y={18} fill={col} fontSize={16} textAnchor="middle">{name}</text></g> : null
       })}
       {points.map((p) => (
         <g key={p.key} role="button" tabIndex={0} aria-label={L(`분석 관측 ${p.visit + 1} 선택`, `Select visit ${p.visit + 1}`)} className="variable-point"
@@ -195,7 +195,7 @@ function BandPlot({ points, mode, k, ab, kind, period, relative, q, onPick }: {
 
 // ---------------------------------------------------------------- the lab
 
-export function VariableLab({ meta }: { meta: Meta }) {
+export function VariableLab({ meta,compact=false }: { meta: Meta;compact?:boolean }) {
   const L = useL()
   const mira = meta.id === 'r_dra'
   const rows = useMemo(() => meta.photometry ?? [], [meta])
@@ -253,16 +253,16 @@ export function VariableLab({ meta }: { meta: Meta }) {
   const v = meta.visits[k]
 
   return (
-    <section className="variable-lab" data-testid="variable-lab">
-      <p className="dim small" data-testid="lab-measurement-coverage">{L('위치 측정', 'Positions measured')} {meta.visits.filter((v) => v.meas_px).length}/{meta.visits.length}{L('회 · 이 대상은 밝기 변화로 탐구합니다.', ' · this target is studied through its brightness.')}</p>
+    <section className={`variable-lab${compact?' fw-variable-compact':''}`} data-testid="variable-lab">
+      {!compact&&<><p className="dim small" data-testid="lab-measurement-coverage">{L('위치 측정', 'Positions measured')} {meta.visits.filter((v) => v.meas_px).length}/{meta.visits.length}{L('회 · 이 대상은 밝기 변화로 탐구합니다.', ' · this target is studied through its brightness.')}</p>
       <header className="variable-intro">
         <span className="badge badge-model">{mira ? L('미라형 · 반복 패턴 실험', 'Mira · repeating pattern') : L('젊은 별 · 감광 탐정', 'Young star · dimming detective')}</span>
         <h3>{mira ? L('밝기의 리듬은 반복될까?', 'Does the rhythm of brightness repeat?') : L('별이 어두워진 걸까, 다른 색으로 본 걸까?', 'Did the star dim, or did we see it in another colour?')}</h3>
         <p>{mira
           ? L('R Dra는 중심이 포화돼 바깥 고리의 상대 밝기로 봅니다. 지도에서 관측마다 어느 파장을 찍었는지 보고, 같은 파장 구간끼리 회차를 비교하세요.', 'R Dra saturates at the core, so we read the relative brightness of the outer ring. See on the map which wavelength each visit took, and compare cycles band by band.')
           : L('RW Aur는 문헌에서 깊고 불규칙한 감광이 알려진 젊은 별입니다. 지도 → 스펙트럼 → 같은 파장 구간의 시간 변화 순서로 이번 SPHEREx 자료를 직접 확인하세요.', 'RW Aur is a young star known for deep, irregular dimming. Check the SPHEREx data yourself: map → spectrum → the same band over time.')}</p>
-      </header>
-
+      </header></>}
+      {compact&&<div className="fw-analysis-heading"><h2>{L('파장별 밝기 변화','Brightness over time')}</h2></div>}
       <div className="toolbar">
         <label>{L('측정값', 'Quantity')} <select aria-label={L('변광 측정값', 'Variability quantity')} value={q} onChange={(e) => set({ q: e.target.value as Quantity, band: null, compareVisit: null })}>
           <option value="flux">{L('구경 측광 (mJy)', 'aperture photometry (mJy)')}</option><option value="ring">{L('고리 밝기 (상대 MJy/sr)', 'ring brightness (relative MJy/sr)')}</option></select></label>
@@ -274,7 +274,7 @@ export function VariableLab({ meta }: { meta: Meta }) {
           {(['all', 'severe', 'clean'] as Quality[]).map((x) => <option key={x} value={x}>{QL(x)}</option>)}</select></label>
       </div>
 
-      {fun && (
+      {!compact && fun && (
         <ol className="funnel" data-testid="data-funnel" aria-label={L('자료 개수 흐름', 'Data counts')}>
           <li><b>{fun.total}</b><span>{L('전체 측광 기록', 'photometry records')}</span></li>
           <li><b>{fun.valid}</b><span>{QN(q)} {L('유효', 'valid')}</span></li>
@@ -288,6 +288,7 @@ export function VariableLab({ meta }: { meta: Meta }) {
         {quality !== 'all' && L(` 품질 필터로 ${fun ? fun.inBand - fun.selected : 0}노출 제외.`, ` ${fun ? fun.inBand - fun.selected : 0} exposures removed by the quality filter.`)}
       </p>
 
+      <details className="fw-details fw-coverage" open={!compact}><summary>{L('관측 지도와 개별 스펙트럼','Observation coverage and individual spectra')}</summary>
       <h4 className="lab-step">{L('① 전체 시간·파장 관측 지도', '① Time × wavelength map')} <Badge kind="spherex" /></h4>
       <CoverageMap cells={cells} meta={meta} selectedIds={selectedIds} band={band} k={k} ab={ab} onPick={pick} />
       <div className="map-legend">
@@ -316,7 +317,8 @@ export function VariableLab({ meta }: { meta: Meta }) {
         {spec.missing > 0 && L(` 값 없는 노출 ${spec.missing}개: `, ` ${spec.missing} exposures without a value: `) + spec.reasons.map(([w, n]) => `${dataText(w, L)} ${n}`).join(', ') + '.'}
       </p>
 
-      <h4 className="lab-step">{L('③ 파장 구간의 시간 변화', '③ One band over time')} <Badge kind="spherex" /><Badge kind="model" detail={mode === 'raw' ? L('정규화만', 'normalised only') : L('관측별 중앙값·MAD', 'visit median · MAD')} /></h4>
+      </details>
+      <h4 className="lab-step">{compact?L('비교할 파장','Wavelength band'):L('③ 파장 구간의 시간 변화', '③ One band over time')} <Badge kind="spherex" /><Badge kind="model" detail={mode === 'raw' ? L('정규화만', 'normalised only') : L('관측별 중앙값·MAD', 'visit median · MAD')} /></h4>
       <div className="toolbar">
         <label>{L('검출기', 'Detector')} <select aria-label={L('변광 검출기', 'Variability detector')} value={band?.det ?? ''} onChange={(e) => { const det = +e.target.value; const bb = binsFor(rows, q, det, width); set({ band: bb.length ? { det, bin: [...bb].sort((x, y) => y.visits.size - x.visits.size)[0].bin, width } : { det, bin: -1, width } }) }}>
           {[1, 2, 3, 4, 5, 6].map((d) => <option key={d} value={d}>D{d} · {DETECTORS[d].range}</option>)}</select></label>
@@ -359,7 +361,7 @@ export function VariableLab({ meta }: { meta: Meta }) {
           : L('점선 막대 = 같은 관측 안 노출들의 MAD 산포로, 측정 오차나 유의도가 아닙니다. 주황 테두리 = 플래그 포함 노출이 있음.', 'dashed bars = MAD scatter within a visit, not a measurement error or significance. Orange ring = contains flagged exposures.')} {L('관측 사이 빈 기간은 채우지 않습니다.', 'Gaps between visits are not filled.')}
       </p>
 
-      <div className="variable-compare" data-testid="variable-compare">
+      <details className="fw-details" open={!compact}><summary>{L('밝은 관측과 어두운 관측 비교','Compare bright and faint observations')}</summary><div className="variable-compare" data-testid="variable-compare">
         <strong>{L('밝은 때 ↔ 어두운 때', 'Bright ↔ faint')}</strong>
         <button onClick={selectExtreme} disabled={summary.length < 2}>{L('선택 자료의 밝음·어두움 찾기', 'Find brightest and faintest')}</button>
         <p>{change
@@ -373,9 +375,9 @@ export function VariableLab({ meta }: { meta: Meta }) {
           </p>
         )}
         <p className="dim small">{L('버튼은 영상의 A/B도 함께 선택합니다. 차이는 보정되지 않은 밝기 지표이며 변광의 유의도나 원인을 확정하지 않습니다.', 'The button also sets A/B in the image. The difference is an uncalibrated brightness index; it does not establish significance or cause.')}</p>
-      </div>
+      </div></details>
 
-      <details>
+      <details className="fw-details">
         <summary>{L('관측 품질과 해석 · 꼭 확인하기', 'Data quality and interpretation · please read')}</summary>
         <p>{q === 'ring'
           ? L('고리 밝기는 포화된 중심 바깥 픽셀의 상대 지표로, 별 전체의 광도·등급·반지름이 아니며 포화를 복원한 값도 아닙니다. 구경 측광(mJy)과 같은 축에 섞지 않습니다.', 'Ring brightness is a relative index from pixels outside the saturated core: not the star\'s luminosity, magnitude or radius, and not a de-saturated value. It is never mixed with aperture photometry (mJy).')
@@ -383,12 +385,12 @@ export function VariableLab({ meta }: { meta: Meta }) {
         <p>{L('밝은 별은 거의 모든 노출에 OVERFLOW·SUR_ERROR·TRANSIENT 플래그가 붙습니다. ‘심각 플래그 제외’는 NONFUNC·MISSING_DATA·HOT·COLD·PERSIST가 있는 노출만 뺍니다. 플래그는 진단 정보이며, 없다고 완전히 유효하거나 있다고 반드시 틀린 것은 아닙니다.', 'Bright stars carry OVERFLOW, SUR_ERROR and TRANSIENT flags in almost every exposure. “Drop severe flags” removes only exposures with NONFUNC, MISSING_DATA, HOT, COLD or PERSIST. Flags are diagnostics: no flag does not mean perfect, a flag does not mean wrong.')}</p>
         {summary.map((p) => <div key={p.visit}>{L('관측', 'Visit')} {p.visit + 1} · {fmtDate(p.mjd)} · λ {p.wave.map((w) => w.toFixed(3)).join('–')} µm · {p.n} {L('노출', 'exp.')} / {L('플래그', 'flagged')} {p.flagged}</div>)}
       </details>
-      <div className="variable-question"><b>{L('탐구 질문', 'Question to explore')}</b><p>{mira
+      {!compact&&<><div className="variable-question"><b>{L('탐구 질문', 'Question to explore')}</b><p>{mira
         ? L('지도에서 R Dra는 관측마다 좁은 파장 하나씩만 찍혔습니다. 같은 파장 구간에서 시험 주기를 바꿨을 때 다른 회차의 점들이 겹치나요? 구간을 바꿔도 같은 경향이 남나요?', 'On the map, each R Dra visit covers one narrow wavelength. In one band, do points from different cycles line up as you change the trial period? Does the trend survive another band?')
         : L('어두운 시점과 밝은 시점은 같은 파장 범위인가요? 품질 필터를 바꾸거나 다른 파장 구간을 골라도 같은 방향의 변화가 남나요? 지금 자료만으로 먼지에 가려졌다고 말할 수 있을까요?', 'Are the faint and bright dates in the same wavelength range? Does the change keep its direction with another quality filter or band? Can these data alone say it was hidden by dust?')}</p></div>
       <p className="dim small">{mira
         ? <a href="https://britastro.org/vss/objects/obj-dra.html" target="_blank" rel="noreferrer">{L('BAA VSS: R Dra 분류·참고 주기', 'BAA VSS: R Dra type and period')}</a>
-        : <a href="https://arxiv.org/abs/2312.17598" target="_blank" rel="noreferrer">{L('RW Aur 감광 연구: Lux 외 (2023)', 'RW Aur dimming: Lux et al. (2023)')}</a>} · {L('외부 광도·영상 자료는 쓰지 않으며, 문헌은 탐구 배경입니다.', 'No external photometry or images are used; the literature is background only.')}</p>
+        : <a href="https://arxiv.org/abs/2312.17598" target="_blank" rel="noreferrer">{L('RW Aur 감광 연구: Lux 외 (2023)', 'RW Aur dimming: Lux et al. (2023)')}</a>} · {L('외부 광도·영상 자료는 쓰지 않으며, 문헌은 탐구 배경입니다.', 'No external photometry or images are used; the literature is background only.')}</p></>}
     </section>
   )
 }

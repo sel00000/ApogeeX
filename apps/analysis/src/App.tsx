@@ -8,16 +8,16 @@ import { fmtRadec, parseCoords } from './lib/coords'
 import type { Radec } from './lib/coords'
 import { readView, writeView } from './lib/urlState'
 import { LANG_KEY, appTitle, langMessage, readStoredLang, writeStoredLang } from './lib/lang'
-import { missionFor } from './lib/missions'
 import { errorText, useL } from './lib/i18n'
+import { normalizeAnalysisTab } from './lib/workspaceState'
 import { sesame } from './lib/sky'
 import { useTime, visitIndexAt } from './store'
 import type { TargetMeta, TargetsIndex } from './types'
-import { Badge } from './components/Badge'
 import { BlinkViewer } from './components/BlinkViewer'
-import { Timeline } from './components/Timeline'
+import { ObservationTimeline } from './free/ObservationTimeline'
+import './free/free.css'
+import './apogee-skin.css'
 import { PatchInfo } from './components/PatchInfo'
-import { Findings, Guides, MissionCard, SkyLocator } from './components/Rail'
 import { embeddedShareURL, movingArchiveContext, notifyAnalysisURL, notifyShell, requestSkyModeFocus, focusMessage, selectionMessage, stageMessage } from './lib/integration'
 
 const Scene3D = lazy(() => import('./components/Scene3D').then((m) => ({ default: m.Scene3D })))
@@ -146,27 +146,8 @@ function ShareButton() {
 }
 
 function StageHead({ meta }: { meta: TargetMeta }) {
-  const t = useTime((s) => s.tMjd)
-  const k = visitIndexAt(meta, t)
-  const v = meta.visits[k]
   const L = useL()
-  const lang = useTime((s) => s.lang)
-  const tag = meta.kind === 'patch' ? L('좌표 검색 영역', 'Searched patch') : missionFor(meta.id, false, lang)?.tag
-  return (
-    <div className="stage-head">
-      <div>
-        <h2 className="target-name">{meta.display_name}</h2>
-        {tag && <p className="target-tag">{tag}</p>}
-      </div>
-      <div className="now-card" data-testid="now-card">
-        <span className="now-date">{v.utc.slice(0, 10)}</span>
-        <span className="now-meta">{L('관측', 'Visit')} {k + 1} / {meta.visits.length}</span>
-      </div>
-      <div className="prov-legend" aria-label={L('값의 출처 표시', 'Provenance of values')}>
-        <Badge kind="spherex" /><Badge kind="catalog" /><Badge kind="model" />
-      </div>
-    </div>
-  )
+  return <div className="fw-context"><div><h1>{meta.display_name}</h1></div><div className="fw-context-meta"><span className="fw-data-dot">SPHEREx</span><span>{meta.visits.length} {L('회 관측', 'observations')}</span></div></div>
 }
 
 export default function App() {
@@ -181,6 +162,7 @@ export default function App() {
   const ui = useTime((s) => s.ui)
   const lang = useTime((s) => s.lang)
   const stage = useTime((s) => s.stage)
+  const tab = useTime((s) => s.tab)
   const L = useL()
   const { setTarget, setTime, setUi, setTab, setLang, setStage } = useTime.getState()
 
@@ -232,6 +214,7 @@ export default function App() {
   const [initial] = useState(readView)
   useEffect(() => {
     setUi(initial.ui)
+    useTime.getState().setBlinkFps(1)
     setLang(initial.lang)
     setStage(initial.stage)
     if (initial.tab) setTab(initial.tab)
@@ -324,6 +307,12 @@ export default function App() {
 
   const m = meta?.state === 'ok' && meta.value?.visits?.length > 0 ? meta.value : null
   const isPatch = m?.kind === 'patch'
+  const researchTab = normalizeAnalysisTab(m?.id ?? '', tab, isPatch)
+  useEffect(() => {
+    if (ui === 'research' && m && tab !== researchTab) setTab(researchTab)
+    writeView({ ui, tab: ui === 'research' ? researchTab : null })
+  }, [ui, m, tab, researchTab, setTab])
+  useEffect(() => { if (m) useTime.getState().initComparison(m) }, [m])
   usePlayer(m)
 
   // keep the visit in the URL so a copied link opens the same frame
@@ -336,67 +325,43 @@ export default function App() {
     if (!patch && id === useTime.getState().targetId) return
     setMovingContext(null)
     setPatch(null)
+    const previousTab = useTime.getState().tab
     setTarget(id)
+    if (previousTab && (previousTab !== 'variable' || ['rw_aur','r_dra'].includes(id))) setTab(previousTab)
   }
   const near = patch && index.state === 'ok'
     ? index.value.targets.find((t) => t.ra !== undefined && sep(patch.c, { ra: t.ra, dec: t.dec! }) < patch.fov / 2)
     : undefined
   const busy = !!patch && !m && !jobErr && meta?.state !== 'ok'
-  const openSky = () => setStage('sky')
+  const activePane = stage === 'sky' ? 'sky' : ui === 'explore' ? 'observe' : researchTab
+  const choosePane = (pane: string) => {
+    useTime.getState().stop()
+    if (pane === 'sky') { setStage('sky'); return }
+    setStage('workbench')
+    setUi(pane === 'observe' ? 'explore' : 'research')
+    if (pane !== 'observe') setTab(pane as 'motion'|'variable'|'spectrum'|'provenance')
+  }
+  useEffect(() => { document.title = appTitle(lang) + (m ? ' · ' + m.display_name : '') }, [m, lang])
   useEffect(() => {
     if (m) notifyShell({ type: 'spherex-analysis-loaded', target: m.id, label: m.display_name, observations: m.visits.length })
   }, [m])
 
   return (
-    <div className={`app ui-${ui}${embedded ? ' embedded' : ''}`} data-tutorial="analysis-status" data-analysis-kind={patch ? 'patch' : 'target'} data-analysis-ready={m ? 'true' : 'false'}>
+    <div className={`app free-workspace ui-${ui}${embedded ? ' embedded' : ''}`} data-tutorial="analysis-status" data-analysis-kind={patch ? 'patch' : 'target'} data-analysis-ready={m ? 'true' : 'false'}>
       {isMock && (
         <div className="mock-banner" data-testid="mock-banner">
           {L('모의 데이터: UI 개발용 가짜 영상·좌표입니다. 실제 SPHEREx 관측이 아닙니다.', 'Mock data: fake images and positions for UI development, not real SPHEREx observations.')}
         </div>
       )}
-      <header className="topbar">
-        <div className="brand">
-          <span className="brand-mark" aria-hidden />
-          <h1 className="brand-title">{L('방구석 천문학자', 'Armchair Astronomer')}</h1>
-        </div>
-        <SearchBar onPatch={(p) => { setMovingContext(null); setPatch(p); setStage('workbench') }} busy={busy} embedded={embedded} />
-        <div className="space-switch" role="group" aria-label={L('작업 공간', 'Workspace')}>
-          <button className={stage === 'sky' ? 'on' : ''} aria-pressed={stage === 'sky'} onClick={openSky} data-testid="stage-sky" title={L('천구에서 천체를 고르고 NASA SPHEREx 영상을 불러옵니다', 'Pick a spot on the sky and load NASA SPHEREx images')}>
-            <i aria-hidden>◎</i>{L('탐색', 'Find')}
-          </button>
-          <button className={stage !== 'sky' && ui === 'explore' ? 'on' : ''} aria-pressed={stage !== 'sky' && ui === 'explore'} onClick={() => { setUi('explore'); setStage('workbench') }} data-testid="mode-explore" title={L('영상과 3D로 변화를 살펴봅니다', 'Look for change in the images and in 3D')}>
-            <i aria-hidden>◐</i>{L('관측', 'Observe')}
-          </button>
-          <button className={stage !== 'sky' && ui === 'research' ? 'on' : ''} aria-pressed={stage !== 'sky' && ui === 'research'} onClick={() => { setUi('research'); setStage('workbench') }} data-testid="mode-research" title={L('위치 측정·변광·분광·자료 출처 도구를 모두 엽니다', 'Open every tool: positions, variability, spectrum, provenance')}>
-            <i aria-hidden>∿</i>{L('분석', 'Analyse')}
-          </button>
-        </div>
-        <div className="top-right">
-          {!embedded && <div className="mode-switch lang-switch" role="group" aria-label="Language">
-            <button className={lang === 'ko' ? 'on' : ''} aria-pressed={lang === 'ko'} onClick={() => chooseLang('ko')} data-testid="lang-ko" lang="ko">한</button>
-            <button className={lang === 'en' ? 'on' : ''} aria-pressed={lang === 'en'} onClick={() => chooseLang('en')} data-testid="lang-en" lang="en">EN</button>
-          </div>}
-          <ShareButton />
-        </div>
-      </header>
-      <nav className="target-strip tabs" role="tablist" aria-label={L('대회 시험 대상', 'Challenge targets')}>
-        <span className="strip-label">{L('추천 대상', 'Featured')}</span>
-        {index.state === 'ok' &&
-          index.value.targets.map((t) => (
-            <button
-              key={t.id}
-              role="tab"
-              aria-selected={!patch && t.id === targetId}
-              className={!patch && t.id === targetId ? 'active' : ''}
-              onClick={() => { openTarget(t.id); if (useTime.getState().stage === 'sky') setStage('workbench') }}
-              data-testid={`tab-${t.id}`}
-            >
-              {t.display_name}
-              {t.status !== 'ok' && <span className={`status status-${t.status}`}>{t.status === 'no_data' ? L('관측 없음', 'no data') : L('받기 실패', 'fetch failed')}</span>}
-            </button>
-          ))}
-        {patch && <span className="tab-patch active" data-testid="tab-patch">◎ {patch.label ?? fmtRadec(patch.c)} · {patch.fov}°</span>}
-      </nav>
+      <section className="fw-targetbar" aria-label={L('관측 대상 선택', 'Observation target')}>
+        <label className="fw-target-select"><span>{L('관측 대상','Target')}</span><select aria-label={L('관측 대상','Target')} value={patch?'patch':targetId??''} disabled={index.state!=='ok'} onChange={e=>{openTarget(e.target.value);setStage('workbench')}}>
+          {index.state!=='ok'&&<option value="">{L('불러오는 중…','Loading…')}</option>}
+          {index.state==='ok'&&index.value.targets.map(t=><option key={t.id} value={t.id}>{t.display_name}{t.status!=='ok'?L(' · 자료 없음',' · unavailable'):''}</option>)}
+          {patch&&<option value="patch">{patch.label??fmtRadec(patch.c)}</option>}
+        </select></label>
+        <SearchBar onPatch={(p)=>{useTime.getState().stop();setMovingContext(null);setPatch(p);setUi('explore');setStage('workbench')}} busy={busy} embedded={embedded}/>
+        <div className="fw-utilities">{!embedded&&<div className="fw-language" role="group" aria-label="Language"><button aria-pressed={lang==='ko'} onClick={()=>chooseLang('ko')} data-testid="lang-ko">한</button><button aria-pressed={lang==='en'} onClick={()=>chooseLang('en')} data-testid="lang-en">EN</button></div>}<ShareButton/></div>
+      </section>
 
       {movingContext && patch && <aside className="moving-context" data-testid="moving-archive-notice">
         <strong>{L('이동 천체에서 이어진 고정 좌표 조회', 'Fixed-coordinate archive search from a moving object')}</strong>
@@ -459,61 +424,29 @@ export default function App() {
         </div>
       )}
 
-      {(m || (stage === 'sky' && index.state === 'ok')) && (
-        <main className={`desk${stage === 'sky' ? ' desk-sky' : ''}`}>
-          <section className="stage-col">
-            {stage === 'sky' && index.state === 'ok' && (
-              <Suspense fallback={<p className="dim">{L('천구를 준비하는 중…', 'Preparing the sky…')}</p>}><SkyPanel
-                index={index.value}
-                embedded={embedded}
-                currentId={m && !isPatch ? m.id : null}
-                onOpenTarget={(id) => { openTarget(id); setStage('workbench') }}
-                onPatch={(c, fov, label) => { setMovingContext(null); setPatch({ c, fov, label }); setStage('workbench') }}
-              /></Suspense>
-            )}
-            {stage === 'workbench' && m && <>
-              <StageHead meta={m} />
-              <div className="viewports">
-                <section className="viewport" aria-label={L('SPHEREx 영상', 'SPHEREx images')}>
-                  <h3 className="vp-title">{L('SPHEREx가 찍은 영상', 'What SPHEREx saw')} <span className="dim small">{L('북쪽 위, 동쪽 왼쪽, 픽셀 6.15″', 'north up, east left, 6.15″ pixels')}</span></h3>
-                  <BlinkViewer key={m.id} meta={m} />
-                </section>
-                <section className="viewport" aria-label={L('3D 시공간 모형', '3D space-time model')}>
-                  {isPatch ? (
-                    <>
-                      <h3 className="vp-title">{L('이 영역의 SPHEREx 관측', 'SPHEREx visits of this patch')}</h3>
-                      <PatchInfo meta={m} />
-                    </>
-                  ) : (
-                    <>
-                      <h3 className="vp-title">{L('3D 시공간 모형', '3D space-time model')} <span className="dim small">{L('왼쪽 영상과 같은 시각·같은 시야', 'same moment and field as the image')}</span></h3>
-                      <Suspense fallback={<div className="scene-loading">{L('같은 관측의 3D 시공간을 준비하는 중…', 'Preparing the same observations in 3D…')}</div>}><Scene3D key={m.id} meta={m} /></Suspense>
-                    </>
-                  )}
-                </section>
-              </div>
-              <div data-tutorial="analysis-timeline"><Timeline meta={m} /></div>
-              {ui === 'research' && isPatch && <p className="control-note" data-testid="patch-capabilities">{L('임의 좌표 영역은 영상 비교와 관측 출처를 제공합니다. 대상별 측광·스펙트럼·3D 예측은 준비된 대상에서 사용할 수 있습니다.', 'Arbitrary fields provide image comparison and observation provenance. Target photometry, spectra and 3D predictions are available for the prepared targets.')}</p>}
-              {ui === 'research' && !isPatch && <Suspense fallback={<p className="dim">{L('분석 도구를 준비하는 중…', 'Preparing analysis tools…')}</p>}><AnalysisTabs key={m.id} meta={m} /></Suspense>}
-            </>}
-          </section>
+      {(m || (stage === 'sky' && index.state === 'ok')) && <main className="fw-desk">
+        {stage==='sky'?<div className="fw-context"><div><span className="fw-eyebrow">{L('자유 관측','FREE OBSERVATION')}</span><h1>{L('하늘에서 찾기','Explore the sky')}</h1></div></div>:m&&<StageHead meta={m}/>}
+        <nav className="fw-modebar" aria-label={L('관측 도구','Observation tools')}>
+          <div role="tablist" aria-label={L('작업 화면','Workspace view')}>
+            {([['observe',L('관측','Observe')],...(!isPatch?[['spectrum',L('분광','Spectrum')],['motion',L('위치 분석','Positions')],...(['rw_aur','r_dra'].includes(m?.id??'')?[['variable',L('밝기 분석','Brightness')]]:[])]:[]),['provenance',L('자료','Data')]]).map(([id,label])=><button key={id} role="tab" data-testid={id==='observe'?'mode-explore':`atab-${id}`} data-tutorial={id==='observe'?undefined:`analysis-${id}`} aria-selected={activePane===id} className={activePane===id?'active':''} onClick={()=>choosePane(id)}>{label}</button>)}
+          </div>
+          <button className={`fw-sky-button${stage==='sky'?' active':''}`} aria-pressed={stage==='sky'} onClick={()=>choosePane('sky')} data-testid="stage-sky">◎ {L('천구 탐색','Sky map')}</button>
+        </nav>
+        {stage==='sky'&&index.state==='ok'&&<Suspense fallback={<p className="dim pad">{L('천구를 준비하는 중…','Preparing the sky…')}</p>}><SkyPanel index={index.value} embedded={embedded} currentId={m&&!isPatch?m.id:null} onOpenTarget={id=>{openTarget(id);choosePane('observe')}} onPatch={(c,fov,label)=>{setMovingContext(null);setPatch({c,fov,label});choosePane('observe')}}/></Suspense>}
+        {stage==='workbench'&&m&&<>
+          {activePane==='observe'?<>
+            <div className="viewports fw-observation">
+              <section className="viewport fw-image-panel" aria-label={L('SPHEREx 영상','SPHEREx images')}><h2 className="vp-title">{L('관측 영상','Observation image')}<span>SPHEREx</span></h2><BlinkViewer key={m.id} meta={m} compact/></section>
+              <section className="viewport fw-space-panel" aria-label={L('3D 시공간 모형','3D space-time model')}><h2 className="vp-title">{isPatch?L('관측 영역','Observation field'):L('3D 시공간','3D space-time')}<span>{isPatch?'':L('위치 모델','Position model')}</span></h2>{isPatch?<PatchInfo meta={m}/>:<Suspense fallback={<div className="scene-loading">{L('3D를 준비하는 중…','Preparing 3D…')}</div>}><Scene3D key={m.id} meta={m} compact/></Suspense>}</section>
+            </div>
+            <ObservationTimeline meta={m}/>
+          </>:<>
+            <Suspense fallback={<p className="dim pad">{L('분석 도구를 여는 중…','Opening tools…')}</p>}><AnalysisTabs key={m.id} meta={m} standalone activeTab={researchTab}/></Suspense>
+            {activePane!=='spectrum'&&activePane!=='provenance'&&<ObservationTimeline meta={m}/>}
+          </>}
+        </>}
+      </main>}
 
-          {stage !== 'sky' && <aside className="rail" aria-label={ui === 'explore' ? L('임무와 발견', 'Mission and findings') : L('발견과 안내', 'Findings and guides')}>
-            {index.state === 'ok' && (
-              <SkyLocator index={index.value} current={m && !isPatch ? m.id : null} patch={m && isPatch ? (m.center ?? null) : null} onPick={(id) => { openTarget(id); setStage('workbench') }} onOpenSky={openSky} />
-            )}
-            {m && ui === 'explore' && <MissionCard key={m.id} meta={m} />}
-            {m && <Findings meta={m} />}
-            <Guides open={ui === 'explore'} />
-          </aside>}
-        </main>
-      )}
-      <footer className="credit dim small">
-        {L('영상: NASA/IPAC IRSA SPHEREx', 'Images: NASA/IPAC IRSA SPHEREx')}{m && <> ({m.provenance.collections.join(', ')})</>}. {L('위치·운동 값: Gaia DR3·SIMBAD·문헌.', 'Positions and motions: Gaia DR3, SIMBAD, literature.')}{' '}
-        {L('전천 영상은 IRSA SPHEREx HiPS, Gaia 별은 VizieR에서 실시간으로 받습니다.', 'The all-sky map streams from the IRSA SPHEREx HiPS and Gaia stars from VizieR, live.')}{' '}
-        {/* English: the teammate's Korean name keeps lang="ko" (spec D3 rule 7) */}
-        {L('“같은 파장끼리 비교”, 임무 카드, 차가운 천체 필터, 천구 엔진(SkyGlobe)은 팀원 경보의 TrueBlink에서 가져왔습니다.', '') || <>Like-with-like blinking, mission cards, the cold-object filter and the globe engine (SkyGlobe) come from our teammate <span lang="ko">경보</span>'s TrueBlink.</>}
-      </footer>
     </div>
   )
 }

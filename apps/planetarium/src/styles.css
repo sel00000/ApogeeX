@@ -359,3 +359,9 @@ select,
   .topbar-actions .engine-status { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
   .topbar-actions { flex-shrink: 0; }
 }
+
+/* Native drop-down lists: the list of options opens on the page's dark surface with readable text,
+   never as a white box with pale letters. */
+select { color-scheme: dark; }
+select option, select optgroup { background-color: #101d29; color: #e8eef4; }
+select option:disabled { color: #8a99a8; }

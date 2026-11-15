@@ -917,3 +917,9 @@ button:disabled {
     bottom: 124px;
   }
 }
+
+/* Native drop-down lists: the list of options opens on the page's dark surface with readable text,
+   never as a white box with pale letters. */
+select { color-scheme: dark; }
+select option, select optgroup { background-color: #0d141d; color: #e8f0f4; }
+select option:disabled { color: #7f8f9c; }
