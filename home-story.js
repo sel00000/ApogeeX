@@ -54,86 +54,27 @@ export function mountHomeStory(root, { reducedMotion, loadModel } = {}) {
     hero._p = p; hero.style.setProperty('--hero-out', motion.matches ? '0' : p.toFixed(4));
   }, { margin: '0px' });
 
-  // ---- statement: words brighten one by one while it crosses the viewport
-  const statement = root.querySelector('[data-words]');
-  if (statement) {
-    // The words are rebuilt when the language changes; --p (the scroll progress) is kept.
-    const fill = text => {
-      const words = text.trim().split(/\s+/);
-      statement.setAttribute('aria-label', text.trim());
-      statement.textContent = '';
-      words.forEach((w, i) => {
-        const span = document.createElement('span'); span.className = 'w'; span.style.setProperty('--i', i); span.textContent = w;
-        span.setAttribute('aria-hidden', 'true');
-        statement.append(span, document.createTextNode(i < words.length - 1 ? ' ' : ''));
-      });
-      statement.style.setProperty('--n', words.length);
-    };
-    const key = statement.dataset.i18nKey;
-    fill(key ? t(key) : statement.textContent);
-    if (key) cleanups.push(onLangChange(() => fill(t(key))));
-    scene(statement, (r, vh) => {
-      const p = motion.matches ? 1 : clamp((vh * 0.9 - r.top) / (vh * 0.62));
-      statement.style.setProperty('--p', p.toFixed(4));
-    });
-  }
-
-  // ---- mission: sticky 3D story in four steps
+  // ---- mission: four steps you open by clicking; the model eases to each step (no scroll-jacking)
   const track = root.querySelector('#mission-track');
   if (track) {
     const stage = track.querySelector('.mission-stage');
     const steps = [...track.querySelectorAll('.m-step')];
     const modelStage = track.querySelector('#model-stage');
-    let model = null, loading = false, step = -1, lastP = -1;
+    let model = null, loading = false, step = 0;
     const setStep = n => {
-      if (n === step) return; step = n; stage.dataset.step = String(n);
-      steps.forEach((el, i) => { el.classList.toggle('on', i === n); el.classList.toggle('past', i < n); el.setAttribute('aria-hidden', String(i !== n)); });
+      step = n; stage.dataset.step = String(n);
+      steps.forEach((el, i) => { el.classList.toggle('on', i === n); el.querySelector('.m-head').setAttribute('aria-expanded', String(i === n)); });
+      model?.setProgress(n / 3, n);
+      modelStage.dispatchEvent(new Event('model-progress'));
     };
-    setStep(0);
+    steps.forEach((el, i) => listen(el.querySelector('.m-head'), 'click', () => setStep(i)));
     const ensureModel = () => {
       if (model || loading || !loadModel) return;
       loading = true;
-      loadModel(modelStage).then(m => { model = m; if (lastP >= 0) model?.setProgress(lastP, step); }).catch(() => {});
+      loadModel(modelStage).then(m => { model = m; model?.setProgress(step / 3, step); }).catch(() => {});
     };
-    // start downloading the model one screen before the story begins
     const pre = new IntersectionObserver(([e]) => { if (e.isIntersecting) { ensureModel(); pre.disconnect(); } }, { rootMargin: '120% 0px' });
     pre.observe(track); cleanups.push(() => pre.disconnect());
-    scene(track, r => {
-      const span = Math.max(1, r.height - innerHeight);
-      const p = clamp(-r.top / span);
-      setStep(p < 0.24 ? 0 : p < 0.5 ? 1 : p < 0.74 ? 2 : 3);
-      if (Math.abs(p - lastP) < 0.0005) return;
-      lastP = p;
-      model?.setProgress(motion.matches ? Math.round(p * 3) / 3 : p, step);
-      modelStage.dispatchEvent(new Event('model-progress'));
-    }, { margin: '10% 0px' });
-  }
-
-  // ---- light: 102 colours light up from 0.75 µm to 5 µm
-  const lightTrack = root.querySelector('#light-track');
-  if (lightTrack) {
-    const ticks = lightTrack.querySelector('#spec-ticks');
-    const stageEl = lightTrack.querySelector('.light-stage');
-    const count = lightTrack.querySelector('#spec-count');
-    const spectrum = lightTrack.querySelector('#spectrum');
-    const frag = document.createDocumentFragment();
-    spherexChannels().forEach((c, i) => {
-      const t = document.createElement('i');
-      t.style.cssText = `--w:${c.w.toFixed(4)};--i:${i};--h:${(70 + 10 * Math.sin(i * 0.9) + c.band * 7).toFixed(0)}px`;
-      frag.append(t);
-    });
-    SPHEREX_BANDS.forEach(([a, b]) => { const g = document.createElement('b'); g.style.cssText = `--a:${a};--b:${b}`; frag.append(g); });
-    ticks.append(frag);
-    let shown = -1;
-    scene(lightTrack, r => {
-      const span = Math.max(1, r.height - innerHeight);
-      const p = motion.matches ? 1 : clamp((-r.top / span - 0.08) / 0.62);
-      const lit = p * 108;
-      stageEl.style.setProperty('--lit', lit.toFixed(2));
-      const n = Math.min(102, Math.round(p * 102));
-      if (n !== shown) { shown = n; count.textContent = String(n); }
-      spectrum.classList.toggle('is-done', p >= 0.98);
-    }, { margin: '10% 0px' });
   }
 
   // ---- sky: visible ↔ infrared comparison
@@ -155,16 +96,16 @@ export function mountHomeStory(root, { reducedMotion, loadModel } = {}) {
         img.classList.toggle('on', on);
       }
       segs.forEach(b => b.setAttribute('aria-checked', String(b.dataset.layer === name)));
-      caption.textContent = t(SKY_CAPTIONS[name]);
+      if (caption) caption.textContent = t(SKY_CAPTIONS[name]);
     };
     pick('stars');
-    cleanups.push(onLangChange(() => { const on = segs.find(b => b.getAttribute('aria-checked') === 'true'); caption.textContent = t(SKY_CAPTIONS[on?.dataset.layer || 'stars']); }));
+    if (caption) cleanups.push(onLangChange(() => { const on = segs.find(b => b.getAttribute('aria-checked') === 'true'); caption.textContent = t(SKY_CAPTIONS[on?.dataset.layer || 'stars']); }));
     // warm the other two layers once the section is close, so switching is instant
     const warm = new IntersectionObserver(([e]) => {
       if (!e.isIntersecting) return; warm.disconnect();
       const idle = window.requestIdleCallback || (f => setTimeout(f, 400));
-      idle(() => layers.forEach(img => { if (img.dataset.src) { const pre = new Image(); pre.srcset = img.dataset.srcset; pre.sizes = img.sizes; pre.src = img.dataset.src; } }));
-    }, { rootMargin: '60% 0px' });
+      idle(() => layers.forEach(img => { if (img.dataset.src) { const pre = new Image(); pre.srcset = img.dataset.srcset; pre.sizes = img.sizes; pre.src = img.dataset.src; pre.decode().catch(() => {}); } else img.decode?.().catch(() => {}); }));
+    }, { rootMargin: '160% 0px' });
     warm.observe(compare); cleanups.push(() => warm.disconnect());
     segs.forEach(b => listen(b, 'click', () => pick(b.dataset.layer)));
     listen(compare.parentElement.querySelector('.seg'), 'keydown', e => {

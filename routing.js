@@ -21,7 +21,7 @@ export function documentTitle(view, lang = 'en') {
 }
 /** Errors carry an i18n key so the shell can show them in the chosen language; the message stays English. */
 function keyedError(key, message) { const e = new TypeError(message); e.i18nKey = key; return e; }
-export const HOME_ANCHORS = new Set(['about', 'mission', 'light', 'sky']);
+export const HOME_ANCHORS = new Set(['mission', 'light', 'spectrum', 'blink', 'sky']);
 
 export function parseRoute(hash = '') {
   const raw = String(hash).replace(/^#/, '').slice(0, 8192);

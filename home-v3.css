@@ -1,0 +1,275 @@
+/* Home V3 — after the hero: compact, left-aligned sections built around real data you can touch.
+ * Loaded after styles.css. No scroll-pinned stories, no giant centred statements. */
+
+.sec { width: min(1240px, calc(100% - 48px)); margin: 0 auto; padding: clamp(88px, 12vh, 132px) 0 0; }
+.sec-head { display: grid; gap: 28px; margin-bottom: 36px; }
+.sec .duo { font-size: clamp(26px, 2.5vw, 36px); line-height: 1.28; letter-spacing: -.035em; max-width: 30em; }
+.sec .duo span { display: block; margin-top: 10px; font-size: clamp(15.5px, 1.1vw, 17px); line-height: 1.7; font-weight: 450; letter-spacing: -.01em; color: var(--dim); max-width: 46em; }
+
+.panel { position: relative; margin: 0; border-radius: 20px; background: #0b0f15; box-shadow: inset 0 0 0 1px var(--line); overflow: hidden; }
+.badge { display: inline-flex; align-items: center; height: 20px; padding: 0 8px; border-radius: 999px; font-size: 11px; font-weight: 600; letter-spacing: 0; white-space: nowrap; vertical-align: 1px; }
+.badge-real { background: rgb(242 207 107 / .13); color: #f2cf6b; }
+.badge-model { background: rgb(255 255 255 / .07); color: var(--dim); }
+.pill-ghost { height: 34px; padding: 0 14px; font-size: 13px; font-weight: 550; color: var(--text); background: rgb(255 255 255 / .06); box-shadow: inset 0 0 0 1px var(--line); }
+.pill-ghost:hover { background: rgb(255 255 255 / .1); }
+.lab-fail { padding: 14px 16px; border-radius: 12px; background: rgb(255 120 90 / .08); color: #ffb39e; font-size: 13.5px; }
+.spec-note { font-size: 12.5px; line-height: 1.65; color: var(--faint); }
+.spec-note .badge { margin-right: 4px; }
+
+/* ---------------------------------------------------------------- mission (click, no scroll-jacking) */
+.fact-strip { display: grid; grid-template-columns: repeat(4, minmax(0, auto)); justify-content: start; gap: 0; border-top: 1px solid var(--line); }
+.fact-strip div { padding: 16px 40px 0 0; }
+.fact-strip dt { font-size: 21px; font-weight: 650; letter-spacing: -.03em; font-variant-numeric: tabular-nums; }
+.fact-strip dd { margin-top: 2px; font-size: 12.5px; color: var(--faint); }
+.mission .statement, .mission-rail { display: none; }
+.mission-track { height: auto; }
+.mission-stage { position: relative; top: auto; height: auto; padding: 0; grid-template-columns: minmax(300px, 380px) minmax(0, 1fr); align-items: stretch; gap: clamp(24px, 3vw, 48px); overflow: visible; }
+.mission-copy { height: auto; list-style: none; display: flex; flex-direction: column; justify-content: center; border-top: 1px solid var(--line); }
+.mission-copy .m-step { position: relative; inset: auto; opacity: 1; transform: none; pointer-events: auto; display: block; border-bottom: 1px solid var(--line); transition: none; }
+.m-head { position: relative; display: block; width: 100%; padding: 18px 0 18px 18px; text-align: left; font-size: 17px; font-weight: 600; letter-spacing: -.02em; color: var(--dim); transition: color .25s var(--ease); }
+.m-head::before { content: ""; position: absolute; left: 0; top: 50%; width: 6px; height: 6px; margin-top: -3px; border-radius: 50%; background: rgb(255 255 255 / .2); transition: background .3s var(--ease), transform .4s var(--spring); }
+.m-head:hover { color: var(--text); }
+.m-step.on .m-head { color: var(--text); }
+.m-step.on .m-head::before { background: var(--target, #f2cf6b); transform: scale(1.3); }
+.m-body { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .45s var(--ease); }
+.m-body > * { overflow: hidden; }
+.m-step.on .m-body { grid-template-rows: 1fr; }
+.m-body > div { padding-left: 18px; }
+.m-step.on .m-body > div { padding-bottom: 20px; }
+.m-body p, .mission-copy .m-step p { margin: 0; font-size: 15px; line-height: 1.7; color: var(--dim); max-width: none; }
+.m-body p + p { margin-top: 8px; }
+.mission-copy .m-goals { margin: 0; padding-left: 18px; }
+.mission-copy .m-goals li { padding: 8px 0; border-top: 0; }
+.mission-copy .m-goals b { font-size: 14.5px; }
+.mission-copy .m-goals span { font-size: 13.5px; }
+.m-body .m-note { font-size: 12.5px; color: var(--faint); }
+.mission .model-stage { height: clamp(460px, 62vh, 640px); border-radius: 24px; background: radial-gradient(70% 70% at 50% 45%, #0e131b, #080b10 80%); box-shadow: inset 0 0 0 1px var(--line); }
+.mission .model-dock { opacity: 1; transform: translate(-50%, 0); }
+.mission .model-hint { bottom: -26px; opacity: 1; }
+
+/* ---------------------------------------------------------------- LVF: SPHEREx turns, strips land, shots merge */
+.lvf { display: grid; grid-template-columns: minmax(0, 1fr) minmax(300px, 360px); gap: 0; }
+.lvf-stage { position: relative; aspect-ratio: 16 / 9.4; overflow: hidden; border-radius: 20px 0 0 0; }
+.lvf-sky, .lvf-overlay { position: absolute; inset: 0; display: block; width: 100%; height: 100%; }
+.lvf-overlay { pointer-events: none; }
+.lvf-side { display: flex; flex-direction: column; gap: 14px; padding: 20px 20px 16px; box-shadow: inset 1px 0 0 var(--line); }
+.lvf-shots { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.lvf-shots figure { margin: 0; }
+.lvf-shots canvas { display: block; width: 100%; aspect-ratio: 1; image-rendering: pixelated; background: #05070a; border-radius: 4px; }
+.lvf-shots figcaption { margin-top: 6px; font-size: 12px; color: var(--dim); font-variant-numeric: tabular-nums; }
+.lvf-cube-head { display: flex; align-items: center; gap: 10px; margin-top: 10px; }
+.lvf-cube-head b { font-size: 22px; font-weight: 650; letter-spacing: -.03em; color: var(--text); font-variant-numeric: tabular-nums; }
+.lvf-cube-head .badge { margin-left: auto; }
+.lvf-grid { display: grid; grid-template-columns: 20px minmax(0, 1fr); align-items: center; gap: 6px; }
+.lvf-rows { display: grid; grid-template-rows: repeat(6, 1fr); row-gap: 3px; }
+.lvf-rows span { display: flex; align-items: center; min-height: 0; overflow: hidden; line-height: 1; font-size: 10px; font-weight: 600; color: var(--faint); }
+.lvf-rows b { font-size: 11px; font-weight: 600; color: var(--dim); }
+.lvf-cube-canvas { display: block; width: 100%; }
+.lvf-caption { grid-column: 1 / -1; display: flex; align-items: center; gap: 8px; padding: 12px 20px; font-size: 12px; color: var(--faint); box-shadow: inset 0 1px 0 var(--line); }
+
+/* ---------------------------------------------------------------- one patch, every colour */
+.spec-view { display: grid; grid-template-columns: minmax(280px, 440px) minmax(0, 1fr); gap: 16px; align-items: start; }
+.spec-frame { aspect-ratio: 1; background: #05070a; }
+.spec-frame-canvas, .blink-canvas { display: block; width: 100%; height: 100%; image-rendering: pixelated; }
+.spec-compass { position: absolute; left: 14px; top: 12px; font-size: 11.5px; color: rgb(244 242 238 / .7); text-shadow: 0 1px 4px #000; }
+.spec-read { position: absolute; left: 0; right: 0; bottom: 0; display: flex; align-items: baseline; gap: 12px; padding: 28px 16px 14px; background: linear-gradient(0deg, rgb(5 7 10 / .9), rgb(5 7 10 / 0)); font-size: 12.5px; color: var(--dim); font-variant-numeric: tabular-nums; }
+.spec-read b { font-size: 22px; font-weight: 650; letter-spacing: -.03em; color: var(--text); }
+.spec-read [data-utc] { margin-left: auto; color: var(--faint); }
+.spec-side { display: grid; gap: 14px; }
+.spec-chart { padding: 14px 16px 12px; }
+.spec-chart-head, .spec-chart-foot { display: flex; align-items: center; justify-content: space-between; gap: 12px; font-size: 12.5px; color: var(--dim); }
+.spec-chart-foot { color: var(--faint); font-variant-numeric: tabular-nums; }
+.spec-chart-foot [data-flux] { color: var(--text); font-weight: 600; }
+.spec-chart-canvas { display: block; width: 100%; height: clamp(200px, 26vh, 260px); margin: 8px 0 6px; cursor: ew-resize; touch-action: none; }
+.spec-range { position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+.spec-range:focus-visible + .spec-chart-foot { color: var(--accent); }
+.spec-controls { display: flex; gap: 8px; }
+
+/* ---------------------------------------------------------------- blink: 4 Vesta */
+.blink { display: grid; grid-template-columns: minmax(300px, 560px) minmax(0, 1fr); gap: 16px; align-items: start; }
+.blink-frame { aspect-ratio: 1; background: #05070a; border-radius: 6px; }
+.blink-side { display: grid; gap: 28px; align-content: start; }
+.blink-frames { list-style: none; display: grid; }
+.blink-frames li { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding: 14px 16px; border-left: 2px solid rgb(255 255 255 / .1); border-bottom: 1px solid var(--line); font-variant-numeric: tabular-nums; }
+.blink-frames li:first-child { border-top: 1px solid var(--line); }
+.blink-frames b { font-size: 14px; font-weight: 600; color: var(--faint); }
+.blink-frames span { font-size: 12.5px; color: var(--faint); }
+.blink-frames li[data-on] { border-left-color: #f2cf6b; background: rgb(242 207 107 / .05); }
+.blink-frames li[data-on] b { color: var(--text); }
+.blink-facts { display: grid; grid-template-columns: repeat(2, minmax(0, auto)); justify-content: start; gap: 0 48px; }
+.blink-facts dt { font-size: 22px; font-weight: 650; letter-spacing: -.025em; font-variant-numeric: tabular-nums; }
+.blink-facts dd { margin-top: 4px; font-size: 13px; color: var(--faint); }
+
+/* ---------------------------------------------------------------- sky + about: same rhythm as the labs */
+.sky { padding-top: clamp(88px, 12vh, 132px); }
+.sky-head .duo { font-size: clamp(26px, 2.5vw, 36px); line-height: 1.28; letter-spacing: -.035em; }
+.sky-head .duo span { display: block; margin-top: 10px; font-size: clamp(15.5px, 1.1vw, 17px); line-height: 1.7; font-weight: 450; letter-spacing: -.01em; }
+
+@media (max-width: 980px) {
+  .lvf, .spec-view, .blink, .mission-stage { grid-template-columns: 1fr; }
+  .lvf-side { box-shadow: inset 0 1px 0 var(--line); }
+  .fact-strip { grid-template-columns: repeat(2, minmax(0, auto)); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .m-body { transition: none; }
+}
+
+.lvf-rows::after { content: none; }
+.lvf-cube-head + .lvf-grid::before { content: none; }
+
+/* ---------------------------------------------------------------- scroll-linked motion (compositor only)
+ * Tied to scroll position, not timers: scrolling back reverses it. Headings are unmasked from below,
+ * panels rise and settle, fact numbers arrive one after another. Only transform / opacity / clip-path. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .sec-head .duo { animation: v3-unmask linear both; animation-timeline: view(); animation-range: entry 5% cover 32%; }
+    .sec-head .duo span { animation: v3-drift linear both; animation-timeline: view(); animation-range: entry 10% cover 38%; }
+    .lvf, .spec-frame, .spec-side, .blink-frame, .blink-side, .mission-copy, .sky-compare, .about-lead, .guide {
+      animation: v3-rise linear both; animation-timeline: view(); animation-range: entry 0% cover 30%;
+    }
+    .spec-side, .blink-side { animation-range: entry 8% cover 36%; }
+    .mission .model-stage { animation: v3-fade linear both; animation-timeline: view(); animation-range: entry 0% cover 30%; }
+    .fact-strip > div { animation: v3-rise-sm linear both; animation-timeline: view(); }
+    .fact-strip > div:nth-child(1) { animation-range: entry 0% cover 22%; }
+    .fact-strip > div:nth-child(2) { animation-range: entry 6% cover 28%; }
+    .fact-strip > div:nth-child(3) { animation-range: entry 12% cover 34%; }
+    .fact-strip > div:nth-child(4) { animation-range: entry 18% cover 40%; }
+    .blink-frames li { animation: v3-slide linear both; animation-timeline: view(); animation-range: entry 0% cover 30%; }
+  }
+}
+@keyframes v3-unmask { from { clip-path: inset(0 0 100% 0); transform: translateY(18px); } to { clip-path: inset(0 0 -10% 0); transform: none; } }
+@keyframes v3-drift { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+@keyframes v3-rise { from { opacity: 0; transform: translateY(56px) scale(.97); } to { opacity: 1; transform: none; } }
+@keyframes v3-rise-sm { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
+@keyframes v3-fade { from { opacity: 0; } to { opacity: 1; } }
+@keyframes v3-slide { from { opacity: 0; transform: translateX(24px); } to { opacity: 1; transform: none; } }
+
+/* ---------------------------------------------------------------- mission dock: four large, easy targets */
+.mission .model-stage { display: flex; flex-direction: column; }
+.mission .model-dock { position: absolute; left: 16px; right: 16px; bottom: 16px; z-index: 6; transform: none; opacity: 1;
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; padding: 0; background: none; box-shadow: none; }
+.mission .model-dock button { display: flex; align-items: center; justify-content: center; gap: 8px; height: 52px; border-radius: 14px;
+  font-size: 14px; font-weight: 600; color: var(--text); background: rgb(17 22 30 / .88); box-shadow: inset 0 0 0 1px rgb(255 255 255 / .1);
+  transition: background .2s var(--ease), box-shadow .2s var(--ease), transform .25s var(--spring); }
+.mission .model-dock button svg { width: 20px; height: 20px; flex: none; opacity: .85; }
+.mission .model-dock button:hover { background: rgb(28 35 46 / .95); box-shadow: inset 0 0 0 1px rgb(255 255 255 / .2); transform: translateY(-2px); }
+.mission .model-dock button:active { transform: scale(.97); }
+.mission .model-dock button[aria-pressed=true] { background: var(--text); color: #0b0d11; box-shadow: none; }
+.mission .model-hint { position: absolute; left: 0; right: 0; top: 14px; bottom: auto; opacity: 1; }
+.mission .model-host { bottom: 84px; }
+
+/* ---------------------------------------------------------------- LVF timeline (play / scrub) */
+.lvf-time { position: absolute; left: 16px; right: 16px; bottom: 14px; z-index: 3; display: flex; align-items: center; gap: 12px; }
+.lvf-play { flex: none; width: 36px; height: 36px; border-radius: 50%; background: var(--text); color: #0b0d11; font-size: 12px; font-weight: 700; transition: transform .25s var(--spring); }
+.lvf-play:hover { transform: scale(1.06); }
+.lvf-scrub { flex: 1; accent-color: #f2cf6b; height: 24px; cursor: pointer; }
+.lvf-hint { flex: none; font-size: 12px; color: rgb(244 242 238 / .6); }
+.lvf-sky { cursor: grab; touch-action: none; }
+.lvf-sky:active { cursor: grabbing; }
+.lvf-cube-canvas { cursor: pointer; }
+.blink-canvas { cursor: ew-resize; }
+.blink-frames li { cursor: pointer; }
+.spec-chart-head small { font-size: 11.5px; color: var(--faint); font-weight: 400; }
+
+/* ---------------------------------------------------------------- pointer light on panels (moves a layer, never repaints) */
+.panel::after { content: ""; position: absolute; left: 0; top: 0; width: 520px; height: 520px; margin: -260px 0 0 -260px; border-radius: 50%;
+  background: radial-gradient(closest-side, rgb(242 207 107 / .07), transparent); pointer-events: none; opacity: 0;
+  transform: translate3d(var(--px, -999px), var(--py, -999px), 0); transition: opacity .35s var(--ease); z-index: 2; }
+.panel:hover::after { opacity: 1; }
+
+/* ---------------------------------------------------------------- language switch */
+.lang-switch { display: inline-flex; padding: 3px; border-radius: 999px; background: rgb(255 255 255 / .06); margin-left: 8px; }
+.lang-switch button { height: 26px; padding: 0 10px; border-radius: 999px; font-size: 12px; font-weight: 600; color: var(--dim); }
+.lang-switch button[aria-pressed=true] { background: var(--text); color: #0b0d11; }
+.spec-hint { margin: 0; font-size: 12.5px; color: var(--faint); }
+.mission .model-stage .model-dock, .mission .model-stage:focus-within .model-dock, .mission-stage[data-step] .model-dock { transform: none; opacity: 1; left: 16px; right: 16px; }
+
+/* ---------------------------------------------------------------- ApogeeX brand */
+.brand .brand-logo { display: block; height: 25px; width: auto; border-radius: 0; }
+footer { align-items: center; }
+footer img { display: block; height: 20px; width: auto; opacity: .8; }
+
+/* ---------------------------------------------------------------- clean sky reference */
+.sky-controls { justify-content: flex-start; }
+.sky-credit { margin-top: 18px; font-size: 11.5px; color: var(--faint); }
+
+/* ---------------------------------------------------------------- back to top: white; on hover it wobbles and flips to ink */
+.back-top-wrap { padding: clamp(88px, 12vh, 132px) 0 72px; }
+.back-top { width: 64px; height: 64px; border-radius: 50%; font-size: 22px; color: #0b0d11; background: #f4f2ee;
+  box-shadow: 0 0 0 1px rgb(255 255 255 / .9); transition: background .35s var(--ease), color .35s var(--ease), box-shadow .35s var(--ease); }
+.back-top:hover { color: #f4f2ee; background: #0b0d11; box-shadow: 0 0 0 1px rgb(244 242 238 / .55); animation: back-top-jelly .9s var(--ease) both; }
+.back-top:hover i { transform: translateY(-3px); }
+.back-top:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+@keyframes back-top-jelly {
+  0% { transform: scale(1, 1); } 22% { transform: scale(1.18, .84); } 38% { transform: scale(.88, 1.12); }
+  54% { transform: scale(1.07, .95); } 70% { transform: scale(.97, 1.03); } 100% { transform: scale(1, 1); }
+}
+@media (prefers-reduced-motion: reduce) { .back-top:hover { animation: none; } }
+
+/* spectrum readout: just the wavelength */
+.spec-read { justify-content: flex-start; }
+.spec-chart { padding-top: 16px; }
+.spec-chart-foot { justify-content: flex-start; }
+
+/* ---------------------------------------------------------------- ApogeeX in the hero: the name, above the title */
+.hero-logo { display: block; margin: 0 auto clamp(18px, 2.6vh, 28px); height: clamp(34px, 3.4vw, 50px); width: auto;
+  filter: drop-shadow(0 2px 18px rgb(0 0 0 / .55)); }
+
+/* ---------------------------------------------------------------- SPHEREx: one continuous gradient across the word, same colours */
+.ht-name { background: linear-gradient(90deg, #ffffff 0%, #fff6e8 24%, #f3d9b4 48%, #eadfd6 66%, #dcd9f0 82%, #b9c9ff 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent; }
+.ht-name span:nth-child(n) { background: none; -webkit-background-clip: border-box; background-clip: border-box; color: transparent; }
+
+/* ---------------------------------------------------------------- clearer glass cards */
+.tool-card { background: linear-gradient(160deg, rgb(255 255 255 / .06), rgb(8 11 16 / .06) 42%, rgb(8 11 16 / .1)); }
+.tool-card::before { background: linear-gradient(170deg, rgb(26 32 44 / .2), rgb(8 11 16 / .28) 55%, rgb(12 16 24 / .36)); }
+.tool-card h2, .tool-card p { text-shadow: 0 1px 12px rgb(0 0 0 / .55); }
+
+/* ---------------------------------------------------------------- mission: telescope left, words right */
+.mission-stage { grid-template-columns: minmax(0, 1fr) minmax(300px, 380px); }
+.mission .model-stage { order: -1; }
+
+/* ---------------------------------------------------------------- no text selection on the main screen (drags never paint blue boxes) */
+.site-header, #home-view { -webkit-user-select: none; user-select: none; -webkit-touch-callout: none; }
+#home-view img, .site-header img { -webkit-user-drag: none; }
+#home-view input, #home-view textarea { -webkit-user-select: text; user-select: text; }
+
+/* ---------------------------------------------------------------- dock: two Liquid Glass buttons; small pause at lower left */
+.mission .model-dock { grid-template-columns: repeat(2, minmax(0, 1fr)); left: 25%; right: 25%; }
+.mission .model-dock button { position: relative; overflow: hidden; height: 54px; border-radius: 999px; color: #fff;
+  background: linear-gradient(180deg, rgb(255 255 255 / .16), rgb(255 255 255 / .05) 55%, rgb(255 255 255 / .09));
+  -webkit-backdrop-filter: blur(14px) saturate(1.8); backdrop-filter: blur(14px) saturate(1.8);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / .55), inset 0 -1px 0 rgb(255 255 255 / .12), inset 0 0 0 1px rgb(255 255 255 / .16), 0 10px 28px -10px rgb(0 0 0 / .6); }
+.mission .model-dock button::before { content: ""; position: absolute; left: 12%; right: 12%; top: 3px; height: 45%; border-radius: 999px;
+  background: linear-gradient(180deg, rgb(255 255 255 / .32), rgb(255 255 255 / 0)); pointer-events: none; }
+.mission .model-dock button:hover { background: linear-gradient(180deg, rgb(255 255 255 / .24), rgb(255 255 255 / .08) 55%, rgb(255 255 255 / .12)); transform: translateY(-2px) scale(1.02); }
+.mission .model-dock button[aria-pressed=true] { color: #0b0d11; background: linear-gradient(180deg, rgb(255 255 255 / .95), rgb(232 230 226 / .88)); }
+.model-pause { position: absolute; left: 16px; bottom: 26px; z-index: 7; width: 32px; height: 32px; border-radius: 50%; font-size: 11px; font-weight: 700;
+  color: var(--dim); background: rgb(255 255 255 / .06); box-shadow: inset 0 0 0 1px var(--line); transition: color .2s, background .2s; }
+.model-pause:hover { color: var(--text); background: rgb(255 255 255 / .12); }
+.mission .model-host { bottom: 90px; }
+
+.mission .model-stage .model-dock, .mission-stage[data-step] .model-dock { left: 50%; right: auto; width: min(420px, calc(100% - 140px)); transform: translateX(-50%); }
+.mission .model-dock button::before { left: 22%; right: 22%; top: 2px; height: 38%; background: linear-gradient(180deg, rgb(255 255 255 / .16), rgb(255 255 255 / 0)); }
+
+/* ---------------------------------------------------------------- dock = one Liquid Glass capsule split in two:  ( 내부 보기 | 태양전지판 )
+ * Position is fixed for every state (an older :focus-within rule used to shift it). */
+.mission .model-stage .model-dock, .mission .model-stage:focus-within .model-dock, .mission-stage[data-step] .model-stage .model-dock {
+  left: 50%; right: auto; bottom: 18px; width: auto; transform: translateX(-50%); opacity: 1;
+  display: flex; gap: 0; padding: 5px; border-radius: 999px;
+  background: rgb(18 23 31 / .5); -webkit-backdrop-filter: blur(22px) saturate(1.7); backdrop-filter: blur(22px) saturate(1.7);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / .2), inset 0 0 0 1px rgb(255 255 255 / .08), 0 14px 34px -14px rgb(0 0 0 / .7); }
+.mission .model-dock button, .mission .model-dock button:hover { position: relative; height: 44px; padding: 0 26px; border-radius: 999px; background: transparent;
+  -webkit-backdrop-filter: none; backdrop-filter: none; box-shadow: none; transform: none; color: var(--dim); font-size: 14px; }
+.mission .model-dock button::before { content: none; }
+.mission .model-dock button:hover { color: #fff; background: rgb(255 255 255 / .09); }
+.mission .model-dock button + button::after { content: ""; position: absolute; left: -1px; top: 12px; bottom: 12px; width: 1px; background: rgb(255 255 255 / .16); }
+.mission .model-dock button[aria-pressed=true] { color: #0b0d11; background: var(--text); }
+.mission .model-dock button[aria-pressed=true] + button::after, .mission .model-dock button:has(+ button[aria-pressed=true])::after { opacity: 0; }
+.target-tag { position: absolute; left: 16px; top: 14px; z-index: 4; font-size: 15px; font-weight: 650; letter-spacing: -.01em; color: #f4f2ee; text-shadow: 0 1px 8px rgb(0 0 0 / .8); pointer-events: none; }
+
+/* clearer still: a thin smoky tint, the rim and specular carry the glass */
+.tool-card { background: linear-gradient(160deg, rgb(255 255 255 / .05), rgb(8 11 16 / .02) 42%, rgb(8 11 16 / .05)); }
+.tool-card::before { background: linear-gradient(170deg, rgb(26 32 44 / .08), rgb(8 11 16 / .12) 55%, rgb(12 16 24 / .18)); }
+.tool-card::after { opacity: .45; }
+.tool-card h2, .tool-card p { text-shadow: 0 1px 14px rgb(0 0 0 / .75), 0 0 2px rgb(0 0 0 / .4); }
