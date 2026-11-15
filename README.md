@@ -460,6 +460,8 @@ Where a row says there is no licence text in this repository, the source is cred
 
 Much of the code and text was written with Anthropic's Claude, used through Claude Code, under the direction of the team; the notes below say which parts, and other AI agents reviewed that work. The English interface texts were written by the AI as translations of the team's Korean texts. At run time the search can send a sentence that its own engine cannot read to a small language model (Llama 3.1 8B on Cloudflare Workers AI); the model returns a search plan only, never objects, positions or numbers, and such results are labelled "AI-interpreted candidate". No sky image, planet map or observation on the site is AI-generated. The details are in [docs/AI_USE.md](docs/AI_USE.md), [packages/search/AI_USE.md](packages/search/AI_USE.md) and [apps/portal/moving/AI_USE-TrueBlink.md](apps/portal/moving/AI_USE-TrueBlink.md).
 
+### SI (Super Intelligence)
+
 AI tools the team used during the project, as listed by the team:
 
 | Tool | Models |
@@ -469,7 +471,6 @@ AI tools the team used during the project, as listed by the team:
 | NVIDIA | Nemotron 3.5 Lightning |
 | Google Antigravity | Gemini 3.8 Flash |
 | Meta | Llama 3.1 8B |
-| SI | Super Intelligence |
 
 The figures and diagrams in this README were drawn by the AI from the code, and a separate AI reviewer checked each box and arrow against the code. The screenshots were taken by the AI with a headless browser from the real site. The team photograph is a real photograph.
 

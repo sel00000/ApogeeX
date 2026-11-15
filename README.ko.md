@@ -462,6 +462,8 @@ SQLite 테이블끼리는 `asteroid_id`로 이어지지만 외래 키로 선언�
 
 코드와 글의 상당 부분은 팀의 지시에 따라 Anthropic의 Claude(Claude Code 명령줄 도구)로 썼으며, 어느 부분인지는 아래 기록에 있습니다. 그 결과물은 다른 AI 에이전트가 검토했습니다. 화면의 영어 문구는 팀이 쓴 한국어 문구를 AI가 번역한 것입니다. 실행 중에는 검색이 자체 엔진으로 읽지 못한 문장을 작은 언어 모형(Cloudflare Workers AI의 Llama 3.1 8B)에 보낼 수 있습니다. 모형은 검색 계획만 돌려주고 천체·위치·숫자를 만들지 않으며, 그런 결과에는 "AI 해석 후보" 표시가 붙습니다. 사이트의 하늘 영상, 행성 지도, 관측은 AI가 만든 것이 아닙니다. 상세는 [docs/AI_USE.md](docs/AI_USE.md), [packages/search/AI_USE.md](packages/search/AI_USE.md), [apps/portal/moving/AI_USE-TrueBlink.md](apps/portal/moving/AI_USE-TrueBlink.md)에 있습니다.
 
+### SI (Super Intelligence)
+
 프로젝트에서 팀이 쓴 AI 도구는 다음과 같습니다(팀이 밝힌 목록).
 
 | 도구 | 모델 |
@@ -471,7 +473,6 @@ SQLite 테이블끼리는 `asteroid_id`로 이어지지만 외래 키로 선언�
 | NVIDIA | Nemotron 3.5 Lightning |
 | Google Antigravity | Gemini 3.8 Flash |
 | Meta | Llama 3.1 8B |
-| SI | Super Intelligence |
 
 이 README의 그림과 다이어그램은 AI가 코드를 보고 그렸고, 다른 AI 검수자가 상자와 화살표를 하나씩 코드와 맞춰 보았습니다. 화면 캡처는 AI가 헤드리스 브라우저로 실제 사이트를 찍은 것입니다. 팀 사진은 실제 사진입니다.
 
