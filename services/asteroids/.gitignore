@@ -1,0 +1,8 @@
+# SPHEREx image cutout caches (several GB; re-downloaded on demand from IRSA)
+data/raw/
+# Python / test caches
+__pycache__/
+*.pyc
+.pytest_cache/
+# run logs
+*.log

@@ -1,0 +1,20 @@
+### Result
+{
+  "fixture": "1000 asteroids / repeated real orbit, TEST ONLY, never product data",
+  "frameP95": 16.799999999999727,
+  "drawP95": 1.9000000059604645,
+  "frames": 241,
+  "calls": 18,
+  "triangles": 65788,
+  "geometries": 17,
+  "textures": 1,
+  "scheduled": true,
+  "timings": {
+    "p50": 16.699999999999818,
+    "p95": 16.799999999999727
+  }
+}
+### Ran Playwright code
+```js
+await page.evaluate('() => window.__stress');
+```

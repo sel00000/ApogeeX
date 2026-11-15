@@ -1,0 +1,256 @@
+# Solar-analog stars for the relative spectral calibration of SPHEREx asteroid reflectance
+# (src/preprocessing/solar_analog_calibration.py; build with `python main.py solar-analog-calibration`).
+# Stars with `use: false` are kept for reference and skipped by the build.
+#
+# Group "marsset2020": Table 1 of Marsset et al. (2020), "Twenty years of SpeX: Accuracy limits of
+# spectral slope measurements in asteroid spectroscopy", ApJS 247, 73 (arXiv:2004.05158): the solar
+# analogs of the SMASS and MITHNEOS asteroid surveys. Name, identifier, J2000 position, spectral type
+# and V are copied from that table. From 628 SpeX spectra of these 11 stars the authors find stellar
+# mean slopes with a 1-sigma spread of 1.4 %/um (extremes 4.4 %/um apart) over 0.8-2.4 um.
+#   gaia_dr3_source_id: the Gaia DR3 source within 10 arcsec of the Table 1 position whose G is within
+#   1 mag of V - 0.2 (brightest such source); matched 2026-11-14 via the IRSA TAP copy of
+#   gaia_dr3_source (offsets 0.3-2.1 arcsec, G - V = -0.12..-0.19, BP - RP = 0.77-0.82).
+#   Most of these stars are too bright for SPHEREx: on DR1 images Landolt 115-271 (V = 9.7) had
+#   OVERFLOW at the peak pixel in 39 of 72 exposures and no usable B1/B2 point, while Landolt 110-361
+#   (V = 12.4) had no saturation flag in its core (peak ~30 MJy/sr in B1). Stars with V < 10.5 are
+#   therefore not used (use: false); 98-978 and 107-998 (V 10.5-10.6) are used, and their saturated
+#   points are removed by the core-flag selection of the calibration.
+#
+# Group "gaia_gold_sample": fainter solar analogs from the Gaia DR3 golden sample of solar analogues
+# (Gaia Collaboration, Creevey et al. 2023, A&A 674, A39, Sect. 7.2; archive table
+# gaiadr3.gold_sample_solar_analogues, 5863 stars: GSP-Spec Teff = 5772 +/- 100 K, log g = 4.44 +/- 0.25,
+# [M/H] = 0 +/- 0.1, FLAME mass 0.95-1.05 Msun, radius 0.8-1.2 Rsun, parallax/error > 20).
+# Chosen on 2026-11-14 by src/acquisition/solar_analog_selection.py (select_solar_analogs, seed 0;
+# reproduced identically by a second run):
+# G 11.3-13.0, |b| > 20 deg, RUWE < 1.4, BP - RP 0.80-0.84 (solar 0.82 +/- 0.02), no Gaia neighbour
+# within 30 arcsec brighter than G + 5; 4 stars in each ecliptic-latitude range |beta| 0-20, 20-50 and
+# 50-90 deg (candidates sorted by source_id before the seeded draw). 211 of the 5863 stars passed
+# the cuts; 2 drawn stars were rejected for neighbours.
+#
+# notes: facts from Gaia DR3 that may matter for SPHEREx photometry (6.2-arcsec pixels). The joint
+# fit and the star-to-star scatter decide how much each star counts.
+reference: "Marsset et al. (2020), ApJS 247, 73, Table 1 (arXiv:2004.05158); Gaia Collaboration, Creevey et al. (2023), A&A 674, A39"
+selection: "Marsset et al. (2020) Table 1 stars with V >= 10.5, plus 12 Gaia DR3 golden-sample solar analogues (G 11.3-13.0)"
+stars:
+  - name: "Hyades 64"
+    group: "marsset2020"
+    use: false
+    not_used_reason: "V < 10.5: saturates SPHEREx B1/B2 (see header)"
+    identifier: "HD 28099"
+    j2000: ["04:26:40.1", "+16:44:49"]
+    spectral_type: "G2V"
+    V: 8.1
+    gaia_dr3_source_id: 3313689422030650496
+    notes: "brightest star of the list (G = 7.95)"
+  - name: "Landolt 93-101"
+    group: "marsset2020"
+    use: false
+    not_used_reason: "V < 10.5: saturates SPHEREx B1/B2 (see header)"
+    identifier: "HD 11532"
+    j2000: ["01:53:18.4", "+00:22:23"]
+    spectral_type: "G5V"
+    V: 9.7
+    gaia_dr3_source_id: 2510773048710876416
+  - name: "Landolt 98-978"
+    group: "marsset2020"
+    use: true
+    identifier: "HD 292561"
+    j2000: ["06:51:33.7", "-00:11:32"]
+    spectral_type: "G3V"
+    V: 10.6
+    gaia_dr3_source_id: 3113329094598313472
+    notes: "bluest of the list in Gaia (BP - RP = 0.77); Galactic latitude -0.1 deg (crowded field)"
+  - name: "Landolt 102-1081"
+    group: "marsset2020"
+    use: false
+    not_used_reason: "V < 10.5: saturates SPHEREx B1/B2 (see header)"
+    identifier: "BD+00 2717"
+    j2000: ["10:57:04.0", "-00:13:13"]
+    spectral_type: "G5IV"
+    V: 9.9
+    gaia_dr3_source_id: 3804734643593290112
+  - name: "Landolt 105-56"
+    group: "marsset2020"
+    use: false
+    not_used_reason: "V < 10.5: saturates SPHEREx B1/B2 (see header)"
+    identifier: "BD-00 2719"
+    j2000: ["13:38:41.9", "-01:14:17"]
+    spectral_type: "G5V"
+    V: 10.0
+    gaia_dr3_source_id: 3661765425807164160
+    notes: "Gaia RUWE 4.67: probably an unresolved binary"
+  - name: "Landolt 107-684"
+    group: "marsset2020"
+    use: false
+    not_used_reason: "V < 10.5: saturates SPHEREx B1/B2 (see header)"
+    identifier: "HD 139287"
+    j2000: ["15:37:18.1", "-00:09:50"]
+    spectral_type: "G3V"
+    V: 8.4
+    gaia_dr3_source_id: 4416641352970215936
+  - name: "Landolt 107-998"
+    group: "marsset2020"
+    use: true
+    identifier: "BD+00 3383"
+    j2000: ["15:38:16.3", "+00:15:22"]
+    spectral_type: "G3IV"
+    V: 10.5
+    gaia_dr3_source_id: 4416786900822154112
+    notes: "Gaia RUWE 2.72: possibly an unresolved binary"
+  - name: "Landolt 110-361"
+    group: "marsset2020"
+    use: true
+    identifier: "TYC 447-508-1"
+    j2000: ["18:42:45.0", "+00:08:05"]
+    spectral_type: "G2 (estimated from colours, Marsset et al. 2020)"
+    V: 12.4
+    gaia_dr3_source_id: 4272476270261273216
+    notes: "faintest star of the list (G = 12.27); Galactic latitude +2.0 deg (crowded field)"
+  - name: "Landolt 112-1333"
+    group: "marsset2020"
+    use: false
+    not_used_reason: "V < 10.5: saturates SPHEREx B1/B2 (see header)"
+    identifier: "BD-00 4074"
+    j2000: ["20:43:12.0", "+00:26:13"]
+    spectral_type: "G2V"
+    V: 10.0
+    gaia_dr3_source_id: 4228206324352116736
+  - name: "Landolt 113-276"
+    group: "marsset2020"
+    use: false
+    not_used_reason: "V < 10.5: saturates SPHEREx B1/B2 (see header)"
+    identifier: "BD-00 4251B"
+    j2000: ["21:42:27.4", "+00:26:20"]
+    spectral_type: "G5V"
+    V: 9.1
+    gaia_dr3_source_id: 2687236242538088448
+    notes: "Gaia neighbour 9.7 arcsec away, 4.9 mag fainter in G (BP - RP = 1.15): ~1-2% contamination"
+  - name: "Landolt 115-271"
+    group: "marsset2020"
+    use: false
+    not_used_reason: "V < 10.5: saturates SPHEREx B1/B2 (see header)"
+    identifier: "BD-00 4557"
+    j2000: ["23:42:41.8", "+00:45:13"]
+    spectral_type: "G2V"
+    V: 9.7
+    gaia_dr3_source_id: 2643020589312983296
+  - name: "Gaia DR3 667330101236907776"
+    group: "gaia_gold_sample"
+    gaia_dr3_source_id: 667330101236907776
+    gaia_ra_dec_j2016: [119.586404, 16.962658]
+    G: 11.391
+    bp_rp: 0.800
+    gspspec: {teff: 5841, logg: 4.23, mh: -0.02}
+    galactic_b_deg: 22.2
+    ecliptic_lat_deg: -3.6
+    use: true
+  - name: "Gaia DR3 6909894018898836608"
+    group: "gaia_gold_sample"
+    gaia_dr3_source_id: 6909894018898836608
+    gaia_ra_dec_j2016: [314.295954, -7.175975]
+    G: 11.703
+    bp_rp: 0.830
+    gspspec: {teff: 5809, logg: 4.37, mh: 0.03}
+    galactic_b_deg: -31.2
+    ecliptic_lat_deg: 9.7
+    use: true
+  - name: "Gaia DR3 6833816717724281472"
+    group: "gaia_gold_sample"
+    gaia_dr3_source_id: 6833816717724281472
+    gaia_ra_dec_j2016: [318.515647, -18.493085]
+    G: 11.672
+    bp_rp: 0.830
+    gspspec: {teff: 5751, logg: 4.38, mh: 0.09}
+    galactic_b_deg: -39.5
+    ecliptic_lat_deg: -2.4
+    use: true
+  - name: "Gaia DR3 633604815435763712"
+    group: "gaia_gold_sample"
+    gaia_dr3_source_id: 633604815435763712
+    gaia_ra_dec_j2016: [144.074644, 18.960177]
+    G: 11.365
+    bp_rp: 0.821
+    gspspec: {teff: 5770, logg: 4.24, mh: -0.07}
+    galactic_b_deg: 44.6
+    ecliptic_lat_deg: 4.4
+    use: true
+  - name: "Gaia DR3 6425579316029502080"
+    group: "gaia_gold_sample"
+    gaia_dr3_source_id: 6425579316029502080
+    gaia_ra_dec_j2016: [307.072882, -66.946684]
+    G: 11.454
+    bp_rp: 0.816
+    gspspec: {teff: 5882, logg: 4.30, mh: 0.20}
+    galactic_b_deg: -34.2
+    ecliptic_lat_deg: -46.0
+    use: true
+  - name: "Gaia DR3 2972362529862291200"
+    group: "gaia_gold_sample"
+    gaia_dr3_source_id: 2972362529862291200
+    gaia_ra_dec_j2016: [84.285111, -14.713289]
+    G: 11.618
+    bp_rp: 0.817
+    gspspec: {teff: 5863, logg: 4.25, mh: -0.04}
+    galactic_b_deg: -23.0
+    ecliptic_lat_deg: -38.0
+    use: true
+  - name: "Gaia DR3 1021495028608838016"
+    group: "gaia_gold_sample"
+    gaia_dr3_source_id: 1021495028608838016
+    gaia_ra_dec_j2016: [142.945745, 53.916412]
+    G: 11.394
+    bp_rp: 0.816
+    gspspec: {teff: 5715, logg: 4.16, mh: 0.20}
+    galactic_b_deg: 44.9
+    ecliptic_lat_deg: 36.9
+    use: true
+  - name: "Gaia DR3 5050053165460308224"
+    group: "gaia_gold_sample"
+    gaia_dr3_source_id: 5050053165460308224
+    gaia_ra_dec_j2016: [40.038298, -35.508135]
+    G: 11.397
+    bp_rp: 0.812
+    gspspec: {teff: 5717, logg: 4.36, mh: -0.01}
+    galactic_b_deg: -65.4
+    ecliptic_lat_deg: -47.8
+    use: true
+  - name: "Gaia DR3 1325938803224554752"
+    group: "gaia_gold_sample"
+    gaia_dr3_source_id: 1325938803224554752
+    gaia_ra_dec_j2016: [248.703023, 34.274615]
+    G: 11.730
+    bp_rp: 0.839
+    gspspec: {teff: 5801, logg: 4.12, mh: 0.02}
+    galactic_b_deg: 42.0
+    ecliptic_lat_deg: 55.4
+    use: true
+  - name: "Gaia DR3 4769435292423335168"
+    group: "gaia_gold_sample"
+    gaia_dr3_source_id: 4769435292423335168
+    gaia_ra_dec_j2016: [80.558987, -56.420308]
+    G: 11.425
+    bp_rp: 0.811
+    gspspec: {teff: 5819, logg: 4.19, mh: 0.20}
+    galactic_b_deg: -34.5
+    ecliptic_lat_deg: -78.9
+    use: true
+  - name: "Gaia DR3 4662850696812855168"
+    group: "gaia_gold_sample"
+    gaia_dr3_source_id: 4662850696812855168
+    gaia_ra_dec_j2016: [69.031701, -65.866039]
+    G: 11.771
+    bp_rp: 0.835
+    gspspec: {teff: 5860, logg: 4.16, mh: 0.16}
+    galactic_b_deg: -38.2
+    ecliptic_lat_deg: -81.6
+    use: true
+  - name: "Gaia DR3 1565876532739593600"
+    group: "gaia_gold_sample"
+    gaia_dr3_source_id: 1565876532739593600
+    gaia_ra_dec_j2016: [201.510054, 57.187206]
+    G: 11.432
+    bp_rp: 0.836
+    gspspec: {teff: 5741, logg: 4.25, mh: -0.01}
+    galactic_b_deg: 59.3
+    ecliptic_lat_deg: 58.2
+    use: true

@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "targets.json",
+  "type": "object",
+  "required": ["generated_utc", "code_version", "targets"],
+  "properties": {
+    "generated_utc": { "type": "string" },
+    "code_version": { "type": "string" },
+    "targets": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "display_name", "status"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z0-9_]+$" },
+          "display_name": { "type": "string" },
+          "status": { "enum": ["ok", "no_data", "fetch_failed"] },
+          "status_detail": { "type": ["string", "null"] },
+          "n_visits": { "type": "integer", "minimum": 0 }
+        }
+      }
+    }
+  }
+}

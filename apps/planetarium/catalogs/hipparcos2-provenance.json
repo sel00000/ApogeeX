@@ -1,0 +1,26 @@
+{
+  "catalog": "I/311/hip2",
+  "title": "Hipparcos, the New Reduction",
+  "author": "F. van Leeuwen",
+  "year": 2007,
+  "bibcode": "2007A&A...474..653V",
+  "sourceUrl": "https://cdsarc.cds.unistra.fr/viz-bin/cat/I/311",
+  "downloadUrl": "https://vizier.cfa.harvard.edu/viz-bin/asu-tsv?-source=I%2F311%2Fhip2&-out=HIP,RArad,DErad,Plx,pmRA,pmDE&-out.max=unlimited",
+  "retrievedDate": "2026-11-14",
+  "originalTableRows": 117955,
+  "includedRows": 15527,
+  "originalTsvSha256": "7bcaa9bd5ee7ce33a21f1278fa0b8b8d714236802a13e84052e9e79106db6717",
+  "subsetTsvSha256": "567723d9738878711337a1033beb48d39306e17a1b1b9eb998bb6287df32722f",
+  "subsetGzipSha256": "9af8b4ca144d24d2ec41cb151516c06b52eb1e09b788b55077bb82abb5217938",
+  "selection": "All HIP identifiers present in the bundled Stellarium example star tiles; no identity or photometry changes.",
+  "units": {
+    "RArad": "degrees in this VizieR TSV despite name",
+    "DErad": "degrees",
+    "Plx": "mas",
+    "pmRA": "mas per Julian year; includes cos(Dec)",
+    "pmDE": "mas per Julian year"
+  },
+  "coordinateFrame": "ICRS",
+  "coordinateEpoch": "J1991.25",
+  "licenseUrl": "https://cds.unistra.fr/vizier-org/licences_vizier.html"
+}

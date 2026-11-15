@@ -1,0 +1,324 @@
+# SPHEREx Asteroid Spectral and Physical Analysis System - analysis settings
+# Every value here is an explicit, recorded assumption. Changing a value changes
+# the model_version hash stored with each result.
+
+project:
+  model_version: "0.1.0"
+  ui_language: "en"          # only supported UI language in this release
+  output_dir: "../../var/outputs/asteroids"
+  data_dir: "data"
+  cache_dir: "../../var/cache/asteroids"
+  database_path: "../../var/outputs/asteroids/asteroids.sqlite"
+  simulated_database_path: "../../var/outputs/asteroids/SIMULATED_asteroids.sqlite"
+
+search:
+  default_collection: "spherex_dr1"
+  ephemeris_step_days: 0.25            # MOST ephemeris step
+  observer_center: "500@-163182"       # Horizons code for the SPHEREx spacecraft
+  fallback_observer_center: "500@399"  # geocentre (parallax correction applied from FITS header)
+  max_position_offset_arcsec: 12.0     # ~2 SPHEREx pixels: max predicted-vs-measured offset for a match
+  min_detection_snr: 5.0
+
+extraction:
+  cutout_size_pix: 41
+  download_workers: 5          # concurrent cutout downloads (IRSA returns 503 under heavy load)
+  psf_stamp_pix: 7
+  background_inner_radius_pix: 6.0
+  background_outer_radius_pix: 12.0
+  background_sigma_clip: 3.0
+  background_method: "local_annulus"   # local_annulus | zodi_model_plus_annulus
+  centroid_search_radius_pix: 2.0
+  trail_warning_pix: 0.5
+  # Flag planes (names from the FITS MSKNnnnn keywords) that reject a pixel.
+  reject_flags: [TRANSIENT, OVERFLOW, SUR_ERROR, NONFUNC, MISSING_DATA, HOT, COLD,
+                 NONLINEAR, PERSIST, OUTLIER, DICHROIC]
+  # Flags raised BY a moving object itself. SPHEREx "Detect Outliers" compares overlapping
+  # exposures, so an asteroid (present in one exposure only) is flagged OUTLIER. Verified on
+  # (433) Eros DR1 data: OUTLIER covers 49% of core pixels vs 1.3% of background pixels.
+  # These flags are ignored inside the PSF-fit stamp but still reject pixels in the background annulus.
+  moving_object_flags: [OUTLIER]
+  # Flag planes that do not reject a pixel but downgrade the quality to WARN.
+  warn_flags: [SOURCE, CROSSTALK, GHOST, GHOST_FPA, GHOST_EXT, STREAK, BLOOM, SNOWBALL, HALO]
+  # Planes that mean the brightest PSF pixels are saturated. Such a point keeps only the PSF wings
+  # (the saturated pixels are rejected). saturated_core_policy: warn (use the wing fit, flagged) | bad.
+  saturation_flags: [OVERFLOW, SUR_ERROR, NONLINEAR]
+  saturated_core_policy: warn        # the analysis decides how they are used (temporal.saturated_points)
+  # A saturated core is only possible for an object brighter than this predicted V (V = H + 5 log(r Delta)
+  # - 2.5 log Phi): 433 Eros at V 10.7 had 38% saturated points, 10 Hygiea at V 11.8-12.1 7%, the
+  # calibration stars are clean at G 11.3-11.8. A fainter object with a saturation plane in its core has
+  # another source there (star, artefact): such points are removed (reflected-light wavelengths only; a hot
+  # near-Earth asteroid can be much brighter at 3-5 um than its V suggests).
+  saturation_possible_brighter_than_v: 13.0
+  saturation_v_test_max_um: 3.0
+  # Path to the official SPHEREx spectral WCS (CWAVE/CBAND) calibration files.
+  # If null, the per-image WCS-WAVE lookup table is used and recorded as APPROXIMATE.
+  official_spectral_calibration_dir: null
+
+thermal_model:
+  model: "NEATM"
+  emissivity: 0.9
+  default_G: 0.15
+  # eta_mode: "phase_prior" - eta is fitted with a literature eta(alpha) prior (default);
+  #           "fixed"       - legacy: eta fixed at eta_default unless thermal data allow a free fit.
+  eta_mode: "phase_prior"
+  eta_prior_relation: "trilling2016"
+  eta_prior_relations:
+    trilling2016:
+      # Warm Spitzer 3.6/4.5 um NEATM fits of NEOs - same wavelength regime as SPHEREx 3.5-5 um.
+      reference: "Trilling et al. (2016), NEOSurvey 1: Initial results from the Warm Spitzer Exploration Science Survey of Near Earth Object Properties, AJ 152, 172 (arXiv:1608.03673)"
+      intercept: 0.87
+      slope_per_deg: 0.01
+      sigma_minus: 0.30     # quoted 1-sigma interval of the residual distribution: -0.3 / +0.55
+      sigma_plus: 0.55
+      valid_phase_deg: [0, 100]
+      population: "near-Earth objects"
+    mainzer2011:
+      # WISE 12/22 um NEATM fits of NEOs. The quoted errors are those of the mean relation; the
+      # object-to-object scatter is not given there, so the Trilling et al. (2016) scatter is used.
+      reference: "Mainzer et al. (2011), NEOWISE observations of near-Earth objects: preliminary results, ApJ 743, 156 (arXiv:1109.6400)"
+      intercept: 0.761
+      slope_per_deg: 0.00963
+      sigma_minus: 0.30
+      sigma_plus: 0.55
+      valid_phase_deg: [0, 100]
+      population: "near-Earth objects"
+    neowise_population:
+      # Prior of the diameter posterior for main-belt objects (incl. Mars-crossers), Hildas and Jupiter Trojans
+      # (src/physical/eta_prior.py, docs/METHODS.md section 3b): eta of NEOWISE fits with a free beaming parameter
+      # (~70 000 main-belt fits), by size and phase angle; the validation targets, the injection set and the
+      # analysed object are removed first. NEOs keep eta_prior_relation (Trilling et al. 2016).
+      reference: "NEOWISE Diameters and Albedos V2.0 (Mainzer et al. 2019, PDS, doi:10.26033/18S3-2Z54), fits with a free beaming parameter"
+      catalogue_dir: "../../var/cache/asteroids/neowise"
+      # eta from 3.6/4.5 um fits / eta from 12/22 um fits at the same phase angle: the two NEO relations above
+      # (1.12 at 20 deg). Without it the 13 main-belt targets with a usable thermal signal came out 10-15% small
+      # (mean z +0.8 against catalogue diameters, 2026-11-15).
+      wavelength_factor: "relations"
+      wavelength_factor_relations: ["trilling2016", "mainzer2011"]
+      # Extra scatter of ln eta between the NEOWISE and the SPHEREx wavelengths, added in quadrature to the NEOWISE
+      # scatter (0.09 for D > 40 km .. 0.19 for D < 5 km). Calibrated on the 23 registered targets: with 0 the
+      # thermal diameters scattered 1.6x their errors about the catalogue values (rms z 1.62); with 0.12, 1.1.
+      # Metal-rich M-types have high eta (216 Kleopatra: NEOWISE 1.34; 69 Hesperia, 92 Undina need ~1.3).
+      sigma_extra_ln: 0.12
+  # Prior used by the diameter posterior (the least-squares NEATM fit above keeps eta_prior_relation).
+  eta_posterior_relation: "neowise_population"
+  # Diameter posterior on a (log10 D, eta) grid from all points (src/physical/diameter_posterior.py): every
+  # normalisation group with a free offset, visit-correlated brightness errors as nuisance parameters.
+  diameter_posterior:
+    enabled: true
+    n_diameters: 300           # 0.003 <= pV <= 1.5 for the object's H (1% steps in D)
+    n_eta: 41                  # log-spaced over eta_bounds; 6 interpolated steps between grid values
+    # A thermal diameter (and albedo) is reported when the least-squares excess test passes, or when the likelihood
+    # of all points shows the thermal emission: >= min_signal_sigma against the smallest D of the grid AND a thermal
+    # share >= min_thermal_fraction of the 4.4-5 um model flux. Synthetic null test (cold body, visit offsets,
+    # reflectance curving up by 0-25% at 5 um): up to 7.1 sigma but at most 8% thermal share; the 23 targets with a
+    # thermal signal: 19-91% (2026-11-15).
+    min_signal_sigma: 5.0
+    min_thermal_fraction: 0.20
+  eta_default: 1.0          # used only with eta_mode "fixed"
+  eta_prior_sigma: 0.3      # used only with eta_mode "fixed"
+  eta_bounds: [0.5, 3.5]
+  fit_eta_min_thermal_points: 6
+  fit_eta_min_wavelength_span_um: 0.6
+  thermal_region_min_um: 3.5
+  reflected_continuum_region_um: [1.6, 2.5]
+  # Prior on the reflectance slope s of the continuum K(lambda) = K0 [1 + s (lambda - 2 um)], which is
+  # extrapolated into the thermal region. The 25 Bus-DeMeo class means (DeMeo et al. 2009) have s = -0.10..+0.27
+  # /um over 1.6-2.45 um (median 0.04); sigma 0.20 also covers their members. Without it a scattered continuum
+  # gave s = +1.32 /um for 35107 (2026-11-15) and hid a thermal excess of ~90% of the 4-5 um flux.
+  continuum_slope_prior: {mean_per_um: 0.05, sigma_per_um: 0.20}
+  excluded_feature_regions_um: [[2.5, 3.5]]   # 3-um hydration region is not used to fit the continuum
+  min_thermal_snr: 3.0
+  chi2_red_warning: 3.0
+  conditional_pV_grid: [0.03, 0.06, 0.10, 0.15, 0.25, 0.40, 0.60]
+  integration_nodes: 48
+  # Solar spectrum reference. "sbpy:E490_2014" uses sbpy's built-in E490 spectrum.
+  # A CSV path (columns wavelength_um, flux_W_m2_um at 1 au) may be given instead.
+  solar_spectrum: "sbpy:E490_2014"
+
+temporal:
+  # Points with a saturated PSF core (wing-only photometry). On the solar-analog stars they scatter by
+  # 7.0-7.8% rms in B1/B2 (2.2-2.5% for clean points), with star-dependent offsets of several percent.
+  #   inflated        - used everywhere with that error floor; the classification is repeated without
+  #                     them and its confidence set to Low if the result changes (default);
+  #   lightcurve_only - used (with the floor) for the observation-time analysis only;
+  #   exclude         - not used. Excluding them selects points by flux: bright continuum points at
+  #                     bright rotational phases go first (433 Eros: lightcurve phase coverage 100% -> 60%);
+  #   all             - used everywhere with their nominal errors (behaviour before 2026-11-14).
+  saturated_points: inflated
+  saturated_flux_error_frac: 0.08      # used for a point whose band is unknown
+  # rms of saturated (wing-only) points about the model fitted to the clean points of the same star and band
+  # (14 calibration stars; clean points: 2.2, 2.5, 3.1, 1.6, 2.1, 2.8%)
+  saturated_flux_error_frac_by_band: {B1: 0.070, B2: 0.078, B3: 0.059, B4: 0.034, B5: 0.028, B6: 0.032}
+  # Sensitivity test of the classification when a periodic lightcurve correction is applied: the
+  # per-point corrections are scaled by 1 -/+ this fraction; if the most probable complex changes, the
+  # confidence is Low (433 Eros: two defensible data treatments changed the fitted amplitude by 7%).
+  lightcurve_sensitivity_frac: 0.10
+  visit_gap_min: 30.0                 # exposures separated by more than this start a new visit
+  # Exposures separated by more than this start a new observing season (SPHEREx sees an asteroid in windows of
+  # days to weeks about every six months). One free brightness offset per season linked by repeats is part of
+  # every variability and lightcurve model (viewing geometry and aspect change between seasons).
+  season_gap_days: 30.0
+  repeat_resolution_factor: 2.0       # "same wavelength" = within lambda / (factor * R)
+  # Per-point photometric floor added in quadrature for the variability test. Based on the 1-3%
+  # PSF-vs-aperture agreement measured on real DR1 data (433 Eros, field stars).
+  photometric_floor_frac: 0.02
+  variability_p_threshold: 1.0e-3     # constant-brightness model rejected below this p-value
+  lightcurve_harmonics: 2             # used only if lightcurve_harmonics_max is absent
+  # The number of harmonics is chosen by BIC on the repeats, from 1 to this maximum; the BIC runner-up is
+  # used for the lightcurve-model sensitivity test of the classification.
+  lightcurve_harmonics_max: 5
+  lightcurve_min_repeat_bins: 6
+  lightcurve_min_phase_coverage: 0.6  # fraction of 10 rotational-phase bins with repeat data
+  lightcurve_min_delta_bic: 10.0
+  lightcurve_min_variance_explained: 0.7
+  achromatic_p_threshold: 1.0e-3
+  # Visit-to-visit brightness uncertainty assumed when no repeated observations exist (untested):
+  # 0.1 mag rms ~ a 0.3-mag peak-to-peak lightcurve, typical of asteroids.
+  untested_visit_sigma_mag: 0.1
+
+reflectance:
+  # 1.2 um: DeMeo et al. (2009) normalisation for near-infrared-only spectra (closest spline point to J).
+  normalization_wavelength_um: 1.2
+  rotational_variability_mag: null   # null -> derived from fit residual scatter and flagged
+  # Relative spectral calibration from SPHEREx photometry of solar-analog stars (config/solar_analogs.yaml,
+  # src/preprocessing/solar_analog_calibration.py). Built with `python main.py solar-analog-calibration`;
+  # applied to OBSERVED spectra only. Without the file nothing is corrected and the report says so.
+  apply_solar_analog_correction: true
+  solar_analog_correction: "data/calibration/solar_analog_correction.csv"
+  solar_analog_bin_factor: 2.0       # response bins of width lambda / (2 R)
+  solar_analog_floor_frac: 0.01      # per-point floor added to the star photometric errors
+  # PSF-core FLAGS planes allowed on calibration points (the star itself is a detected SOURCE);
+  # any other plane in the core (OVERFLOW, BLOOM, SUR_ERROR, ...) removes the point.
+  solar_analog_allowed_core_flags: [SOURCE]
+  # A star whose colour (SWIR residual slope or MWIR - SWIR level) is > this many robust sigma from the
+  # other analogs is not used as a solar proxy (recorded in the correction's summary).
+  solar_analog_star_clip_sigma: 4.0
+
+classification:
+  reference_library: "data/reference/busdemeo/busdemeo_mean_spectra.csv"
+  spherex_resolving_power: 40
+  # Probability model (2026-11-14), chosen by injection-recovery with REAL asteroid spectra: 190 SMASS/MIT
+  # SpeX spectra with Bus-DeMeo classes (DeMeo et al. 2009, Appendix), each sampled like 10 SPHEREx DR1
+  # observations (same points, normalisation groups, photometric and visit-correlated errors); see
+  # docs/METHODS.md section 4b. Wrong complex reported as distinguished (gap >= 4) / correct complex
+  # distinguished at the calibrated gap:
+  #   chi2 (no log-determinant; previous default)    : 20.2% / 10.5% at gap 12
+  #   gaussian, class variance independent per point : 11.7% / 15.9% at gap 8
+  #   gaussian, class variance correlated (0.2 um)   :  7.4% / 17.4% at gap 6   <- adopted
+  #   (correlation length 0.1 or 0.4 um: 7.9% / 7.1%, calibrated gap 6 in both)
+  # Without the log-determinant a class with a wider intra-class sigma (B, Xn, Sa, Xe, Cgh) has the smaller
+  # chi2 for the same residuals and wins whenever no class fits well. The earlier choice of chi2 came from
+  # injecting the 25 class MEANS (no member diversity): chi2 92% complex recovery, gaussian 57-59%.
+  likelihood: "gaussian"
+  class_variance_correlation_um: 0.2
+  # Calibrated decision thresholds (scaled score gaps), from the same injection test with the prior below
+  # (2026-11-15; 1900 injections; complex scores = -2 ln sum exp(-w/2) over the classes of a complex):
+  # Recalibrated 2026-11-15 after the albedo-uncertainty change (catalogue albedo vs catalogue diameter + current H):
+  distinguished_gap: 6.0          # complex: wrong-and-distinguished 2.8% (<= 5%) -> Medium confidence, S/D, C7
+  high_confidence_gap: 10.0       # complex: wrong-and-distinguished 0.9% (<= 1%) -> High confidence
+  class_distinguished_gap: 10.0   # class: wrong-and-distinguished 2.9% (<= 5%)   -> subclass label, C9
+  # Prior over classes (src/classification/priors.py, docs/METHODS.md section 4c). Class score
+  #   w_k = deviance_k / s + 2 ln n_c - 2 ln P(c) - 2 ln p(pV | c),
+  #   P(c) ∝ base(c)^population_exponent * [P(c | orbit) / base(c)]^orbit_exponent   (population model:
+  #   SMASSII classes of JPL SBDB objects, random forest on a, e, sin i, H), p(pV | c) from the catalogue
+  #   albedos of each complex. Chosen by injection-recovery of the 190 SpeX spectra (orbits and catalogue
+  #   albedos of those objects; models trained without them): the variant with the best mean of the overall
+  #   and the class-balanced log score of the true complex, with <= 5% wrong-and-distinguished at gap 6.
+  #   Complex first / class-balanced / right-and-distinguished at gap 6 / wrong at gap 6:
+  #     flat over classes (no prior; before 2026-11-15)      62.3% / 53.9% / 18.9% / 4.2%
+  #     beta 0.25, tau 0.5, no albedo                         61.6% / 60.3% / 20.3% / 3.5%
+  #     beta 0.25, tau 0.5, albedo, forest leaves >= 5        70.7% / 64.3% / 24.7% / 3.8%
+  #     beta 0.25, tau 0.5, albedo, forest leaves >= 15       69.8% / 65.7% / 23.1% / 3.7%  (adopted; pipeline
+  #       run: 69.4% / 65.1%)
+  #     same, albedo uncertainty incl. the catalogue albedo/diameter disagreement (2026-11-15, current):
+  #       pipeline run 70.3% / 65.0% / 27.3% / 2.8% (outputs/validation/classifier_calibration.json "settings")
+  #     population prior (beta 1), albedo                     76.5% / 49.4% / 24.4% / 5.6% (T-types 0%)
+  prior:
+    enabled: true
+    population_exponent: 0.25     # beta
+    orbit_exponent: 0.5           # tau
+    albedo: true
+    # albedo for the albedo term, in this order: the catalogue value (dedicated thermal-infrared surveys
+    # with 12-22 um data), else the SPHEREx thermal albedo if estimated with at least Medium confidence
+    albedo_sources: [catalogue, spherex_thermal]
+    albedo_sigma_log10_floor: 0.10
+  slope_sigma_min: 0.03     # per um (relative); bounds on the intra-class slope spread
+  slope_sigma_max: 0.10
+  bin_to_reference_grid: true
+  min_overlap_points: 8
+  # Spectrum-level saturation criterion: above this fraction of saturated (wing-only) points in 0.75-2.45 um
+  # the classification confidence is Low and the taxonomy validation (C7) is not scored.
+  max_saturated_fraction: 0.20
+  top_n_candidates: 5
+  monte_carlo_samples: 300
+  # SPHEREx images (one point per detector and exposure) used for the reflectance spectrum and the classification when
+  # the data span several observing seasons: the earliest ones in time - the sampling the classifier was calibrated and
+  # validated on (until 2026-11-15 the extraction stopped at the first 120 images). Data from one season are used in
+  # full (433 Eros: 191 images, as validated). The diameter and the albedo always use every image
+  # (thermal_model.diameter_posterior). With every season, two of the first nine validation targets
+  # re-run became confidently wrong (2026-11-15: 236 Honoria L -> O, 216 Kleopatra Xe -> A; visit-to-visit brightness
+  # rms 0.44-0.47 mag across seasons), while 10 Hygiea became a PASS and 92 Undina came out X: more seasons need their
+  # own classifier study. null = every image.
+  max_images: 120
+  # Classes separated mainly by visible (<0.75 um) slope; reported as ambiguous groups.
+  visible_dependent_groups:
+    - [C, Cb, Cg, Cgh, Ch, B]
+    - [X, Xc, Xe, Xk, Xn]
+    - [S, Sq, Sr, Sa, Sv]
+
+minerals:
+  min_band_depth_sigma: 3.0
+  min_band_width_resolution_elements: 1.5
+
+photometry:
+  min_points: 5
+  min_nights: 3
+  min_phase_span_deg_fit_G: 10.0
+  default_phase_model: "HG"          # HG | HG1G2 (HG1G2 requires sbpy)
+  # Band-to-V conversions are NOT applied unless explicitly enabled after verification.
+  allow_band_corrections: false
+  band_corrections_file: "config/band_corrections.yaml"
+  rotational_error_floor_mag: null   # null -> derived from residuals and flagged
+
+population_prior:
+  # JPL SBDB Query API tables (src/acquisition/population_catalogue.py), cached with provenance; data/raw is
+  # not committed. Trained models are cached in <catalogue_dir>/models/.
+  catalogue_dir: "../../var/cache/asteroids/sbdb_physical"
+  albedo_regressor: {max_iter: 500, learning_rate: 0.08, max_leaf_nodes: 63, random_state: 17}
+  # min_samples_leaf 15 (not 5): complexes with 4-13 SMASSII members (R, O, D, Q, T, A) were memorised around
+  # single objects (an R-type prior of 16% at the orbit of 16 Psyche, next to 349 Dembowska). Injection test,
+  # same rule as classification.prior: mean log score -1.020 (5), -1.015 (15), -1.032 (30).
+  orbit_classifier: {n_estimators: 300, min_samples_leaf: 15, random_state: 1234, n_jobs: 4}
+
+statistical_diameter:
+  # D = 1329 km / sqrt(pV) 10^(-H/5) with pV from the population prior (src/physical/statistical_diameter.py).
+  # Reported apart from the thermal diameter, never used for the albedo; confidence at most Medium.
+  enabled: true
+  monte_carlo_samples: 20000
+  thermal_likelihood: true        # weight by the SPHEREx thermal non-detection
+  medium_max_ratio_84_16: 1.35    # Medium if D84/D16 <= this, else Low
+  consistency_sigma: 2.0          # |z| of thermal vs statistical diameter that flags the thermal diameter
+  # |z| of the thermal likelihood alone vs the H + albedo prior above which their product (the combined diameter) is not
+  # used: geometric mean of the two, interval spanning both, flagged (64 Angelina, z -3.4, 2026-11-15)
+  combined_conflict_sigma: 3.0
+
+albedo:
+  relation_constant_km: 1329.0
+  max_relative_uncertainty: 0.5     # above this, albedo is withheld
+  plausible_range: [0.01, 1.0]      # outside -> validation warning (values are never clipped)
+  monte_carlo_samples: 500
+
+physical:
+  gravitational_constant_km3_kg_s2: 6.67430e-20
+  max_density_relative_uncertainty: 0.5   # above this a density from a SPHEREx diameter is on hold (rho ~ D^-3)
+
+validation:
+  # Effective diameter of the catalogue shape (SBDB extent, spin pole) at the SPHEREx geometry: the value a thermal
+  # (NEATM) diameter is compared with when the catalogue diameter is volume-equivalent (src/validation/shape_reference.py).
+  shape_reference:
+    enabled: true
+    rotation_phases: 36       # flux averaged over the rotation
+    random_poles: 48          # without an SBDB pole: isotropic poles, median and 68% range
+    mesh: [90, 180]           # ellipsoid facets (latitude x longitude)
+    max_epochs: 40
+    seed: 0

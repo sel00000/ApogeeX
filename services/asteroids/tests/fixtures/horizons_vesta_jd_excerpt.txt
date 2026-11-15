@@ -1,0 +1,9 @@
+JPL Horizons API actual numeric-JD CSV excerpt, fetched 2026-11-15.
+Target: numbered asteroid 4 (Vesta). Observer: 500@399.
+UT input MJD: 60801.25, 60800.5. CAL_FORMAT=JD, TIME_DIGITS=FRACSEC.
+Source: https://ssd.jpl.nasa.gov/api/horizons.api
+Date_________JDUT, , , R.A.___(ICRF), DEC____(ICRF),  dRA*cosD, d(DEC)/dt,    APmag,  S-brt,                r,       rdot,             delta,     deldot,     S-T-O,
+$$SOE
+2460801.000000000, , , 222.116104726,  -4.086938757,  -36.2905,  5.381201,    5.660,  4.508,   2.177118657887, -0.9470554,  1.18088008279044, -0.1277198,    5.6241,
+2460801.750000000, , , 221.934294944,  -4.060482081,  -36.2619,  5.081939,    5.665,  4.513,   2.176709763008, -0.9408986,  1.18089311476600,  0.1877318,    5.7585,
+$$EOE

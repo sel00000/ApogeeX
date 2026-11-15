@@ -1,0 +1,308 @@
+### Result
+{
+  "free": {
+    "frameP95": 0,
+    "drawP95": 19.5,
+    "frames": 15,
+    "calls": 18,
+    "triangles": 1988,
+    "geometries": 18,
+    "textures": 1,
+    "scheduled": false,
+    "selectedScreen": [
+      0.2928023743399702,
+      0.12844804492380402,
+      0.9998311086649476
+    ],
+    "observer": false,
+    "flying": false,
+    "photoVisible": false,
+    "photoOpacity": 0.65,
+    "cameraPosition": [
+      -3.344320093134709,
+      -3.9334436435559876,
+      10.165802684373869
+    ],
+    "cameraQuaternion": [
+      0.21850925982885339,
+      -0.08033532857898053,
+      -0.33558792418120326,
+      0.9127873155861144
+    ],
+    "cameraFov": 45,
+    "overlayErrorPixels": null,
+    "screenAlignmentError": null,
+    "controlsEnabled": true,
+    "imageMeshErrorPixels": 7.030504825922606e-9,
+    "photoVertices": 289,
+    "cachedImages": 1,
+    "bytes": 131072,
+    "observation": "2025W28_1B_0525_2-D5",
+    "compositeMode": "blend",
+    "fixedSky": true,
+    "predicted": [
+      71.5670008250819,
+      69.12883378578928
+    ],
+    "mjd": 60865.887999071,
+    "playing": false,
+    "selected": "433",
+    "sequencePlaying": false,
+    "frameCount": 6
+  },
+  "flying": {
+    "frameP95": 0,
+    "drawP95": 19.5,
+    "frames": 15,
+    "calls": 18,
+    "triangles": 1988,
+    "geometries": 18,
+    "textures": 1,
+    "scheduled": true,
+    "selectedScreen": [
+      0.29281610583290674,
+      0.1284394915605068,
+      0.9998311084516189
+    ],
+    "observer": true,
+    "flying": true,
+    "photoVisible": true,
+    "photoOpacity": 0.65,
+    "cameraPosition": [
+      -3.344320093134709,
+      -3.9334436435559876,
+      10.165802684373869
+    ],
+    "cameraQuaternion": [
+      0.21850925982885339,
+      -0.08033532857898053,
+      -0.33558792418120326,
+      0.9127873155861144
+    ],
+    "cameraFov": 45,
+    "overlayErrorPixels": null,
+    "screenAlignmentError": null,
+    "controlsEnabled": false,
+    "imageMeshErrorPixels": 7.030504825922606e-9,
+    "photoVertices": 289,
+    "cachedImages": 1,
+    "bytes": 131072,
+    "observation": "2025W28_1B_0525_2-D5",
+    "compositeMode": "blend",
+    "fixedSky": true,
+    "predicted": [
+      71.5670008250819,
+      69.12883378578928
+    ],
+    "mjd": 60865.887999071,
+    "playing": false,
+    "selected": "433",
+    "sequencePlaying": false,
+    "frameCount": 6
+  },
+  "on": {
+    "frameP95": 0,
+    "drawP95": 0.9000000059604645,
+    "frames": 82,
+    "calls": 13,
+    "triangles": 2000,
+    "geometries": 20,
+    "textures": 2,
+    "scheduled": false,
+    "selectedScreen": [
+      0.07642971699182487,
+      -0.059806355668468585,
+      0.9985173531889635
+    ],
+    "observer": true,
+    "flying": false,
+    "photoVisible": true,
+    "photoOpacity": 0.65,
+    "cameraPosition": [
+      0.3066874828752928,
+      -0.969197728811106,
+      0.00007881670890341752
+    ],
+    "cameraQuaternion": [
+      0.5088258426351826,
+      -0.557752050053825,
+      -0.27302238871673323,
+      0.5962111100833001
+    ],
+    "cameraFov": 0.3215678014711971,
+    "overlayErrorPixels": 5.86789633028011e-9,
+    "screenAlignmentError": 0.001820402397323268,
+    "controlsEnabled": false,
+    "imageMeshErrorPixels": 7.030504825922606e-9,
+    "photoVertices": 289,
+    "cachedImages": 1,
+    "bytes": 131072,
+    "observation": "2025W28_1B_0525_2-D5",
+    "compositeMode": "blend",
+    "fixedSky": true,
+    "predicted": [
+      71.5670008250819,
+      69.12883378578928
+    ],
+    "mjd": 60865.887999071,
+    "playing": false,
+    "selected": "433",
+    "sequencePlaying": false,
+    "frameCount": 6
+  },
+  "off": {
+    "frameP95": 0,
+    "drawP95": 0.9000000059604645,
+    "frames": 83,
+    "calls": 12,
+    "triangles": 1488,
+    "geometries": 20,
+    "textures": 2,
+    "scheduled": false,
+    "selectedScreen": [
+      0.07642971699182487,
+      -0.059806355668468585,
+      0.9985173531889635
+    ],
+    "observer": true,
+    "flying": false,
+    "photoVisible": false,
+    "photoOpacity": 0.65,
+    "cameraPosition": [
+      0.3066874828752928,
+      -0.969197728811106,
+      0.00007881670890341752
+    ],
+    "cameraQuaternion": [
+      0.5088258426351826,
+      -0.557752050053825,
+      -0.27302238871673323,
+      0.5962111100833001
+    ],
+    "cameraFov": 0.3215678014711971,
+    "overlayErrorPixels": 5.86789633028011e-9,
+    "screenAlignmentError": 0.001820402397323268,
+    "controlsEnabled": false,
+    "imageMeshErrorPixels": 7.030504825922606e-9,
+    "photoVertices": 289,
+    "cachedImages": 1,
+    "bytes": 131072,
+    "observation": "2025W28_1B_0525_2-D5",
+    "compositeMode": "blend",
+    "fixedSky": true,
+    "predicted": [
+      71.5670008250819,
+      69.12883378578928
+    ],
+    "mjd": 60865.887999071,
+    "playing": false,
+    "selected": "433",
+    "sequencePlaying": false,
+    "frameCount": 6
+  },
+  "next": {
+    "frameP95": 0,
+    "drawP95": 0.9000000059604645,
+    "frames": 86,
+    "calls": 13,
+    "triangles": 2000,
+    "geometries": 20,
+    "textures": 2,
+    "scheduled": false,
+    "selectedScreen": [
+      0.07309154310459663,
+      -0.058530858246141376,
+      0.998517337455428
+    ],
+    "observer": true,
+    "flying": false,
+    "photoVisible": true,
+    "photoOpacity": 0.65,
+    "cameraPosition": [
+      0.306708238990756,
+      -0.9691896330643838,
+      0.00008429766671438252
+    ],
+    "cameraQuaternion": [
+      0.5088258426351825,
+      -0.557752050053825,
+      -0.27302238871673323,
+      0.5962111100833001
+    ],
+    "cameraFov": 0.3215678014711972,
+    "overlayErrorPixels": 5.402298049612407e-9,
+    "screenAlignmentError": 0.0012382161700491851,
+    "controlsEnabled": false,
+    "imageMeshErrorPixels": 7.030504825922606e-9,
+    "photoVertices": 289,
+    "cachedImages": 2,
+    "bytes": 262144,
+    "observation": "2025W28_1B_0525_3-D5",
+    "compositeMode": "blend",
+    "fixedSky": true,
+    "predicted": [
+      71.21466337701102,
+      69.00878696355495
+    ],
+    "mjd": 60865.889509083,
+    "playing": false,
+    "selected": "433",
+    "sequencePlaying": false,
+    "frameCount": 6
+  },
+  "back": {
+    "frameP95": 0,
+    "drawP95": 0.800000011920929,
+    "frames": 153,
+    "calls": 18,
+    "triangles": 1988,
+    "geometries": 20,
+    "textures": 2,
+    "scheduled": false,
+    "selectedScreen": [
+      0.29280048493142824,
+      0.12845114572670446,
+      0.9998311087395719
+    ],
+    "observer": false,
+    "flying": false,
+    "photoVisible": false,
+    "photoOpacity": 0.65,
+    "cameraPosition": [
+      -3.344320093134709,
+      -3.933443643555985,
+      10.165802684373865
+    ],
+    "cameraQuaternion": [
+      0.21850925982885339,
+      -0.08033532857898057,
+      -0.33558792418120337,
+      0.9127873155861144
+    ],
+    "cameraFov": 44.99999999999999,
+    "overlayErrorPixels": null,
+    "screenAlignmentError": null,
+    "controlsEnabled": true,
+    "imageMeshErrorPixels": 7.030504825922606e-9,
+    "photoVertices": 289,
+    "cachedImages": 2,
+    "bytes": 262144,
+    "observation": "2025W28_1B_0525_3-D5",
+    "compositeMode": "blend",
+    "fixedSky": true,
+    "predicted": [
+      71.21466337701102,
+      69.00878696355495
+    ],
+    "mjd": 60865.889509083,
+    "playing": false,
+    "selected": "433",
+    "sequencePlaying": false,
+    "frameCount": 6
+  },
+  "errors": []
+}
+### Ran Playwright code
+```js
+await page.evaluate('() => window.__flightResult');
+```

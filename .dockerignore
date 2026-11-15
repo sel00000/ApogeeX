@@ -1,0 +1,40 @@
+.git
+**/.git
+.github
+.aws
+.ssh
+.codex
+.agents
+**/node_modules
+**/dist
+**/.build-*
+**/.previous-dist
+**/.dist-building-*
+**/.venv*
+**/venv
+**/__pycache__
+**/*.pyc
+**/.pytest_cache
+**/.cache
+**/playwright-report
+**/test-results
+**/*.log
+var
+.archive
+.test-work
+.env
+.env.*
+**/.env
+**/.env.*
+!.env.example
+# Public upstream source, included in Stellarium's corresponding-source bundle.
+!apps/planetarium/vendor/stellarium-web-engine/apps/web-frontend/.env
+**/*.pem
+**/*.key
+**/id_rsa*
+**/id_ed25519*
+**/secrets.toml
+docs/local-install.json
+docs/asteroid-pytest.xml
+# Keep scientific data/reference/calibration, prepared outputs, engine JS/WASM,
+# upstream source, and all package-lock.json files in the build context.

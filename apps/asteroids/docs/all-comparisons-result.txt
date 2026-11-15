@@ -1,0 +1,10 @@
+### Result
+{
+  "sequences": 14,
+  "frames": 58,
+  "cache": 8
+}
+### Ran Playwright code
+```js
+await page.evaluate('() => window.__allComparisons');
+```

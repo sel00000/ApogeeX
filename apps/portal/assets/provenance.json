@@ -1,0 +1,13 @@
+{
+  "file": "/Users/leehankyeol/Downloads/SPHEREx_StarsRGB (1).tif",
+  "sha256": "292d6c95372253e6b87a0111af84ec3ba526544d987fabff9af23c125e2ddf1d",
+  "size": [
+    4160,
+    2340
+  ],
+  "credit": "NASA/JPL-Caltech",
+  "product": "SPHEREx All Sky Map 2025: Stars and Galaxies",
+  "coordinates": "Galactic Mollweide, l=0 centered, north up, l increases left",
+  "page": "https://spherex.caltech.edu/image/spherex20251218b-spherex-all-sky-map-2025-stars-and-galaxies",
+  "note": "Official outreach composite; not a current sky/epoch or quantitative photometry."
+}

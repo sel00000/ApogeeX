@@ -1,0 +1,22 @@
+{
+  "checks": [
+    "23 prepared scientific results",
+    "3D engine is lazy until orbit entry",
+    "distinct diameter definitions",
+    "density hold and uncertainty visible",
+    "all five scientific figures decode successfully",
+    "Eros orbit and real observation opened",
+    "inactive 3D stops render loop",
+    "tab return preserves exposure time",
+    "numbered alias joins provisional scientific ID",
+    "alias opens corresponding 764 orbit",
+    "unknown target does not display Eros as substitute",
+    "mobile research has no horizontal overflow",
+    "no-data is a terminal scientific status",
+    "no browser runtime errors"
+  ],
+  "errors": [],
+  "browser": "157.0.8103.39",
+  "base": "http://127.0.0.1:4175",
+  "generatedAt": "2026-11-15T07:42:41.806Z"
+}

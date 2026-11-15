@@ -1,0 +1,7 @@
+{
+  "source": "한결/통합/public (ZODI-subtracted frames, 2026-11-15)",
+  "target": "한결/통합V2/analysis/public",
+  "filesChecked": 853,
+  "mismatches": [],
+  "method": "Byte-level SHA256 equality"
+}

@@ -1,0 +1,37 @@
+{
+  "date": "2026-11-14T07:27:56.495Z",
+  "selection": "SIMBAD objects with coordinates and (nbref >= 100 OR a 'NAME …' identifier OR a Messier number)",
+  "objects": 19975,
+  "aliases": 35167,
+  "koNames": {
+    "wikidata": 1186,
+    "supplement": 14,
+    "objectsWithKo": 912
+  },
+  "wikidataMatchedIdentifiers": 17519,
+  "wikidataBatches": 67,
+  "wikidata": "used",
+  "sizes": {
+    "raw": 1509809,
+    "gzip": 562570,
+    "brotli": 442219
+  },
+  "sources": [
+    {
+      "name": "SIMBAD (CDS, Strasbourg), TAP service at simbad.harvard.edu",
+      "use": "objects, positions, types, nbref, identifiers",
+      "licence": "CDS conditions of use; acknowledge with \"This research has made use of the SIMBAD database, operated at CDS, Strasbourg, France\""
+    },
+    {
+      "name": "Wikidata (query.wikidata.org)",
+      "use": "Korean labels and aliases, English label for display choice, joined on P3083",
+      "licence": "CC0 1.0"
+    },
+    {
+      "name": "scripts/search-ko-supplement.json",
+      "use": "hand-checked traditional Korean names",
+      "licence": "project"
+    }
+  ],
+  "bakeSeconds": 3
+}

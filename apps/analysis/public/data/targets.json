@@ -1,0 +1,51 @@
+{
+ "generated_utc": "2026-11-14T06:49:16.424234+00:00",
+ "code_version": "bake.py sha256:e632e149e062",
+ "targets": [
+  {
+   "id": "barnard",
+   "display_name": "Barnard's Star",
+   "status": "ok",
+   "n_visits": 17,
+   "status_detail": null,
+   "ra": 269.44622779814506,
+   "dec": 4.767177267815265
+  },
+  {
+   "id": "eps_indi_b",
+   "display_name": "Epsilon Indi B",
+   "status": "ok",
+   "n_visits": 19,
+   "status_detail": null,
+   "ra": 331.09540412598307,
+   "dec": -56.800161036104846
+  },
+  {
+   "id": "wise0855",
+   "display_name": "WISE 0855-0714",
+   "status": "ok",
+   "n_visits": 9,
+   "status_detail": null,
+   "ra": 133.76113936472964,
+   "dec": -7.242270504018674
+  },
+  {
+   "id": "rw_aur",
+   "display_name": "RW Aurigae",
+   "status": "ok",
+   "n_visits": 7,
+   "status_detail": null,
+   "ra": 76.9565613378529,
+   "dec": 30.401250225295026
+  },
+  {
+   "id": "r_dra",
+   "display_name": "R Draconis",
+   "status": "ok",
+   "n_visits": 47,
+   "status_detail": null,
+   "ra": 248.1672435504731,
+   "dec": 66.75502294198962
+  }
+ ]
+}

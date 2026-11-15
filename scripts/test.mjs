@@ -1,0 +1,17 @@
+import { join } from 'node:path';
+import { projectRoot } from './paths.mjs';
+import { run, npm } from './process.mjs';
+import { findPython } from './python.mjs';
+await run(process.execPath,['--test','tests/*.test.mjs','services/gateway/*.test.mjs'],{cwd:projectRoot});
+await npm(['test'],{cwd:join(projectRoot,'packages/search')});
+await run(process.execPath,['--test','packages/tutorial/*.test.mjs'],{cwd:projectRoot});
+await npm(['test'],{cwd:join(projectRoot,'apps/portal')});
+await npm(['test'],{cwd:join(projectRoot,'apps/planetarium')});
+await npm(['test','--','--run'],{cwd:join(projectRoot,'apps/analysis')});
+await npm(['test','--','--run'],{cwd:join(projectRoot,'apps/asteroids')});
+await npm(['run','test:scene'],{cwd:join(projectRoot,'apps/asteroids')});
+const python=await findPython({imports:['numpy','astropy','scipy','pyvo','reproject']});
+if(!python)throw new Error('Python test environment unavailable: run npm run setup:python.');
+await run(python.executable,[...python.args,'-B','-m','unittest','discover','-s','tests','-p','test_*.py'],{cwd:join(projectRoot,'apps/asteroids'),env:{...process.env,MPLBACKEND:'Agg',PYTHONDONTWRITEBYTECODE:'1'}});
+await run(python.executable,[...python.args,'-B','-m','unittest','discover','-s','.','-p','test_*.py'],{cwd:join(projectRoot,'services/observations')});
+await run(python.executable,[...python.args,'-B','-m','pytest','-q','tests'],{cwd:join(projectRoot,'services/asteroids'),env:{...process.env,MPLBACKEND:'Agg',PYTHONDONTWRITEBYTECODE:'1'}});

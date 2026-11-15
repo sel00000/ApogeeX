@@ -1,0 +1,39 @@
+# Free testing only: one web service, no paid disk/database/worker/autoscaling.
+# The owner must connect the repository and supply the permitted HTTPS origins.
+services:
+  - type: web
+    name: spherex-sky-lab-test
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    autoDeployTrigger: "off"
+    healthCheckPath: /api/health
+    maxShutdownDelaySeconds: 30
+    envVars:
+      - key: HOST
+        value: 0.0.0.0
+      - key: PORT
+        value: "10000"
+      - key: SPHEREX_PUBLIC_MODE
+        value: "1"
+      - key: SPHEREX_ALLOWED_ORIGINS
+        value: https://jp-feynman.github.io
+      - key: SPHEREX_PYTHON
+        value: /opt/venv/bin/python
+      - key: SPHEREX_TRUST_PROXY
+        value: "1"
+      - key: SPHEREX_MAX_FOV
+        value: "0.1"
+      - key: SPHEREX_JOB_TIMEOUT_SECONDS
+        value: "1800"
+      - key: SPHEREX_MAX_RUNTIME_BYTES
+        value: "536870912"
+      - key: OPENBLAS_NUM_THREADS
+        value: "1"
+      - key: OMP_NUM_THREADS
+        value: "1"
+      - key: MKL_NUM_THREADS
+        value: "1"
+      - key: NUMEXPR_NUM_THREADS
+        value: "1"

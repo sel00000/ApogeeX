@@ -1,0 +1,778 @@
+{
+  "method": "joint fit ln(F_star/F_sun) = a_star + c_detector(bin); gauge c=0 at the normalisation wavelength",
+  "normalization_um": 1.2,
+  "bin_factor": 2.0,
+  "floor_frac": 0.01,
+  "clip_sigma": 4.0,
+  "chi2_red": 1.5725776551531665,
+  "n_points_total": 1659,
+  "n_points_used": 1657,
+  "n_stars": 14,
+  "stars": [
+    "Gaia DR3 1021495028608838016",
+    "Gaia DR3 1325938803224554752",
+    "Gaia DR3 1565876532739593600",
+    "Gaia DR3 2972362529862291200",
+    "Gaia DR3 4662850696812855168",
+    "Gaia DR3 4769435292423335168",
+    "Gaia DR3 5050053165460308224",
+    "Gaia DR3 633604815435763712",
+    "Gaia DR3 6425579316029502080",
+    "Gaia DR3 667330101236907776",
+    "Gaia DR3 6833816717724281472",
+    "Gaia DR3 6909894018898836608",
+    "Landolt 107-998",
+    "Landolt 98-978"
+  ],
+  "star_ln_scale": {
+    "Gaia DR3 1021495028608838016": -35.32762564362704,
+    "Gaia DR3 1325938803224554752": -35.5950071316322,
+    "Gaia DR3 1565876532739593600": -35.30638641675469,
+    "Gaia DR3 2972362529862291200": -35.52245259969988,
+    "Gaia DR3 4662850696812855168": -35.63852825563247,
+    "Gaia DR3 4769435292423335168": -35.358125877880894,
+    "Gaia DR3 5050053165460308224": -35.33053720521223,
+    "Gaia DR3 633604815435763712": -35.270261007079775,
+    "Gaia DR3 6425579316029502080": -35.3867845851653,
+    "Gaia DR3 667330101236907776": -35.32413791872564,
+    "Gaia DR3 6833816717724281472": -35.55881450711044,
+    "Gaia DR3 6909894018898836608": -35.58183908485974,
+    "Landolt 107-998": -34.242940081009756,
+    "Landolt 98-978": -34.52170530660033
+  },
+  "star_residual_slopes_per_um": {
+    "Gaia DR3 1021495028608838016": {
+      "SWIR": -0.01351362666408378,
+      "MWIR": 0.000876920642773807,
+      "MWIR_minus_SWIR_level": -0.0070916357310521275
+    },
+    "Gaia DR3 1325938803224554752": {
+      "SWIR": 0.0030659771038342777,
+      "MWIR": 0.0013376675300494595,
+      "MWIR_minus_SWIR_level": 0.009381148247479914
+    },
+    "Gaia DR3 1565876532739593600": {
+      "SWIR": 0.013000758261804942,
+      "MWIR": 0.0017880164008832844,
+      "MWIR_minus_SWIR_level": 0.017649000829329638
+    },
+    "Gaia DR3 2972362529862291200": {
+      "SWIR": -0.0022452553202114934,
+      "MWIR": -0.0037133030069187267,
+      "MWIR_minus_SWIR_level": -0.0014603085019162824
+    },
+    "Gaia DR3 4662850696812855168": {
+      "SWIR": 0.010468387325917964,
+      "MWIR": -0.003873706370418319,
+      "MWIR_minus_SWIR_level": -0.0014390478046588655
+    },
+    "Gaia DR3 4769435292423335168": {
+      "SWIR": -0.007438850024509577,
+      "MWIR": 0.00023317483556431135,
+      "MWIR_minus_SWIR_level": -0.006217487757436878
+    },
+    "Gaia DR3 5050053165460308224": {
+      "SWIR": -0.005910948869134931,
+      "MWIR": 0.001743153073308642,
+      "MWIR_minus_SWIR_level": 0.001603097778237079
+    },
+    "Gaia DR3 633604815435763712": {
+      "SWIR": 0.006666337184330831,
+      "MWIR": -0.0023188572880584674,
+      "MWIR_minus_SWIR_level": 0.008307717941665297
+    },
+    "Gaia DR3 6425579316029502080": {
+      "SWIR": -0.012835574887722334,
+      "MWIR": -0.004274548353803095,
+      "MWIR_minus_SWIR_level": -0.014491218570931464
+    },
+    "Gaia DR3 667330101236907776": {
+      "SWIR": -0.0009564124768581185,
+      "MWIR": 0.010590869016967848,
+      "MWIR_minus_SWIR_level": 0.005131800788966726
+    },
+    "Gaia DR3 6833816717724281472": {
+      "SWIR": 0.0054664608833792,
+      "MWIR": -0.0012947206795743786,
+      "MWIR_minus_SWIR_level": -0.004934218255388938
+    },
+    "Gaia DR3 6909894018898836608": {
+      "SWIR": -0.0002809699414397816,
+      "MWIR": 0.000378068020898414,
+      "MWIR_minus_SWIR_level": -0.008822126741934463
+    },
+    "Landolt 98-978": {
+      "SWIR": -0.004212046341965258,
+      "MWIR": -0.008027482924099836,
+      "MWIR_minus_SWIR_level": -0.0046727176192157055
+    },
+    "Landolt 107-998": {
+      "MWIR": 0.01121062700854717
+    }
+  },
+  "mwir_level_sigma_ln": 0.0024294465231298338,
+  "n_bins_determined": 199,
+  "n_bins_total": 216,
+  "solar_spectrum": "sbpy E490_2014",
+  "data_releases": [
+    "dr1",
+    "dr1 l2b-v27-2026-196",
+    "dr1 l2b-v27-2026-197",
+    "dr1 l2b-v27-2026-198",
+    "dr1 l2b-v27-2026-199",
+    "dr1 l2b-v27-2026-200",
+    "dr1 l2b-v27-2026-201",
+    "dr1 l2b-v27-2026-206",
+    "dr1 l2b-v27-2026-207",
+    "dr1 l2b-v27-2026-208",
+    "dr1 l2b-v27-2026-209",
+    "dr1 l2b-v27-2026-210",
+    "dr1 l2b-v27-2026-211",
+    "dr1 l2b-v27-2026-212",
+    "dr1 l2b-v27-2026-213",
+    "dr1 l2b-v27-2026-214",
+    "dr1 l2b-v27-2026-215",
+    "dr1 l2b-v27-2026-216",
+    "dr1 l2b-v27-2026-217",
+    "dr1 l2b-v27-2026-219",
+    "dr1 l2b-v27-2026-220",
+    "dr1 l2b-v27-2026-221",
+    "dr1 l2b-v27-2026-222",
+    "dr1 l2b-v27-2026-225",
+    "dr1 l2b-v27-2026-226",
+    "dr1 l2b-v27-2026-227",
+    "dr1 l2b-v27-2026-228",
+    "dr1 l2b-v27-2026-229",
+    "dr1 l2b-v27-2026-230",
+    "dr1 l2b-v27-2026-231",
+    "dr1 l2b-v27-2026-232",
+    "dr1 l2b-v27-2026-234",
+    "dr1 l2b-v27-2026-235",
+    "dr1 l2b-v27-2026-236",
+    "dr1 l2b-v27-2026-237",
+    "dr1 l2b-v27-2026-238",
+    "dr1 l2b-v27-2026-239",
+    "dr1 l2b-v27-2026-240",
+    "dr1 l2b-v27-2026-241",
+    "dr1 l2b-v27-2026-242",
+    "dr1 l2b-v27-2026-243",
+    "dr1 l2b-v27-2026-244",
+    "dr1 l2b-v27-2026-245",
+    "dr1 l2b-v27-2026-246",
+    "dr1 l2b-v27-2026-247"
+  ],
+  "origin": "OBSERVED",
+  "config_hash": "5fc3b6fd74db",
+  "sources": [
+    {
+      "name": "Gaia DR3 (gaia_dr3_source via IRSA TAP)",
+      "url": "https://irsa.ipac.caltech.edu/TAP/sync",
+      "query": "SELECT source_id, ra, dec, pmra, pmdec, parallax, ref_epoch, phot_g_mean_mag, bp_rp, ruwe FROM gaia_dr3_source WHERE source_id IN (3113329094598313472, 4416786900822154112, 4272476270261273216, 667330101236907776, 6909894018898836608, 6833816717724281472, 633604815435763712, 6425579316029502080, 2972362529862291200, 1021495028608838016, 5050053165460308224, 1325938803224554752, 4769435292423335168, 4662850696812855168, 1565876532739593600)",
+      "retrieved_utc": "2026-11-14T06:12:06+00:00",
+      "version": "Gaia DR3",
+      "identifier": "",
+      "origin": "OBSERVED"
+    },
+    {
+      "name": "SPHEREx photometry of Landolt 98-978",
+      "identifier": "Gaia DR3 3113329094598313472",
+      "query": "150 images",
+      "origin": "OBSERVED"
+    },
+    {
+      "name": "SPHEREx photometry of Landolt 107-998",
+      "identifier": "Gaia DR3 4416786900822154112",
+      "query": "150 images",
+      "origin": "OBSERVED"
+    },
+    {
+      "name": "SPHEREx photometry of Landolt 110-361",
+      "identifier": "Gaia DR3 4272476270261273216",
+      "query": "150 images",
+      "origin": "OBSERVED"
+    },
+    {
+      "name": "SPHEREx photometry of Gaia DR3 667330101236907776",
+      "identifier": "Gaia DR3 667330101236907776",
+      "query": "150 images",
+      "origin": "OBSERVED"
+    },
+    {
+      "name": "SPHEREx photometry of Gaia DR3 6909894018898836608",
+      "identifier": "Gaia DR3 6909894018898836608",
+      "query": "150 images",
+      "origin": "OBSERVED"
+    },
+    {
+      "name": "SPHEREx photometry of Gaia DR3 6833816717724281472",
+      "identifier": "Gaia DR3 6833816717724281472",
+      "query": "150 images",
+      "origin": "OBSERVED"
+    },
+    {
+      "name": "SPHEREx photometry of Gaia DR3 633604815435763712",
+      "identifier": "Gaia DR3 633604815435763712",
+      "query": "150 images",
+      "origin": "OBSERVED"
+    },
+    {
+      "name": "SPHEREx photometry of Gaia DR3 6425579316029502080",
+      "identifier": "Gaia DR3 6425579316029502080",
+      "query": "150 images",
+      "origin": "OBSERVED"
+    },
+    {
+      "name": "SPHEREx photometry of Gaia DR3 2972362529862291200",
+      "identifier": "Gaia DR3 2972362529862291200",
+      "query": "150 images",
+      "origin": "OBSERVED"
+    },
+    {
+      "name": "SPHEREx photometry of Gaia DR3 1021495028608838016",
+      "identifier": "Gaia DR3 1021495028608838016",
+      "query": "150 images",
+      "origin": "OBSERVED"
+    },
+    {
+      "name": "SPHEREx photometry of Gaia DR3 5050053165460308224",
+      "identifier": "Gaia DR3 5050053165460308224",
+      "query": "150 images",
+      "origin": "OBSERVED"
+    },
+    {
+      "name": "SPHEREx photometry of Gaia DR3 1325938803224554752",
+      "identifier": "Gaia DR3 1325938803224554752",
+      "query": "150 images",
+      "origin": "OBSERVED"
+    },
+    {
+      "name": "SPHEREx photometry of Gaia DR3 4769435292423335168",
+      "identifier": "Gaia DR3 4769435292423335168",
+      "query": "150 images",
+      "origin": "OBSERVED"
+    },
+    {
+      "name": "SPHEREx photometry of Gaia DR3 4662850696812855168",
+      "identifier": "Gaia DR3 4662850696812855168",
+      "query": "150 images",
+      "origin": "OBSERVED"
+    },
+    {
+      "name": "SPHEREx photometry of Gaia DR3 1565876532739593600",
+      "identifier": "Gaia DR3 1565876532739593600",
+      "query": "150 images",
+      "origin": "OBSERVED"
+    }
+  ],
+  "excluded_stars": {
+    "Landolt 110-361": "MWIR - SWIR level -5.54% against median -0.30% (robust sigma 0.77%; > 4 sigma)"
+  },
+  "star_clip_sigma": 4.0,
+  "provenance": {
+    "step": "solar_analog_calibration",
+    "model_version": "0.1.0",
+    "formula": "ln(F_star/F_sun) = a_star + c_detector(bin)",
+    "inputs": {
+      "start": "2025-03-01",
+      "end": "2026-11-14",
+      "max_images_per_star": 150,
+      "stars": [
+        "Landolt 98-978",
+        "Landolt 107-998",
+        "Landolt 110-361",
+        "Gaia DR3 667330101236907776",
+        "Gaia DR3 6909894018898836608",
+        "Gaia DR3 6833816717724281472",
+        "Gaia DR3 633604815435763712",
+        "Gaia DR3 6425579316029502080",
+        "Gaia DR3 2972362529862291200",
+        "Gaia DR3 1021495028608838016",
+        "Gaia DR3 5050053165460308224",
+        "Gaia DR3 1325938803224554752",
+        "Gaia DR3 4769435292423335168",
+        "Gaia DR3 4662850696812855168",
+        "Gaia DR3 1565876532739593600"
+      ]
+    },
+    "assumptions": {
+      "star_list": "Marsset et al. (2020), ApJS 247, 73, Table 1 (arXiv:2004.05158); Gaia Collaboration, Creevey et al. (2023), A&A 674, A39",
+      "selection": "Marsset et al. (2020) Table 1 stars with V >= 10.5, plus 12 Gaia DR3 golden-sample solar analogues (G 11.3-13.0)"
+    },
+    "sources": [
+      {
+        "name": "Gaia DR3 (gaia_dr3_source via IRSA TAP)",
+        "url": "https://irsa.ipac.caltech.edu/TAP/sync",
+        "query": "SELECT source_id, ra, dec, pmra, pmdec, parallax, ref_epoch, phot_g_mean_mag, bp_rp, ruwe FROM gaia_dr3_source WHERE source_id IN (3113329094598313472, 4416786900822154112, 4272476270261273216, 667330101236907776, 6909894018898836608, 6833816717724281472, 633604815435763712, 6425579316029502080, 2972362529862291200, 1021495028608838016, 5050053165460308224, 1325938803224554752, 4769435292423335168, 4662850696812855168, 1565876532739593600)",
+        "retrieved_utc": "2026-11-14T06:12:06+00:00",
+        "version": "Gaia DR3",
+        "identifier": "",
+        "origin": "OBSERVED"
+      },
+      {
+        "name": "SPHEREx photometry of Landolt 98-978",
+        "identifier": "Gaia DR3 3113329094598313472",
+        "query": "150 images",
+        "origin": "OBSERVED"
+      },
+      {
+        "name": "SPHEREx photometry of Landolt 107-998",
+        "identifier": "Gaia DR3 4416786900822154112",
+        "query": "150 images",
+        "origin": "OBSERVED"
+      },
+      {
+        "name": "SPHEREx photometry of Landolt 110-361",
+        "identifier": "Gaia DR3 4272476270261273216",
+        "query": "150 images",
+        "origin": "OBSERVED"
+      },
+      {
+        "name": "SPHEREx photometry of Gaia DR3 667330101236907776",
+        "identifier": "Gaia DR3 667330101236907776",
+        "query": "150 images",
+        "origin": "OBSERVED"
+      },
+      {
+        "name": "SPHEREx photometry of Gaia DR3 6909894018898836608",
+        "identifier": "Gaia DR3 6909894018898836608",
+        "query": "150 images",
+        "origin": "OBSERVED"
+      },
+      {
+        "name": "SPHEREx photometry of Gaia DR3 6833816717724281472",
+        "identifier": "Gaia DR3 6833816717724281472",
+        "query": "150 images",
+        "origin": "OBSERVED"
+      },
+      {
+        "name": "SPHEREx photometry of Gaia DR3 633604815435763712",
+        "identifier": "Gaia DR3 633604815435763712",
+        "query": "150 images",
+        "origin": "OBSERVED"
+      },
+      {
+        "name": "SPHEREx photometry of Gaia DR3 6425579316029502080",
+        "identifier": "Gaia DR3 6425579316029502080",
+        "query": "150 images",
+        "origin": "OBSERVED"
+      },
+      {
+        "name": "SPHEREx photometry of Gaia DR3 2972362529862291200",
+        "identifier": "Gaia DR3 2972362529862291200",
+        "query": "150 images",
+        "origin": "OBSERVED"
+      },
+      {
+        "name": "SPHEREx photometry of Gaia DR3 1021495028608838016",
+        "identifier": "Gaia DR3 1021495028608838016",
+        "query": "150 images",
+        "origin": "OBSERVED"
+      },
+      {
+        "name": "SPHEREx photometry of Gaia DR3 5050053165460308224",
+        "identifier": "Gaia DR3 5050053165460308224",
+        "query": "150 images",
+        "origin": "OBSERVED"
+      },
+      {
+        "name": "SPHEREx photometry of Gaia DR3 1325938803224554752",
+        "identifier": "Gaia DR3 1325938803224554752",
+        "query": "150 images",
+        "origin": "OBSERVED"
+      },
+      {
+        "name": "SPHEREx photometry of Gaia DR3 4769435292423335168",
+        "identifier": "Gaia DR3 4769435292423335168",
+        "query": "150 images",
+        "origin": "OBSERVED"
+      },
+      {
+        "name": "SPHEREx photometry of Gaia DR3 4662850696812855168",
+        "identifier": "Gaia DR3 4662850696812855168",
+        "query": "150 images",
+        "origin": "OBSERVED"
+      },
+      {
+        "name": "SPHEREx photometry of Gaia DR3 1565876532739593600",
+        "identifier": "Gaia DR3 1565876532739593600",
+        "query": "150 images",
+        "origin": "OBSERVED"
+      }
+    ],
+    "warnings": [],
+    "created_utc": "2026-11-14T06:10:04+00:00"
+  },
+  "window": [
+    "2025-03-01",
+    "2026-11-14"
+  ],
+  "star_list": {
+    "Landolt 98-978": {
+      "group": "marsset2020",
+      "use": true,
+      "identifier": "HD 292561",
+      "j2000": [
+        "06:51:33.7",
+        "-00:11:32"
+      ],
+      "spectral_type": "G3V",
+      "V": 10.6,
+      "gaia_dr3_source_id": 3113329094598313472,
+      "notes": "bluest of the list in Gaia (BP - RP = 0.77); Galactic latitude -0.1 deg (crowded field)"
+    },
+    "Landolt 107-998": {
+      "group": "marsset2020",
+      "use": true,
+      "identifier": "BD+00 3383",
+      "j2000": [
+        "15:38:16.3",
+        "+00:15:22"
+      ],
+      "spectral_type": "G3IV",
+      "V": 10.5,
+      "gaia_dr3_source_id": 4416786900822154112,
+      "notes": "Gaia RUWE 2.72: possibly an unresolved binary"
+    },
+    "Landolt 110-361": {
+      "group": "marsset2020",
+      "use": true,
+      "identifier": "TYC 447-508-1",
+      "j2000": [
+        "18:42:45.0",
+        "+00:08:05"
+      ],
+      "spectral_type": "G2 (estimated from colours, Marsset et al. 2020)",
+      "V": 12.4,
+      "gaia_dr3_source_id": 4272476270261273216,
+      "notes": "faintest star of the list (G = 12.27); Galactic latitude +2.0 deg (crowded field)"
+    },
+    "Gaia DR3 667330101236907776": {
+      "group": "gaia_gold_sample",
+      "gaia_dr3_source_id": 667330101236907776,
+      "gaia_ra_dec_j2016": [
+        119.586404,
+        16.962658
+      ],
+      "G": 11.391,
+      "bp_rp": 0.8,
+      "gspspec": {
+        "teff": 5841,
+        "logg": 4.23,
+        "mh": -0.02
+      },
+      "galactic_b_deg": 22.2,
+      "ecliptic_lat_deg": -3.6,
+      "use": true
+    },
+    "Gaia DR3 6909894018898836608": {
+      "group": "gaia_gold_sample",
+      "gaia_dr3_source_id": 6909894018898836608,
+      "gaia_ra_dec_j2016": [
+        314.295954,
+        -7.175975
+      ],
+      "G": 11.703,
+      "bp_rp": 0.83,
+      "gspspec": {
+        "teff": 5809,
+        "logg": 4.37,
+        "mh": 0.03
+      },
+      "galactic_b_deg": -31.2,
+      "ecliptic_lat_deg": 9.7,
+      "use": true
+    },
+    "Gaia DR3 6833816717724281472": {
+      "group": "gaia_gold_sample",
+      "gaia_dr3_source_id": 6833816717724281472,
+      "gaia_ra_dec_j2016": [
+        318.515647,
+        -18.493085
+      ],
+      "G": 11.672,
+      "bp_rp": 0.83,
+      "gspspec": {
+        "teff": 5751,
+        "logg": 4.38,
+        "mh": 0.09
+      },
+      "galactic_b_deg": -39.5,
+      "ecliptic_lat_deg": -2.4,
+      "use": true
+    },
+    "Gaia DR3 633604815435763712": {
+      "group": "gaia_gold_sample",
+      "gaia_dr3_source_id": 633604815435763712,
+      "gaia_ra_dec_j2016": [
+        144.074644,
+        18.960177
+      ],
+      "G": 11.365,
+      "bp_rp": 0.821,
+      "gspspec": {
+        "teff": 5770,
+        "logg": 4.24,
+        "mh": -0.07
+      },
+      "galactic_b_deg": 44.6,
+      "ecliptic_lat_deg": 4.4,
+      "use": true
+    },
+    "Gaia DR3 6425579316029502080": {
+      "group": "gaia_gold_sample",
+      "gaia_dr3_source_id": 6425579316029502080,
+      "gaia_ra_dec_j2016": [
+        307.072882,
+        -66.946684
+      ],
+      "G": 11.454,
+      "bp_rp": 0.816,
+      "gspspec": {
+        "teff": 5882,
+        "logg": 4.3,
+        "mh": 0.2
+      },
+      "galactic_b_deg": -34.2,
+      "ecliptic_lat_deg": -46.0,
+      "use": true
+    },
+    "Gaia DR3 2972362529862291200": {
+      "group": "gaia_gold_sample",
+      "gaia_dr3_source_id": 2972362529862291200,
+      "gaia_ra_dec_j2016": [
+        84.285111,
+        -14.713289
+      ],
+      "G": 11.618,
+      "bp_rp": 0.817,
+      "gspspec": {
+        "teff": 5863,
+        "logg": 4.25,
+        "mh": -0.04
+      },
+      "galactic_b_deg": -23.0,
+      "ecliptic_lat_deg": -38.0,
+      "use": true
+    },
+    "Gaia DR3 1021495028608838016": {
+      "group": "gaia_gold_sample",
+      "gaia_dr3_source_id": 1021495028608838016,
+      "gaia_ra_dec_j2016": [
+        142.945745,
+        53.916412
+      ],
+      "G": 11.394,
+      "bp_rp": 0.816,
+      "gspspec": {
+        "teff": 5715,
+        "logg": 4.16,
+        "mh": 0.2
+      },
+      "galactic_b_deg": 44.9,
+      "ecliptic_lat_deg": 36.9,
+      "use": true
+    },
+    "Gaia DR3 5050053165460308224": {
+      "group": "gaia_gold_sample",
+      "gaia_dr3_source_id": 5050053165460308224,
+      "gaia_ra_dec_j2016": [
+        40.038298,
+        -35.508135
+      ],
+      "G": 11.397,
+      "bp_rp": 0.812,
+      "gspspec": {
+        "teff": 5717,
+        "logg": 4.36,
+        "mh": -0.01
+      },
+      "galactic_b_deg": -65.4,
+      "ecliptic_lat_deg": -47.8,
+      "use": true
+    },
+    "Gaia DR3 1325938803224554752": {
+      "group": "gaia_gold_sample",
+      "gaia_dr3_source_id": 1325938803224554752,
+      "gaia_ra_dec_j2016": [
+        248.703023,
+        34.274615
+      ],
+      "G": 11.73,
+      "bp_rp": 0.839,
+      "gspspec": {
+        "teff": 5801,
+        "logg": 4.12,
+        "mh": 0.02
+      },
+      "galactic_b_deg": 42.0,
+      "ecliptic_lat_deg": 55.4,
+      "use": true
+    },
+    "Gaia DR3 4769435292423335168": {
+      "group": "gaia_gold_sample",
+      "gaia_dr3_source_id": 4769435292423335168,
+      "gaia_ra_dec_j2016": [
+        80.558987,
+        -56.420308
+      ],
+      "G": 11.425,
+      "bp_rp": 0.811,
+      "gspspec": {
+        "teff": 5819,
+        "logg": 4.19,
+        "mh": 0.2
+      },
+      "galactic_b_deg": -34.5,
+      "ecliptic_lat_deg": -78.9,
+      "use": true
+    },
+    "Gaia DR3 4662850696812855168": {
+      "group": "gaia_gold_sample",
+      "gaia_dr3_source_id": 4662850696812855168,
+      "gaia_ra_dec_j2016": [
+        69.031701,
+        -65.866039
+      ],
+      "G": 11.771,
+      "bp_rp": 0.835,
+      "gspspec": {
+        "teff": 5860,
+        "logg": 4.16,
+        "mh": 0.16
+      },
+      "galactic_b_deg": -38.2,
+      "ecliptic_lat_deg": -81.6,
+      "use": true
+    },
+    "Gaia DR3 1565876532739593600": {
+      "group": "gaia_gold_sample",
+      "gaia_dr3_source_id": 1565876532739593600,
+      "gaia_ra_dec_j2016": [
+        201.510054,
+        57.187206
+      ],
+      "G": 11.432,
+      "bp_rp": 0.836,
+      "gspspec": {
+        "teff": 5741,
+        "logg": 4.25,
+        "mh": -0.01
+      },
+      "galactic_b_deg": 59.3,
+      "ecliptic_lat_deg": 58.2,
+      "use": true
+    }
+  },
+  "point_selection": {
+    "Gaia DR3 1021495028608838016": {
+      "n_points": 150,
+      "n_usable": 146,
+      "n_rejected_core_pixel": 9,
+      "n_other_core_flags": 8,
+      "n_clean": 129
+    },
+    "Gaia DR3 1325938803224554752": {
+      "n_points": 149,
+      "n_usable": 145,
+      "n_rejected_core_pixel": 14,
+      "n_other_core_flags": 3,
+      "n_clean": 128
+    },
+    "Gaia DR3 1565876532739593600": {
+      "n_points": 148,
+      "n_usable": 145,
+      "n_rejected_core_pixel": 19,
+      "n_other_core_flags": 3,
+      "n_clean": 123
+    },
+    "Gaia DR3 2972362529862291200": {
+      "n_points": 150,
+      "n_usable": 146,
+      "n_rejected_core_pixel": 14,
+      "n_other_core_flags": 5,
+      "n_clean": 127
+    },
+    "Gaia DR3 4662850696812855168": {
+      "n_points": 149,
+      "n_usable": 146,
+      "n_rejected_core_pixel": 9,
+      "n_other_core_flags": 9,
+      "n_clean": 128
+    },
+    "Gaia DR3 4769435292423335168": {
+      "n_points": 148,
+      "n_usable": 146,
+      "n_rejected_core_pixel": 16,
+      "n_other_core_flags": 11,
+      "n_clean": 119
+    },
+    "Gaia DR3 5050053165460308224": {
+      "n_points": 149,
+      "n_usable": 145,
+      "n_rejected_core_pixel": 11,
+      "n_other_core_flags": 8,
+      "n_clean": 126
+    },
+    "Gaia DR3 633604815435763712": {
+      "n_points": 150,
+      "n_usable": 147,
+      "n_rejected_core_pixel": 16,
+      "n_other_core_flags": 5,
+      "n_clean": 126
+    },
+    "Gaia DR3 6425579316029502080": {
+      "n_points": 150,
+      "n_usable": 145,
+      "n_rejected_core_pixel": 16,
+      "n_other_core_flags": 5,
+      "n_clean": 124
+    },
+    "Gaia DR3 667330101236907776": {
+      "n_points": 150,
+      "n_usable": 146,
+      "n_rejected_core_pixel": 10,
+      "n_other_core_flags": 4,
+      "n_clean": 132
+    },
+    "Gaia DR3 6833816717724281472": {
+      "n_points": 150,
+      "n_usable": 147,
+      "n_rejected_core_pixel": 12,
+      "n_other_core_flags": 1,
+      "n_clean": 134
+    },
+    "Gaia DR3 6909894018898836608": {
+      "n_points": 150,
+      "n_usable": 145,
+      "n_rejected_core_pixel": 9,
+      "n_other_core_flags": 2,
+      "n_clean": 134
+    },
+    "Landolt 107-998": {
+      "n_points": 150,
+      "n_usable": 136,
+      "n_rejected_core_pixel": 73,
+      "n_other_core_flags": 2,
+      "n_clean": 61
+    },
+    "Landolt 110-361": {
+      "n_points": 150,
+      "n_usable": 147,
+      "n_rejected_core_pixel": 17,
+      "n_other_core_flags": 0,
+      "n_clean": 130
+    },
+    "Landolt 98-978": {
+      "n_points": 150,
+      "n_usable": 147,
+      "n_rejected_core_pixel": 78,
+      "n_other_core_flags": 0,
+      "n_clean": 69
+    }
+  },
+  "rebuilt_from_saved_spectra": true,
+  "slope_sigma_per_um": {
+    "SWIR": 0.002289740967574337,
+    "MWIR": 0.001413917081249607
+  }
+}

@@ -1,0 +1,41 @@
+# External data services. Endpoints were checked on 2026-11-14; releases and APIs change,
+# so each client records the endpoint, query and retrieval time in provenance.
+
+irsa:
+  tap_sync_url: "https://irsa.ipac.caltech.edu/TAP/sync"
+  tap_async_url: "https://irsa.ipac.caltech.edu/TAP/async"
+  neowise_table: "neowisesbpropv2"      # NEOWISE Diameters and Albedos V2.0 (eta prior, src/physical/eta_prior.py)
+  obscore_table: "spherex.obscore"
+  collections: ["spherex_dr1"]          # extend with Quick Release collections when published
+  most_url: "https://irsa.ipac.caltech.edu/cgi-bin/MOST/nph-most"
+  most_catalog: "spherex"
+  data_base_url: "https://irsa.ipac.caltech.edu/"
+  timeout_s: 300
+
+jpl:
+  sbdb_api: "https://ssd-api.jpl.nasa.gov/sbdb.api"
+  sbdb_query_api: "https://ssd-api.jpl.nasa.gov/sbdb_query.api"   # population catalogue (priors)
+  horizons_api: "https://ssd.jpl.nasa.gov/api/horizons.api"
+  sb_ident_api: "https://ssd-api.jpl.nasa.gov/sb_ident.api"
+  timeout_s: 120
+
+gaia:
+  # ESA Gaia archive (the IRSA copy of gaia_dr3_source has no golden-sample tables)
+  tap_sync_url: "https://gea.esac.esa.int/tap-server/tap/sync"
+  timeout_s: 300
+
+mpc:
+  observations_api: "https://data.minorplanetcenter.net/api/get-obs"
+  timeout_s: 120
+
+reference_spectra:
+  busdemeo:
+    path: "data/reference/busdemeo/busdemeo_mean_spectra.csv"
+    provenance: "data/reference/busdemeo/busdemeo_mean_spectra.provenance.json"
+  # Laboratory spectra (RELAB, PDS) are added to data/reference/lab/ with a sidecar
+  # <name>.provenance.json; entries without provenance are rejected by the loader.
+  lab_library_dir: "data/reference/lab"
+
+cache:
+  directory: "../../var/cache/asteroids/http"
+  enabled: true

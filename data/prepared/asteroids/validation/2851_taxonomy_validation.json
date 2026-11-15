@@ -1,0 +1,398 @@
+{
+  "target": "2851",
+  "reference": {
+    "class": "V",
+    "complex": "V-type",
+    "sources": [
+      "DeMeo et al. 2009 (Bus-DeMeo, 0.45-2.45 um), Appendix: V",
+      "JPL SBDB spec_B (SMASSII, Bus & Binzel 2002): V"
+    ],
+    "cross_check_sbdb_field": "spec_B",
+    "basis": "visible + near-infrared taxonomy (Bus-DeMeo)",
+    "sbdb_cross_check": {
+      "spec_B": "V"
+    }
+  },
+  "origin": "OBSERVED",
+  "summary": {
+    "PASS": 9,
+    "FAIL": 0,
+    "INCONCLUSIVE": 0
+  },
+  "analysis_summary": {
+    "solar_analog_calibration": {
+      "applied": true,
+      "reason": null,
+      "n_stars": 14,
+      "max_abs_correction": 0.09443843867842405,
+      "slope_sigma_per_um": {
+        "SWIR": 0.002289740967574337,
+        "MWIR": 0.001413917081249607
+      }
+    },
+    "temporal_correction": "none",
+    "norm_groups": 1,
+    "slope_sys_per_um": 0.07044369070267807,
+    "thermal_status": "OK",
+    "thermal_chi2_red": 1.986101783303196,
+    "diameter_km": 9.361685419386415,
+    "diameter_err_km": 1.949845052915272,
+    "taxonomy_top_class": "V",
+    "taxonomy_confidence": "High",
+    "complex_ranking": [
+      [
+        "V-type",
+        99.99
+      ],
+      [
+        "R-type",
+        0.01
+      ],
+      [
+        "S-complex",
+        0.0
+      ],
+      [
+        "Q-type",
+        0.0
+      ],
+      [
+        "D-type",
+        0.0
+      ]
+    ],
+    "complex_ranking_spectral": [
+      [
+        "V-type",
+        99.98
+      ],
+      [
+        "R-type",
+        0.02
+      ],
+      [
+        "S-complex",
+        0.01
+      ],
+      [
+        "Q-type",
+        0.0
+      ],
+      [
+        "D-type",
+        0.0
+      ]
+    ],
+    "prior": {
+      "albedo": {
+        "pV": 0.2434119902873142,
+        "log10_pv": -0.6136580325670848,
+        "sigma_log10": 0.1951153672100948,
+        "source": "catalogue diameter with current H; catalogue albedo 0.358 disagrees by -0.17 dex beyond the population offset (H revision?): uncertainty increased (urn:nasa:pds:neowise_diameters_albedos::2.0[mainbelt] (http://adsabs.harvard.edu/abs/2012ApJ...759L...8M))"
+      },
+      "orbit_used": true
+    },
+    "statistical_diameter_km": 8.64543773591538,
+    "statistical_diameter_68_km": [
+      7.474667625238889,
+      10.03729975124032
+    ],
+    "thermal_upper_limit_km": null,
+    "spectrum_file": "/mnt/c/Users/a0102/spherex/spherex-asteroid-analysis/outputs/2851/stage2_spectrum.csv"
+  },
+  "criteria": [
+    {
+      "id": "C1",
+      "name": "1-um band detected when supported by the data",
+      "result": "PASS",
+      "evidence": {
+        "status": "DETECTED",
+        "evidence": [
+          "within_segment"
+        ],
+        "centre_um": 0.9058616693712264,
+        "depth": 0.4769829851945322,
+        "depth_err": 0.0631390195256421,
+        "min_detectable_depth": 0.1894170585769263,
+        "typical_band_depth": 0.15709103275887948,
+        "detectable": false,
+        "within_segment": {
+          "evaluable": true,
+          "significant": true,
+          "curvature_sigma": 5.1548459169863206,
+          "vertex_um": 0.9058616693712264,
+          "depth": 0.4769829851945322,
+          "depth_err": 0.0631390195256421,
+          "min_detectable_depth": 0.1894170585769263,
+          "n_points": 15,
+          "chi2_red": 1.514006958513824,
+          "covariance": "full"
+        },
+        "band_expected_for_reference": true
+      },
+      "explanation": "Band I detected (within_segment) at 0.906 um (sensitivity marginal)."
+    },
+    {
+      "id": "C2",
+      "name": "2-um band evaluated",
+      "result": "PASS",
+      "evidence": {
+        "status": "NOT_DETECTED",
+        "centre_um": 1.823627279029087,
+        "depth": 0.3920689909091456,
+        "depth_err": 0.24776744083617513,
+        "upper_limit_depth": 1.135371313417671,
+        "min_detectable_depth": 0.3873211890383404,
+        "typical_band_depth": 0.028761172814518177,
+        "detectable": false,
+        "reason": "not detected; data not sensitive enough to detect a typical band",
+        "within_segment": {
+          "evaluable": true,
+          "significant": false,
+          "curvature_sigma": 2.426412867815583,
+          "vertex_um": 1.916091252233935,
+          "depth": 0.32345008238202455,
+          "depth_err": 0.12910706301278013,
+          "min_detectable_depth": 0.3873211890383404,
+          "n_points": 10,
+          "chi2_red": 0.8582235720816292,
+          "covariance": "full"
+        }
+      },
+      "explanation": "Band II evaluated: NOT_DETECTED; not detected; data not sensitive enough to detect a typical band."
+    },
+    {
+      "id": "C3",
+      "name": "Red slope alone does not cause D-type",
+      "result": "PASS",
+      "evidence": {
+        "top_complex": "V-type",
+        "band_I_detected": true,
+        "reddened_band_bearing_templates_top_complex": {
+          "S": "S-complex",
+          "Sq": "S-complex",
+          "Sr": "S-complex",
+          "V": "V-type",
+          "Q": "S-complex"
+        },
+        "D_template_control_top_complex": "D-type",
+        "control_recovered": true
+      },
+      "explanation": "Observed spectrum: no D-type driven by slope. Counterfactual: band-bearing templates reddened to D-like slope classified as S->S-complex, Sq->S-complex, Sr->S-complex, V->V-type, Q->S-complex; D template -> D-type."
+    },
+    {
+      "id": "C4",
+      "name": "Observation-time differences detected",
+      "result": "PASS",
+      "evidence": {
+        "n_visits": 20,
+        "n_exposures": 60,
+        "time_span_days": 9.987802823998209,
+        "segments_never_observed_together": [
+          "B1-B2",
+          "B2-B3",
+          "B3-B4",
+          "B4-B5",
+          "B5-B6"
+        ],
+        "n_repeat_bins": 20,
+        "variability": {
+          "tested": true,
+          "p_constant": 0.6729305807442951,
+          "detected": false,
+          "visit_offset_rms_mag": 0.14622429537252454
+        },
+        "warnings": [
+          "Spectrum assembled from 20 visits over 9.99 d (phase angle 27.2-27.4 deg).",
+          "Adjacent spectral segments never observed together (B1-B2, B2-B3, B3-B4, B4-B5, B5-B6): their relative brightness depends on variability between visits.",
+          "Brightness consistent between visits on 20 repeat bins (p = 0.67): no correction applied. Visit-to-visit uncertainty kept in the error covariance: 0.146 mag for the 6 visits linked by repeats to the largest group, 0.10 mag (untested prior) for 14 visits not linked to it (4 of them linked only within smaller groups)."
+        ]
+      },
+      "explanation": "20 visits over 9.99 d detected; segments never observed together: B1-B2, B2-B3, B3-B4, B4-B5, B5-B6; variability tested."
+    },
+    {
+      "id": "C5",
+      "name": "No unsupported rotational correction",
+      "result": "PASS",
+      "evidence": {
+        "correction": "none",
+        "lightcurve_supported": false,
+        "reason": "no significant variability between visits",
+        "without_repeats": {
+          "n_points": 75,
+          "n_repeat_bins": 0,
+          "correction": "none",
+          "reason": "no repeated observations: a rotational correction cannot be constrained",
+          "cross_visit_verified": false
+        },
+        "without_period": {
+          "correction": "none",
+          "reason": "no significant variability between visits"
+        }
+      },
+      "explanation": "Applied correction 'none' meets the support criteria; without repeated observations: 'none' (no repeated observations: a rotational correction cannot be constrained); without rotation period: 'none'."
+    },
+    {
+      "id": "C6",
+      "name": "Confidence decreases when S vs D is not distinguishable",
+      "result": "PASS",
+      "evidence": {
+        "baseline_confidence": "High",
+        "reported_confidence": "High",
+        "baseline_s_vs_d": {
+          "delta_deviance_D_minus_S": 24.04566991019354,
+          "distinguished": true,
+          "favoured": "S-complex"
+        },
+        "baseline_without_prior": true,
+        "no_1um_region": {
+          "confidence": "Low",
+          "reasons": [
+            "best complex S-complex vs runner-up C-complex: delta score 2.1 (scaled deviance)",
+            "1-um band region (<1.1 um) not covered"
+          ],
+          "s_vs_d": {
+            "delta_deviance_D_minus_S": 7.863180918516744,
+            "distinguished": true,
+            "favoured": "S-complex"
+          },
+          "top_complex": "S-complex",
+          "s_d_question_relevant": true
+        },
+        "errors_x4": {
+          "confidence": "Low",
+          "reasons": [
+            "best complex S-complex vs runner-up V-type: delta score 1.3 (scaled deviance)",
+            "insufficient to distinguish S-complex from D-type (delta +3.9 < 6)"
+          ],
+          "s_vs_d": {
+            "delta_deviance_D_minus_S": 3.9138462197339705,
+            "distinguished": false,
+            "favoured": "S-complex"
+          }
+        }
+      },
+      "explanation": "Baseline confidence High (classifier; reported High); without the 1-um region -> Low; with errors x4 -> Low."
+    },
+    {
+      "id": "C7",
+      "name": "Most probable complex matches the reference",
+      "result": "PASS",
+      "evidence": {
+        "reference_complex": "V-type",
+        "reference_class": "V",
+        "top_complex": "V-type",
+        "top_class": "V",
+        "reference_complex_probability": 0.9998950080701038,
+        "reference_complex_rank": 1,
+        "confidence": "High",
+        "ranking_top5": [
+          [
+            1,
+            "V",
+            99.99
+          ],
+          [
+            2,
+            "R",
+            0.01
+          ],
+          [
+            3,
+            "Sv",
+            0.0
+          ],
+          [
+            4,
+            "Sr",
+            0.0
+          ],
+          [
+            5,
+            "S",
+            0.0
+          ]
+        ],
+        "deviance_gap_scaled": 18.614289995018574,
+        "distinguished_threshold": 6.0,
+        "saturation_limit": {
+          "n_points": 54,
+          "n_saturated": 0,
+          "fraction": 0.0,
+          "limit": 0.2,
+          "saturation_limited": false
+        }
+      },
+      "explanation": "Most probable complex V-type (100.0%), reference V-type at rank 1; reference best by deviance; gap to the next complex R-type: 18.6 (distinguished at >= 6); confidence High."
+    },
+    {
+      "id": "C8",
+      "name": "No target-specific information in the classifier",
+      "result": "PASS",
+      "evidence": {
+        "files_scanned": [
+          "src/classification",
+          "src/preprocessing",
+          "src/integration/spectrum_analysis.py",
+          "src/extraction",
+          "src/physical"
+        ],
+        "target_specific_code": [],
+        "classify_parameters": [
+          "refl",
+          "value_col",
+          "err_col",
+          "likelihood",
+          "bin_to_reference_grid",
+          "group_col",
+          "slope_sys_per_um",
+          "band_evidence",
+          "slope_mode",
+          "prior"
+        ],
+        "forbidden_parameters": []
+      },
+      "explanation": "No target names, reference taxonomies or validation files in the analysis/classification code."
+    },
+    {
+      "id": "C9",
+      "name": "Most probable class matches the reference class",
+      "result": "PASS",
+      "evidence": {
+        "reference_class": "V",
+        "top_class": "V",
+        "top_label": "V",
+        "ranking_top5": [
+          [
+            1,
+            "V",
+            99.99
+          ],
+          [
+            2,
+            "R",
+            0.01
+          ],
+          [
+            3,
+            "Sv",
+            0.0
+          ],
+          [
+            4,
+            "Sr",
+            0.0
+          ],
+          [
+            5,
+            "S",
+            0.0
+          ]
+        ],
+        "distinguished_threshold": 10.0,
+        "deviance_gap_scaled": 18.614289995018574
+      },
+      "explanation": "Most probable class V; reference class first; gap to the next class R: 18.6 (distinguished at >= 10)."
+    }
+  ]
+}

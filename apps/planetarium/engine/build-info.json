@@ -1,0 +1,36 @@
+{
+  "upstream": "https://github.com/Stellarium/stellarium-web-engine",
+  "upstreamCommit": "2103935134e09ba1715171241769fce03cebebe4",
+  "license": "AGPL-3.0",
+  "emscripten": "1.39.17",
+  "emscriptenRelease": "9bc968c0e49b1c795ecddb87391b265911e2adcb",
+  "emsdkManagerCommit": "708dcbcc9ee23bc7d2dad44fc90db377e38b771c",
+  "python": "3.9.2",
+  "scons": "4.8.1",
+  "node": "24.19.0",
+  "build": "python -m SCons -j4 mode=release build/stellarium-web-engine.js",
+  "patches": [
+    "SConstruct: Windows drivers and response-file linking",
+    "tools/make-assets.py: Windows paths, Python invocation and CRLF normalization",
+    "src/js/canvas.js: physical-pixel resize comparison, maxPixelRatio, render lifecycle and cancelled-contact cleanup",
+    "src/modules/movements.c: cancellation without synthetic clicks and projection-safe pinch bounds",
+    "src/js/pre.js: high-performance WebGL preference",
+    "src/modules/lines.c: bounded grid-label intersection at projection seams and astrometric ICRS equatorial grid",
+    "src/eph-file.c: backward-compatible float64 catalog astrometry and double-precision unit conversion",
+    "src/modules/stars.c: preserve calibrated small parallaxes and angular proper motion when distance is unavailable",
+    "src/projections/proj_mollweide.c: convergent polar projection matching the browser inverse",
+    "src/core.c: expose actual renderer projection for independent WASM regression tests"
+  ],
+  "artifacts": [
+    {
+      "file": "stellarium-web-engine.js",
+      "bytes": 106047,
+      "sha256": "cd08d9a231e0acf7f547d6dc7b4d4bd432288d56e56f2c80202d21a38961488b"
+    },
+    {
+      "file": "stellarium-web-engine.wasm",
+      "bytes": 1204711,
+      "sha256": "0d545639ceafc38733f604e4fec63777692e34c70bb9b68c02e43564e35071c1"
+    }
+  ]
+}

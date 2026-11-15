@@ -1,0 +1,76 @@
+{
+  "version": "5.0.0",
+  "capturedAt": "2026-11-15T07:23:28.8503024Z",
+  "sourceRoot": "C:\\code\\2026 NASA Space Apps Challenge Seoul\\v5.0.0",
+  "modules": [
+    {
+      "name": "portal",
+      "source": "추가/한결/통합V2",
+      "entry": "app.js",
+      "entrySha256": "30e1d83bdda3671bf987930d7758ffb0b71f80e453f22973c902deb77ec2fed8",
+      "destination": "apps/portal",
+      "snapshot": "local-files; uncommitted changes may exist"
+    },
+    {
+      "name": "analysis",
+      "source": "추가/한결/통합V2/analysis",
+      "entry": "src/App.tsx",
+      "entrySha256": "a678f474416104a45505b5f144e652c11aeb9915ea4b0e000900c7abf23b93cb",
+      "destination": "apps/analysis;services/observations",
+      "snapshot": "local-files; uncommitted changes may exist"
+    },
+    {
+      "name": "planetarium-ui",
+      "source": "추가/한결/통합V2/planetarium-original",
+      "entry": "src/app.js",
+      "entrySha256": "57704a03f107275ffb0d3cbf884127a7f927c662d5507789fac250adbde88d1d",
+      "destination": "apps/planetarium",
+      "snapshot": "local-files; uncommitted changes may exist"
+    },
+    {
+      "name": "planetarium-precision",
+      "source": "중선/v1.2.0",
+      "entry": "engine/build-info.json",
+      "entrySha256": "524b7ebdb612fb97327830b8d5e7d39a2cb9a26f24fbaf6a6a5e9e0427420599",
+      "destination": "apps/planetarium",
+      "snapshot": "local-files; uncommitted changes may exist"
+    },
+    {
+      "name": "asteroid-viewer",
+      "source": "추가/한결/소행성3D",
+      "entry": "src/main.ts",
+      "entrySha256": "e34a727f71dc62d1296de676d458b498a266fce7eaab18ee2e1edffae04f8d2f",
+      "destination": "apps/asteroids",
+      "snapshot": "local-files; uncommitted changes may exist"
+    },
+    {
+      "name": "asteroid-science",
+      "source": "추가/지호/spherex-asteroid-analysis",
+      "entry": "src/integration/pipeline.py",
+      "entrySha256": "7db5edad8ebf2f546d9db60857407ae58bde71366f8c12c85fad1b1099285558",
+      "destination": "services/asteroids",
+      "snapshot": "local-files; uncommitted changes may exist"
+    },
+    {
+      "name": "search-only",
+      "source": "추가/경보/trueblink-live",
+      "entry": "src/core/search/search.ts",
+      "entrySha256": "8a16b048b06a5a7c0082799ed54c88363f5fd25f20e49014487b38e74c3a9460",
+      "destination": "packages/search",
+      "snapshot": "local-files; uncommitted changes may exist"
+    },
+    {
+      "name": "tutorial",
+      "source": "tutorial",
+      "entry": "content.js",
+      "entrySha256": "14b94fb2f8b5edacb88b8f10c4d3350b9db31ccea413ec0328aaa3881b9a2fa0",
+      "destination": "packages/tutorial",
+      "snapshot": "local-files; uncommitted changes may exist"
+    }
+  ],
+  "excludedApplications": [
+    "추가/경보/trueblink",
+    "추가/경보/skylab-spherex"
+  ],
+  "note": "Selected precision and science regression protections were ported; entire excluded applications were not imported."
+}

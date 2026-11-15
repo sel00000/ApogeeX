@@ -1,0 +1,108 @@
+### Result
+{
+  "initial": {
+    "frameP95": 0,
+    "drawP95": 67.19999998807907,
+    "frames": 3,
+    "calls": 19,
+    "triangles": 2068,
+    "geometries": 18,
+    "textures": 1,
+    "scheduled": false,
+    "cachedImages": 1,
+    "bytes": 131072,
+    "observation": "2025W28_1B_0525_2-D5",
+    "compositeMode": "blend",
+    "fixedSky": true,
+    "predicted": [
+      71.5670008250819,
+      69.12883378578928
+    ],
+    "mjd": 60865.887999071,
+    "playing": false,
+    "selected": "433",
+    "sequencePlaying": false,
+    "frameCount": 6
+  },
+  "second": {
+    "frameP95": 0,
+    "drawP95": 67.19999998807907,
+    "frames": 7,
+    "calls": 15,
+    "triangles": 1648,
+    "geometries": 20,
+    "textures": 1,
+    "scheduled": false,
+    "cachedImages": 2,
+    "bytes": 262144,
+    "observation": "2025W28_1B_0525_3-D5",
+    "compositeMode": "blend",
+    "fixedSky": true,
+    "predicted": [
+      71.21466337701102,
+      69.00878696355495
+    ],
+    "mjd": 60865.889509083,
+    "playing": false,
+    "selected": "433",
+    "sequencePlaying": true,
+    "frameCount": 6
+  },
+  "timings": {
+    "median": 16.699999999999818,
+    "p95": 16.700000000000728
+  },
+  "playingMetrics": {
+    "frameP95": 16.700000000000728,
+    "drawP95": 1.5999999940395355,
+    "frames": 193,
+    "calls": 19,
+    "triangles": 2068,
+    "geometries": 20,
+    "textures": 1,
+    "scheduled": false,
+    "cachedImages": 2,
+    "bytes": 262144,
+    "observation": "2025W28_1B_0525_3-D5",
+    "compositeMode": "blend",
+    "fixedSky": true,
+    "predicted": [
+      71.21466337701102,
+      69.00878696355495
+    ],
+    "mjd": 60897.222509082945,
+    "playing": false,
+    "selected": "433",
+    "sequencePlaying": false,
+    "frameCount": 6
+  },
+  "cache": {
+    "frameP95": 16.700000000000728,
+    "drawP95": 2.100000023841858,
+    "frames": 200,
+    "calls": 19,
+    "triangles": 2068,
+    "geometries": 20,
+    "textures": 1,
+    "scheduled": true,
+    "cachedImages": 8,
+    "bytes": 1048576,
+    "observation": "2025W28_1B_0537_4-D5",
+    "compositeMode": "blend",
+    "fixedSky": true,
+    "predicted": [
+      56.204271381238215,
+      56.79491136642592
+    ],
+    "mjd": 60865.9585969185,
+    "playing": false,
+    "selected": "433",
+    "sequencePlaying": false,
+    "frameCount": 6
+  },
+  "errors": []
+}
+### Ran Playwright code
+```js
+await page.evaluate('() => window.__correction');
+```

@@ -1,0 +1,63 @@
+### Result
+{
+  "objects": 17,
+  "frames": 64,
+  "maxScreenError": 0.0063391239648225226,
+  "maxSkyError": 0.000014462931216519187,
+  "maxGeometries": 20,
+  "final": {
+    "frameP95": 0,
+    "drawP95": 14.299999982118607,
+    "frames": 139,
+    "calls": 13,
+    "triangles": 2000,
+    "geometries": 20,
+    "textures": 2,
+    "scheduled": false,
+    "selectedScreen": [
+      -0.006367875328185201,
+      -0.007523646413791688,
+      0.9994222022583946
+    ],
+    "observer": true,
+    "flying": false,
+    "photoVisible": true,
+    "photoOpacity": 0.65,
+    "cameraPosition": [
+      1.00280142467756,
+      -0.05769122111472996,
+      0.00001486406052660702
+    ],
+    "cameraQuaternion": [
+      0.7175499171657864,
+      0.012401133503159103,
+      0.02994708032780113,
+      0.6957524708134711
+    ],
+    "cameraFov": 0.1819963202772794,
+    "overlayErrorPixels": 0.000014430142241496704,
+    "screenAlignmentError": 0.00031464386728782394,
+    "controlsEnabled": false,
+    "imageMeshErrorPixels": 0.00005624037611252487,
+    "photoVertices": 289,
+    "cachedImages": 8,
+    "bytes": 379744,
+    "observation": "2025W38_2C_0242_2-D1",
+    "compositeMode": "photo",
+    "fixedSky": false,
+    "predicted": [
+      34.11955250936101,
+      34.91387843067764
+    ],
+    "mjd": 60937.756765819,
+    "playing": false,
+    "selected": "10",
+    "sequencePlaying": false,
+    "frameCount": 1
+  },
+  "mobileError": 0.0001829324809814021
+}
+### Ran Playwright code
+```js
+await page.evaluate('() => window.__alignmentResult');
+```

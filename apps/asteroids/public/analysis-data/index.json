@@ -1,0 +1,376 @@
+{
+  "schema": "spherex-asteroid-web-1",
+  "generatedAt": "2026-11-15T09:11:16.262Z",
+  "targets": [
+    {
+      "id": "10",
+      "objectId": "10",
+      "numberedId": "10",
+      "aliases": [
+        "10",
+        "10 Hygiea (A849 GA)"
+      ],
+      "runId": "saved-aba7b8ee26cbb639a1ff",
+      "name": "10 Hygiea (A849 GA)",
+      "analysisTimestamp": "2026-11-15T03:14:17+00:00",
+      "nSpectralPoints": 263,
+      "confidence": "Low",
+      "quality": "Complete",
+      "detail": "10/result.json"
+    },
+    {
+      "id": "16",
+      "objectId": "16",
+      "numberedId": "16",
+      "aliases": [
+        "16",
+        "16 Psyche (A852 FA)"
+      ],
+      "runId": "saved-bf40188f99938ef4100b",
+      "name": "16 Psyche (A852 FA)",
+      "analysisTimestamp": "2026-11-15T04:23:23+00:00",
+      "nSpectralPoints": 295,
+      "confidence": "Low",
+      "quality": "Complete",
+      "detail": "16/result.json"
+    },
+    {
+      "id": "64",
+      "objectId": "64",
+      "numberedId": "64",
+      "aliases": [
+        "64",
+        "64 Angelina (A861 EA)"
+      ],
+      "runId": "saved-a922cdd6fe0f8ee25500",
+      "name": "64 Angelina (A861 EA)",
+      "analysisTimestamp": "2026-11-15T02:51:44+00:00",
+      "nSpectralPoints": 367,
+      "confidence": "Low",
+      "quality": "Partial",
+      "detail": "64/result.json"
+    },
+    {
+      "id": "69",
+      "objectId": "69",
+      "numberedId": "69",
+      "aliases": [
+        "69",
+        "69 Hesperia (A861 HC)"
+      ],
+      "runId": "saved-3847d9358e5cfbd61686",
+      "name": "69 Hesperia (A861 HC)",
+      "analysisTimestamp": "2026-11-15T02:47:59+00:00",
+      "nSpectralPoints": 266,
+      "confidence": "Low",
+      "quality": "Partial",
+      "detail": "69/result.json"
+    },
+    {
+      "id": "92",
+      "objectId": "92",
+      "numberedId": "92",
+      "aliases": [
+        "92",
+        "92 Undina (A867 NA)"
+      ],
+      "runId": "saved-897a398f7b17ab5b1683",
+      "name": "92 Undina (A867 NA)",
+      "analysisTimestamp": "2026-11-15T02:49:31+00:00",
+      "nSpectralPoints": 350,
+      "confidence": "Low",
+      "quality": "Partial",
+      "detail": "92/result.json"
+    },
+    {
+      "id": "96",
+      "objectId": "96",
+      "numberedId": "96",
+      "aliases": [
+        "96",
+        "96 Aegle (A868 DA)"
+      ],
+      "runId": "saved-87e814b55de272920dea",
+      "name": "96 Aegle (A868 DA)",
+      "analysisTimestamp": "2026-11-15T02:43:12+00:00",
+      "nSpectralPoints": 459,
+      "confidence": "Low",
+      "quality": "Partial",
+      "detail": "96/result.json"
+    },
+    {
+      "id": "216",
+      "objectId": "216",
+      "numberedId": "216",
+      "aliases": [
+        "216",
+        "216 Kleopatra (A880 GB)"
+      ],
+      "runId": "saved-5191b8e6e78a8f424fef",
+      "name": "216 Kleopatra (A880 GB)",
+      "analysisTimestamp": "2026-11-15T04:23:59+00:00",
+      "nSpectralPoints": 406,
+      "confidence": "Low",
+      "quality": "Partial",
+      "detail": "216/result.json"
+    },
+    {
+      "id": "221",
+      "objectId": "221",
+      "numberedId": "221",
+      "aliases": [
+        "221",
+        "221 Eos (A882 BA)"
+      ],
+      "runId": "saved-fb01f25ca01a1c573247",
+      "name": "221 Eos (A882 BA)",
+      "analysisTimestamp": "2026-11-15T02:45:20+00:00",
+      "nSpectralPoints": 310,
+      "confidence": "Low",
+      "quality": "Partial",
+      "detail": "221/result.json"
+    },
+    {
+      "id": "236",
+      "objectId": "236",
+      "numberedId": "236",
+      "aliases": [
+        "236",
+        "236 Honoria (A884 HA)"
+      ],
+      "runId": "saved-a38415fcc8a34b12f743",
+      "name": "236 Honoria (A884 HA)",
+      "analysisTimestamp": "2026-11-15T02:38:45+00:00",
+      "nSpectralPoints": 359,
+      "confidence": "Low",
+      "quality": "Partial",
+      "detail": "236/result.json"
+    },
+    {
+      "id": "246",
+      "objectId": "246",
+      "numberedId": "246",
+      "aliases": [
+        "246",
+        "246 Asporina (A885 EA)"
+      ],
+      "runId": "saved-777d4479240770614c8b",
+      "name": "246 Asporina (A885 EA)",
+      "analysisTimestamp": "2026-11-15T02:40:18+00:00",
+      "nSpectralPoints": 282,
+      "confidence": "Low",
+      "quality": "Partial",
+      "detail": "246/result.json"
+    },
+    {
+      "id": "308",
+      "objectId": "308",
+      "numberedId": "308",
+      "aliases": [
+        "308",
+        "308 Polyxo (A891 FA)"
+      ],
+      "runId": "saved-b482621de7c43ac6d94e",
+      "name": "308 Polyxo (A891 FA)",
+      "analysisTimestamp": "2026-11-15T02:40:13+00:00",
+      "nSpectralPoints": 257,
+      "confidence": "Low",
+      "quality": "Partial",
+      "detail": "308/result.json"
+    },
+    {
+      "id": "387",
+      "objectId": "387",
+      "numberedId": "387",
+      "aliases": [
+        "387",
+        "387 Aquitania (A894 EC)"
+      ],
+      "runId": "saved-fe8f872f9a03a921abaa",
+      "name": "387 Aquitania (A894 EC)",
+      "analysisTimestamp": "2026-11-15T02:48:07+00:00",
+      "nSpectralPoints": 252,
+      "confidence": "Low",
+      "quality": "Partial",
+      "detail": "387/result.json"
+    },
+    {
+      "id": "433",
+      "objectId": "433",
+      "numberedId": "433",
+      "aliases": [
+        "433",
+        "433 Eros (A898 PA)"
+      ],
+      "runId": "saved-17708f339d6c9e17b311",
+      "name": "433 Eros (A898 PA)",
+      "analysisTimestamp": "2026-11-15T04:22:54+00:00",
+      "nSpectralPoints": 191,
+      "confidence": "Low",
+      "quality": "Complete",
+      "detail": "433/result.json"
+    },
+    {
+      "id": "579",
+      "objectId": "579",
+      "numberedId": "579",
+      "aliases": [
+        "579",
+        "579 Sidonia (A905 VK)"
+      ],
+      "runId": "saved-2bf682988457768c4daa",
+      "name": "579 Sidonia (A905 VK)",
+      "analysisTimestamp": "2026-11-15T02:46:47+00:00",
+      "nSpectralPoints": 285,
+      "confidence": "Low",
+      "quality": "Partial",
+      "detail": "579/result.json"
+    },
+    {
+      "id": "596",
+      "objectId": "596",
+      "numberedId": "596",
+      "aliases": [
+        "596",
+        "596 Scheila (A906 DL)"
+      ],
+      "runId": "saved-39b861e24b9229fb0f44",
+      "name": "596 Scheila (A906 DL)",
+      "analysisTimestamp": "2026-11-15T02:42:15+00:00",
+      "nSpectralPoints": 280,
+      "confidence": "Low",
+      "quality": "Partial",
+      "detail": "596/result.json"
+    },
+    {
+      "id": "624",
+      "objectId": "624",
+      "numberedId": "624",
+      "aliases": [
+        "624",
+        "624 Hektor (A907 CF)"
+      ],
+      "runId": "saved-028e52b7f19a1dac7a42",
+      "name": "624 Hektor (A907 CF)",
+      "analysisTimestamp": "2026-11-15T02:41:29+00:00",
+      "nSpectralPoints": 273,
+      "confidence": "Low",
+      "quality": "Partial",
+      "detail": "624/result.json"
+    },
+    {
+      "id": "653",
+      "objectId": "653",
+      "numberedId": "653",
+      "aliases": [
+        "653",
+        "653 Berenike (A907 WC)"
+      ],
+      "runId": "saved-96861b4b89c61c3ca640",
+      "name": "653 Berenike (A907 WC)",
+      "analysisTimestamp": "2026-11-15T02:50:07+00:00",
+      "nSpectralPoints": 195,
+      "confidence": "Low",
+      "quality": "Partial",
+      "detail": "653/result.json"
+    },
+    {
+      "id": "729",
+      "objectId": "729",
+      "numberedId": "729",
+      "aliases": [
+        "729",
+        "729 Watsonia (A912 CE)"
+      ],
+      "runId": "saved-206123975ddf1d4f04a4",
+      "name": "729 Watsonia (A912 CE)",
+      "analysisTimestamp": "2026-11-15T02:38:23+00:00",
+      "nSpectralPoints": 321,
+      "confidence": "Low",
+      "quality": "Partial",
+      "detail": "729/result.json"
+    },
+    {
+      "id": "2045",
+      "objectId": "2045",
+      "numberedId": "2045",
+      "aliases": [
+        "2045",
+        "2045 Peking (1964 TB1)"
+      ],
+      "runId": "saved-7bd101b4a4cdaa66be55",
+      "name": "2045 Peking (1964 TB1)",
+      "analysisTimestamp": "2026-11-15T02:44:22+00:00",
+      "nSpectralPoints": 227,
+      "confidence": "Low",
+      "quality": "Partial",
+      "detail": "2045/result.json"
+    },
+    {
+      "id": "2566",
+      "objectId": "2566",
+      "numberedId": "2566",
+      "aliases": [
+        "2566",
+        "2566 Kirghizia (1979 FR2)"
+      ],
+      "runId": "saved-267ba7472b198997df10",
+      "name": "2566 Kirghizia (1979 FR2)",
+      "analysisTimestamp": "2026-11-15T02:49:05+00:00",
+      "nSpectralPoints": 213,
+      "confidence": "Medium",
+      "quality": "Partial",
+      "detail": "2566/result.json"
+    },
+    {
+      "id": "2851",
+      "objectId": "2851",
+      "numberedId": "2851",
+      "aliases": [
+        "2851",
+        "2851 Harbin (1978 UQ2)"
+      ],
+      "runId": "saved-21fee3e54191dacf503a",
+      "name": "2851 Harbin (1978 UQ2)",
+      "analysisTimestamp": "2026-11-15T02:46:21+00:00",
+      "nSpectralPoints": 355,
+      "confidence": "Low",
+      "quality": "Partial",
+      "detail": "2851/result.json"
+    },
+    {
+      "id": "35107",
+      "objectId": "35107",
+      "numberedId": "35107",
+      "aliases": [
+        "35107",
+        "35107 (1991 VH)"
+      ],
+      "runId": "saved-3e27ddd658176cf52cca",
+      "name": "35107 (1991 VH)",
+      "analysisTimestamp": "2026-11-15T02:45:53+00:00",
+      "nSpectralPoints": 672,
+      "confidence": "Low",
+      "quality": "Partial",
+      "detail": "35107/result.json"
+    },
+    {
+      "id": "A913_SF",
+      "objectId": "A913 SF",
+      "numberedId": "764",
+      "aliases": [
+        "A913_SF",
+        "A913 SF",
+        "764",
+        "764 Gedania (A913 SF)"
+      ],
+      "runId": "saved-20f32746bd76673f70ed",
+      "name": "764 Gedania (A913 SF)",
+      "analysisTimestamp": "2026-11-15T02:39:54+00:00",
+      "nSpectralPoints": 315,
+      "confidence": "Low",
+      "quality": "Partial",
+      "detail": "A913_SF/result.json"
+    }
+  ]
+}

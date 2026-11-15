@@ -1,0 +1,97 @@
+{
+  "version": "5.0.0",
+  "verifiedAt": "2026-11-15T08:12:45.2626502Z",
+  "location": "C:\\code\\2026 NASA Space Apps Challenge Seoul\\v5.0.0",
+  "method": "Each module suite passed; affected suites rerun after fixes. Counts exclude repeated checks.",
+  "build": {
+    "mebibytes": 356.7,
+    "files": 3299,
+    "status": "passed"
+  },
+  "suites": [
+    {
+      "passed": 24,
+      "skipped": 1,
+      "name": "contracts-and-gateway"
+    },
+    {
+      "passed": 51,
+      "skipped": 0,
+      "name": "search"
+    },
+    {
+      "passed": 49,
+      "skipped": 0,
+      "name": "tutorial"
+    },
+    {
+      "passed": 68,
+      "skipped": 0,
+      "name": "portal"
+    },
+    {
+      "passed": 90,
+      "skipped": 0,
+      "name": "planetarium"
+    },
+    {
+      "passed": 131,
+      "skipped": 0,
+      "name": "analysis-ui"
+    },
+    {
+      "passed": 27,
+      "skipped": 0,
+      "name": "asteroid-ui"
+    },
+    {
+      "passed": 4,
+      "skipped": 0,
+      "name": "asteroid-scene-node"
+    },
+    {
+      "passed": 18,
+      "skipped": 0,
+      "name": "observation-service"
+    },
+    {
+      "passed": 16,
+      "skipped": 0,
+      "name": "asteroid-scene-python"
+    },
+    {
+      "passed": 216,
+      "skipped": 10,
+      "name": "asteroid-science-python"
+    }
+  ],
+  "passed": 694,
+  "skipped": 11,
+  "failed": 0,
+  "skipReasons": [
+    "1 Windows symlink fixture requires unavailable creation privilege",
+    "8 Python live archive queries require --run-network",
+    "2 legacy Streamlit dashboard tests require a separate runtime database"
+  ],
+  "browserChecks": [
+    "Fresh visit opens tutorial; skip and topic replay work",
+    "Korean Sirius search opens matching ICRS sky position",
+    "Normal star click selects information without analysis",
+    "Region pick passes exact ICRS coordinates and 0.05-degree field",
+    "Real observation search starts; cancellation returns cancelled",
+    "Prepared Epsilon Indi B data and researcher spectrum practice open",
+    "23 prepared asteroid results; 14 browser checks passed without runtime errors",
+    "Final fresh sky starts with ground enabled, current time and realtime 1x"
+  ],
+  "localServices": {
+    "health": "ok",
+    "observations": true,
+    "asteroidAnalysis": "ready"
+  },
+  "limits": [
+    "No new full NASA archive download and end-to-end science run was completed",
+    "No new full external-data 3D generation was completed",
+    "Scene generation currently accepts 2025-2026 observing dates"
+  ],
+  "originals": ".archive/pre-integration-20261115-170139"
+}

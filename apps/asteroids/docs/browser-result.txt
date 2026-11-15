@@ -1,0 +1,61 @@
+### Result
+{
+  "initial": {
+    "frameP95": 0,
+    "drawP95": 40.900000005960464,
+    "frames": 2,
+    "calls": 17,
+    "triangles": 2068,
+    "geometries": 16,
+    "textures": 1,
+    "scheduled": false,
+    "cachedImages": 1,
+    "bytes": 19600,
+    "observation": "2025W27_1A_0349_4-D1",
+    "mjd": 60857.80578752,
+    "playing": false,
+    "selected": "433"
+  },
+  "paused": {
+    "frameP95": 16.700000000000273,
+    "drawP95": 1.0999999940395355,
+    "frames": 248,
+    "calls": 18,
+    "triangles": 2148,
+    "geometries": 17,
+    "textures": 1,
+    "scheduled": false,
+    "cachedImages": 1,
+    "bytes": 19600,
+    "observation": "2025W27_1A_0349_4-D1",
+    "mjd": 60898.137127519934,
+    "playing": false,
+    "selected": "433"
+  },
+  "after": {
+    "frameP95": 16.700000000000273,
+    "drawP95": 3,
+    "frames": 265,
+    "calls": 18,
+    "triangles": 2148,
+    "geometries": 17,
+    "textures": 1,
+    "scheduled": false,
+    "cachedImages": 8,
+    "bytes": 156800,
+    "observation": "2025W27_1A_0349_4-D1",
+    "mjd": 60857.80578752,
+    "playing": false,
+    "selected": "433"
+  },
+  "timings": {
+    "frameMedian": 16.699999999999818,
+    "frameP95": 16.700000000000273
+  },
+  "errors": [],
+  "browser": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/157.0.0.0 Safari/537.36"
+}
+### Ran Playwright code
+```js
+await page.evaluate('() => window.__validation');
+```

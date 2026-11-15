@@ -1,0 +1,25 @@
+{
+  "version": "5.0.0",
+  "validatedAt": "2026-11-15T08:28:10.0889794Z",
+  "checks": [
+    "npm run setup",
+    "npm run build",
+    "npm run test:web"
+  ],
+  "result": "passed",
+  "staticSite": "https://jp-feynman.github.io/stellarium-web-preview/",
+  "sourceRepository": "https://github.com/sel00000/Apogee",
+  "staticBehavior": [
+    "Prepared results, planetarium, search and tutorials are browser-accessible",
+    "New observation processing and Python asteroid jobs require a separate service or local startup"
+  ],
+  "excluded": [
+    ".archive",
+    "virtual environments",
+    "node_modules",
+    "dist",
+    "runtime files",
+    "local installation paths",
+    "raw local pytest report"
+  ]
+}

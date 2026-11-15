@@ -1,0 +1,20 @@
+node_modules/
+dist/
+.build-*/
+.previous-dist/
+.venv*/
+var/
+.archive/
+.test-work/
+__pycache__/
+.pytest_cache/
+.cache/
+*.log
+playwright-report/
+test-results/
+.env
+!.env.example
+# Public upstream source required by the Stellarium source-hash audit.
+!/apps/planetarium/vendor/stellarium-web-engine/apps/web-frontend/.env
+docs/local-install.json
+docs/asteroid-pytest.xml

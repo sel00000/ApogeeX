@@ -1,0 +1,8 @@
+# Dashboard theme, pinned so the page looks the same on every machine (not "follow the system").
+# The figures use the same colours (src/visualization/style.py), so a plot sits in the page
+# without a visible box. Change both together.
+[theme]
+base = "dark"
+backgroundColor = "#0E1117"
+secondaryBackgroundColor = "#262730"
+textColor = "#FAFAFA"

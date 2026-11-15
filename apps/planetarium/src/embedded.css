@@ -1,0 +1,14 @@
+/* Color/theme adapter only. Original Stellarium controls and layout are retained. */
+:root{--bg:#080d13;--ink:#080d13;--ivory:#eee9df;--cyan-soft:rgba(223,183,133,.11);--accent:#dfb785;--cyan:#dfb785;--text:#eee9df;--text-primary:#eee9df;font-family:-apple-system,BlinkMacSystemFont,'Apple SD Gothic Neo',sans-serif}
+.embedded body{background:#080d13}
+.embedded .brand-subtitle{color:#dfb785}
+.embedded .version-tag{display:none}
+.embedded .button-primary{background:#dfb785;border-color:#dfb785;color:#121820}
+.embedded .engine-status[data-state=ready]{color:#dfb785}
+.supplemental-observations h3{font-size:13px;font-weight:550;margin:20px 0 8px}
+.prepared-row{display:flex;gap:7px;margin:7px 0}.prepared-row button:first-child{flex:1;text-align:left}
+.reference-observation{border-top:1px solid var(--line);padding-top:15px;margin-top:15px}
+.reference-observation img{display:block;width:100%;height:125px;object-fit:cover;border-radius:7px}
+.reference-observation h4{margin:10px 0 6px;font-weight:550}.reference-observation a{display:block;font-size:11px;margin:8px 0}
+.reference-observation button{font-size:10px;margin:5px 4px 0 0}
+.selection-panel{max-height:calc(100vh - 170px);overflow:auto}

@@ -1,0 +1,64 @@
+import {chromium} from 'playwright';
+import assert from 'node:assert/strict';
+import {mkdir,writeFile} from 'node:fs/promises';
+import {fileURLToPath} from 'node:url';
+import {join} from 'node:path';
+
+const output=fileURLToPath(new URL('../verification/',import.meta.url));await mkdir(output,{recursive:true});
+const base=process.env.SPHEREX_TEST_URL||'http://127.0.0.1:4175';
+const browser=await chromium.launch({headless:true,executablePath:process.env.CHROME_PATH||'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe',args:['--use-angle=swiftshader','--enable-unsafe-swiftshader']});
+const page=await browser.newPage({viewport:{width:1440,height:1000}});page.setDefaultTimeout(45000);
+const errors=[],checks=[],requests=[];page.on('pageerror',error=>errors.push(error.message));page.on('request',request=>requests.push(request.url()));
+const check=(name,value)=>{assert.ok(value,name);checks.push(name);};
+try{
+ await page.goto(base+'/asteroids/?embed=1&target=433');
+ await page.locator('#result-content .result-heading h2').filter({hasText:'Eros'}).waitFor();
+ check('23 prepared scientific results',await page.locator('#research-target option').count()===24);
+ check('3D engine is lazy until orbit entry',!requests.some(url=>/\/orbit-[^/]+\.js/.test(url)));
+ check('distinct diameter definitions',await page.locator('#result-content table tbody tr').count()===5);
+ check('density hold and uncertainty visible',(await page.locator('#result-content').innerText()).includes('판정 보류'));
+ await page.locator('.plot-grid img').evaluateAll(images=>images.forEach(image=>image.loading='eager'));
+ await page.waitForFunction(()=>[...document.querySelectorAll('.plot-grid img')].every(image=>image.complete&&image.naturalWidth>0));
+ check('all five scientific figures decode successfully',await page.locator('.plot-grid img').count()===5);
+ await page.screenshot({path:join(output,'asteroid-research.png'),fullPage:true});
+ await page.getByRole('button',{name:'궤도 · 관측 3D',exact:true}).click();
+ await page.waitForFunction(()=>window.__app?.metrics().selected==='433'&&document.querySelector('#image-status')?.textContent?.includes('실제 SPHEREx'));
+ await page.evaluate(()=>window.__app.showObservation(1));
+ const selected=await page.evaluate(()=>window.__app.metrics());
+ check('Eros orbit and real observation opened',selected.frameCount>1);
+ await page.getByRole('button',{name:'분석 결과 · 새 분석',exact:true}).click();
+ await page.waitForFunction(()=>!window.__app.metrics().scheduled);
+ const frames=await page.evaluate(()=>window.__app.metrics().frames);
+ await page.waitForTimeout(400);
+ check('inactive 3D stops render loop',await page.evaluate(()=>window.__app.metrics().frames)===frames);
+ await page.getByRole('button',{name:'궤도 · 관측 3D',exact:true}).click();
+ const restored=await page.evaluate(()=>window.__app.metrics());
+ check('tab return preserves exposure time',Math.abs(restored.mjd-selected.mjd)<1e-8);
+ await page.screenshot({path:join(output,'asteroid-orbit.png'),fullPage:true});
+ await page.goto(base+'/asteroids/?embed=1&target=764');
+ await page.locator('#result-content .result-heading h2').filter({hasText:'Gedania'}).waitFor();
+ check('numbered alias joins provisional scientific ID',await page.locator('#research-target').inputValue()==='A913_SF');
+ await page.getByRole('button',{name:'궤도 · 관측 3D',exact:true}).click();
+ await page.waitForFunction(()=>window.__app?.metrics().selected==='764');
+ check('alias opens corresponding 764 orbit',true);
+ await page.goto(base+'/asteroids/?embed=1&target=NOT-A-PREPARED-TARGET&tab=orbit');
+ await page.getByRole('heading',{name:'이 대상의 3D 자료를 열 수 없습니다.'}).waitFor();
+ check('unknown target does not display Eros as substitute',await page.locator('#scene canvas').count()===0);
+ await page.goto(base+'/asteroids/?embed=1&target=433');
+ await page.locator('#result-content .result-heading h2').filter({hasText:'Eros'}).waitFor();
+ await page.setViewportSize({width:390,height:844});
+ check('mobile research has no horizontal overflow',await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));
+ await page.screenshot({path:join(output,'asteroid-research-mobile.png'),fullPage:true});
+ // Fixture job proves no-data state and late status handling without running an expensive archive job.
+ const id='00000000-0000-0000-0000-000000000001';let job={id,status:'running',target:'433',start:'2025-06-01',end:'2025-08-01',maxImages:120,logs:['Browser test fixture, no archive call'],scene:{status:'not_started'}};
+ await page.route('**/api/asteroid-analysis/capabilities',route=>route.fulfill({json:{available:true,maxImages:360}}));
+ await page.route('**/api/asteroid-analysis/jobs',route=>route.fulfill({status:202,json:job}));
+ await page.route('**/api/asteroid-analysis/jobs/'+id,route=>route.fulfill({json:{...job,status:'no_data',error:'선택한 기간에 관측 없음'}}));
+ await page.reload();await page.locator('#job-submit').waitFor();await page.waitForFunction(()=>!document.querySelector('#job-submit').disabled);
+ await page.locator('#job-submit').click();await page.locator('#job-status').filter({hasText:'관측 자료 없음'}).waitFor();
+ check('no-data is a terminal scientific status',await page.locator('#job-cancel').isHidden());
+ check('no browser runtime errors',errors.length===0);
+ await writeFile(join(output,'workspace-browser.json'),JSON.stringify({checks,errors,browser:await browser.version(),base,generatedAt:new Date().toISOString()},null,2));
+ console.log(JSON.stringify({passed:checks.length,checks,errors},null,2));
+}catch(error){await page.screenshot({path:join(output,'asteroid-failure.png'),fullPage:true}).catch(()=>{});console.error(JSON.stringify({checks,errors,failure:error.message},null,2));throw error;}
+finally{await browser.close();}

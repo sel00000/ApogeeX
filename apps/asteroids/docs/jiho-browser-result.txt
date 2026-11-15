@@ -1,0 +1,119 @@
+### Result
+{
+  "summary": [
+    {
+      "id": "64",
+      "frames": 6,
+      "screenError": 0.002079135716471636,
+      "motionPixels": 0.20398551118141123
+    },
+    {
+      "id": "216",
+      "frames": 5,
+      "screenError": 0.0014138002653405056,
+      "motionPixels": 0.09772955980249895
+    },
+    {
+      "id": "596",
+      "frames": 5,
+      "screenError": 0.002246620054990804,
+      "motionPixels": 0.16702963892217643
+    },
+    {
+      "id": "2566",
+      "frames": 3,
+      "screenError": 0.003257253460968568,
+      "motionPixels": 10.19234194532308
+    },
+    {
+      "id": "35107",
+      "frames": 2,
+      "screenError": 0.008085472581090257,
+      "motionPixels": 0.6541465597567159
+    }
+  ],
+  "all": {
+    "objects": 23,
+    "frames": 98,
+    "maxScreenError": 0.008085472581090257,
+    "maxSkyError": 0.000014430142241496704,
+    "maxGeometries": 20,
+    "maxTextures": 3,
+    "maxCached": 8
+  },
+  "timings": {
+    "median": 16.69999999999891,
+    "p95": 16.799999999999272
+  },
+  "stopped": {
+    "frameP95": 16.799999999999272,
+    "drawP95": 1,
+    "frames": 344,
+    "calls": 18,
+    "triangles": 2268,
+    "geometries": 20,
+    "textures": 3,
+    "scheduled": false,
+    "selectedScreen": [
+      -0.15629854931115547,
+      0.33583604046275417,
+      0.9998613223944752
+    ],
+    "observer": false,
+    "flying": false,
+    "photoVisible": false,
+    "photoOpacity": 0.65,
+    "trailVisible": false,
+    "sharedTrailGeometry": true,
+    "cameraPosition": [
+      0,
+      -8.999999999999996,
+      6.999999999999998
+    ],
+    "cameraQuaternion": [
+      0.43935144615960897,
+      0,
+      0,
+      0.8983152602274216
+    ],
+    "cameraFov": 44.99999999999999,
+    "overlayErrorPixels": null,
+    "screenAlignmentError": null,
+    "controlsEnabled": true,
+    "imageMeshErrorPixels": 0.00005300178517163851,
+    "photoVertices": 289,
+    "cachedImages": 8,
+    "bytes": 825632,
+    "observation": "2026W11_2A_0576_1-D2",
+    "compositeMode": "photo",
+    "fixedSky": false,
+    "predicted": [
+      34.707222624782474,
+      34.33506554130446
+    ],
+    "trailEnabled": true,
+    "trailPoints": [
+      {
+        "id": "2026W11_2A_0576_1-D2",
+        "objectId": "10",
+        "mjd": 61114.464250981,
+        "order": 2,
+        "x": 34.70722263997548,
+        "y": 34.33506556684258,
+        "inside": true
+      }
+    ],
+    "trailCurrent": "2026W11_2A_0576_1-D2",
+    "mjd": 61144.46259098093,
+    "playing": false,
+    "selected": "10",
+    "sequencePlaying": false,
+    "frameCount": 2
+  },
+  "errors": [],
+  "remoteDataRequests": []
+}
+### Ran Playwright code
+```js
+await page.evaluate('() => window.__catalogRefresh');
+```

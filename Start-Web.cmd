@@ -1,0 +1,9 @@
+@echo off
+setlocal
+cd /d "%~dp0"
+call npm.cmd start
+if errorlevel 1 (
+  echo.
+  echo The site could not start. Check the error above.
+  pause
+)

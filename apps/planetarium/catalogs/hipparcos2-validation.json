@@ -1,0 +1,560 @@
+{
+  "schemaVersion": 1,
+  "purpose": "Independent PyERFA reference for native EPH-loaded HIP2 stars, including proper motion and usable parallax.",
+  "source": {
+    "file": "catalogs/hipparcos2-astrometry.tsv.gz",
+    "sha256": "9af8b4ca144d24d2ec41cb151516c06b52eb1e09b788b55077bb82abb5217938",
+    "url": "https://cdsarc.cds.unistra.fr/viz-bin/cat/I/311",
+    "table": "I/311/hip2",
+    "reference": "2007A&A...474..653V",
+    "units": "VizieR RArad/DErad columns exported in DEGREES; Plx mas; pmRA=mu_alpha*cos(delta) mas/yr; epoch J1991.25"
+  },
+  "generator": "scripts/generate-hipparcos-validation.py",
+  "versions": {
+    "astropy": "8.0.2",
+    "pyerfa": "2.0.1.5",
+    "numpy": "2.5.4"
+  },
+  "observer": {
+    "latitudeDeg": 37.5665,
+    "longitudeDeg": 126.978,
+    "elevationM": 0
+  },
+  "conventions": {
+    "dut1Seconds": 0,
+    "polarMotionRadians": [
+      0,
+      0
+    ],
+    "pressureHpa": 0,
+    "radialVelocityKmS": 0,
+    "nonpositiveParallax": "angular proper motion only; no annual parallax",
+    "apparentFrame": "GCRS proper direction without BPN; called ICRF by bundled Stellarium",
+    "futureDates": "UTC/TT follows currently installed ERFA leap-second table; not a forecast of future leap seconds"
+  },
+  "oracleWarnings": [
+    "ERFA function \"apco13\" yielded 1 of \"dubious year (Note 2)\"",
+    "ERFA function \"dtf2d\" yielded 1 of \"dubious year (Note 6)\"",
+    "ERFA function \"utctai\" yielded 1 of \"dubious year (Note 3)\""
+  ],
+  "stars": [
+    {
+      "hip": 91262,
+      "name": "Vega",
+      "reason": "bright reference",
+      "ra": 279.23410825,
+      "dec": 38.78299326,
+      "parallaxMas": 130.23,
+      "pmRaCosDecMasYr": 200.94,
+      "pmDecMasYr": 286.23,
+      "catalogFrame": "ICRS",
+      "catalogEpoch": "J1991.25",
+      "epochMjd": 48348.5625,
+      "modelEpoch": 1991.2510906221546
+    },
+    {
+      "hip": 32349,
+      "name": "Sirius",
+      "reason": "bright reference, high proper motion",
+      "ra": 101.28854105,
+      "dec": -16.71314306,
+      "parallaxMas": 379.21,
+      "pmRaCosDecMasYr": -546.01,
+      "pmDecMasYr": -1223.07,
+      "catalogFrame": "ICRS",
+      "catalogEpoch": "J1991.25",
+      "epochMjd": 48348.5625,
+      "modelEpoch": 1991.2510906221546
+    },
+    {
+      "hip": 11767,
+      "name": "Polaris",
+      "reason": "bright reference near celestial pole",
+      "ra": 37.946143,
+      "dec": 89.26413778,
+      "parallaxMas": 7.54,
+      "pmRaCosDecMasYr": 44.48,
+      "pmDecMasYr": -11.85,
+      "catalogFrame": "ICRS",
+      "catalogEpoch": "J1991.25",
+      "epochMjd": 48348.5625,
+      "modelEpoch": 1991.2510906221546
+    },
+    {
+      "hip": 74745,
+      "name": "HIP 74745",
+      "reason": "zero measured parallax, nonzero proper motion",
+      "ra": 229.13484803,
+      "dec": -39.56092649,
+      "parallaxMas": 0.0,
+      "pmRaCosDecMasYr": 9.0,
+      "pmDecMasYr": -7.07,
+      "catalogFrame": "ICRS",
+      "catalogEpoch": "J1991.25",
+      "epochMjd": 48348.5625,
+      "modelEpoch": 1991.2510906221546
+    },
+    {
+      "hip": 63081,
+      "name": "HIP 63081",
+      "reason": "negative measured parallax, high proper motion",
+      "ra": 193.87646398,
+      "dec": 11.49589619,
+      "parallaxMas": -149.66,
+      "pmRaCosDecMasYr": -195.45,
+      "pmDecMasYr": -17.7,
+      "catalogFrame": "ICRS",
+      "catalogEpoch": "J1991.25",
+      "epochMjd": 48348.5625,
+      "modelEpoch": 1991.2510906221546
+    },
+    {
+      "hip": 49751,
+      "name": "HIP 49751",
+      "reason": "small positive parallax below 2 mas",
+      "ra": 152.34169867,
+      "dec": -61.54919758,
+      "parallaxMas": 1.83,
+      "pmRaCosDecMasYr": -93.43,
+      "pmDecMasYr": 77.31,
+      "catalogFrame": "ICRS",
+      "catalogEpoch": "J1991.25",
+      "epochMjd": 48348.5625,
+      "modelEpoch": 1991.2510906221546
+    }
+  ],
+  "cases": [
+    {
+      "hip": 91262,
+      "star": "Vega",
+      "utc": "2000-01-01T12:00:00Z",
+      "utcMjd": 51544.5,
+      "ttMjd": 51544.50074287037,
+      "ra": 279.23473663912284,
+      "dec": 38.783657674283,
+      "astrometricVector": [
+        0.12509654335341627,
+        -0.7694134614274248,
+        0.6263814973443066,
+        0
+      ],
+      "apparentVector": [
+        0.1249968834844938,
+        -0.769433098781956,
+        0.6263772709940556,
+        0
+      ],
+      "apparentRa": 279.2272748119204,
+      "apparentDec": 38.78334703113995,
+      "correctionArcsec": 20.969713698393385
+    },
+    {
+      "hip": 32349,
+      "star": "Sirius",
+      "utc": "2000-01-01T12:00:00Z",
+      "utcMjd": 51544.5,
+      "ttMjd": 51544.50074287037,
+      "ra": 101.28715455628627,
+      "dec": -16.716181898462246,
+      "astrometricVector": [
+        -0.18745515119817308,
+        0.9392172062356832,
+        -0.2876310237093839,
+        0
+      ],
+      "apparentVector": [
+        -0.1875543010847832,
+        0.9391957071601595,
+        -0.287636589808262,
+        0
+      ],
+      "apparentRa": 101.29322310621741,
+      "apparentDec": -16.71651488426227,
+      "correctionArcsec": 20.95785608595364
+    },
+    {
+      "hip": 11767,
+      "star": "Polaris",
+      "utc": "2000-01-01T12:00:00Z",
+      "utcMjd": 51544.5,
+      "ttMjd": 51544.50074287037,
+      "ra": 37.954428409280524,
+      "dec": 89.2641097949711,
+      "astrometricVector": [
+        0.010126986930768677,
+        0.007899105961853146,
+        0.9999175207289387,
+        0
+      ],
+      "apparentVector": [
+        0.01002681048731763,
+        0.007883239405265828,
+        0.9999186554955011,
+        0
+      ],
+      "apparentRa": 38.17499789355659,
+      "apparentDec": 89.26918966026052,
+      "correctionArcsec": 20.921754746824412
+    },
+    {
+      "hip": 74745,
+      "star": "HIP 74745",
+      "utc": "2000-01-01T12:00:00Z",
+      "utcMjd": 51544.5,
+      "ttMjd": 51544.50074287037,
+      "ra": 229.13487640417992,
+      "dec": -39.56094367402833,
+      "astrometricVector": [
+        -0.5044160381061191,
+        -0.5830305462844587,
+        -0.6368986124969751,
+        0
+      ],
+      "apparentVector": [
+        -0.504483790505146,
+        -0.5830088523773315,
+        -0.6368648076061566,
+        0
+      ],
+      "apparentRa": 229.13001377892581,
+      "apparentDec": -39.55843138582062,
+      "correctionArcsec": 16.246262320667714
+    },
+    {
+      "hip": 63081,
+      "star": "HIP 63081",
+      "utc": "2000-01-01T12:00:00Z",
+      "utcMjd": 51544.5,
+      "ttMjd": 51544.50074287037,
+      "ra": 193.87597920275368,
+      "dec": 11.49585316875614,
+      "astrometricVector": [
+        -0.9513416755520228,
+        -0.23501003757946162,
+        0.19929701100310046,
+        0
+      ],
+      "apparentVector": [
+        -0.9513490111802503,
+        -0.23500301077502256,
+        0.19927027839854775,
+        0
+      ],
+      "apparentRa": 193.87547748667788,
+      "apparentDec": 11.494290152117289,
+      "correctionArcsec": 5.8986670364359695
+    },
+    {
+      "hip": 49751,
+      "star": "HIP 49751",
+      "utc": "2000-01-01T12:00:00Z",
+      "utcMjd": 51544.5,
+      "ttMjd": 51544.50074287037,
+      "ra": 152.34122274937394,
+      "dec": -61.549010022447696,
+      "astrometricVector": [
+        -0.42196681595477986,
+        0.22115040199128688,
+        -0.8792249461497763,
+        0
+      ],
+      "apparentVector": [
+        -0.4220480129980371,
+        0.22112448508033525,
+        -0.8791924913364337,
+        0
+      ],
+      "apparentRa": 152.3485156818169,
+      "apparentDec": -61.54510704137015,
+      "correctionArcsec": 18.8119395116968
+    },
+    {
+      "hip": 91262,
+      "star": "Vega",
+      "utc": "2026-11-14T12:00:00Z",
+      "utcMjd": 61358.5,
+      "ttMjd": 61358.50080074074,
+      "ra": 279.2366255297001,
+      "dec": 38.78580298169926,
+      "astrometricVector": [
+        0.12511814417194417,
+        -0.7693861870666263,
+        0.6264106840963417,
+        0
+      ],
+      "apparentVector": [
+        0.1250433615200149,
+        -0.7693587268953788,
+        0.6264593419286656,
+        0
+      ],
+      "apparentRa": 279.231523713171,
+      "apparentDec": 38.78937961116696,
+      "correctionArcsec": 19.254674036903655
+    },
+    {
+      "hip": 32349,
+      "star": "Sirius",
+      "utc": "2026-11-14T12:00:00Z",
+      "utcMjd": 61358.5,
+      "ttMjd": 61358.50080074074,
+      "ra": 101.28298125905417,
+      "dec": -16.72529274786128,
+      "astrometricVector": [
+        -0.1873777890834526,
+        0.9391859922110194,
+        -0.2877833146532306,
+        0
+      ],
+      "apparentVector": [
+        -0.18744586113027736,
+        0.9391853066701197,
+        -0.2877412185976874,
+        0
+      ],
+      "apparentRa": 101.28698304726136,
+      "apparentDec": -16.72277429573694,
+      "correctionArcsec": 16.5093704356474
+    },
+    {
+      "hip": 11767,
+      "star": "Polaris",
+      "utc": "2026-11-14T12:00:00Z",
+      "utcMjd": 61358.5,
+      "ttMjd": 61358.50080074074,
+      "ra": 37.98037559145884,
+      "dec": 89.26402231571996,
+      "astrometricVector": [
+        0.010124612031799483,
+        0.007904630799969784,
+        0.9999175011185281,
+        0
+      ],
+      "apparentVector": [
+        0.010044720704935945,
+        0.007961780082540053,
+        0.9999178534479106,
+        0
+      ],
+      "apparentRa": 38.40151533526044,
+      "apparentDec": 89.26559559504963,
+      "correctionArcsec": 20.261030588869982
+    },
+    {
+      "hip": 74745,
+      "star": "HIP 74745",
+      "utc": "2026-11-14T12:00:00Z",
+      "utcMjd": 61358.5,
+      "ttMjd": 61358.50080074074,
+      "ra": 229.1349635349262,
+      "dec": -39.56099644223106,
+      "astrometricVector": [
+        -0.5044147676992342,
+        -0.5830308697629145,
+        -0.6368993225231341,
+        0
+      ],
+      "apparentVector": [
+        -0.5044987838602347,
+        -0.5829785753924193,
+        -0.6368806463670956,
+        0
+      ],
+      "apparentRa": 229.12769883429078,
+      "apparentDec": -39.559608468436785,
+      "correctionArcsec": 20.77263289634758
+    },
+    {
+      "hip": 63081,
+      "star": "HIP 63081",
+      "utc": "2026-11-14T12:00:00Z",
+      "utcMjd": 61358.5,
+      "ttMjd": 61358.50080074074,
+      "ra": 193.87449056292326,
+      "dec": 11.49572105528627,
+      "astrometricVector": [
+        -0.9513482273149367,
+        -0.23498543025372293,
+        0.19929475144418746,
+        0
+      ],
+      "apparentVector": [
+        -0.9513639955905302,
+        -0.2349122858607423,
+        0.1993057095160666,
+        0
+      ],
+      "apparentRa": 193.8701175951823,
+      "apparentDec": 11.496361760070501,
+      "correctionArcsec": 15.59833883047261
+    },
+    {
+      "hip": 49751,
+      "star": "HIP 49751",
+      "utc": "2026-11-14T12:00:00Z",
+      "utcMjd": 61358.5,
+      "ttMjd": 61358.50080074074,
+      "ra": 152.33975928126102,
+      "dec": -61.548432622107576,
+      "astrometricVector": [
+        -0.42196901491491906,
+        0.22116529317838096,
+        -0.8792201450973774,
+        0
+      ],
+      "apparentVector": [
+        -0.4220381425836362,
+        0.221217135268006,
+        -0.8791739220816159,
+        0
+      ],
+      "apparentRa": 152.33809675724544,
+      "apparentDec": -61.54287414331733,
+      "correctionArcsec": 20.21269237121057
+    },
+    {
+      "hip": 91262,
+      "star": "Vega",
+      "utc": "2035-01-01T12:00:00Z",
+      "utcMjd": 64328.5,
+      "ttMjd": 64328.50080074074,
+      "ra": 279.2372428686473,
+      "dec": 38.78644056087902,
+      "astrometricVector": [
+        0.12512531504170324,
+        -0.7693779586627981,
+        0.6264193581456277,
+        0
+      ],
+      "apparentVector": [
+        0.1250256748967424,
+        -0.7693976129248885,
+        0.6264151130377504,
+        0
+      ],
+      "apparentRa": 279.2297819709554,
+      "apparentDec": 38.786128526846426,
+      "correctionArcsec": 20.96656081912232
+    },
+    {
+      "hip": 32349,
+      "star": "Sirius",
+      "utc": "2035-01-01T12:00:00Z",
+      "utcMjd": 64328.5,
+      "ttMjd": 64328.50080074074,
+      "ra": 101.2816115518842,
+      "dec": -16.72807281908053,
+      "astrometricVector": [
+        -0.18735260499475773,
+        0.9391767764361766,
+        -0.2878297830396122,
+        0
+      ],
+      "apparentVector": [
+        -0.1874517407748477,
+        0.9391552830038722,
+        -0.2878353683729575,
+        0
+      ],
+      "apparentRa": 101.28767957681578,
+      "apparentDec": -16.728406976397256,
+      "correctionArcsec": 20.954988217317553
+    },
+    {
+      "hip": 11767,
+      "star": "Polaris",
+      "utc": "2035-01-01T12:00:00Z",
+      "utcMjd": 64328.5,
+      "ttMjd": 64328.50080074074,
+      "ra": 37.98809365362914,
+      "dec": 89.26399439599574,
+      "astrometricVector": [
+        0.010123931163222322,
+        0.007906294471973925,
+        0.9999174948592131,
+        0
+      ],
+      "apparentVector": [
+        0.010023776124456055,
+        0.007890400302421583,
+        0.9999186294370529,
+        0
+      ],
+      "apparentRa": 38.20870506900704,
+      "apparentDec": 89.26907261168517,
+      "correctionArcsec": 20.918285800958415
+    },
+    {
+      "hip": 74745,
+      "star": "HIP 74745",
+      "utc": "2035-01-01T12:00:00Z",
+      "utcMjd": 64328.5,
+      "ttMjd": 64328.50080074074,
+      "ra": 229.13498990323384,
+      "dec": -39.56101241140116,
+      "astrometricVector": [
+        -0.5044143832371805,
+        -0.5830309676565869,
+        -0.6368995373972874,
+        0
+      ],
+      "apparentVector": [
+        -0.5044821084470623,
+        -0.5830092946194388,
+        -0.6368657351782642,
+        0
+      ],
+      "apparentRa": 229.1301298118833,
+      "apparentDec": -39.55850031926089,
+      "correctionArcsec": 16.240016382916185
+    },
+    {
+      "hip": 63081,
+      "star": "HIP 63081",
+      "utc": "2035-01-01T12:00:00Z",
+      "utcMjd": 64328.5,
+      "ttMjd": 64328.50080074074,
+      "ra": 193.8740400577709,
+      "dec": 11.495681072443949,
+      "astrometricVector": [
+        -0.9513502099451585,
+        -0.23497798333564374,
+        0.19929406761069632,
+        0
+      ],
+      "apparentVector": [
+        -0.9513575381052635,
+        -0.23497099104992267,
+        0.19926732811805692,
+        0
+      ],
+      "apparentRa": 193.87354041683395,
+      "apparentDec": 11.494117654024745,
+      "correctionArcsec": 5.897855152311911
+    },
+    {
+      "hip": 49751,
+      "star": "HIP 49751",
+      "utc": "2035-01-01T12:00:00Z",
+      "utcMjd": 64328.5,
+      "ttMjd": 64328.50080074074,
+      "ra": 152.33931610723775,
+      "dec": -61.548258361674506,
+      "astrometricVector": [
+        -0.42196967268335756,
+        0.2211697984341713,
+        -0.8792186961138213,
+        0
+      ],
+      "apparentVector": [
+        -0.4220508508841137,
+        0.2211438542578985,
+        -0.8791862572811048,
+        0
+      ],
+      "apparentRa": 152.34661095530808,
+      "apparentDec": -61.54435739672336,
+      "correctionArcsec": 18.808905790745158
+    }
+  ]
+}

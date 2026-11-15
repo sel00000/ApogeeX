@@ -1,0 +1,24 @@
+# Average band-to-V corrections for asteroid photometry (V = m_band + correction).
+# These are the mean offsets used in the MPC/JPL convention for reducing astrometric
+# photometry to V (Veres et al. 2015, Icarus 261, 34). They assume a mean asteroid color
+# and add a systematic error. VERIFY against the cited source before enabling
+# `photometry.allow_band_corrections` in settings.yaml. Nothing here is applied by default.
+source: "Veres et al. (2015), Icarus 261, 34 - mean asteroid band corrections"
+verified_by_user: false
+systematic_sigma_mag: 0.10
+corrections:
+  V: 0.00
+  v: 0.00
+  B: -0.80
+  U: -1.30
+  R: 0.40
+  I: 0.80
+  g: -0.35
+  r: 0.14
+  i: 0.32
+  z: 0.26
+  y: 0.32
+  G: 0.28      # Gaia G
+  c: -0.05     # ATLAS cyan
+  o: 0.33      # ATLAS orange
+  w: -0.13     # Pan-STARRS w

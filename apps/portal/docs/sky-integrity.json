@@ -1,0 +1,10 @@
+{
+  "originalTiffSHA256": "292d6c95372253e6b87a0111af84ec3ba526544d987fabff9af23c125e2ddf1d",
+  "shape": [
+    2340,
+    4160,
+    3
+  ],
+  "pngRGBExactlyEqual": true,
+  "maxAbsoluteDifference": 0
+}

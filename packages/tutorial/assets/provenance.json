@@ -1,0 +1,61 @@
+{
+  "note": "Character assignments follow the user-provided attachment order. Original images copied without image editing. Educational dialogue is newly written and is not a historical quotation.",
+  "images": [
+    {
+      "file": "doppler.png",
+      "character": "크리스티안 요한 도플러",
+      "bytes": 1484643,
+      "sha256": "9cbf285188ad1c8153595c96c411ab880dd3938948cbecf704b6c8efb827db82",
+      "source": "user-provided attachment",
+      "modified": false
+    },
+    {
+      "file": "einstein.png",
+      "character": "알베르트 아인슈타인",
+      "bytes": 1416550,
+      "sha256": "7dba97b214eb93fe146166c0cf49d9ef7a63ca84c51884c25bc9ac8a11f6d811",
+      "source": "user-provided attachment",
+      "modified": false
+    },
+    {
+      "file": "feynman.png",
+      "character": "리처드 파인만",
+      "bytes": 603589,
+      "sha256": "afe43f665e3988fbacc3fd2cd775c668bf5d5901d4454623cf4bd40f7ffd3f28",
+      "source": "user-provided attachment",
+      "modified": false
+    },
+    {
+      "file": "kepler.png",
+      "character": "요하네스 케플러",
+      "bytes": 1398504,
+      "sha256": "a9b627188d1f6e5efb134c06a639b7d5e297b39b59dbca386cc9487986531e90",
+      "source": "user-provided attachment",
+      "modified": false
+    },
+    {
+      "file": "sagan.png",
+      "character": "칼 세이건",
+      "bytes": 1405285,
+      "sha256": "bd200b4a3ad7e3011622e9740cbfbc58ea702506a8bba69607baf186eb0164c7",
+      "source": "user-provided attachment",
+      "modified": false
+    },
+    {
+      "file": "spherex-full.png",
+      "character": "SPHEREx 전체 모습",
+      "bytes": 1544414,
+      "sha256": "b129fa7205422400de332e43cb18247b9cc8cf6dea83b11e84411921c2d39386",
+      "source": "user-provided attachment",
+      "modified": false
+    },
+    {
+      "file": "spherex.png",
+      "character": "SPHEREx 안내 캐릭터",
+      "bytes": 1531741,
+      "sha256": "2e865a7cb3bb5082b133c8bcc9b86c53d0c619be438002fcd33ad07239a07340",
+      "source": "user-provided attachment",
+      "modified": false
+    }
+  ]
+}

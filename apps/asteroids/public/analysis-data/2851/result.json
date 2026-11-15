@@ -1,0 +1,1299 @@
+{
+  "schema": "spherex-asteroid-web-1",
+  "schemaVersion": 2,
+  "id": "2851",
+  "objectId": "2851",
+  "numberedId": "2851",
+  "aliases": [
+    "2851",
+    "2851 Harbin (1978 UQ2)"
+  ],
+  "runId": "saved-21fee3e54191dacf503a",
+  "record": {
+    "asteroid_id": "2851",
+    "origin": "OBSERVED",
+    "analysis_timestamp": "2026-11-15T02:46:21+00:00",
+    "model_version": "0.1.0",
+    "official_name": "2851 Harbin (1978 UQ2)",
+    "provisional_designation": "2851",
+    "discovery_status": "Catalogued (JPL SBDB)",
+    "observation_date": "MJD 60914.7965-61111.0028",
+    "right_ascension": 69.017092412,
+    "declination": 20.899897705,
+    "spherex_observation_id": [
+      "2025W35_1A_0541_1",
+      "2025W35_1A_0541_2",
+      "2025W35_1A_0541_3",
+      "2025W35_1A_0604_1",
+      "2025W35_1A_0604_2",
+      "2025W35_1A_0604_3",
+      "2025W35_1A_0616_4",
+      "2025W35_1A_0628_1",
+      "2025W35_1A_0628_2",
+      "2025W35_1A_0628_3",
+      "2025W35_1A_0628_4",
+      "2025W35_1A_0666_1",
+      "2025W35_1A_0666_2",
+      "2025W35_1A_0666_3",
+      "2025W35_1A_0666_4",
+      "2025W35_2A_0023_1",
+      "2025W35_2A_0023_2",
+      "2025W35_2A_0048_1",
+      "2025W35_2A_0318_1",
+      "2025W35_2A_0318_2",
+      "2025W35_2A_0318_3",
+      "2025W35_2A_0318_4",
+      "2025W35_2A_0428_1",
+      "2025W35_2A_0428_2",
+      "2025W35_2A_0428_3",
+      "2025W35_2A_0428_4",
+      "2025W35_2A_0496_1",
+      "2025W35_2A_0496_2",
+      "2025W35_2A_0496_3",
+      "2025W35_2A_0496_4",
+      "2025W35_2A_0577_1",
+      "2025W36_1A_0170_1",
+      "2025W36_1A_0170_2",
+      "2025W36_1A_0170_3",
+      "2025W36_1A_0333_1",
+      "2025W36_1A_0333_2",
+      "2025W36_1A_0333_3",
+      "2025W36_1A_0333_4",
+      "2025W36_1A_0403_1",
+      "2025W36_1A_0403_2",
+      "2025W36_1A_0403_3",
+      "2025W36_1A_0403_4",
+      "2025W36_1A_0490_2",
+      "2025W36_1A_0490_3",
+      "2025W36_1A_0490_4",
+      "2025W36_1A_0547_1",
+      "2025W36_1A_0547_2",
+      "2025W36_1A_0591_1",
+      "2025W36_1A_0591_2",
+      "2025W36_2B_0092_1",
+      "2025W36_2B_0092_2",
+      "2025W36_2B_0092_3",
+      "2025W36_2B_0092_4",
+      "2025W36_2B_0324_1",
+      "2025W36_2B_0324_2",
+      "2025W36_2B_0324_3",
+      "2025W36_2B_0324_4",
+      "2025W36_2B_0462_2",
+      "2025W36_2B_0462_3",
+      "2025W36_2B_0462_4",
+      "2025W36_2B_0475_1",
+      "2025W36_2B_0475_2",
+      "2025W36_2B_0475_3",
+      "2025W36_2B_0475_4",
+      "2025W36_2B_0548_1",
+      "2025W36_2B_0549_1",
+      "2025W36_2B_0549_2",
+      "2025W37_1A_0290_1",
+      "2025W37_1A_0290_2",
+      "2025W37_1A_0290_3",
+      "2025W37_1A_0324_1",
+      "2025W37_1A_0324_2",
+      "2025W37_1A_0324_3",
+      "2025W37_1A_0324_4",
+      "2025W37_1A_0406_1",
+      "2025W37_1A_0406_2",
+      "2025W37_1A_0406_3",
+      "2025W37_1A_0406_4",
+      "2025W37_1A_0539_1",
+      "2025W37_1A_0539_2",
+      "2025W37_1A_0539_3",
+      "2025W37_1A_0552_1",
+      "2025W37_1A_0552_2",
+      "2025W37_1A_0552_3",
+      "2025W37_1A_0566_1",
+      "2025W39_1A_0475_2",
+      "2025W39_1A_0475_3",
+      "2025W39_1A_0475_4",
+      "2025W40_2B_0604_1",
+      "2026W07_2A_0059_1",
+      "2026W07_2A_0059_2",
+      "2026W07_2A_0059_3",
+      "2026W07_2A_0059_4",
+      "2026W08_1A_0040_1",
+      "2026W08_1A_0040_2",
+      "2026W08_1A_0040_3",
+      "2026W08_1A_0040_4",
+      "2026W08_1A_0567_1",
+      "2026W08_1A_0567_2",
+      "2026W08_1A_0567_3",
+      "2026W08_1A_0567_4",
+      "2026W08_1A_0581_3",
+      "2026W08_1A_0581_4",
+      "2026W08_2A_0233_1",
+      "2026W08_2A_0233_2",
+      "2026W08_2A_0233_3",
+      "2026W08_2A_0233_4",
+      "2026W08_2A_0295_1",
+      "2026W08_2A_0295_2",
+      "2026W08_2A_0295_3",
+      "2026W08_2A_0295_4",
+      "2026W08_2A_0361_1",
+      "2026W08_2A_0361_2",
+      "2026W08_2A_0361_3",
+      "2026W08_2A_0361_4",
+      "2026W08_2A_0415_4",
+      "2026W08_2A_0501_1",
+      "2026W08_2A_0501_2",
+      "2026W08_2A_0501_3",
+      "2026W08_2A_0501_4",
+      "2026W09_2A_0175_1",
+      "2026W09_2A_0175_2",
+      "2026W09_2A_0175_3",
+      "2026W09_2A_0175_4",
+      "2026W09_2A_0224_1",
+      "2026W09_2A_0224_2",
+      "2026W09_2A_0224_3",
+      "2026W09_2A_0224_4",
+      "2026W09_2A_0251_1",
+      "2026W09_2A_0289_1",
+      "2026W09_2A_0442_1",
+      "2026W09_2A_0442_2",
+      "2026W09_2A_0442_3",
+      "2026W09_2A_0442_4",
+      "2026W09_2A_0503_1",
+      "2026W09_2A_0503_2",
+      "2026W09_2A_0503_3",
+      "2026W09_2A_0503_4",
+      "2026W09_2A_0552_1",
+      "2026W09_2A_0552_2",
+      "2026W09_2A_0552_3",
+      "2026W09_2A_0552_4",
+      "2026W09_2A_0644_1",
+      "2026W09_2A_0644_2",
+      "2026W09_2A_0644_3",
+      "2026W09_2A_0644_4",
+      "2026W10_1A_0004_1",
+      "2026W10_1A_0092_1",
+      "2026W10_1A_0092_2",
+      "2026W10_1A_0092_3",
+      "2026W10_1A_0092_4",
+      "2026W10_1A_0120_1",
+      "2026W10_1A_0506_1",
+      "2026W10_1A_0506_2",
+      "2026W10_1A_0506_3",
+      "2026W10_1A_0506_4",
+      "2026W10_1A_0602_1",
+      "2026W10_1A_0602_2",
+      "2026W10_1A_0639_1",
+      "2026W10_1A_0639_2",
+      "2026W10_1A_0639_3",
+      "2026W10_1A_0639_4",
+      "2026W10_2B_0126_1",
+      "2026W10_2B_0340_1",
+      "2026W10_2B_0340_2",
+      "2026W10_2B_0340_3",
+      "2026W10_2B_0340_4",
+      "2026W10_2B_0591_1",
+      "2026W10_2B_0591_2",
+      "2026W10_2B_0591_3",
+      "2026W10_2B_0591_4",
+      "2026W10_2B_0626_1",
+      "2026W10_2B_0626_2",
+      "2026W11_1A_0042_1",
+      "2026W11_1A_0285_1",
+      "2026W11_1A_0285_2",
+      "2026W11_1A_0285_3",
+      "2026W11_1A_0285_4",
+      "2026W11_1A_0645_1"
+    ],
+    "n_spectral_points": 355,
+    "signal_to_noise_median": 8.259110049902707,
+    "quality_flag": {
+      "WARN": 303,
+      "GOOD": 38,
+      "BAD": 14
+    },
+    "spectral_class": "V candidate",
+    "spectral_class_probability": [
+      {
+        "rank": 1,
+        "class": "V",
+        "complex": "V-type",
+        "probability": 0.999895
+      },
+      {
+        "rank": 2,
+        "class": "R",
+        "complex": "R-type",
+        "probability": 0.000091
+      },
+      {
+        "rank": 3,
+        "class": "Sv",
+        "complex": "S-complex",
+        "probability": 0.000012
+      },
+      {
+        "rank": 4,
+        "class": "Sr",
+        "complex": "S-complex",
+        "probability": 0.000002
+      },
+      {
+        "rank": 5,
+        "class": "S",
+        "complex": "S-complex",
+        "probability": 0
+      },
+      {
+        "rank": 6,
+        "class": "Sq",
+        "complex": "S-complex",
+        "probability": 0
+      },
+      {
+        "rank": 7,
+        "class": "Q",
+        "complex": "Q-type",
+        "probability": 0
+      },
+      {
+        "rank": 8,
+        "class": "D",
+        "complex": "D-type",
+        "probability": 0
+      },
+      {
+        "rank": 9,
+        "class": "O",
+        "complex": "O-type",
+        "probability": 0
+      },
+      {
+        "rank": 10,
+        "class": "Xn",
+        "complex": "X-complex",
+        "probability": 0
+      },
+      {
+        "rank": 11,
+        "class": "Sa",
+        "complex": "S-complex",
+        "probability": 0
+      },
+      {
+        "rank": 12,
+        "class": "X",
+        "complex": "X-complex",
+        "probability": 0
+      },
+      {
+        "rank": 13,
+        "class": "L",
+        "complex": "L-type",
+        "probability": 0
+      },
+      {
+        "rank": 14,
+        "class": "B",
+        "complex": "C-complex",
+        "probability": 0
+      },
+      {
+        "rank": 15,
+        "class": "Xe",
+        "complex": "X-complex",
+        "probability": 0
+      },
+      {
+        "rank": 16,
+        "class": "Xk",
+        "complex": "X-complex",
+        "probability": 0
+      },
+      {
+        "rank": 17,
+        "class": "T",
+        "complex": "T-type",
+        "probability": 0
+      },
+      {
+        "rank": 18,
+        "class": "Cgh",
+        "complex": "C-complex",
+        "probability": 0
+      },
+      {
+        "rank": 19,
+        "class": "K",
+        "complex": "K-type",
+        "probability": 0
+      },
+      {
+        "rank": 20,
+        "class": "Cg",
+        "complex": "C-complex",
+        "probability": 0
+      },
+      {
+        "rank": 21,
+        "class": "Xc",
+        "complex": "X-complex",
+        "probability": 0
+      },
+      {
+        "rank": 22,
+        "class": "Ch",
+        "complex": "C-complex",
+        "probability": 0
+      },
+      {
+        "rank": 23,
+        "class": "Cb",
+        "complex": "C-complex",
+        "probability": 0
+      },
+      {
+        "rank": 24,
+        "class": "A",
+        "complex": "A-type",
+        "probability": 0
+      },
+      {
+        "rank": 25,
+        "class": "C",
+        "complex": "C-complex",
+        "probability": 0
+      }
+    ],
+    "spectral_complex_probability": [
+      {
+        "rank": 1,
+        "complex": "V-type",
+        "probability": 0.9998950080701038
+      },
+      {
+        "rank": 2,
+        "complex": "R-type",
+        "probability": 0.00009076380320516661
+      },
+      {
+        "rank": 3,
+        "complex": "S-complex",
+        "probability": 0.00001422762171743371
+      },
+      {
+        "rank": 4,
+        "complex": "Q-type",
+        "probability": 3.0941193166748303e-10
+      },
+      {
+        "rank": 5,
+        "complex": "D-type",
+        "probability": 8.544397255649768e-11
+      },
+      {
+        "rank": 6,
+        "complex": "O-type",
+        "probability": 6.762735503358906e-11
+      },
+      {
+        "rank": 7,
+        "complex": "X-complex",
+        "probability": 3.8646027092843984e-11
+      },
+      {
+        "rank": 8,
+        "complex": "L-type",
+        "probability": 1.7333162688440344e-12
+      },
+      {
+        "rank": 9,
+        "complex": "C-complex",
+        "probability": 1.4208854801499538e-12
+      },
+      {
+        "rank": 10,
+        "complex": "T-type",
+        "probability": 5.061280337627172e-13
+      },
+      {
+        "rank": 11,
+        "complex": "K-type",
+        "probability": 1.8352568597586652e-13
+      },
+      {
+        "rank": 12,
+        "complex": "A-type",
+        "probability": 9.704245614946703e-17
+      }
+    ],
+    "spectral_complex": "V-type",
+    "classification_confidence": "High",
+    "spectral_complex_probability_spectral_only": [
+      {
+        "rank": 1,
+        "complex": "V-type",
+        "probability": 0.9997651591952551
+      },
+      {
+        "rank": 2,
+        "complex": "R-type",
+        "probability": 0.00017117121694045068
+      },
+      {
+        "rank": 3,
+        "complex": "S-complex",
+        "probability": 0.00006366205320809966
+      },
+      {
+        "rank": 4,
+        "complex": "Q-type",
+        "probability": 3.138357237581605e-9
+      },
+      {
+        "rank": 5,
+        "complex": "D-type",
+        "probability": 3.0717426920539893e-9
+      },
+      {
+        "rank": 6,
+        "complex": "O-type",
+        "probability": 6.397769406169116e-10
+      },
+      {
+        "rank": 7,
+        "complex": "X-complex",
+        "probability": 5.417510571694412e-10
+      },
+      {
+        "rank": 8,
+        "complex": "C-complex",
+        "probability": 1.3389783614894076e-10
+      },
+      {
+        "rank": 9,
+        "complex": "T-type",
+        "probability": 4.284583403870519e-12
+      },
+      {
+        "rank": 10,
+        "complex": "L-type",
+        "probability": 3.9124324245021345e-12
+      },
+      {
+        "rank": 11,
+        "complex": "K-type",
+        "probability": 8.732321712052872e-13
+      },
+      {
+        "rank": 12,
+        "complex": "A-type",
+        "probability": 2.478435267803023e-16
+      }
+    ],
+    "classification_prior": {
+      "albedo": {
+        "pV": 0.2434119902873142,
+        "log10_pv": -0.6136580325670848,
+        "sigma_log10": 0.1951153672100948,
+        "source": "catalogue diameter with current H; catalogue albedo 0.358 disagrees by -0.17 dex beyond the population offset (H revision?): uncertainty increased (urn:nasa:pds:neowise_diameters_albedos::2.0[mainbelt] (http://adsabs.harvard.edu/abs/2012ApJ...759L...8M))"
+      },
+      "orbit": {
+        "a_au": 2.480212589468247,
+        "e": 0.1226870696865556,
+        "i_deg": 8.534068977861052
+      },
+      "complex_log_prior": {
+        "A-type": -2.920996381634878,
+        "C-complex": -2.1138155651207384,
+        "D-type": -3.2196959110493246,
+        "K-type": -2.9104658819949254,
+        "L-type": -2.3661338931513622,
+        "O-type": -3.6481178416217217,
+        "Q-type": -3.9540616995272506,
+        "R-type": -2.537430541681279,
+        "S-complex": -1.9083696697059653,
+        "T-type": -2.834026153850809,
+        "V-type": -1.9330158364122147,
+        "X-complex": -1.8264225782920591
+      },
+      "info": {
+        "population_exponent": 0.25,
+        "orbit_exponent": 0.5,
+        "orbit_used": true,
+        "n_diameters": 139025,
+        "n_classified": 1470,
+        "target_rows_removed": 0,
+        "catalogue_retrieved": {
+          "diameters": "2026-11-14T16:11:15+00:00",
+          "taxonomy": "2026-11-14T16:11:16+00:00"
+        },
+        "note": "",
+        "target_excluded_from_training": true
+      }
+    },
+    "spectral_calibration": {
+      "applied": true,
+      "n_stars": 14,
+      "stars": [
+        "Gaia DR3 1021495028608838016",
+        "Gaia DR3 1325938803224554752",
+        "Gaia DR3 1565876532739593600",
+        "Gaia DR3 2972362529862291200",
+        "Gaia DR3 4662850696812855168",
+        "Gaia DR3 4769435292423335168",
+        "Gaia DR3 5050053165460308224",
+        "Gaia DR3 633604815435763712",
+        "Gaia DR3 6425579316029502080",
+        "Gaia DR3 667330101236907776",
+        "Gaia DR3 6833816717724281472",
+        "Gaia DR3 6909894018898836608",
+        "Landolt 107-998",
+        "Landolt 98-978"
+      ],
+      "chi2_red": 1.5725776551531665,
+      "slope_sigma_per_um": {
+        "SWIR": 0.002289740967574337,
+        "MWIR": 0.001413917081249607
+      },
+      "max_abs_correction": 0.09443843867842405,
+      "n_uncorrected": 1,
+      "file": "data/calibration/solar_analog_correction.csv",
+      "data_releases_calibration": [
+        "dr1",
+        "dr1 l2b-v27"
+      ],
+      "warnings": [
+        "1 points outside the wavelength range covered by the solar-analog calibration were left uncorrected."
+      ]
+    },
+    "mineral_candidates": [
+      {
+        "mineral": "Mafic silicates (olivine and/or pyroxene)",
+        "evidence": "Band I (within_segment)",
+        "confidence": "Medium"
+      }
+    ],
+    "absorption_features": [
+      {
+        "name": "Band I",
+        "detected": true,
+        "center_um": 0.9058616693712264,
+        "center_err_um": null,
+        "depth": 0.4769829851945322,
+        "depth_err": 0.0631390195256421,
+        "area": 0.13230997281134585,
+        "width_res_elements": 4.804628048145101,
+        "note": "Full-band candidate rejected: depth 0.562 below the false-alarm threshold 0.588.",
+        "status": "DETECTED",
+        "reason": "detected by within_segment",
+        "evidence": [
+          "within_segment"
+        ],
+        "min_detectable_depth": 0.1894170585769263,
+        "upper_limit_depth": 0.5883465631657248,
+        "within_segment": {
+          "evaluable": true,
+          "significant": true,
+          "curvature_sigma": 5.1548459169863206,
+          "vertex_um": 0.9058616693712264,
+          "depth": 0.4769829851945322,
+          "depth_err": 0.0631390195256421,
+          "min_detectable_depth": 0.1894170585769263,
+          "n_points": 15,
+          "chi2_red": 1.514006958513824,
+          "window_um": [
+            0.75,
+            1.1
+          ],
+          "covariance": "full"
+        },
+        "typical_depth": 0.15709103275887948,
+        "false_alarm_depth": 0.5883465631657248,
+        "detectable": false
+      },
+      {
+        "name": "Band II",
+        "detected": false,
+        "center_um": 1.823627279029087,
+        "center_err_um": 0.26607924058887117,
+        "depth": 0.3920689909091456,
+        "depth_err": 0.24776744083617513,
+        "area": 0.19804128648761793,
+        "width_res_elements": 8.838560506261285,
+        "note": "Not significant (depth/sigma or width below threshold); treat as non-detection.",
+        "status": "NOT_DETECTED",
+        "reason": "not detected; data not sensitive enough to detect a typical band",
+        "evidence": [],
+        "min_detectable_depth": 0.3873211890383404,
+        "upper_limit_depth": 1.135371313417671,
+        "within_segment": {
+          "evaluable": true,
+          "significant": false,
+          "curvature_sigma": 2.426412867815583,
+          "vertex_um": 1.916091252233935,
+          "depth": 0.32345008238202455,
+          "depth_err": 0.12910706301278013,
+          "min_detectable_depth": 0.3873211890383404,
+          "n_points": 10,
+          "chi2_red": 0.8582235720816292,
+          "window_um": [
+            1.63,
+            2.41
+          ],
+          "covariance": "full"
+        },
+        "typical_depth": 0.028761172814518177,
+        "false_alarm_depth": null,
+        "detectable": false
+      },
+      {
+        "name": "3-um region",
+        "detected": false,
+        "center_um": null,
+        "center_err_um": null,
+        "depth": null,
+        "depth_err": null,
+        "area": null,
+        "width_res_elements": null,
+        "note": "Not evaluated: thermal emission was not removed.",
+        "status": "NOT_EVALUABLE",
+        "reason": "thermal emission was not removed",
+        "evidence": [],
+        "min_detectable_depth": null,
+        "upper_limit_depth": null,
+        "within_segment": null,
+        "typical_depth": null,
+        "false_alarm_depth": null,
+        "detectable": null
+      }
+    ],
+    "estimated_temperature": 260.2050650698655,
+    "estimated_temperature_err": 11.453695077491632,
+    "absolute_magnitude_H": 12.42,
+    "H_uncertainty": null,
+    "absolute_magnitude_source": "JPL SBDB MPO980566",
+    "photometry_source_ids": [],
+    "filter_system": "V",
+    "phase_function_model": "H-G (catalog)",
+    "phase_function_parameters": {
+      "G": null,
+      "G_err": null,
+      "G_fitted": false
+    },
+    "photometry_epochs": 0,
+    "photometry_quality": {
+      "rms_mag": null,
+      "n_nights": 0,
+      "excluded": {},
+      "warnings": [
+        "SBDB gives no H uncertainty; derived albedo uncertainty excludes the H term and is a lower bound.",
+        "SBDB gives no G; G=0.15 convention implied by the catalogue H."
+      ]
+    },
+    "diameter_km": 9.361685419386415,
+    "diameter_uncertainty": 1.949845052915272,
+    "diameter_interval_68_km": [
+      7.642007516693747,
+      11.54169762252429
+    ],
+    "diameter_interval_95_km": [
+      6.361415066332946,
+      14.241927075133331
+    ],
+    "diameter_source": "SPHEREx NEATM (posterior, all points) (eta marginalised over its prior)",
+    "diameter_conditional_range_km": null,
+    "diameter_consistency": {
+      "thermal_km": 9.361685419386415,
+      "thermal_err_km": 1.949845052915272,
+      "statistical_km": 8.64543773591538,
+      "ratio": 1.082846896287918,
+      "z": 0.31193912624653986,
+      "threshold": 2,
+      "consistent": true
+    },
+    "catalog_diameter_km": 8.838,
+    "catalog_diameter_uncertainty": 0.236,
+    "catalog_diameter_source": "urn:nasa:pds:neowise_diameters_albedos::2.0[mainbelt] (http://adsabs.harvard.edu/abs/2012ApJ...759L...8M)",
+    "diameter_statistical_km": 8.64543773591538,
+    "diameter_statistical_interval_68_km": [
+      7.474667625238889,
+      10.03729975124032
+    ],
+    "diameter_statistical_interval_95_km": [
+      6.467284166123155,
+      11.570092695800609
+    ],
+    "diameter_statistical_method": "D = 1329 km / sqrt(pV) 10^(-H/5); pV from the population prior (complex probabilities without albedo, orbit regression); complex drawn from the SPHEREx classification",
+    "diameter_statistical_confidence": "Medium",
+    "diameter_statistical_pV_prior": 0.25435859411071504,
+    "diameter_thermal_upper_limit_km": null,
+    "diameter_posterior": {
+      "thermal": {
+        "median": 9.361685419386415,
+        "lo68": 7.642007516693747,
+        "hi68": 11.54169762252429,
+        "lo95": 6.361415066332946,
+        "hi95": 14.241927075133331,
+        "err_km": 1.949845052915272
+      },
+      "eta": {
+        "median": 1.1045834701278328,
+        "lo68": 0.9184133348228187,
+        "hi68": 1.307208954163928
+      },
+      "detection_sigma": 14.462999099673253,
+      "eta_prior": {
+        "relation": "neowise_population",
+        "population": "mainbelt",
+        "alpha_deg": 27.2391,
+        "reference": "NEOWISE Diameters and Albedos V2.0 (Mainzer et al. 2019, PDS, doi:10.26033/18S3-2Z54), fits with a free beaming parameter",
+        "wavelength_factor": 1.1163656880571011,
+        "sigma_extra_ln": 0.12,
+        "phase_slope_per_deg": 0.006862641877494781,
+        "eta_at_10km": 1.1073336118167767,
+        "sigma_ln_at_10km": 0.19261721188525027,
+        "eta_at_100km": 1.0565070109219592,
+        "sigma_ln_at_100km": 0.14684475068422112,
+        "n_fits_population": 69879,
+        "n_fits_removed": 127,
+        "catalogue_retrieved_utc": "2026-11-14T23:45:54+00:00"
+      },
+      "kappa": 1.986101783303196,
+      "n_points": 197,
+      "n_groups": 4,
+      "n_visits": 49,
+      "n_visits_with_offset_error": 46,
+      "method": "NEATM likelihood on a (D, eta) grid from all points (free offset per normalisation group, visit-correlated brightness errors as nuisance parameters), marginalised over the eta prior",
+      "warnings": [
+        "Unexplained scatter: likelihood widened by chi2_red = 2.0."
+      ]
+    },
+    "diameter_combined_km": 8.864702475092708,
+    "diameter_combined_interval_68_km": [
+      7.8693847436353455,
+      9.990379597755071
+    ],
+    "diameter_combined_interval_95_km": [
+      7.021145550372099,
+      11.222697701189121
+    ],
+    "diameter_combined_method": "SPHEREx thermal likelihood (all points, eta marginalised over its prior) x population albedo prior (H, orbit, complex probabilities without albedo)",
+    "diameter_best_km": 8.864702475092708,
+    "diameter_best_source": "combined (SPHEREx thermal + albedo prior)",
+    "diameter_best_uncertainty": 1.0604974270598628,
+    "diameter_best_interval_68_km": [
+      7.8693847436353455,
+      9.990379597755071
+    ],
+    "geometric_albedo_pV": 0.2169411185228634,
+    "albedo_uncertainty": 0.09036867781302468,
+    "albedo_band": "V",
+    "albedo_method": "pV = (1329 10^(-H/5) / D)^2",
+    "albedo_status": "ESTIMATED",
+    "mass_kg": "Unknown",
+    "mass_uncertainty": null,
+    "mass_method": "No GM in JPL SBDB; no dynamical mass available.",
+    "density": "Unknown",
+    "density_uncertainty": null,
+    "density_unit": "kg/m^3",
+    "shape_assumption": null,
+    "missing_data": [
+      "mass"
+    ],
+    "limitations": [
+      "3-um features not evaluated because no thermal model was subtracted.",
+      "Class probabilities include a prior: tempered population frequency of the complexes and their frequency at this orbit, and the albedo likelihood (pV 0.243, catalogue diameter with current H; catalogue albedo 0.358 disagrees by -0.17 dex beyond the population offset (H revision?): uncertainty increased (urn:nasa:pds:neowise_diameters_albedos::2.0[mainbelt] (http://adsabs.harvard.edu/abs/2012ApJ...759L...8M))). The spectral-only ranking is kept separately.",
+      "Classes without published intra-class sigma (Cg, O, R) use the median shape sigma of all classes and the upper slope tolerance.",
+      "Errors: photometric noise plus visit-correlated normalisation error (full covariance).",
+      "Mineral candidates are consistency statements, not identifications.",
+      "No visible-wavelength data (<0.75 um): classes separated mainly by visible slope cannot be distinguished.",
+      "Probabilities are relative among the Bus-DeMeo reference classes for this model; they are not probabilities that specific minerals are present.",
+      "Reference class means end at 2.45 um; features beyond are analysed separately (band analysis).",
+      "SPHEREx begins at 0.75 um: the short-wavelength shoulder of Band I is at the edge of coverage, so Band I centres may be biased.",
+      "Spectra normalised at 1.2 um (DeMeo et al. 2009 near-infrared convention) instead of 0.55 um.",
+      "Spectral resolution R~35-130 cannot resolve narrow features; detections need >= 1.5 resolution elements.",
+      "The combined diameter uses the population albedo prior: it is the best estimate of D, but no albedo is derived from it.",
+      "The statistical diameter is an estimate from H and a population albedo prior (SPHEREx complex probabilities, orbit), not a measurement; no albedo is derived from it."
+    ],
+    "input_data_sources": [
+      {
+        "name": "JPL SBDB",
+        "url": "https://ssd-api.jpl.nasa.gov/sbdb.api",
+        "query": "{\"sstr\": \"2851\", \"phys-par\": \"1\", \"full-prec\": \"1\"}",
+        "retrieved_utc": "2026-11-15T02:44:25+00:00",
+        "version": "orbit_id=68; soln_date=2026-06-05 06:59:59",
+        "identifier": "20002851",
+        "origin": "OBSERVED"
+      },
+      {
+        "name": "JPL SBDB",
+        "url": "https://ssd-api.jpl.nasa.gov/sbdb.api",
+        "query": "{\"sstr\": \"2851\", \"phys-par\": \"1\", \"full-prec\": \"1\"}",
+        "retrieved_utc": "2026-11-15T02:44:25+00:00",
+        "version": "orbit_id=68; soln_date=2026-06-05 06:59:59",
+        "identifier": "20002851",
+        "origin": "OBSERVED"
+      }
+    ],
+    "quality_status": "Partial",
+    "diameter_best_confidence": "Medium",
+    "confidence_level": "Low"
+  },
+  "run": null,
+  "provenance": {
+    "origin": "OBSERVED",
+    "analysisTimestamp": "2026-11-15T02:46:21+00:00",
+    "modelVersion": "0.1.0",
+    "recordSha256": "21fee3e54191dacf503a2623fba39a808aabdf3193fa4b4a9ee6e98954eb581d"
+  },
+  "interpretation": {
+    "processingState": "completed",
+    "completeness": "Partial",
+    "confidence": "Low",
+    "densityStatus": "see_record",
+    "note": "Processing completion and field completeness are not validation or measurement confidence. Thermal, statistical, combined and catalogue diameters retain their separate definitions in record."
+  },
+  "units": {
+    "observationTime": "MJD UTC",
+    "spectrumWavelength": "um",
+    "spectrumFlux": "uJy",
+    "skyAngles": "deg"
+  },
+  "coverage": {
+    "start": "2025-08-27T19:06:59.841Z",
+    "end": "2026-03-12T00:03:57.873Z"
+  },
+  "measuredCoverage": {
+    "start": "2025-08-27T19:06:59.841Z",
+    "end": "2026-03-12T00:03:57.873Z"
+  },
+  "counts": {
+    "exposures": 355,
+    "uniqueExposureIds": 179,
+    "points": 355
+  },
+  "validation": {
+    "target": "2851",
+    "reference": {
+      "class": "V",
+      "complex": "V-type",
+      "sources": [
+        "DeMeo et al. 2009 (Bus-DeMeo, 0.45-2.45 um), Appendix: V",
+        "JPL SBDB spec_B (SMASSII, Bus & Binzel 2002): V"
+      ],
+      "cross_check_sbdb_field": "spec_B",
+      "basis": "visible + near-infrared taxonomy (Bus-DeMeo)",
+      "sbdb_cross_check": {
+        "spec_B": "V"
+      }
+    },
+    "origin": "OBSERVED",
+    "summary": {
+      "PASS": 9,
+      "FAIL": 0,
+      "INCONCLUSIVE": 0
+    },
+    "analysis_summary": {
+      "solar_analog_calibration": {
+        "applied": true,
+        "reason": null,
+        "n_stars": 14,
+        "max_abs_correction": 0.09443843867842405,
+        "slope_sigma_per_um": {
+          "SWIR": 0.002289740967574337,
+          "MWIR": 0.001413917081249607
+        }
+      },
+      "temporal_correction": "none",
+      "norm_groups": 1,
+      "slope_sys_per_um": 0.07044369070267807,
+      "thermal_status": "OK",
+      "thermal_chi2_red": 1.986101783303196,
+      "diameter_km": 9.361685419386415,
+      "diameter_err_km": 1.949845052915272,
+      "taxonomy_top_class": "V",
+      "taxonomy_confidence": "High",
+      "complex_ranking": [
+        [
+          "V-type",
+          99.99
+        ],
+        [
+          "R-type",
+          0.01
+        ],
+        [
+          "S-complex",
+          0
+        ],
+        [
+          "Q-type",
+          0
+        ],
+        [
+          "D-type",
+          0
+        ]
+      ],
+      "complex_ranking_spectral": [
+        [
+          "V-type",
+          99.98
+        ],
+        [
+          "R-type",
+          0.02
+        ],
+        [
+          "S-complex",
+          0.01
+        ],
+        [
+          "Q-type",
+          0
+        ],
+        [
+          "D-type",
+          0
+        ]
+      ],
+      "prior": {
+        "albedo": {
+          "pV": 0.2434119902873142,
+          "log10_pv": -0.6136580325670848,
+          "sigma_log10": 0.1951153672100948,
+          "source": "catalogue diameter with current H; catalogue albedo 0.358 disagrees by -0.17 dex beyond the population offset (H revision?): uncertainty increased (urn:nasa:pds:neowise_diameters_albedos::2.0[mainbelt] (http://adsabs.harvard.edu/abs/2012ApJ...759L...8M))"
+        },
+        "orbit_used": true
+      },
+      "statistical_diameter_km": 8.64543773591538,
+      "statistical_diameter_68_km": [
+        7.474667625238889,
+        10.03729975124032
+      ],
+      "thermal_upper_limit_km": null,
+      "spectrum_file": "/mnt/c/Users/a0102/spherex/spherex-asteroid-analysis/outputs/2851/stage2_spectrum.csv"
+    },
+    "criteria": [
+      {
+        "id": "C1",
+        "name": "1-um band detected when supported by the data",
+        "result": "PASS",
+        "evidence": {
+          "status": "DETECTED",
+          "evidence": [
+            "within_segment"
+          ],
+          "centre_um": 0.9058616693712264,
+          "depth": 0.4769829851945322,
+          "depth_err": 0.0631390195256421,
+          "min_detectable_depth": 0.1894170585769263,
+          "typical_band_depth": 0.15709103275887948,
+          "detectable": false,
+          "within_segment": {
+            "evaluable": true,
+            "significant": true,
+            "curvature_sigma": 5.1548459169863206,
+            "vertex_um": 0.9058616693712264,
+            "depth": 0.4769829851945322,
+            "depth_err": 0.0631390195256421,
+            "min_detectable_depth": 0.1894170585769263,
+            "n_points": 15,
+            "chi2_red": 1.514006958513824,
+            "covariance": "full"
+          },
+          "band_expected_for_reference": true
+        },
+        "explanation": "Band I detected (within_segment) at 0.906 um (sensitivity marginal)."
+      },
+      {
+        "id": "C2",
+        "name": "2-um band evaluated",
+        "result": "PASS",
+        "evidence": {
+          "status": "NOT_DETECTED",
+          "centre_um": 1.823627279029087,
+          "depth": 0.3920689909091456,
+          "depth_err": 0.24776744083617513,
+          "upper_limit_depth": 1.135371313417671,
+          "min_detectable_depth": 0.3873211890383404,
+          "typical_band_depth": 0.028761172814518177,
+          "detectable": false,
+          "reason": "not detected; data not sensitive enough to detect a typical band",
+          "within_segment": {
+            "evaluable": true,
+            "significant": false,
+            "curvature_sigma": 2.426412867815583,
+            "vertex_um": 1.916091252233935,
+            "depth": 0.32345008238202455,
+            "depth_err": 0.12910706301278013,
+            "min_detectable_depth": 0.3873211890383404,
+            "n_points": 10,
+            "chi2_red": 0.8582235720816292,
+            "covariance": "full"
+          }
+        },
+        "explanation": "Band II evaluated: NOT_DETECTED; not detected; data not sensitive enough to detect a typical band."
+      },
+      {
+        "id": "C3",
+        "name": "Red slope alone does not cause D-type",
+        "result": "PASS",
+        "evidence": {
+          "top_complex": "V-type",
+          "band_I_detected": true,
+          "reddened_band_bearing_templates_top_complex": {
+            "S": "S-complex",
+            "Sq": "S-complex",
+            "Sr": "S-complex",
+            "V": "V-type",
+            "Q": "S-complex"
+          },
+          "D_template_control_top_complex": "D-type",
+          "control_recovered": true
+        },
+        "explanation": "Observed spectrum: no D-type driven by slope. Counterfactual: band-bearing templates reddened to D-like slope classified as S->S-complex, Sq->S-complex, Sr->S-complex, V->V-type, Q->S-complex; D template -> D-type."
+      },
+      {
+        "id": "C4",
+        "name": "Observation-time differences detected",
+        "result": "PASS",
+        "evidence": {
+          "n_visits": 20,
+          "n_exposures": 60,
+          "time_span_days": 9.987802823998209,
+          "segments_never_observed_together": [
+            "B1-B2",
+            "B2-B3",
+            "B3-B4",
+            "B4-B5",
+            "B5-B6"
+          ],
+          "n_repeat_bins": 20,
+          "variability": {
+            "tested": true,
+            "p_constant": 0.6729305807442951,
+            "detected": false,
+            "visit_offset_rms_mag": 0.14622429537252454
+          },
+          "warnings": [
+            "Spectrum assembled from 20 visits over 9.99 d (phase angle 27.2-27.4 deg).",
+            "Adjacent spectral segments never observed together (B1-B2, B2-B3, B3-B4, B4-B5, B5-B6): their relative brightness depends on variability between visits.",
+            "Brightness consistent between visits on 20 repeat bins (p = 0.67): no correction applied. Visit-to-visit uncertainty kept in the error covariance: 0.146 mag for the 6 visits linked by repeats to the largest group, 0.10 mag (untested prior) for 14 visits not linked to it (4 of them linked only within smaller groups)."
+          ]
+        },
+        "explanation": "20 visits over 9.99 d detected; segments never observed together: B1-B2, B2-B3, B3-B4, B4-B5, B5-B6; variability tested."
+      },
+      {
+        "id": "C5",
+        "name": "No unsupported rotational correction",
+        "result": "PASS",
+        "evidence": {
+          "correction": "none",
+          "lightcurve_supported": false,
+          "reason": "no significant variability between visits",
+          "without_repeats": {
+            "n_points": 75,
+            "n_repeat_bins": 0,
+            "correction": "none",
+            "reason": "no repeated observations: a rotational correction cannot be constrained",
+            "cross_visit_verified": false
+          },
+          "without_period": {
+            "correction": "none",
+            "reason": "no significant variability between visits"
+          }
+        },
+        "explanation": "Applied correction 'none' meets the support criteria; without repeated observations: 'none' (no repeated observations: a rotational correction cannot be constrained); without rotation period: 'none'."
+      },
+      {
+        "id": "C6",
+        "name": "Confidence decreases when S vs D is not distinguishable",
+        "result": "PASS",
+        "evidence": {
+          "baseline_confidence": "High",
+          "reported_confidence": "High",
+          "baseline_s_vs_d": {
+            "delta_deviance_D_minus_S": 24.04566991019354,
+            "distinguished": true,
+            "favoured": "S-complex"
+          },
+          "baseline_without_prior": true,
+          "no_1um_region": {
+            "confidence": "Low",
+            "reasons": [
+              "best complex S-complex vs runner-up C-complex: delta score 2.1 (scaled deviance)",
+              "1-um band region (<1.1 um) not covered"
+            ],
+            "s_vs_d": {
+              "delta_deviance_D_minus_S": 7.863180918516744,
+              "distinguished": true,
+              "favoured": "S-complex"
+            },
+            "top_complex": "S-complex",
+            "s_d_question_relevant": true
+          },
+          "errors_x4": {
+            "confidence": "Low",
+            "reasons": [
+              "best complex S-complex vs runner-up V-type: delta score 1.3 (scaled deviance)",
+              "insufficient to distinguish S-complex from D-type (delta +3.9 < 6)"
+            ],
+            "s_vs_d": {
+              "delta_deviance_D_minus_S": 3.9138462197339705,
+              "distinguished": false,
+              "favoured": "S-complex"
+            }
+          }
+        },
+        "explanation": "Baseline confidence High (classifier; reported High); without the 1-um region -> Low; with errors x4 -> Low."
+      },
+      {
+        "id": "C7",
+        "name": "Most probable complex matches the reference",
+        "result": "PASS",
+        "evidence": {
+          "reference_complex": "V-type",
+          "reference_class": "V",
+          "top_complex": "V-type",
+          "top_class": "V",
+          "reference_complex_probability": 0.9998950080701038,
+          "reference_complex_rank": 1,
+          "confidence": "High",
+          "ranking_top5": [
+            [
+              1,
+              "V",
+              99.99
+            ],
+            [
+              2,
+              "R",
+              0.01
+            ],
+            [
+              3,
+              "Sv",
+              0
+            ],
+            [
+              4,
+              "Sr",
+              0
+            ],
+            [
+              5,
+              "S",
+              0
+            ]
+          ],
+          "deviance_gap_scaled": 18.614289995018574,
+          "distinguished_threshold": 6,
+          "saturation_limit": {
+            "n_points": 54,
+            "n_saturated": 0,
+            "fraction": 0,
+            "limit": 0.2,
+            "saturation_limited": false
+          }
+        },
+        "explanation": "Most probable complex V-type (100.0%), reference V-type at rank 1; reference best by deviance; gap to the next complex R-type: 18.6 (distinguished at >= 6); confidence High."
+      },
+      {
+        "id": "C8",
+        "name": "No target-specific information in the classifier",
+        "result": "PASS",
+        "evidence": {
+          "files_scanned": [
+            "src/classification",
+            "src/preprocessing",
+            "src/integration/spectrum_analysis.py",
+            "src/extraction",
+            "src/physical"
+          ],
+          "target_specific_code": [],
+          "classify_parameters": [
+            "refl",
+            "value_col",
+            "err_col",
+            "likelihood",
+            "bin_to_reference_grid",
+            "group_col",
+            "slope_sys_per_um",
+            "band_evidence",
+            "slope_mode",
+            "prior"
+          ],
+          "forbidden_parameters": []
+        },
+        "explanation": "No target names, reference taxonomies or validation files in the analysis/classification code."
+      },
+      {
+        "id": "C9",
+        "name": "Most probable class matches the reference class",
+        "result": "PASS",
+        "evidence": {
+          "reference_class": "V",
+          "top_class": "V",
+          "top_label": "V",
+          "ranking_top5": [
+            [
+              1,
+              "V",
+              99.99
+            ],
+            [
+              2,
+              "R",
+              0.01
+            ],
+            [
+              3,
+              "Sv",
+              0
+            ],
+            [
+              4,
+              "Sr",
+              0
+            ],
+            [
+              5,
+              "S",
+              0
+            ]
+          ],
+          "distinguished_threshold": 10,
+          "deviance_gap_scaled": 18.614289995018574
+        },
+        "explanation": "Most probable class V; reference class first; gap to the next class R: 18.6 (distinguished at >= 10)."
+      }
+    ]
+  },
+  "assets": {
+    "plots": [
+      {
+        "kind": "spectrum",
+        "file": "spectrum.png"
+      },
+      {
+        "kind": "separation",
+        "file": "separation.png"
+      },
+      {
+        "kind": "residuals",
+        "file": "residuals.png"
+      },
+      {
+        "kind": "sky-track",
+        "file": "sky_track.png"
+      },
+      {
+        "kind": "reference-comparison",
+        "file": "reference_comparison.png"
+      }
+    ],
+    "report": "report.md",
+    "observations": "observations.csv",
+    "spectrum": "spectrum.csv",
+    "components": "components.csv",
+    "temporal": "temporal.json"
+  }
+}

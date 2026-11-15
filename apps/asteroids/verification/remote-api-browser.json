@@ -1,0 +1,21 @@
+{
+  "checks": [
+    "prepared results survive an unavailable remote server",
+    "server retry enables new analysis without a page reload",
+    "relative result URL uses the external API deployment prefix",
+    "CSV artifacts point to the same trusted job directory",
+    "public scientific CSV is readable cross-origin without a session header",
+    "all result plots decode from the API origin",
+    "job mutation and status use the owner session",
+    "the browser performed authenticated CORS preflight",
+    "generated scene JSON and observation PNG load from the API origin",
+    "scene deep links and owner sessions survive iframe reload",
+    "public artifacts do not receive the session token",
+    "no browser runtime errors"
+  ],
+  "errors": [],
+  "fixtures": true,
+  "sessionCalls": 1,
+  "browser": "157.0.8103.39",
+  "generatedAt": "2026-11-15T09:09:24.796Z"
+}

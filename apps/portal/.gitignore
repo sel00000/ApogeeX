@@ -1,0 +1,11 @@
+__pycache__/
+analysis/node_modules/
+analysis/test-results/
+analysis/.venv/
+analysis/dist/
+analysis/preview/
+.DS_Store
+
+.runtime/
+.venv/
+analysis/public/data/patches/

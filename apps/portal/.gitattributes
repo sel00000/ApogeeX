@@ -1,0 +1,10 @@
+# Preserve scientific arrays byte-for-byte and keep binary data out of text diffs.
+*.fits binary
+*.f32 binary
+*.tif binary
+# Upstream fixtures are retained verbatim, including tab-delimited empty fields.
+analysis/e2e/fixtures/*.tsv -whitespace
+analysis/START_PREVIEW.cmd whitespace=cr-at-eol
+# Retain the matching compiled engine's CRLF bytes and upstream source/catalogs.
+planetarium-original/engine/stellarium-web-engine.js -diff -whitespace
+planetarium-original/vendor/** -whitespace

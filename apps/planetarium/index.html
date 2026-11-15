@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0b141d" />
+    <meta name="description" content="Stellarium Web Lab: explore stars and planets in your browser. Change the observing place and time, and look around your own sky." />
+    <title>SPHEREx Sky Lab · Planetarium</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230b141d'/%3E%3Ccircle cx='16' cy='16' r='8' fill='none' stroke='%2382dfe6' stroke-width='2'/%3E%3Cellipse cx='16' cy='16' rx='14' ry='5' transform='rotate(-37 16 16)' fill='none' stroke='%2382dfe6'/%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="./src/styles.css" />
+    <link rel="stylesheet" href="./src/analysis.css" />
+    <link rel="stylesheet" href="./src/embedded.css" />
+    <link rel="stylesheet" href="./src/v2.css" />
+    <link rel="preload" href="./engine/stellarium-web-engine.js" as="script" />
+    <link rel="preload" href="./engine/stellarium-web-engine.wasm" as="fetch" type="application/wasm" crossorigin />
+    <script type="module" src="./src/app.js"></script>
+  </head>
+  <body>
+    <svg class="icon-definitions" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <symbol id="icon-controls" viewBox="0 0 24 24"><path d="M4 7h16M4 17h16M8 4v6M16 14v6" /></symbol>
+      <symbol id="icon-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5" /><path d="m16 16 4.5 4.5" /></symbol>
+      <symbol id="icon-expand" viewBox="0 0 24 24"><path d="M8 4H4v4m12-4h4v4M4 16v4h4m12-4v4h-4" /></symbol>
+      <symbol id="icon-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" /><path d="M9.5 8.5a2.6 2.6 0 0 1 5 1c0 2-2.5 2-2.5 4M12 17h.01" /></symbol>
+      <symbol id="icon-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18" /></symbol>
+      <symbol id="icon-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14" /></symbol>
+      <symbol id="icon-minus" viewBox="0 0 24 24"><path d="M5 12h14" /></symbol>
+      <symbol id="icon-reset" viewBox="0 0 24 24"><circle cx="12" cy="12" r="6" /><path d="M12 2v4m0 12v4M2 12h4m12 0h4" /></symbol>
+      <symbol id="icon-ground" viewBox="0 0 24 24"><path d="m2 17 6-9 4 6 3-4 7 7M2 20h20M6 11l2 2 2-2" /></symbol>
+      <symbol id="icon-coordinates" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" /><ellipse cx="12" cy="12" rx="4" ry="9" /><path d="M3 12h18M5 6.5c4 2 10 2 14 0M5 17.5c4-2 10-2 14 0" /></symbol>
+      <symbol id="icon-allsky" viewBox="0 0 24 24"><ellipse cx="12" cy="12" rx="10" ry="5" /><ellipse cx="12" cy="12" rx="4" ry="5" /><path d="M2 12h20M12 7v10" /></symbol>
+      <symbol id="icon-link" viewBox="0 0 24 24"><path d="m10 13 4-4m-6 6-1 1a3.5 3.5 0 0 1-5-5l4-4a3.5 3.5 0 0 1 5 0m2 10a3.5 3.5 0 0 0 5 0l4-4a3.5 3.5 0 0 0-5-5l-1 1" transform="translate(1 0) scale(.92)" /></symbol>
+      <symbol id="icon-pin" viewBox="0 0 24 24"><path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 1 1 14 0Z" /><circle cx="12" cy="10" r="2" /></symbol>
+      <symbol id="icon-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" /><path d="M12 6v6l4 2" /></symbol>
+      <symbol id="icon-layers" viewBox="0 0 24 24"><path d="m3 8 9-5 9 5-9 5-9-5Zm0 5 9 5 9-5M3 18l9 5 9-5" transform="translate(0 -1)" /></symbol>
+    </svg>
+
+    <main id="observatory" aria-label="Stellarium web sky observation screen" data-i18n-attr="aria-label=main.label">
+      <canvas id="sky-canvas" aria-label="Sky map. Click to show star and constellation details. Press the SPHEREx data analysis button to choose a square field. Drag to move and scroll to zoom." tabindex="0" data-i18n-attr="aria-label=canvas.label"></canvas>
+      <svg id="analysis-picker-overlay" class="analysis-picker-overlay" aria-hidden="true" hidden>
+        <polygon id="analysis-picker-outline" />
+        <path id="analysis-picker-crosshair" />
+        <text id="analysis-picker-label"></text>
+      </svg>
+      <div id="center-marker" class="center-marker" aria-hidden="true" hidden></div>
+      <aside id="map-banner" class="map-banner" aria-label="All-sky map details" hidden data-i18n-attr="aria-label=map.label">
+        <div><p class="eyebrow">ALL-SKY MAP</p><h2 data-i18n-lead="map.heading">360° all-sky map <span id="map-fov">360.0°</span></h2><p class="map-source" data-i18n="map.source">Stellarium object catalogue · SPHEREx infrared background</p></div>
+        <button id="map-full-view" class="button button-secondary" type="button" disabled data-i18n="map.fullView">Full view</button>
+      </aside>
+
+      <header class="topbar">
+        <div class="brand-group">
+          <button id="toggle-panel" class="icon-button panel-toggle" type="button" aria-label="Open or close the exploring tools" aria-controls="control-panel" aria-expanded="true" title="Exploring tools" data-i18n-attr="aria-label=panel.toggleLabel,title=panel.toggleTitle">
+            <svg class="icon"><use href="#icon-controls" /></svg>
+          </button>
+          <a class="brand" href="../" aria-label="Back to the SPHEREx Sky Lab entrance" data-i18n-attr="aria-label=brand.label">
+            <svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="10" /><ellipse cx="20" cy="20" rx="18" ry="7" transform="rotate(-37 20 20)" /><path d="M20 6v4m0 20v4M6 20h4m20 0h4" /><circle class="orbital-point" cx="33.3" cy="9.9" r="2.4" /></svg>
+            <span class="brand-name">SPHEREx <span class="brand-divider">/</span><span class="brand-subtitle">SKY LAB</span></span>
+          </a>
+          <span class="version-tag">v5.0.0</span>
+        </div>
+        <div class="topbar-actions">
+          <span id="engine-status" class="engine-status" role="status" aria-live="polite">Preparing the engine</span>
+          <span class="topbar-rule" aria-hidden="true"></span>
+          <button type="button" class="sky-tutorial-launch" data-sky-tutorial-open aria-haspopup="dialog" data-i18n="tutorial.open">Tutorial</button>
+          <button id="help-button" class="icon-button" type="button" aria-label="How to use it and project details" title="How to use it" data-i18n-attr="aria-label=help.buttonLabel,title=help.buttonTitle"><svg class="icon"><use href="#icon-help" /></svg></button>
+          <button id="fullscreen-button" class="icon-button" type="button" aria-label="Toggle full screen" title="Full screen" data-i18n-attr="aria-label=fullscreen.label,title=fullscreen.title"><svg class="icon"><use href="#icon-expand" /></svg></button>
+        </div>
+      </header>
+
+      <section id="loading-overlay" class="loading-overlay" aria-label="Loading the sky map" data-i18n-attr="aria-label=loading.label">
+        <div class="loading-card">
+          <div class="loading-orbit" aria-hidden="true"><span></span></div>
+          <p class="eyebrow">STELLARIUM WEB ENGINE</p>
+          <h1 class="loading-title" data-i18n="loading.title">Opening the sky</h1>
+          <p id="loading-message">Preparing the sky map engine and its basic data.</p>
+          <div class="loading-track" aria-hidden="true"><span></span></div>
+          <button id="retry-button" class="button button-primary" type="button" hidden data-i18n="loading.retry">Try again</button>
+        </div>
+      </section>
+
+      <aside id="control-panel" class="control-panel floating-panel" aria-label="Sky exploring tools" data-i18n-attr="aria-label=panel.label">
+        <div class="panel-heading">
+          <p class="eyebrow">YOUR OBSERVATION DESK</p>
+          <h1 data-i18n-lead="panel.title">Explore your own sky<span class="heading-dot" aria-hidden="true">.</span></h1>
+          <p class="panel-intro" data-i18n="panel.intro">Click a star or a constellation name to see its details.</p>
+        </div>
+        <section class="analysis-entry" aria-label="SPHEREx analysis guide" data-i18n-attr="aria-label=analysisEntry.label">
+          <button id="analysis-pick" class="button button-primary" type="button" aria-pressed="false" aria-describedby="analysis-pick-hint" disabled data-i18n="analysis.pick">SPHEREx data analysis</button>
+          <label class="analysis-field-label" for="analysis-field-size" data-i18n-lead="analysis.fieldSize">Analysis field
+            <select id="analysis-field-size" disabled>
+              <option value="120">2′ × 2′</option>
+              <option value="180" selected>3′ × 3′</option>
+              <option value="300">5′ × 5′</option>
+              <option value="600">10′ × 10′</option>
+            </select>
+          </label>
+          <p id="analysis-pick-hint" role="status">A normal click shows star and constellation details. To analyse, press the button and then choose a square field.</p>
+        </section>
+
+        <fieldset id="app-controls" disabled>
+          <legend class="sr-only" data-i18n="controls.legend">Observing settings</legend>
+          <div class="view-mode-switch" role="group" aria-label="View mode" data-i18n-attr="aria-label=view.modeLabel">
+            <button class="button" type="button" data-view="sky" aria-pressed="true" data-i18n="view.sky">Sky dome</button>
+            <button class="button" type="button" data-view="allsky" aria-pressed="false" data-i18n="view.allsky">All-sky map</button>
+          </div>
+          <section class="control-section search-section" aria-labelledby="search-title">
+            <h2 id="search-title" class="section-heading"><span data-i18n="search.title">Find an object</span><span class="section-index">01</span></h2>
+            <form id="search-form" class="search-form" role="search">
+              <label for="search-input" class="sr-only" data-i18n="search.inputLabel">Object name or identifier</label>
+              <input id="search-input" type="search" placeholder="Moon, Mars, M31, HIP number…" autocomplete="off" spellcheck="false" aria-controls="search-results" / data-i18n-attr="placeholder=search.placeholder">
+              <button class="search-submit" type="submit" aria-label="Search for an object" data-i18n-attr="aria-label=search.submit"><svg class="icon"><use href="#icon-search" /></svg></button>
+            </form>
+            <ul id="search-results" class="search-results" aria-label="Object search results" aria-live="polite" data-i18n-attr="aria-label=search.results"></ul>
+          </section>
+
+          <section class="control-section" aria-labelledby="coordinates-title">
+            <h2 id="coordinates-title" class="section-heading"><span data-i18n-lead="coords.title"><svg class="icon section-icon"><use href="#icon-coordinates" /></svg>Coordinate system</span><span class="section-index">02</span></h2>
+            <label for="coordinate-system" class="sr-only" data-i18n="coords.selectLabel">Coordinate system for viewing the sky</label>
+            <select id="coordinate-system" aria-describedby="coordinate-hint">
+              <option value="horizon" data-i18n="coords.optHorizon">Horizontal · azimuth/altitude</option>
+              <option value="equatorial" data-i18n="coords.optEquatorial">Equatorial · RA/Dec</option>
+            </select>
+            <div class="coordinate-readout">
+              <p id="coordinate-reference">Screen centre · horizontal</p>
+              <dl><div><dt id="coordinate-longitude-label">Azimuth</dt><dd id="coordinate-longitude">—</dd></div><div><dt id="coordinate-latitude-label">Altitude</dt><dd id="coordinate-latitude">—</dd></div></dl>
+            </div>
+            <p id="coordinate-hint" class="field-note">Shows azimuth and altitude relative to the horizon at the observing place.</p>
+            <form id="equatorial-target" class="equatorial-target" hidden>
+              <div class="coordinate-inputs">
+                <label class="field-label" for="target-ra" data-i18n-lead="coords.targetRa">RA <span data-i18n="coords.unitHours">hours h</span><input id="target-ra" type="number" min="0" max="24" step="any" placeholder="0~24" required inputmode="decimal" /></label>
+                <label class="field-label" for="target-dec" data-i18n-lead="coords.targetDec">Dec <span data-i18n="coords.unitDegrees">degrees °</span><input id="target-dec" type="number" min="-90" max="90" step="any" placeholder="−90~+90" required inputmode="decimal" /></label>
+              </div>
+              <button id="go-to-coordinates" class="button button-secondary" type="submit" data-i18n="coords.go">Go to these coordinates</button>
+            </form>
+          </section>
+
+          <section class="control-section" aria-labelledby="location-title">
+            <h2 id="location-title" class="section-heading"><span data-i18n-lead="location.title"><svg class="icon section-icon"><use href="#icon-pin" /></svg>Observing place</span><span class="section-index">03</span></h2>
+            <form id="location-form">
+              <label for="location-search" class="sr-only" data-i18n="location.searchLabel">Search for a country or capital</label>
+              <input id="location-search" class="location-search" type="search" placeholder="Search for a country or capital…" autocomplete="off" aria-controls="location-preset" / data-i18n-attr="placeholder=location.searchPlaceholder">
+              <label for="location-preset" class="sr-only" data-i18n="location.presetLabel">Choose a capital or your own place</label>
+              <select id="location-preset" aria-describedby="location-input-hint">
+                <option value="custom" data-i18n="location.customOption">Your own place · enter latitude/longitude</option>
+                <option value="seoul" selected>South Korea · Seoul</option>
+                <option value="jinju">South Korea · Jinju</option>
+                <option value="busan">South Korea · Busan</option>
+              </select>
+              <p id="location-search-status" class="location-search-status" role="status"></p>
+              <div class="coordinates-row">
+                <label class="field-label" for="latitude" data-i18n-lead="location.latitude">Latitude <span>°</span><input id="latitude" type="number" min="-90" max="90" step="any" value="37.5665" required inputmode="decimal" aria-describedby="location-input-hint" /></label>
+                <label class="field-label" for="longitude" data-i18n-lead="location.longitude">Longitude <span>°</span><input id="longitude" type="number" min="-180" max="180" step="any" value="126.9780" required inputmode="decimal" aria-describedby="location-input-hint" /></label>
+                <button id="apply-location" class="button button-secondary coordinate-apply" type="submit" data-i18n="location.apply">Apply</button>
+              </div>
+              <p id="location-input-hint" class="field-note" data-i18n-html="location.hint">A capital applies as soon as you choose it.<br>For your own place, enter the coordinates and press ‘Apply’.<br>Enter north latitude and east longitude as +, south and west as −.</p>
+            </form>
+          </section>
+
+          <section class="control-section" aria-labelledby="time-title">
+            <h2 id="time-title" class="section-heading"><span data-i18n-lead="time.title"><svg class="icon section-icon"><use href="#icon-clock" /></svg>Observing time</span><span class="section-index">04</span></h2>
+            <form id="time-form" class="time-form">
+              <label for="observation-time" class="sr-only" data-i18n="time.inputLabel">Observing date and time</label>
+              <input id="observation-time" type="datetime-local" required />
+              <button id="apply-time" class="button button-secondary" type="submit" data-i18n="time.apply">Apply</button>
+            </form>
+            <p class="field-note" data-i18n="time.zoneNote">Times are shown in your device’s local time zone.</p>
+            <div class="time-playback">
+              <div class="time-controls" role="group" aria-label="Observing time playback" data-i18n-attr="aria-label=time.playback">
+                <button id="time-backward" class="button button-secondary transport-button" type="button" aria-label="Lower the time speed by one step" title="Lower the time speed by one step" data-i18n-attr="aria-label=time.slower,title=time.slower">&lt;</button>
+                <button id="time-stop" class="button button-secondary transport-button" type="button" aria-label="Stop time" aria-pressed="false" title="Stop time" data-i18n-attr="aria-label=time.stop,title=time.stop">⏹&#xfe0e;</button>
+                <button id="time-forward" class="button button-secondary transport-button is-active" type="button" aria-label="Raise the time speed by one step" title="Raise the time speed by one step" data-i18n-attr="aria-label=time.faster,title=time.faster">&gt;</button>
+              </div>
+              <div class="time-settings">
+                <form id="time-speed-form" class="speed-entry" novalidate>
+                  <label for="time-speed-input" data-i18n="time.speedInput">Speed</label>
+                  <input id="time-speed-input" type="number" min="-1000000" max="1000000" step="any" value="1" required inputmode="decimal" aria-describedby="time-speed-hint" />
+                </form>
+                <button id="time-now" class="button button-secondary" type="button" title="Return to the present time and play in real time ×1" data-i18n-attr="title=time.nowTitle" data-i18n="time.now">Now</button>
+                <output id="time-speed" class="speed-display" aria-label="Current time speed" aria-live="polite" aria-atomic="true" data-i18n-attr="aria-label=time.speedLabel"><span id="time-state">Real time</span><strong id="time-multiplier">×1</strong></output>
+              </div>
+            </div>
+            <p id="time-speed-hint" class="field-note" role="status">Press Enter or click another field · negative runs backwards</p>
+          </section>
+
+          <section class="control-section" aria-labelledby="layers-title">
+            <h2 id="layers-title" class="section-heading"><span data-i18n-lead="layers.title"><svg class="icon section-icon"><use href="#icon-layers" /></svg>Sky layers</span><span class="section-index">05</span></h2>
+            <div class="layer-grid">
+              <label class="layer-toggle" for="layer-constellations"><input id="layer-constellations" type="checkbox" data-layer="constellations" checked /><span class="toggle-track" aria-hidden="true"></span><span data-i18n="layers.constellations">Constellation lines</span></label>
+              <label class="layer-toggle" for="layer-labels"><input id="layer-labels" type="checkbox" data-layer="labels" checked /><span class="toggle-track" aria-hidden="true"></span><span data-i18n="layers.labels">Constellation names</span></label>
+              <label class="layer-toggle" for="layer-atmosphere"><input id="layer-atmosphere" type="checkbox" data-layer="atmosphere" /><span class="toggle-track" aria-hidden="true"></span><span data-i18n="layers.atmosphere">Atmosphere</span></label>
+              <label class="layer-toggle" for="layer-landscape"><input id="layer-landscape" type="checkbox" data-layer="landscape" checked /><span class="toggle-track" aria-hidden="true"></span><span data-i18n-lead="layers.landscape">Ground <kbd>G</kbd></span></label>
+              <label class="layer-toggle" for="layer-equatorial"><input id="layer-equatorial" type="checkbox" data-layer="equatorial" /><span class="toggle-track" aria-hidden="true"></span><span data-i18n="layers.equatorial">Equatorial grid</span></label>
+              <label class="layer-toggle" for="layer-azimuthal"><input id="layer-azimuthal" type="checkbox" data-layer="azimuthal" /><span class="toggle-track" aria-hidden="true"></span><span data-i18n="layers.azimuthal">Horizontal grid</span></label>
+              <label class="layer-toggle" for="layer-dss"><input id="layer-dss" type="checkbox" data-layer="dss" /><span class="toggle-track" aria-hidden="true"></span><span data-i18n="layers.dss">DSS images</span></label>
+            </div>
+          </section>
+
+          <section class="control-section quality-section" aria-labelledby="quality-title">
+            <label id="quality-title" for="quality-select" class="section-heading"><span data-i18n="quality.title">Quality</span></label>
+            <select id="quality-select"><option value="balanced" data-i18n="quality.balanced">Balanced · default</option><option value="performance" data-i18n="quality.performance">Performance first</option><option value="detail" data-i18n="quality.detail">Sharper</option></select>
+          </section>
+          <div class="panel-share"><button id="copy-link" class="button share-button" type="button" data-i18n-lead="share.copy"><svg class="icon"><use href="#icon-link" /></svg>Copy a link to this view</button></div>
+        </fieldset>
+        <footer class="panel-footer"><span>Powered by Stellarium Web Engine</span><a href="./README.html" target="_blank" rel="noopener" data-i18n="footer.readme">Project guide ↗</a></footer>
+      </aside>
+
+      <aside id="selection-panel" class="selection-panel floating-panel" aria-label="Selected object details" hidden data-i18n-attr="aria-label=selection.label">
+        <div class="selection-header"><p class="eyebrow">SELECTED OBJECT</p><button id="clear-selection" class="icon-button small" type="button" aria-label="Clear the selected object" data-i18n-attr="aria-label=selection.clear"><svg class="icon"><use href="#icon-close" /></svg></button></div>
+        <h2 id="selection-name">Selected object</h2>
+        <div id="selection-details" class="selection-details"></div>
+        <div id="selection-magnitude" class="selection-details" hidden></div>
+        <div class="selection-analysis">
+          <p id="selection-coordinates" class="selection-coordinates"></p>
+          <button id="selection-analyze" class="button button-primary" type="button" data-i18n="selection.analyze">SPHEREx analysis</button>
+          <p id="selection-analysis-note" class="field-note"></p>
+        </div>
+      </aside>
+
+      <div class="view-controls floating-panel" aria-label="Sky map coordinate system, zoom and ground" data-i18n-attr="aria-label=viewControls.label">
+        <button id="toggle-allsky" class="icon-button ground-toggle" type="button" aria-label="Switch to the all-sky map" aria-pressed="false" title="Switch between the sky dome and the all-sky map" disabled data-i18n-attr="title=viewControls.allskyTitle"><svg class="icon" aria-hidden="true"><use href="#icon-allsky" /></svg><span data-i18n="viewControls.allskyShort">All sky</span></button>
+        <span class="view-control-rule" aria-hidden="true"></span>
+        <button id="toggle-coordinates" class="icon-button ground-toggle" type="button" aria-label="Switch to equatorial coordinates" aria-pressed="false" title="Switch between horizontal and equatorial coordinates" disabled data-i18n-attr="aria-label=viewControls.toEquatorial,title=viewControls.coordsTitle"><svg class="icon" aria-hidden="true"><use href="#icon-coordinates" /></svg><span data-i18n="viewControls.coordsShort">RA/Dec</span></button>
+        <span class="view-control-rule" aria-hidden="true"></span>
+        <button id="toggle-ground" class="icon-button ground-toggle" type="button" aria-label="Turn the ground off (G)" aria-pressed="true" aria-keyshortcuts="G" title="Turn the ground off (G)" disabled><svg class="icon" aria-hidden="true"><use href="#icon-ground" /></svg><span data-i18n="viewControls.groundShort">Ground</span></button>
+        <span class="view-control-rule" aria-hidden="true"></span>
+        <button id="zoom-in" class="icon-button" type="button" aria-label="Zoom in" title="Zoom in" data-i18n-attr="aria-label=viewControls.zoomIn,title=viewControls.zoomIn"><svg class="icon"><use href="#icon-plus" /></svg></button>
+        <span class="view-control-rule" aria-hidden="true"></span>
+        <button id="zoom-out" class="icon-button" type="button" aria-label="Zoom out" title="Zoom out" data-i18n-attr="aria-label=viewControls.zoomOut,title=viewControls.zoomOut"><svg class="icon"><use href="#icon-minus" /></svg></button>
+        <span class="view-control-rule" aria-hidden="true"></span>
+        <button id="reset-view" class="icon-button" type="button" aria-label="Back to the default field of view" title="Reset the field of view" data-i18n-attr="aria-label=viewControls.resetLabel"><svg class="icon"><use href="#icon-reset" /></svg></button>
+      </div>
+
+      <div id="sky-hint" class="sky-hint" aria-hidden="true">Click for object details · drag to move the sky · scroll to zoom in / out</div>
+      <footer class="observation-status" aria-label="Current observing status" data-i18n-attr="aria-label=statusBar.label">
+        <div class="status-location"><svg class="icon"><use href="#icon-pin" /></svg><span id="location-status">Seoul · 37.5665° N, 126.9780° E</span></div>
+        <div class="status-time"><svg class="icon"><use href="#icon-clock" /></svg><time id="time-status">Preparing the observing time</time></div>
+        <div class="status-fov"><span data-i18n="statusBar.fov">Field of view</span><strong id="fov-status">—</strong></div>
+      </footer>
+      <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+    </main>
+
+    <dialog id="analysis-dialog" class="analysis-dialog" aria-labelledby="analysis-title">
+      <header class="analysis-heading">
+        <div><h2 id="analysis-title">SPHEREx analysis</h2><p id="analysis-position"></p></div>
+        <div class="analysis-actions"><a id="analysis-new-tab" target="_blank" rel="noopener" data-i18n="analysisDialog.newTab">New tab ↗</a><button id="close-analysis" class="button button-secondary" type="button" autofocus data-i18n="analysisDialog.close">Back to the sky</button></div>
+      </header>
+      <p id="analysis-context" class="analysis-context"></p>
+      <p id="analysis-loading" class="analysis-loading" role="status">Loading the analysis tool…</p>
+      <iframe id="analysis-frame" class="analysis-frame" src="about:blank" title="SPHEREx analysis tool for the selected sky position" allow="fullscreen" data-i18n-attr="title=analysisDialog.frameTitle"></iframe>
+    </dialog>
+
+    <dialog id="help-dialog" class="help-dialog" aria-labelledby="help-title">
+      <div class="dialog-heading"><div><p class="eyebrow">WELCOME TO THE SKY</p><h2 id="help-title">Stellarium Web Lab</h2></div><button id="close-help" class="icon-button" type="button" aria-label="Close help" data-i18n-attr="aria-label=help.close"><svg class="icon"><use href="#icon-close" /></svg></button></div>
+      <p class="dialog-intro" data-i18n="help.intro1">Your own sky observing tool, running in a web browser.</p>
+      <p class="dialog-intro" data-i18n="help.intro2">The ‘All-sky map’ spreads the 360° sky over an elliptical Mollweide projection. Click a star or a constellation name to see its details. You can drag, zoom and search for objects, and ‘Full view’ resets the map. When you return to the sky dome, the previous field of view and the ground and atmosphere settings come back.</p>
+      <p class="dialog-intro" data-i18n="help.intro3">Press ‘SPHEREx data analysis’ and a square showing the analysis field follows the cursor. Place the square where you want and click to look up SPHEREx data for that field. The default field is 3′ × 3′, and the view zooms in as far as needed for the field to be visible. The square is aligned to celestial north, so it may look tilted depending on the direction of the sky. Press Esc or the button again to cancel; opening an analysis returns you to normal selection.</p>
+      <p class="dialog-intro" data-i18n="help.intro4">Choose the equatorial system under ‘Coordinate system’ or press the ‘RA/Dec’ button on the right to view an RA/Dec grid. Check the screen-centre coordinates, and enter a right ascension (hours) and declination (degrees) to move there. Grid, read-out, input and analysis coordinates are ICRS, corrected for aberration and the Sun’s light deflection.</p>
+      <dl class="help-shortcuts"><div><dt data-i18n="help.kObject">Object details</dt><dd data-i18n="help.vObject">Click a star or a constellation name</dd></div><div><dt data-i18n="help.kMove">Move the sky</dt><dd data-i18n="help.vMove">Drag or touch the screen to move</dd></div><div><dt data-i18n="help.kZoom">Zoom in · out</dt><dd data-i18n="help.vZoom">Mouse wheel, two-finger gesture or the + / − buttons</dd></div><div><dt data-i18n="help.kGround">Ground</dt><dd data-i18n="help.vGround">Turn on · off with the ground button on the right or the G key</dd></div><div><dt data-i18n="help.kRegion">Analyse a sky field</dt><dd data-i18n="help.vRegion">SPHEREx data analysis → click where the square should go (Esc to cancel)</dd></div><div><dt data-i18n="help.kSearch">Search for objects</dt><dd data-i18n="help.vSearch">Search by name, then analyse the exact object coordinates from the details card</dd></div><div><dt data-i18n="help.kConditions">Observing conditions</dt><dd data-i18n="help.vConditions">Adjust place, time and layers in the exploring tools</dd></div></dl>
+      <div class="help-note"><h3 data-i18n="help.aboutTitle">About this version</h3><p data-i18n="help.about">A web project that uses the official Stellarium Web Engine. The sky position you click is converted to corrected ICRS coordinates and passed to the SPHEREx analysis screen. Looking up data needs an internet connection, and depending on the observed area and quality there may be no results. When you select a moving object, its apparent direction at the selected time is passed on as such; its past path is not tracked automatically.</p></div>
+      <div class="help-links"><a href="./source/" target="_blank" rel="noopener" data-i18n="help.source">Source code ↗</a><a href="./LICENSE-AGPL-3.0.txt" target="_blank" rel="noopener" data-i18n="help.license">AGPL-3.0 licence ↗</a><a href="https://github.com/Stellarium/stellarium-web-engine" target="_blank" rel="noopener" data-i18n="help.engine">Official web engine ↗</a></div>
+      <p class="help-version">SPHEREx SKY LAB <span>v5.0.0</span></p>
+    </dialog>
+  </body>
+</html>

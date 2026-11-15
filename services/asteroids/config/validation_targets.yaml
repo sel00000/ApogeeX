@@ -1,0 +1,360 @@
+# Validation targets. Reference values are used ONLY by src/validation to score the system; they
+# are never passed to the analysis or classification code.
+targets:
+  "433":
+    name: "433 Eros"
+    reference_taxonomy:
+      class: "S"
+      complex: "S-complex"
+      sources:
+        - "JPL SBDB spec_B (SMASSII, Bus & Binzel 2002): S"
+        - "JPL SBDB spec_T (Tholen): S"
+        - "DeMeo et al. 2009 (Bus-DeMeo, 0.45-2.45 um), Appendix: Sw (S with a high slope; class S)"
+      cross_check_sbdb_field: "spec_B"
+    reference_diameter_km: 16.84       # NEAR Shoemaker volume-equivalent sphere (Yeomans et al. 2000)
+    # Window rule (saturation criterion, docs/STAGE_STATUS.md): a validation window must not be
+    # saturation-limited in 0.75-2.45 um. Calibration stars are clean at G 11.3-11.8 and saturated at
+    # V 10.5-10.6; Eros in 2026-02 (V ~10.7): 38% of its 0.75-2.45 um points saturated. DR1 window with V fainter than 11.5
+    # and >= 100 exposures: 2025-07 (191 exposures, V ~13.2). Chosen by this rule before its result was known.
+    default_window: ["2025-07-01", "2025-07-31"]
+    default_max_images: null          # all exposures (since 2026-11-15; before: 200)
+    previous_window: ["2026-02-01", "2026-02-21"]   # saturation-limited; results kept in outputs/windows/2026-02/
+
+  # ---------------------------------------------------------------------------------------------
+  # Targets added 2026-11-14 by the class-coverage rule (docs/STAGE_STATUS.md, "Added validation
+  # targets"). The rule and the choice below were fixed from the screening numbers (MOST exposure
+  # count and predicted V) before any of these targets was analysed:
+  #   classes not yet scored: K, L, T, V, R, O, Q, B and the X-complex (16 Psyche saturation-limited);
+  #   reference = Bus-DeMeo class in DeMeo et al. (2009, Icarus 202, 160; Appendix), with SMASSII
+  #   (SBDB spec_B) in the same class or complex; DR1 window 2025-04-12..2026-10-15, >= 100 exposures;
+  #   saturation: predicted V >= 12.0 for every exposure; signal: median predicted V <= 17.5;
+  #   brightest median V = primary, second brightest = replicate.
+  # Not testable in DR1 under the rule: R (349 Dembowska, V 11.0-12.0), O (3628 Boznemcova, V ~19.0),
+  # Q (all Bus-DeMeo Q are NEAs at V > 20 in DR1), B (2 Pallas saturated; 3200, 6411, 1508 at V > 18).
+  "221":
+    name: "221 Eos"
+    role: "primary K"
+    reference_taxonomy:
+      class: "K"
+      complex: "K-type"
+      sources:
+        - "DeMeo et al. 2009 (Bus-DeMeo, 0.45-2.45 um), Appendix: K"
+        - "JPL SBDB spec_B (SMASSII, Bus & Binzel 2002): K"
+        - "JPL SBDB spec_T (Tholen): S"
+      cross_check_sbdb_field: "spec_B"
+      basis: "visible + near-infrared taxonomy (Bus-DeMeo)"
+    screening: {exposures: 310, v_min: 12.52, v_median: 13.19, v_max: 13.36}
+    default_window: ["2025-04-12", "2026-10-15"]
+    default_max_images: null          # all exposures (since 2026-11-15; before: the first 120)
+  "387":
+    name: "387 Aquitania"
+    role: "primary L"
+    reference_taxonomy:
+      class: "L"
+      complex: "L-type"
+      sources:
+        - "DeMeo et al. 2009 (Bus-DeMeo, 0.45-2.45 um), Appendix: L"
+        - "JPL SBDB spec_B (SMASSII, Bus & Binzel 2002): L"
+        - "JPL SBDB spec_T (Tholen): S"
+      cross_check_sbdb_field: "spec_B"
+      basis: "visible + near-infrared taxonomy (Bus-DeMeo)"
+    screening: {exposures: 252, v_min: 12.15, v_median: 13.08, v_max: 13.26}
+    default_window: ["2025-04-12", "2026-10-15"]
+    default_max_images: null          # all exposures (since 2026-11-15; before: the first 120)
+  "308":
+    name: "308 Polyxo"
+    role: "primary T"
+    reference_taxonomy:
+      class: "T"
+      complex: "T-type"
+      sources:
+        - "DeMeo et al. 2009 (Bus-DeMeo, 0.45-2.45 um), Appendix: T"
+        - "JPL SBDB spec_B (SMASSII, Bus & Binzel 2002): T"
+        - "JPL SBDB spec_T (Tholen): T"
+      cross_check_sbdb_field: "spec_B"
+      basis: "visible + near-infrared taxonomy (Bus-DeMeo)"
+    screening: {exposures: 257, v_min: 13.09, v_median: 13.53, v_max: 13.72}
+    default_window: ["2025-04-12", "2026-10-15"]
+    default_max_images: null          # all exposures (since 2026-11-15; before: the first 120)
+  "2045":
+    name: "2045 Peking"
+    role: "primary V"
+    reference_taxonomy:
+      class: "V"
+      complex: "V-type"
+      sources:
+        - "DeMeo et al. 2009 (Bus-DeMeo, 0.45-2.45 um), Appendix: V"
+        - "JPL SBDB spec_B (SMASSII, Bus & Binzel 2002): V"
+      cross_check_sbdb_field: "spec_B"
+      basis: "visible + near-infrared taxonomy (Bus-DeMeo)"
+    screening: {exposures: 227, v_min: 16.12, v_median: 17.03, v_max: 17.25}
+    default_window: ["2025-04-12", "2026-10-15"]
+    default_max_images: null          # all exposures (since 2026-11-15; before: the first 120)
+  "69":
+    name: "69 Hesperia"
+    role: "primary X-complex"
+    reference_taxonomy:
+      class: "Xk"
+      complex: "X-complex"
+      sources:
+        - "DeMeo et al. 2009 (Bus-DeMeo, 0.45-2.45 um), Appendix: Xk"
+        - "JPL SBDB spec_B (SMASSII, Bus & Binzel 2002): X"
+        - "JPL SBDB spec_T (Tholen): M"
+      cross_check_sbdb_field: "spec_B"
+      basis: "visible + near-infrared taxonomy (Bus-DeMeo)"
+    screening: {exposures: 266, v_min: 12.44, v_median: 12.62, v_max: 13.23}
+    default_window: ["2025-04-12", "2026-10-15"]
+    default_max_images: null          # all exposures (since 2026-11-15; before: the first 120)
+  "579":
+    name: "579 Sidonia"
+    role: "replicate K"
+    reference_taxonomy:
+      class: "K"
+      complex: "K-type"
+      sources:
+        - "DeMeo et al. 2009 (Bus-DeMeo, 0.45-2.45 um), Appendix: K"
+        - "JPL SBDB spec_B (SMASSII, Bus & Binzel 2002): K"
+        - "JPL SBDB spec_T (Tholen): S"
+      cross_check_sbdb_field: "spec_B"
+      basis: "visible + near-infrared taxonomy (Bus-DeMeo)"
+    screening: {exposures: 285, v_min: 13.45, v_median: 13.79, v_max: 13.95}
+    default_window: ["2025-04-12", "2026-10-15"]
+    default_max_images: null          # all exposures (since 2026-11-15; before: the first 120)
+  "236":
+    name: "236 Honoria"
+    role: "replicate L"
+    reference_taxonomy:
+      class: "L"
+      complex: "L-type"
+      sources:
+        - "DeMeo et al. 2009 (Bus-DeMeo, 0.45-2.45 um), Appendix: L"
+        - "JPL SBDB spec_B (SMASSII, Bus & Binzel 2002): L"
+        - "JPL SBDB spec_T (Tholen): S"
+      cross_check_sbdb_field: "spec_B"
+      basis: "visible + near-infrared taxonomy (Bus-DeMeo)"
+    screening: {exposures: 359, v_min: 12.57, v_median: 13.27, v_max: 13.96}
+    default_window: ["2025-04-12", "2026-10-15"]
+    default_max_images: null          # all exposures (since 2026-11-15; before: the first 120)
+  "96":
+    name: "96 Aegle"
+    role: "replicate T"
+    reference_taxonomy:
+      class: "T"
+      complex: "T-type"
+      sources:
+        - "DeMeo et al. 2009 (Bus-DeMeo, 0.45-2.45 um), Appendix: T"
+        - "JPL SBDB spec_B (SMASSII, Bus & Binzel 2002): T"
+        - "JPL SBDB spec_T (Tholen): T"
+      cross_check_sbdb_field: "spec_B"
+      basis: "visible + near-infrared taxonomy (Bus-DeMeo)"
+    screening: {exposures: 459, v_min: 13.63, v_median: 13.94, v_max: 14.14}
+    default_window: ["2025-04-12", "2026-10-15"]
+    default_max_images: null          # all exposures (since 2026-11-15; before: the first 120)
+  "2851":
+    name: "2851 Harbin"
+    role: "replicate V"
+    reference_taxonomy:
+      class: "V"
+      complex: "V-type"
+      sources:
+        - "DeMeo et al. 2009 (Bus-DeMeo, 0.45-2.45 um), Appendix: V"
+        - "JPL SBDB spec_B (SMASSII, Bus & Binzel 2002): V"
+      cross_check_sbdb_field: "spec_B"
+      basis: "visible + near-infrared taxonomy (Bus-DeMeo)"
+    screening: {exposures: 355, v_min: 16.57, v_median: 17.04, v_max: 17.18}
+    default_window: ["2025-04-12", "2026-10-15"]
+    default_max_images: null          # all exposures (since 2026-11-15; before: the first 120)
+  "92":
+    name: "92 Undina"
+    role: "replicate X-complex"
+    reference_taxonomy:
+      class: "Xk"
+      complex: "X-complex"
+      sources:
+        - "DeMeo et al. 2009 (Bus-DeMeo, 0.45-2.45 um), Appendix: Xk"
+        - "JPL SBDB spec_B (SMASSII, Bus & Binzel 2002): Xc"
+        - "JPL SBDB spec_T (Tholen): X"
+      cross_check_sbdb_field: "spec_B"
+      basis: "visible + near-infrared taxonomy (Bus-DeMeo)"
+    screening: {exposures: 350, v_min: 12.25, v_median: 12.84, v_max: 13.18}
+    default_window: ["2025-04-12", "2026-10-15"]
+    default_max_images: null          # all exposures (since 2026-11-15; before: the first 120)
+
+  # ---------------------------------------------------------------------------------------------
+  # The four earlier batch targets, given the same kind of reference as the added ones (Bus-DeMeo class
+  # from DeMeo et al. 2009 where listed; otherwise the SBDB field used before). Window and image count
+  # unchanged (2025-04-12..2026-10-15, 120 exposures). Only the class-level criterion C9 can differ from
+  # the SBDB-based reference (16 Psyche: SMASSII X, Bus-DeMeo Xk; same complex).
+  "16":
+    name: "16 Psyche"
+    role: "earlier batch"
+    reference_taxonomy:
+      class: "Xk"
+      complex: "X-complex"
+      sources:
+        - "DeMeo et al. 2009 (Bus-DeMeo, 0.45-2.45 um), Appendix: Xk"
+        - "JPL SBDB spec_B (SMASSII, Bus & Binzel 2002): X"
+        - "JPL SBDB spec_T (Tholen): M"
+      cross_check_sbdb_field: "spec_B"
+      basis: "visible + near-infrared taxonomy (Bus-DeMeo)"
+    default_window: ["2025-04-12", "2026-10-15"]
+    default_max_images: null          # all exposures (since 2026-11-15; before: the first 120)
+  "246":
+    name: "246 Asporina"
+    role: "earlier batch"
+    reference_taxonomy:
+      class: "A"
+      complex: "A-type"
+      sources:
+        - "DeMeo et al. 2009 (Bus-DeMeo, 0.45-2.45 um), Appendix: A"
+        - "JPL SBDB spec_B (SMASSII, Bus & Binzel 2002): A"
+        - "JPL SBDB spec_T (Tholen): A"
+      cross_check_sbdb_field: "spec_B"
+      basis: "visible + near-infrared taxonomy (Bus-DeMeo)"
+    default_window: ["2025-04-12", "2026-10-15"]
+    default_max_images: null          # all exposures (since 2026-11-15; before: the first 120)
+  "10":
+    name: "10 Hygiea"
+    role: "earlier batch"
+    reference_taxonomy:
+      class: "C"
+      complex: "C-complex"
+      sources:
+        - "DeMeo et al. 2009 (Bus-DeMeo, 0.45-2.45 um), Appendix: C"
+        - "JPL SBDB spec_B (SMASSII, Bus & Binzel 2002): C"
+        - "JPL SBDB spec_T (Tholen): C"
+      cross_check_sbdb_field: "spec_B"
+      basis: "visible + near-infrared taxonomy (Bus-DeMeo)"
+    default_window: ["2025-04-12", "2026-10-15"]
+    default_max_images: null          # all exposures (since 2026-11-15; before: the first 120)
+  "624":
+    name: "624 Hektor"
+    role: "earlier batch"
+    reference_taxonomy:
+      class: "D"
+      complex: "D-type"
+      sources:
+        - "JPL SBDB spec_T (Tholen): D (not in DeMeo et al. 2009)"
+      cross_check_sbdb_field: "spec_T"
+      basis: "visible-wavelength taxonomy"
+    default_window: ["2025-04-12", "2026-10-15"]
+    default_max_images: null          # all exposures (since 2026-11-15; before: the first 120)
+
+  # ---------------------------------------------------------------------------------------------
+  # 2026-11-15: five more targets, the next in line under the same class-coverage rule (third-brightest
+  # passing candidate per class; outputs/validation/added_targets_screening.csv, rank_in_class 3).
+  "653":
+    name: "653 Berenike"
+    role: "third K"
+    reference_taxonomy:
+      class: "K"
+      complex: "K-type"
+      sources:
+        - "DeMeo et al. 2009 (Bus-DeMeo, 0.45-2.45 um), Appendix: K"
+        - "JPL SBDB spec_B (SMASSII, Bus & Binzel 2002): K"
+        - "JPL SBDB spec_T (Tholen): S"
+      cross_check_sbdb_field: "spec_B"
+      basis: "visible + near-infrared taxonomy (Bus-DeMeo)"
+    screening: {exposures: 195, v_min: 14.51, v_median: 14.68, v_max: 15.34}
+    default_window: ["2025-04-12", "2026-10-15"]
+    default_max_images: null          # all exposures (since 2026-11-15; before: the first 120)
+  "729":
+    name: "729 Watsonia"
+    role: "third L"
+    reference_taxonomy:
+      class: "L"
+      complex: "L-type"
+      sources:
+        - "DeMeo et al. 2009 (Bus-DeMeo, 0.45-2.45 um), Appendix: L"
+        - "JPL SBDB spec_B (SMASSII, Bus & Binzel 2002): L"
+        - "JPL SBDB spec_T (Tholen): STGD"
+      cross_check_sbdb_field: "spec_B"
+      basis: "visible + near-infrared taxonomy (Bus-DeMeo)"
+    screening: {exposures: 321, v_min: 14.98, v_median: 15.32, v_max: 15.47}
+    default_window: ["2025-04-12", "2026-10-15"]
+    default_max_images: null          # all exposures (since 2026-11-15; before: the first 120)
+  "596":
+    name: "596 Scheila"
+    role: "third T"
+    reference_taxonomy:
+      class: "T"
+      complex: "T-type"
+      sources:
+        - "DeMeo et al. 2009 (Bus-DeMeo, 0.45-2.45 um), Appendix: T"
+        - "JPL SBDB spec_B (SMASSII, Bus & Binzel 2002): T"
+        - "JPL SBDB spec_T (Tholen): PCD"
+      cross_check_sbdb_field: "spec_B"
+      basis: "visible + near-infrared taxonomy (Bus-DeMeo)"
+    screening: {exposures: 280, v_min: 14.48, v_median: 14.9, v_max: 15.08}
+    default_window: ["2025-04-12", "2026-10-15"]
+    default_max_images: null          # all exposures (since 2026-11-15; before: the first 120)
+  "2566":
+    name: "2566 Kirghizia"
+    role: "third V"
+    reference_taxonomy:
+      class: "V"
+      complex: "V-type"
+      sources:
+        - "DeMeo et al. 2009 (Bus-DeMeo, 0.45-2.45 um), Appendix: V"
+        - "JPL SBDB spec_B (SMASSII, Bus & Binzel 2002): V"
+      cross_check_sbdb_field: "spec_B"
+      basis: "visible + near-infrared taxonomy (Bus-DeMeo)"
+    screening: {exposures: 213, v_min: 16.86, v_median: 17.1, v_max: 17.9}
+    default_window: ["2025-04-12", "2026-10-15"]
+    default_max_images: null          # all exposures (since 2026-11-15; before: the first 120)
+  "216":
+    name: "216 Kleopatra"
+    role: "third X-complex"
+    reference_taxonomy:
+      class: "Xe"
+      complex: "X-complex"
+      sources:
+        - "DeMeo et al. 2009 (Bus-DeMeo, 0.45-2.45 um), Appendix: Xe"
+        - "JPL SBDB spec_B (SMASSII, Bus & Binzel 2002): Xe"
+        - "JPL SBDB spec_T (Tholen): M"
+      cross_check_sbdb_field: "spec_B"
+      basis: "visible + near-infrared taxonomy (Bus-DeMeo)"
+    screening: {exposures: 406, v_min: 12.2, v_median: 13.04, v_max: 13.46}
+    default_window: ["2025-04-12", "2026-10-15"]
+    default_max_images: null          # all exposures (since 2026-11-15; before: the first 120)
+
+  # ---------------------------------------------------------------------------------------------
+  # 2026-11-15 (robustness test of the population/orbit/albedo prior and the statistical diameter):
+  # three targets for regimes the 18 analysed targets do not cover, fixed before any of them was analysed.
+  #   1. High-albedo X-complex (Tholen E): the albedo prior meets an X spectrum with an S-like albedo.
+  #      The only E-type passing the class-coverage screening: 64 Angelina (pV 0.48).
+  #   2. 596 Scheila (third T, entry above): its earlier run was interrupted during extraction.
+  #   3. A near-Earth asteroid in the thermal regime: of the 41 NEAs of DeMeo et al. (2009) Appendix,
+  #      those with SMASSII in the same complex, a catalogue diameter, >= 100 DR1 exposures in
+  #      2025-04-12..2026-10-15 and predicted V >= 12.0 (every exposure) and <= 17.5 (median) - 35107
+  #      (r 1.03 au), 1620 Geographos (1.23 au), 1036 Ganymed (3.87 au) - the one with the smallest median
+  #      heliocentric distance. Table: outputs/validation/added_targets_screening_neas.csv.
+  "64":
+    name: "64 Angelina"
+    role: "high-albedo X-complex (Tholen E)"
+    reference_taxonomy:
+      class: "Xe"
+      complex: "X-complex"
+      sources:
+        - "DeMeo et al. 2009 (Bus-DeMeo, 0.45-2.45 um), Appendix: Xe"
+        - "JPL SBDB spec_B (SMASSII, Bus & Binzel 2002): Xe"
+        - "JPL SBDB spec_T (Tholen): E"
+      cross_check_sbdb_field: "spec_B"
+      basis: "visible + near-infrared taxonomy (Bus-DeMeo)"
+    screening: {exposures: 367, v_min: 13.10, v_median: 13.29, v_max: 13.68}
+    default_window: ["2025-04-12", "2026-10-15"]
+    default_max_images: null          # all exposures (since 2026-11-15; before: the first 120)
+  "35107":
+    name: "35107 (1991 VH)"
+    role: "near-Earth asteroid, thermal regime (r ~ 1.0 au)"
+    reference_taxonomy:
+      class: "Sq"
+      complex: "S-complex"
+      sources:
+        - "DeMeo et al. 2009 (Bus-DeMeo, 0.45-2.45 um), Appendix: Sq"
+        - "JPL SBDB spec_B (SMASSII, Bus & Binzel 2002): Sk (S-complex)"
+      cross_check_sbdb_field: "spec_B"
+      basis: "visible + near-infrared taxonomy (Bus-DeMeo)"
+    screening: {exposures: 672, v_min: 15.40, v_median: 17.46, v_max: 19.58, r_median_au: 1.03, phase_median_deg: 74}
+    default_window: ["2025-04-12", "2026-10-15"]
+    default_max_images: null          # all exposures (since 2026-11-15; before: the first 120)

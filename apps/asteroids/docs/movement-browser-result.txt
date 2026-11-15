@@ -1,0 +1,103 @@
+### Result
+{
+  "objects": 17,
+  "total": 64,
+  "maxTextures": 3,
+  "hesperia": {
+    "frameP95": 0,
+    "drawP95": 19.400000005960464,
+    "frames": 6,
+    "calls": 12,
+    "triangles": 2384,
+    "geometries": 20,
+    "textures": 3,
+    "scheduled": false,
+    "selectedScreen": [
+      0.004663912453819252,
+      0.005213493776955323,
+      0.999222662555713
+    ],
+    "observer": true,
+    "flying": false,
+    "photoVisible": true,
+    "photoOpacity": 1,
+    "trailVisible": true,
+    "sharedTrailGeometry": true,
+    "cameraPosition": [
+      -0.4188442851402233,
+      0.8901086787357002,
+      -0.00003136395167402384
+    ],
+    "cameraQuaternion": [
+      0.2615892133381126,
+      0.6560232086151965,
+      0.5161761805308805,
+      0.48452738196713047
+    ],
+    "cameraFov": 0.32156780147455755,
+    "overlayErrorPixels": 2.1683207257312835e-9,
+    "screenAlignmentError": 0.0022514749161011804,
+    "controlsEnabled": false,
+    "imageMeshErrorPixels": 7.0294216979727086e-9,
+    "photoVertices": 289,
+    "cachedImages": 2,
+    "bytes": 262144,
+    "observation": "2026W03_2A_0046_2-D1",
+    "compositeMode": "blend",
+    "fixedSky": true,
+    "predicted": [
+      63.992266452373016,
+      63.009318205029956
+    ],
+    "trailEnabled": true,
+    "trailPoints": [
+      {
+        "id": "2026W03_2A_0045_1-D1",
+        "objectId": "69",
+        "mjd": 61055.707217508505,
+        "order": 1,
+        "x": 64.41313928834938,
+        "y": 62.747850353159464,
+        "inside": true
+      },
+      {
+        "id": "2026W03_2A_0046_2-D1",
+        "objectId": "69",
+        "mjd": 61055.710486247,
+        "order": 2,
+        "x": 63.992266452373016,
+        "y": 63.009318205029956,
+        "inside": true
+      },
+      {
+        "id": "2026W03_2A_0046_3-D1",
+        "objectId": "69",
+        "mjd": 61055.711978504,
+        "order": 3,
+        "x": 63.80064664875124,
+        "y": 63.12216455146117,
+        "inside": true
+      },
+      {
+        "id": "2026W03_2A_0046_4-D1",
+        "objectId": "69",
+        "mjd": 61055.713470761,
+        "order": 4,
+        "x": 63.609650542657675,
+        "y": 63.22888757417269,
+        "inside": true
+      }
+    ],
+    "trailCurrent": "2026W03_2A_0046_2-D1",
+    "mjd": 61055.710486247,
+    "playing": false,
+    "selected": "69",
+    "sequencePlaying": false,
+    "frameCount": 4
+  },
+  "errors": []
+}
+### Ran Playwright code
+```js
+await page.evaluate('() => window.__trailResult');
+```

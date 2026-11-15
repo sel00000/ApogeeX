@@ -1,0 +1,166 @@
+{
+  "version": 1,
+  "source": "supplied asteroid 3D dataset",
+  "objects": [
+    {
+      "id": "199",
+      "name": "수성",
+      "kind": "planet"
+    },
+    {
+      "id": "299",
+      "name": "금성",
+      "kind": "planet"
+    },
+    {
+      "id": "399",
+      "name": "지구",
+      "kind": "planet"
+    },
+    {
+      "id": "499",
+      "name": "화성",
+      "kind": "planet"
+    },
+    {
+      "id": "599",
+      "name": "목성",
+      "kind": "planet"
+    },
+    {
+      "id": "699",
+      "name": "토성",
+      "kind": "planet"
+    },
+    {
+      "id": "799",
+      "name": "천왕성",
+      "kind": "planet"
+    },
+    {
+      "id": "899",
+      "name": "해왕성",
+      "kind": "planet"
+    },
+    {
+      "id": "10",
+      "name": "10 Hygiea",
+      "kind": "asteroid"
+    },
+    {
+      "id": "16",
+      "name": "16 Psyche",
+      "kind": "asteroid"
+    },
+    {
+      "id": "2045",
+      "name": "2045 Peking",
+      "kind": "asteroid"
+    },
+    {
+      "id": "216",
+      "name": "216 Kleopatra",
+      "kind": "asteroid"
+    },
+    {
+      "id": "221",
+      "name": "221 Eos",
+      "kind": "asteroid"
+    },
+    {
+      "id": "236",
+      "name": "236 Honoria",
+      "kind": "asteroid"
+    },
+    {
+      "id": "246",
+      "name": "246 Asporina",
+      "kind": "asteroid"
+    },
+    {
+      "id": "2566",
+      "name": "2566 Kirghizia",
+      "kind": "asteroid"
+    },
+    {
+      "id": "2851",
+      "name": "2851 Harbin",
+      "kind": "asteroid"
+    },
+    {
+      "id": "308",
+      "name": "308 Polyxo",
+      "kind": "asteroid"
+    },
+    {
+      "id": "35107",
+      "name": "35107 (1991 VH)",
+      "kind": "asteroid"
+    },
+    {
+      "id": "387",
+      "name": "387 Aquitania",
+      "kind": "asteroid"
+    },
+    {
+      "id": "433",
+      "name": "433 Eros",
+      "kind": "asteroid"
+    },
+    {
+      "id": "579",
+      "name": "579 Sidonia",
+      "kind": "asteroid"
+    },
+    {
+      "id": "596",
+      "name": "596 Scheila",
+      "kind": "asteroid"
+    },
+    {
+      "id": "624",
+      "name": "624 Hektor",
+      "kind": "asteroid"
+    },
+    {
+      "id": "64",
+      "name": "64 Angelina",
+      "kind": "asteroid"
+    },
+    {
+      "id": "653",
+      "name": "653 Berenike",
+      "kind": "asteroid"
+    },
+    {
+      "id": "69",
+      "name": "69 Hesperia",
+      "kind": "asteroid"
+    },
+    {
+      "id": "729",
+      "name": "729 Watsonia",
+      "kind": "asteroid"
+    },
+    {
+      "id": "92",
+      "name": "92 Undina",
+      "kind": "asteroid"
+    },
+    {
+      "id": "96",
+      "name": "96 Aegle",
+      "kind": "asteroid"
+    },
+    {
+      "id": "764",
+      "name": "764 Gedania",
+      "kind": "asteroid"
+    },
+    {
+      "id": "913",
+      "name": "913 Otila",
+      "kind": "asteroid"
+    }
+  ]
+}

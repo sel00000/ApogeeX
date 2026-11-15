@@ -1,0 +1,8 @@
+{
+  "description": "Injection set for the classifier calibration (src/validation/injection_recovery.py): asteroids with a Bus-DeMeo class in DeMeo et al. (2009) and a near-infrared SpeX spectrum in the MIT SMASS archive.",
+  "classes": "DeMeo, F.E., Binzel, R.P., Slivan, S.M., Bus, S.J. (2009), An extension of the Bus asteroid taxonomy into the near-infrared, Icarus 202, 160-180, Appendix table (columns Tholen, Bus, Bus-DeMeo). Parsed 2026-11-14; 'w' (high slope) is dropped for the class (Sw -> S).",
+  "spectra": "MIT SMASS / MITHNEOS SpeX archive, http://smass.mit.edu/data/spex/ (indexed 2026-11-14; first file per object in run order). Downloaded on demand to data/raw/smass_spex/ and not redistributed.",
+  "file_format": "4 columns per row: wavelength (um), reflectance, error, flag (0 or reflectance -1 = no data); visible and near-infrared segments may both be present.",
+  "n_objects": 190,
+  "caveat": "These spectra are among those from which the Bus-DeMeo class means were built (in-sample), so recovery rates are somewhat optimistic; the comparison between likelihood models and the threshold calibration are the purpose."
+}

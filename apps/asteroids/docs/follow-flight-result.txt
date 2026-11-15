@@ -1,0 +1,55 @@
+### Result
+{
+  "frameP95": 16.799999999999955,
+  "drawP95": 1.699999988079071,
+  "frames": 70,
+  "calls": 11,
+  "triangles": 1408,
+  "geometries": 17,
+  "textures": 1,
+  "scheduled": true,
+  "selectedScreen": [
+    0,
+    -8.104475184234076e-16,
+    0.9516256476806321
+  ],
+  "observer": false,
+  "flying": false,
+  "photoVisible": false,
+  "photoOpacity": 0.65,
+  "cameraPosition": [
+    1.5829599398291674,
+    -0.18943266240441226,
+    0.25557439777863245
+  ],
+  "cameraQuaternion": [
+    0.4836468002487188,
+    0,
+    0,
+    0.8752632590307763
+  ],
+  "cameraFov": 44.99999999999999,
+  "overlayErrorPixels": null,
+  "screenAlignmentError": null,
+  "controlsEnabled": true,
+  "imageMeshErrorPixels": 7.030504825922606e-9,
+  "photoVertices": 289,
+  "cachedImages": 1,
+  "bytes": 131072,
+  "observation": "2025W28_1B_0525_2-D5",
+  "compositeMode": "blend",
+  "fixedSky": true,
+  "predicted": [
+    71.5670008250819,
+    69.12883378578928
+  ],
+  "mjd": 60898.88499907088,
+  "playing": false,
+  "selected": "433",
+  "sequencePlaying": false,
+  "frameCount": 6
+}
+### Ran Playwright code
+```js
+await page.evaluate('() => window.__followResult');
+```

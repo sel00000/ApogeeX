@@ -1,0 +1,27 @@
+### Result
+{
+  "real": {
+    "hidden": false,
+    "metrics": {
+      "frameP95": 28.100000000000023,
+      "drawP95": 43.5,
+      "frames": 11,
+      "calls": 16,
+      "triangles": 1988,
+      "geometries": 15,
+      "textures": 1,
+      "scheduled": true,
+      "cachedImages": 1,
+      "bytes": 19600,
+      "observation": "2025W27_1A_0349_4-D1",
+      "mjd": 60859.25378752001,
+      "playing": true,
+      "selected": "433"
+    }
+  },
+  "handlerStopped": true
+}
+### Ran Playwright code
+```js
+await page.evaluate('() => window.__visibility');
+```

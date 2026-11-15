@@ -1,0 +1,3 @@
+# Keep generated artifacts byte-identical to engine/build-info.json.
+engine/stellarium-web-engine.js -text
+engine/stellarium-web-engine.wasm -text

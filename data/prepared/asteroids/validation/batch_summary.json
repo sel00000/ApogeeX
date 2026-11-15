@@ -1,0 +1,2891 @@
+[
+  {
+    "target": "236",
+    "reference": {
+      "class": "L",
+      "complex": "L-type",
+      "sources": [
+        "DeMeo et al. 2009 (Bus-DeMeo, 0.45-2.45 um), Appendix: L",
+        "JPL SBDB spec_B (SMASSII, Bus & Binzel 2002): L",
+        "JPL SBDB spec_T (Tholen): S"
+      ],
+      "cross_check_sbdb_field": "spec_B",
+      "basis": "visible + near-infrared taxonomy (Bus-DeMeo)",
+      "sbdb_cross_check": {
+        "spec_B": "L"
+      }
+    },
+    "results": {
+      "C1": "PASS",
+      "C2": "INCONCLUSIVE",
+      "C3": "INCONCLUSIVE",
+      "C4": "PASS",
+      "C5": "PASS",
+      "C6": "PASS",
+      "C7": "INCONCLUSIVE",
+      "C8": "PASS",
+      "C9": "INCONCLUSIVE"
+    },
+    "explanations": {
+      "C1": "Reference class has no 1-um band: no band claimed (correct).",
+      "C2": "Band II not evaluable: band shoulders and centre not observed within one normalisation group.",
+      "C3": "Observed spectrum: no D-type driven by slope. Counterfactual: band-bearing templates reddened to D-like slope classified as S->S-complex, Sq->S-complex, Sr->S-complex, V->V-type, Q->Q-type; D template -> T-type. The D-type control is not recovered with this sampling, so the test cannot be made.",
+      "C4": "22 visits over 15.42 d detected; segments never observed together: B1-B2, B2-B3, B3-B4, B4-B5, B5-B6; variability detected.",
+      "C5": "Applied correction 'visit_offsets' meets the support criteria; without repeated observations: 'none' (no repeated observations: a rotational correction cannot be constrained); without rotation period: 'visit_offsets'.",
+      "C6": "Baseline confidence Low (classifier; reported Low); without the 1-um region -> Low; with errors x4 -> Low.",
+      "C7": "Most probable complex K-type (41.2%), reference L-type at rank 2; reference behind K-type by 0.9 (distinguished at >= 6); confidence Low.",
+      "C8": "No target names, reference taxonomies or validation files in the analysis/classification code.",
+      "C9": "Most probable class K; reference class L at rank 2, behind K by 0.9 (distinguished at >= 10)."
+    },
+    "analysis": {
+      "solar_analog_calibration": {
+        "applied": true,
+        "reason": null,
+        "n_stars": 14,
+        "max_abs_correction": 0.12120113783772957,
+        "slope_sigma_per_um": {
+          "SWIR": 0.002289740967574337,
+          "MWIR": 0.001413917081249607
+        }
+      },
+      "temporal_correction": "visit_offsets",
+      "norm_groups": 11,
+      "slope_sys_per_um": 0.002289740967574337,
+      "thermal_status": "OK",
+      "thermal_chi2_red": 2.799013339516798,
+      "diameter_km": 72.14360313263883,
+      "diameter_err_km": 11.622125381255259,
+      "taxonomy_top_class": "K",
+      "taxonomy_confidence": "Low",
+      "complex_ranking": [
+        [
+          "K-type",
+          41.22
+        ],
+        [
+          "L-type",
+          26.19
+        ],
+        [
+          "S-complex",
+          22.54
+        ],
+        [
+          "X-complex",
+          4.66
+        ],
+        [
+          "C-complex",
+          3.11
+        ]
+      ],
+      "complex_ranking_spectral": [
+        [
+          "S-complex",
+          29.16
+        ],
+        [
+          "C-complex",
+          25.36
+        ],
+        [
+          "K-type",
+          17.55
+        ],
+        [
+          "X-complex",
+          11.94
+        ],
+        [
+          "L-type",
+          11.21
+        ]
+      ],
+      "prior": {
+        "albedo": {
+          "pV": 0.15492392769944768,
+          "log10_pv": -0.8098815011219624,
+          "sigma_log10": 0.1000451729673259,
+          "source": "catalogue diameter with current H (urn:nasa:pds:neowise_diameters_albedos::2.0[mainbelt] (http://adsabs.harvard.edu/abs/2014ApJ...791..121M))"
+        },
+        "orbit_used": true
+      },
+      "statistical_diameter_km": 86.34554295359152,
+      "statistical_diameter_68_km": [
+        67.0220412367155,
+        121.53526741173809
+      ],
+      "thermal_upper_limit_km": null,
+      "spectrum_file": "/mnt/c/Users/a0102/spherex/spherex-asteroid-analysis/outputs/236/stage2_spectrum.csv"
+    },
+    "run": {
+      "start": null,
+      "end": null,
+      "max_images": null,
+      "from_saved": true
+    }
+  },
+  {
+    "target": "216",
+    "reference": {
+      "class": "Xe",
+      "complex": "X-complex",
+      "sources": [
+        "DeMeo et al. 2009 (Bus-DeMeo, 0.45-2.45 um), Appendix: Xe",
+        "JPL SBDB spec_B (SMASSII, Bus & Binzel 2002): Xe",
+        "JPL SBDB spec_T (Tholen): M"
+      ],
+      "cross_check_sbdb_field": "spec_B",
+      "basis": "visible + near-infrared taxonomy (Bus-DeMeo)",
+      "sbdb_cross_check": {
+        "spec_B": "Xe"
+      }
+    },
+    "results": {
+      "C1": "PASS",
+      "C2": "PASS",
+      "C3": "INCONCLUSIVE",
+      "C4": "PASS",
+      "C5": "PASS",
+      "C6": "PASS",
+      "C7": "INCONCLUSIVE",
+      "C8": "PASS",
+      "C9": "INCONCLUSIVE"
+    },
+    "explanations": {
+      "C1": "Reference class has no 1-um band: no band claimed (correct).",
+      "C2": "Band II evaluated: NOT_DETECTED; not detected; data not sensitive enough to detect a typical band.",
+      "C3": "Observed spectrum: no D-type driven by slope. Counterfactual: band-bearing templates reddened to D-like slope classified as S->S-complex, Sq->S-complex, Sr->S-complex, V->V-type, Q->S-complex; D template -> X-complex. The D-type control is not recovered with this sampling, so the test cannot be made.",
+      "C4": "21 visits over 284.05 d detected; segments never observed together: B1-B2, B2-B3, B3-B4, B4-B5, B5-B6; variability detected.",
+      "C5": "Applied correction 'periodic_lightcurve' meets the support criteria; without repeated observations: 'none' (no repeated observations: a rotational correction cannot be constrained); without rotation period: 'visit_offsets'.",
+      "C6": "Baseline confidence Low (classifier; reported Low); without the 1-um region -> Low; with errors x4 -> Low.",
+      "C7": "Most probable complex L-type (26.1%), reference X-complex at rank 4; reference behind L-type by 1.1 (distinguished at >= 6); confidence Low.",
+      "C8": "No target names, reference taxonomies or validation files in the analysis/classification code.",
+      "C9": "Most probable class L; reference class Xe at rank 6, behind L by 3.8 (distinguished at >= 10)."
+    },
+    "analysis": {
+      "solar_analog_calibration": {
+        "applied": true,
+        "reason": null,
+        "n_stars": 14,
+        "max_abs_correction": 0.12049046085358195,
+        "slope_sigma_per_um": {
+          "SWIR": 0.002289740967574337,
+          "MWIR": 0.001413917081249607
+        }
+      },
+      "temporal_correction": "periodic_lightcurve",
+      "norm_groups": 1,
+      "slope_sys_per_um": 0.11854609439210168,
+      "thermal_status": "OK",
+      "thermal_chi2_red": 2.674714348294216,
+      "diameter_km": 131.4714698426961,
+      "diameter_err_km": 24.78415240222383,
+      "taxonomy_top_class": "L",
+      "taxonomy_confidence": "Low",
+      "complex_ranking": [
+        [
+          "L-type",
+          26.13
+        ],
+        [
+          "S-complex",
+          25.82
+        ],
+        [
+          "K-type",
+          18.11
+        ],
+        [
+          "X-complex",
+          14.96
+        ],
+        [
+          "C-complex",
+          4.83
+        ]
+      ],
+      "complex_ranking_spectral": [
+        [
+          "S-complex",
+          24.91
+        ],
+        [
+          "X-complex",
+          24.71
+        ],
+        [
+          "C-complex",
+          18.68
+        ],
+        [
+          "L-type",
+          8.69
+        ],
+        [
+          "K-type",
+          6.67
+        ]
+      ],
+      "prior": {
+        "albedo": {
+          "pV": 0.184641917033847,
+          "log10_pv": -0.7336696994640324,
+          "sigma_log10": 0.29286629936985736,
+          "source": "catalogue diameter with current H; catalogue albedo 0.116 disagrees by +0.20 dex beyond the population offset (H revision?): uncertainty increased ([Shepard, M. K. et al. (2018) Icarus 311, 197-209])"
+        },
+        "orbit_used": true
+      },
+      "statistical_diameter_km": 148.16813437556831,
+      "statistical_diameter_68_km": [
+        112.27690424525693,
+        215.1085299374501
+      ],
+      "thermal_upper_limit_km": null,
+      "spectrum_file": "/mnt/c/Users/a0102/spherex/spherex-asteroid-analysis/outputs/216/stage2_spectrum.csv"
+    },
+    "run": {
+      "start": null,
+      "end": null,
+      "max_images": null,
+      "from_saved": true
+    }
+  },
+  {
+    "target": "92",
+    "reference": {
+      "class": "Xk",
+      "complex": "X-complex",
+      "sources": [
+        "DeMeo et al. 2009 (Bus-DeMeo, 0.45-2.45 um), Appendix: Xk",
+        "JPL SBDB spec_B (SMASSII, Bus & Binzel 2002): Xc",
+        "JPL SBDB spec_T (Tholen): X"
+      ],
+      "cross_check_sbdb_field": "spec_B",
+      "basis": "visible + near-infrared taxonomy (Bus-DeMeo)",
+      "sbdb_cross_check": {
+        "spec_B": "Xc"
+      }
+    },
+    "results": {
+      "C1": "PASS",
+      "C2": "PASS",
+      "C3": "PASS",
+      "C4": "PASS",
+      "C5": "PASS",
+      "C6": "PASS",
+      "C7": "INCONCLUSIVE",
+      "C8": "PASS",
+      "C9": "INCONCLUSIVE"
+    },
+    "explanations": {
+      "C1": "Reference class has no 1-um band: no band claimed (correct).",
+      "C2": "Band II evaluated: NOT_DETECTED; not detected; data not sensitive enough to detect a typical band.",
+      "C3": "Observed spectrum: no D-type driven by slope. Counterfactual: band-bearing templates reddened to D-like slope classified as S->S-complex, Sq->S-complex, Sr->S-complex, V->V-type, Q->S-complex; D template -> D-type.",
+      "C4": "22 visits over 295.15 d detected; segments never observed together: B1-B2, B2-B3, B3-B4, B4-B5, B5-B6; variability detected.",
+      "C5": "Applied correction 'periodic_lightcurve' meets the support criteria; without repeated observations: 'none' (no repeated observations: a rotational correction cannot be constrained); without rotation period: 'visit_offsets'.",
+      "C6": "Baseline confidence Low (classifier; reported Low); without the 1-um region -> Low; with errors x4 -> Low.",
+      "C7": "Most probable complex X-complex (41.7%), reference X-complex at rank 1; reference best by deviance; gap to the next complex L-type: 1.1 (distinguished at >= 6); confidence Low.",
+      "C8": "No target names, reference taxonomies or validation files in the analysis/classification code.",
+      "C9": "Most probable class L; reference class Xk at rank 4, behind L by 2.0 (distinguished at >= 10)."
+    },
+    "analysis": {
+      "solar_analog_calibration": {
+        "applied": true,
+        "reason": null,
+        "n_stars": 14,
+        "max_abs_correction": 0.10551661470178098,
+        "slope_sigma_per_um": {
+          "SWIR": 0.002289740967574337,
+          "MWIR": 0.001413917081249607
+        }
+      },
+      "temporal_correction": "periodic_lightcurve",
+      "norm_groups": 1,
+      "slope_sys_per_um": 0.07887855052269496,
+      "thermal_status": "Insufficient Data",
+      "thermal_chi2_red": null,
+      "diameter_km": null,
+      "diameter_err_km": null,
+      "taxonomy_top_class": "X-complex (subclass not determined: Xc 15%, Xk 9%)",
+      "taxonomy_confidence": "Low",
+      "complex_ranking": [
+        [
+          "X-complex",
+          41.66
+        ],
+        [
+          "L-type",
+          23.66
+        ],
+        [
+          "C-complex",
+          12.81
+        ],
+        [
+          "T-type",
+          11.4
+        ],
+        [
+          "K-type",
+          8.07
+        ]
+      ],
+      "complex_ranking_spectral": [
+        [
+          "C-complex",
+          53.45
+        ],
+        [
+          "X-complex",
+          34.48
+        ],
+        [
+          "T-type",
+          5.91
+        ],
+        [
+          "L-type",
+          3.09
+        ],
+        [
+          "K-type",
+          1.85
+        ]
+      ],
+      "prior": {
+        "albedo": {
+          "pV": 0.22254528113243538,
+          "log10_pv": -0.6525816100980238,
+          "sigma_log10": 0.1127500021973362,
+          "source": "catalogue diameter with current H (IRAS-A-FPA-3-RDR-IMPS-V6.0)"
+        },
+        "orbit_used": true
+      },
+      "statistical_diameter_km": 232.35126877906225,
+      "statistical_diameter_68_km": [
+        166.7754979719303,
+        320.52557206130024
+      ],
+      "thermal_upper_limit_km": 133.16594886707242,
+      "spectrum_file": "/mnt/c/Users/a0102/spherex/spherex-asteroid-analysis/outputs/92/stage2_spectrum.csv"
+    },
+    "run": {
+      "start": null,
+      "end": null,
+      "max_images": null,
+      "from_saved": true
+    }
+  },
+  {
+    "target": "A913 SF",
+    "reference": {
+      "class": "C",
+      "complex": "C-complex",
+      "sources": [
+        "JPL SBDB spec_T (Tholen): C"
+      ],
+      "cross_check_sbdb_field": "spec_T",
+      "basis": "visible-wavelength taxonomy",
+      "sbdb_cross_check": {
+        "spec_T": "C"
+      }
+    },
+    "results": {
+      "C1": "PASS",
+      "C2": "PASS",
+      "C3": "PASS",
+      "C4": "PASS",
+      "C5": "PASS",
+      "C6": "PASS",
+      "C7": "INCONCLUSIVE",
+      "C8": "PASS",
+      "C9": "INCONCLUSIVE"
+    },
+    "explanations": {
+      "C1": "Reference class has no 1-um band: no band claimed (correct).",
+      "C2": "Band II evaluated: NOT_DETECTED; not detected; data not sensitive enough to detect a typical band.",
+      "C3": "Observed spectrum: no D-type driven by slope. Counterfactual: band-bearing templates reddened to D-like slope classified as S->S-complex, Sq->S-complex, Sr->S-complex, V->V-type, Q->S-complex; D template -> D-type.",
+      "C4": "24 visits over 14.95 d detected; segments never observed together: B1-B2, B2-B3, B3-B4, B4-B5, B5-B6; variability tested.",
+      "C5": "Applied correction 'none' meets the support criteria; without repeated observations: 'none' (no repeated observations: a rotational correction cannot be constrained); without rotation period: 'none'.",
+      "C6": "Baseline confidence Low (classifier; reported Low); without the 1-um region -> Low; with errors x4 -> Low.",
+      "C7": "Most probable complex C-complex (28.9%), reference C-complex at rank 1; reference best by deviance; gap to the next complex X-complex: 0.3 (distinguished at >= 6); confidence Low.",
+      "C8": "No target names, reference taxonomies or validation files in the analysis/classification code.",
+      "C9": "Most probable class T; reference class C at rank 10, behind T by 2.4 (distinguished at >= 10)."
+    },
+    "analysis": {
+      "solar_analog_calibration": {
+        "applied": true,
+        "reason": null,
+        "n_stars": 14,
+        "max_abs_correction": 0.12192792041072953,
+        "slope_sigma_per_um": {
+          "SWIR": 0.002289740967574337,
+          "MWIR": 0.001413917081249607
+        }
+      },
+      "temporal_correction": "none",
+      "norm_groups": 1,
+      "slope_sys_per_um": 0.04670115469435515,
+      "thermal_status": "OK",
+      "thermal_chi2_red": 1.074634126547742,
+      "diameter_km": 77.63184671311646,
+      "diameter_err_km": 17.784852073990926,
+      "taxonomy_top_class": "C-complex (subclass not determined: Ch 6%, Cg 5%)",
+      "taxonomy_confidence": "Low",
+      "complex_ranking": [
+        [
+          "C-complex",
+          28.93
+        ],
+        [
+          "X-complex",
+          25.27
+        ],
+        [
+          "T-type",
+          18.13
+        ],
+        [
+          "K-type",
+          13.16
+        ],
+        [
+          "L-type",
+          7.73
+        ]
+      ],
+      "complex_ranking_spectral": [
+        [
+          "C-complex",
+          33.98
+        ],
+        [
+          "X-complex",
+          28.58
+        ],
+        [
+          "S-complex",
+          13.36
+        ],
+        [
+          "K-type",
+          6.47
+        ],
+        [
+          "L-type",
+          6.24
+        ]
+      ],
+      "prior": {
+        "albedo": {
+          "pV": 0.07047107162533424,
+          "log10_pv": -1.151989124310441,
+          "sigma_log10": 0.1048143328404217,
+          "source": "catalogue diameter with current H (IRAS-A-FPA-3-RDR-IMPS-V6.0)"
+        },
+        "orbit_used": true
+      },
+      "statistical_diameter_km": 53.11057665532728,
+      "statistical_diameter_68_km": [
+        39.45808659655972,
+        76.91923711098778
+      ],
+      "thermal_upper_limit_km": null,
+      "spectrum_file": "/mnt/c/Users/a0102/spherex/spherex-asteroid-analysis/outputs/A913_SF/stage2_spectrum.csv"
+    },
+    "run": {
+      "start": null,
+      "end": null,
+      "max_images": null,
+      "from_saved": true
+    }
+  },
+  {
+    "target": "729",
+    "reference": {
+      "class": "L",
+      "complex": "L-type",
+      "sources": [
+        "DeMeo et al. 2009 (Bus-DeMeo, 0.45-2.45 um), Appendix: L",
+        "JPL SBDB spec_B (SMASSII, Bus & Binzel 2002): L",
+        "JPL SBDB spec_T (Tholen): STGD"
+      ],
+      "cross_check_sbdb_field": "spec_B",
+      "basis": "visible + near-infrared taxonomy (Bus-DeMeo)",
+      "sbdb_cross_check": {
+        "spec_B": "L"
+      }
+    },
+    "results": {
+      "C1": "PASS",
+      "C2": "INCONCLUSIVE",
+      "C3": "PASS",
+      "C4": "PASS",
+      "C5": "PASS",
+      "C6": "PASS",
+      "C7": "INCONCLUSIVE",
+      "C8": "PASS",
+      "C9": "INCONCLUSIVE"
+    },
+    "explanations": {
+      "C1": "Reference class has no 1-um band: no band claimed (correct).",
+      "C2": "Band II not evaluable: band shoulders and centre not observed within one normalisation group.",
+      "C3": "Observed spectrum: no D-type driven by slope. Counterfactual: band-bearing templates reddened to D-like slope classified as S->S-complex, Sq->S-complex, Sr->S-complex, V->V-type, Q->Q-type; D template -> D-type.",
+      "C4": "20 visits over 11.14 d detected; segments never observed together: B1-B2, B2-B3, B3-B4, B5-B6; variability detected.",
+      "C5": "Applied correction 'visit_offsets' meets the support criteria; without repeated observations: 'none' (no repeated observations: a rotational correction cannot be constrained); without rotation period: 'visit_offsets'.",
+      "C6": "Baseline confidence Low (classifier; reported Low); without the 1-um region -> Low; with errors x4 -> Low.",
+      "C7": "Most probable complex X-complex (33.7%), reference L-type at rank 2; reference behind X-complex by 1.1 (distinguished at >= 6); confidence Low.",
+      "C8": "No target names, reference taxonomies or validation files in the analysis/classification code.",
+      "C9": "Most probable class L; reference class first; gap to the next class T: 0.2 (distinguished at >= 10)."
+    },
+    "analysis": {
+      "solar_analog_calibration": {
+        "applied": true,
+        "reason": null,
+        "n_stars": 14,
+        "max_abs_correction": 0.11051042568219538,
+        "slope_sigma_per_um": {
+          "SWIR": 0.002289740967574337,
+          "MWIR": 0.001413917081249607
+        }
+      },
+      "temporal_correction": "visit_offsets",
+      "norm_groups": 4,
+      "slope_sys_per_um": 0.002289740967574337,
+      "thermal_status": "OK",
+      "thermal_chi2_red": 1.5946284094893939,
+      "diameter_km": 55.68111594970404,
+      "diameter_err_km": 11.041084113357773,
+      "taxonomy_top_class": "X-complex (subclass not determined: Xc 13%, Xk 11%)",
+      "taxonomy_confidence": "Low",
+      "complex_ranking": [
+        [
+          "X-complex",
+          33.7
+        ],
+        [
+          "L-type",
+          19.44
+        ],
+        [
+          "C-complex",
+          18.59
+        ],
+        [
+          "T-type",
+          17.64
+        ],
+        [
+          "K-type",
+          9.35
+        ]
+      ],
+      "complex_ranking_spectral": [
+        [
+          "C-complex",
+          52.42
+        ],
+        [
+          "X-complex",
+          33.73
+        ],
+        [
+          "T-type",
+          6.35
+        ],
+        [
+          "L-type",
+          4.68
+        ],
+        [
+          "K-type",
+          1.71
+        ]
+      ],
+      "prior": {
+        "albedo": {
+          "pV": 0.10682570490863375,
+          "log10_pv": -0.9713242327310343,
+          "sigma_log10": 0.1380523340411183,
+          "source": "catalogue diameter with current H (urn:nasa:pds:neowise_diameters_albedos::2.0[mainbelt] (http://adsabs.harvard.edu/abs/2014ApJ...791..121M))"
+        },
+        "orbit_used": true
+      },
+      "statistical_diameter_km": 61.51990031045109,
+      "statistical_diameter_68_km": [
+        44.17041714392315,
+        86.14804032630659
+      ],
+      "thermal_upper_limit_km": null,
+      "spectrum_file": "/mnt/c/Users/a0102/spherex/spherex-asteroid-analysis/outputs/729/stage2_spectrum.csv"
+    },
+    "run": {
+      "start": null,
+      "end": null,
+      "max_images": null,
+      "from_saved": true
+    }
+  },
+  {
+    "target": "96",
+    "reference": {
+      "class": "T",
+      "complex": "T-type",
+      "sources": [
+        "DeMeo et al. 2009 (Bus-DeMeo, 0.45-2.45 um), Appendix: T",
+        "JPL SBDB spec_B (SMASSII, Bus & Binzel 2002): T",
+        "JPL SBDB spec_T (Tholen): T"
+      ],
+      "cross_check_sbdb_field": "spec_B",
+      "basis": "visible + near-infrared taxonomy (Bus-DeMeo)",
+      "sbdb_cross_check": {
+        "spec_B": "T"
+      }
+    },
+    "results": {
+      "C1": "PASS",
+      "C2": "INCONCLUSIVE",
+      "C3": "INCONCLUSIVE",
+      "C4": "PASS",
+      "C5": "PASS",
+      "C6": "PASS",
+      "C7": "FAIL",
+      "C8": "PASS",
+      "C9": "INCONCLUSIVE"
+    },
+    "explanations": {
+      "C1": "Reference class has no 1-um band: no band claimed (correct).",
+      "C2": "Band II not evaluable: band shoulders and centre not observed within one normalisation group.",
+      "C3": "Observed spectrum: no D-type driven by slope. Counterfactual: band-bearing templates reddened to D-like slope classified as S->S-complex, Sq->S-complex, Sr->S-complex, V->V-type, Q->Q-type; D template -> T-type. The D-type control is not recovered with this sampling, so the test cannot be made.",
+      "C4": "19 visits over 12.70 d detected; segments never observed together: B1-B2, B2-B3, B3-B4, B4-B5, B5-B6; variability detected.",
+      "C5": "Applied correction 'periodic_lightcurve' meets the support criteria; without repeated observations: 'none' (no repeated observations: a rotational correction cannot be constrained); without rotation period: 'visit_offsets'.",
+      "C6": "Baseline confidence Low (classifier; reported Low); without the 1-um region -> Low; with errors x4 -> Low.",
+      "C7": "Most probable complex C-complex (64.1%), reference T-type at rank 5; reference behind C-complex by 6.1 (distinguished at >= 6); confidence Low.",
+      "C8": "No target names, reference taxonomies or validation files in the analysis/classification code.",
+      "C9": "Most probable class Ch; reference class T at rank 14, behind Ch by 3.1 (distinguished at >= 10)."
+    },
+    "analysis": {
+      "solar_analog_calibration": {
+        "applied": true,
+        "reason": null,
+        "n_stars": 14,
+        "max_abs_correction": 0.10746078279007043,
+        "slope_sigma_per_um": {
+          "SWIR": 0.002289740967574337,
+          "MWIR": 0.001413917081249607
+        }
+      },
+      "temporal_correction": "periodic_lightcurve",
+      "norm_groups": 1,
+      "slope_sys_per_um": 0.17033112981235385,
+      "thermal_status": "OK",
+      "thermal_chi2_red": 4.4630094009444425,
+      "diameter_km": 181.0999063799103,
+      "diameter_err_km": 43.656207045670996,
+      "taxonomy_top_class": "C-complex (subclass not determined: Ch 14%, Cgh 13%)",
+      "taxonomy_confidence": "Low",
+      "complex_ranking": [
+        [
+          "C-complex",
+          64.07
+        ],
+        [
+          "X-complex",
+          19.13
+        ],
+        [
+          "D-type",
+          7.58
+        ],
+        [
+          "L-type",
+          5.16
+        ],
+        [
+          "T-type",
+          3.0
+        ]
+      ],
+      "complex_ranking_spectral": [
+        [
+          "C-complex",
+          37.55
+        ],
+        [
+          "X-complex",
+          31.95
+        ],
+        [
+          "L-type",
+          9.85
+        ],
+        [
+          "S-complex",
+          9.76
+        ],
+        [
+          "K-type",
+          5.17
+        ]
+      ],
+      "prior": {
+        "albedo": {
+          "pV": 0.04822957924631782,
+          "log10_pv": -1.316686526836141,
+          "sigma_log10": 0.10002146850132823,
+          "source": "catalogue diameter with current H (urn:nasa:pds:neowise_diameters_albedos::2.0[mainbelt] (http://adsabs.harvard.edu/abs/2012ApJ...759L...8M))"
+        },
+        "orbit_used": true
+      },
+      "statistical_diameter_km": 135.30853763702032,
+      "statistical_diameter_68_km": [
+        100.00934246353376,
+        196.42838238540173
+      ],
+      "thermal_upper_limit_km": null,
+      "spectrum_file": "/mnt/c/Users/a0102/spherex/spherex-asteroid-analysis/outputs/96/stage2_spectrum.csv"
+    },
+    "run": {
+      "start": null,
+      "end": null,
+      "max_images": null,
+      "from_saved": true
+    }
+  },
+  {
+    "target": "10",
+    "reference": {
+      "class": "C",
+      "complex": "C-complex",
+      "sources": [
+        "DeMeo et al. 2009 (Bus-DeMeo, 0.45-2.45 um), Appendix: C",
+        "JPL SBDB spec_B (SMASSII, Bus & Binzel 2002): C",
+        "JPL SBDB spec_T (Tholen): C"
+      ],
+      "cross_check_sbdb_field": "spec_B",
+      "basis": "visible + near-infrared taxonomy (Bus-DeMeo)",
+      "sbdb_cross_check": {
+        "spec_B": "C"
+      }
+    },
+    "results": {
+      "C1": "PASS",
+      "C2": "PASS",
+      "C3": "PASS",
+      "C4": "PASS",
+      "C5": "PASS",
+      "C6": "PASS",
+      "C7": "INCONCLUSIVE",
+      "C8": "PASS",
+      "C9": "INCONCLUSIVE"
+    },
+    "explanations": {
+      "C1": "Reference class has no 1-um band: no band claimed (correct).",
+      "C2": "Band II evaluated: NOT_DETECTED; not detected; a typical band-bearing asteroid would be detectable here.",
+      "C3": "Observed spectrum: no D-type driven by slope. Counterfactual: band-bearing templates reddened to D-like slope classified as S->S-complex, Sq->S-complex, Sr->S-complex, V->V-type, Q->Q-type; D template -> D-type.",
+      "C4": "21 visits over 11.08 d detected; segments never observed together: B1-B2, B2-B3, B3-B4, B4-B5, B5-B6; variability tested.",
+      "C5": "Applied correction 'none' meets the support criteria; without repeated observations: 'none' (no repeated observations: a rotational correction cannot be constrained); without rotation period: 'none'.",
+      "C6": "Baseline confidence Low (classifier; reported Low); without the 1-um region -> Low; with errors x4 -> Low.",
+      "C7": "Most probable complex C-complex (79.1%), reference C-complex at rank 1; reference best by deviance; gap to the next complex X-complex: 3.0 (distinguished at >= 6); confidence Low.",
+      "C8": "No target names, reference taxonomies or validation files in the analysis/classification code.",
+      "C9": "Most probable class C; reference class first; gap to the next class Cb: 0.8 (distinguished at >= 10)."
+    },
+    "analysis": {
+      "solar_analog_calibration": {
+        "applied": true,
+        "reason": null,
+        "n_stars": 14,
+        "max_abs_correction": 0.11570281931571169,
+        "slope_sigma_per_um": {
+          "SWIR": 0.002289740967574337,
+          "MWIR": 0.001413917081249607
+        }
+      },
+      "temporal_correction": "none",
+      "norm_groups": 1,
+      "slope_sys_per_um": 0.0531083391007361,
+      "thermal_status": "OK",
+      "thermal_chi2_red": 5.049288921502589,
+      "diameter_km": 357.28066655744175,
+      "diameter_err_km": 81.37286575665448,
+      "taxonomy_top_class": "C-complex (subclass not determined: C 27%, Cb 18%)",
+      "taxonomy_confidence": "Low",
+      "complex_ranking": [
+        [
+          "C-complex",
+          79.1
+        ],
+        [
+          "X-complex",
+          18.08
+        ],
+        [
+          "T-type",
+          1.28
+        ],
+        [
+          "L-type",
+          0.95
+        ],
+        [
+          "K-type",
+          0.57
+        ]
+      ],
+      "complex_ranking_spectral": [
+        [
+          "C-complex",
+          60.39
+        ],
+        [
+          "X-complex",
+          36.28
+        ],
+        [
+          "K-type",
+          1.34
+        ],
+        [
+          "L-type",
+          1.31
+        ],
+        [
+          "T-type",
+          0.64
+        ]
+      ],
+      "prior": {
+        "albedo": {
+          "pV": 0.058560541801258637,
+          "log10_pv": -1.2323949138450128,
+          "sigma_log10": 0.13314985399279902,
+          "source": "catalogue diameter with current H (IRAS-A-FPA-3-RDR-IMPS-V6.0)"
+        },
+        "orbit_used": true
+      },
+      "statistical_diameter_km": 413.88400080439163,
+      "statistical_diameter_68_km": [
+        299.17101497691493,
+        562.5877667942187
+      ],
+      "thermal_upper_limit_km": null,
+      "spectrum_file": "/mnt/c/Users/a0102/spherex/spherex-asteroid-analysis/outputs/10/stage2_spectrum.csv"
+    },
+    "run": {
+      "start": null,
+      "end": null,
+      "max_images": null,
+      "from_saved": true
+    }
+  },
+  {
+    "target": "69",
+    "reference": {
+      "class": "Xk",
+      "complex": "X-complex",
+      "sources": [
+        "DeMeo et al. 2009 (Bus-DeMeo, 0.45-2.45 um), Appendix: Xk",
+        "JPL SBDB spec_B (SMASSII, Bus & Binzel 2002): X",
+        "JPL SBDB spec_T (Tholen): M"
+      ],
+      "cross_check_sbdb_field": "spec_B",
+      "basis": "visible + near-infrared taxonomy (Bus-DeMeo)",
+      "sbdb_cross_check": {
+        "spec_B": "X"
+      }
+    },
+    "results": {
+      "C1": "PASS",
+      "C2": "PASS",
+      "C3": "PASS",
+      "C4": "PASS",
+      "C5": "PASS",
+      "C6": "PASS",
+      "C7": "INCONCLUSIVE",
+      "C8": "PASS",
+      "C9": "INCONCLUSIVE"
+    },
+    "explanations": {
+      "C1": "Reference class has no 1-um band: no band claimed (correct).",
+      "C2": "Band II evaluated: NOT_DETECTED; not detected; data not sensitive enough to detect a typical band.",
+      "C3": "Observed spectrum: no D-type driven by slope. Counterfactual: band-bearing templates reddened to D-like slope classified as S->S-complex, Sq->S-complex, Sr->S-complex, V->V-type, Q->Q-type; D template -> D-type.",
+      "C4": "20 visits over 16.10 d detected; segments never observed together: B1-B2, B2-B3, B3-B4, B4-B5, B5-B6; variability detected.",
+      "C5": "Applied correction 'periodic_lightcurve' meets the support criteria; without repeated observations: 'none' (no repeated observations: a rotational correction cannot be constrained); without rotation period: 'visit_offsets'.",
+      "C6": "Baseline confidence Low (classifier; reported Low); without the 1-um region -> Low; with errors x4 -> Low.",
+      "C7": "Most probable complex X-complex (43.6%), reference X-complex at rank 1; reference best by deviance; gap to the next complex T-type: 0.8 (distinguished at >= 6); confidence Low.",
+      "C8": "No target names, reference taxonomies or validation files in the analysis/classification code.",
+      "C9": "Most probable class T; reference class Xk at rank 2, behind T by 0.8 (distinguished at >= 10)."
+    },
+    "analysis": {
+      "solar_analog_calibration": {
+        "applied": true,
+        "reason": null,
+        "n_stars": 14,
+        "max_abs_correction": 0.11330453061424972,
+        "slope_sigma_per_um": {
+          "SWIR": 0.002289740967574337,
+          "MWIR": 0.001413917081249607
+        }
+      },
+      "temporal_correction": "periodic_lightcurve",
+      "norm_groups": 1,
+      "slope_sys_per_um": 0.02365888314281404,
+      "thermal_status": "OK",
+      "thermal_chi2_red": 3.05498642889171,
+      "diameter_km": 92.69904748731892,
+      "diameter_err_km": 15.541043805085472,
+      "taxonomy_top_class": "X-complex (subclass not determined: Xk 20%, X 18%)",
+      "taxonomy_confidence": "Low",
+      "complex_ranking": [
+        [
+          "X-complex",
+          43.59
+        ],
+        [
+          "T-type",
+          28.8
+        ],
+        [
+          "L-type",
+          13.53
+        ],
+        [
+          "D-type",
+          6.6
+        ],
+        [
+          "C-complex",
+          3.89
+        ]
+      ],
+      "complex_ranking_spectral": [
+        [
+          "X-complex",
+          54.11
+        ],
+        [
+          "T-type",
+          26.23
+        ],
+        [
+          "C-complex",
+          9.49
+        ],
+        [
+          "D-type",
+          3.58
+        ],
+        [
+          "S-complex",
+          3.57
+        ]
+      ],
+      "prior": {
+        "albedo": {
+          "pV": 0.12091326214791405,
+          "log10_pv": -0.9175260617382694,
+          "sigma_log10": 0.11887454212121379,
+          "source": "catalogue diameter with current H (IRAS-A-FPA-3-RDR-IMPS-V6.0)"
+        },
+        "orbit_used": true
+      },
+      "statistical_diameter_km": 165.31904872116627,
+      "statistical_diameter_68_km": [
+        116.51458782344501,
+        231.9602254395031
+      ],
+      "thermal_upper_limit_km": null,
+      "spectrum_file": "/mnt/c/Users/a0102/spherex/spherex-asteroid-analysis/outputs/69/stage2_spectrum.csv"
+    },
+    "run": {
+      "start": null,
+      "end": null,
+      "max_images": null,
+      "from_saved": true
+    }
+  },
+  {
+    "target": "579",
+    "reference": {
+      "class": "K",
+      "complex": "K-type",
+      "sources": [
+        "DeMeo et al. 2009 (Bus-DeMeo, 0.45-2.45 um), Appendix: K",
+        "JPL SBDB spec_B (SMASSII, Bus & Binzel 2002): K",
+        "JPL SBDB spec_T (Tholen): S"
+      ],
+      "cross_check_sbdb_field": "spec_B",
+      "basis": "visible + near-infrared taxonomy (Bus-DeMeo)",
+      "sbdb_cross_check": {
+        "spec_B": "K"
+      }
+    },
+    "results": {
+      "C1": "FAIL",
+      "C2": "PASS",
+      "C3": "INCONCLUSIVE",
+      "C4": "PASS",
+      "C5": "PASS",
+      "C6": "PASS",
+      "C7": "INCONCLUSIVE",
+      "C8": "PASS",
+      "C9": "INCONCLUSIVE"
+    },
+    "explanations": {
+      "C1": "A typical band would be detectable with these data, but none was detected.",
+      "C2": "Band II evaluated: NOT_DETECTED; not detected; data not sensitive enough to detect a typical band.",
+      "C3": "Observed spectrum: no D-type driven by slope. Counterfactual: band-bearing templates reddened to D-like slope classified as S->S-complex, Sq->S-complex, Sr->S-complex, V->V-type, Q->S-complex; D template -> X-complex. The D-type control is not recovered with this sampling, so the test cannot be made.",
+      "C4": "20 visits over 15.42 d detected; segments never observed together: B1-B2, B2-B3, B3-B4, B4-B5, B5-B6; variability detected.",
+      "C5": "Applied correction 'periodic_lightcurve' meets the support criteria; without repeated observations: 'none' (no repeated observations: a rotational correction cannot be constrained); without rotation period: 'visit_offsets'.",
+      "C6": "Baseline confidence Low (classifier; reported Low); without the 1-um region -> Low; with errors x4 -> Low.",
+      "C7": "Most probable complex K-type (38.7%), reference K-type at rank 1; reference best by deviance; gap to the next complex L-type: 0.3 (distinguished at >= 6); confidence Low.",
+      "C8": "No target names, reference taxonomies or validation files in the analysis/classification code.",
+      "C9": "Most probable class K; reference class first; gap to the next class L: 0.3 (distinguished at >= 10)."
+    },
+    "analysis": {
+      "solar_analog_calibration": {
+        "applied": true,
+        "reason": null,
+        "n_stars": 14,
+        "max_abs_correction": 0.109549626459297,
+        "slope_sigma_per_um": {
+          "SWIR": 0.002289740967574337,
+          "MWIR": 0.001413917081249607
+        }
+      },
+      "temporal_correction": "periodic_lightcurve",
+      "norm_groups": 1,
+      "slope_sys_per_um": 0.1918587282490388,
+      "thermal_status": "OK",
+      "thermal_chi2_red": 2.7616012558182264,
+      "diameter_km": 87.99177729647373,
+      "diameter_err_km": 17.151825839716246,
+      "taxonomy_top_class": "K",
+      "taxonomy_confidence": "Low",
+      "complex_ranking": [
+        [
+          "K-type",
+          38.75
+        ],
+        [
+          "L-type",
+          34.19
+        ],
+        [
+          "X-complex",
+          17.39
+        ],
+        [
+          "C-complex",
+          5.2
+        ],
+        [
+          "T-type",
+          2.94
+        ]
+      ],
+      "complex_ranking_spectral": [
+        [
+          "C-complex",
+          39.03
+        ],
+        [
+          "X-complex",
+          35.35
+        ],
+        [
+          "L-type",
+          10.38
+        ],
+        [
+          "T-type",
+          6.4
+        ],
+        [
+          "K-type",
+          5.42
+        ]
+      ],
+      "prior": {
+        "albedo": {
+          "pV": 0.15080192935084805,
+          "log10_pv": -0.8215931020931222,
+          "sigma_log10": 0.11879914978037115,
+          "source": "catalogue diameter with current H (IRAS-A-FPA-3-RDR-IMPS-V6.0)"
+        },
+        "orbit_used": true
+      },
+      "statistical_diameter_km": 99.55002485833688,
+      "statistical_diameter_68_km": [
+        76.72071694930233,
+        140.22036471250246
+      ],
+      "thermal_upper_limit_km": null,
+      "spectrum_file": "/mnt/c/Users/a0102/spherex/spherex-asteroid-analysis/outputs/579/stage2_spectrum.csv"
+    },
+    "run": {
+      "start": null,
+      "end": null,
+      "max_images": null,
+      "from_saved": true
+    }
+  },
+  {
+    "target": "35107",
+    "reference": {
+      "class": "Sq",
+      "complex": "S-complex",
+      "sources": [
+        "DeMeo et al. 2009 (Bus-DeMeo, 0.45-2.45 um), Appendix: Sq",
+        "JPL SBDB spec_B (SMASSII, Bus & Binzel 2002): Sk (S-complex)"
+      ],
+      "cross_check_sbdb_field": "spec_B",
+      "basis": "visible + near-infrared taxonomy (Bus-DeMeo)",
+      "sbdb_cross_check": {
+        "spec_B": "Sk"
+      }
+    },
+    "results": {
+      "C1": "PASS",
+      "C2": "PASS",
+      "C3": "INCONCLUSIVE",
+      "C4": "PASS",
+      "C5": "PASS",
+      "C6": "PASS",
+      "C7": "INCONCLUSIVE",
+      "C8": "PASS",
+      "C9": "INCONCLUSIVE"
+    },
+    "explanations": {
+      "C1": "Band I detected (within_segment) at 0.984 um (sensitivity marginal).",
+      "C2": "Band II evaluated: NOT_DETECTED; not detected; data not sensitive enough to detect a typical band.",
+      "C3": "Observed spectrum: no D-type driven by slope. Counterfactual: band-bearing templates reddened to D-like slope classified as S->S-complex, Sq->S-complex, Sr->S-complex, V->V-type, Q->S-complex; D template -> S-complex. The D-type control is not recovered with this sampling, so the test cannot be made.",
+      "C4": "24 visits over 57.61 d detected; segments never observed together: B1-B2, B2-B3, B3-B4, B4-B5, B5-B6; variability detected.",
+      "C5": "Applied correction 'periodic_lightcurve' meets the support criteria; without repeated observations: 'none' (no repeated observations: a rotational correction cannot be constrained); without rotation period: 'visit_offsets'.",
+      "C6": "Baseline confidence Low (classifier; reported Low); without the 1-um region -> Low; with errors x4 -> Low.",
+      "C7": "Most probable complex V-type (49.7%), reference S-complex at rank 2; reference behind V-type by 2.3 (distinguished at >= 6); confidence Low.",
+      "C8": "No target names, reference taxonomies or validation files in the analysis/classification code.",
+      "C9": "Most probable class V; reference class Sq at rank 8, behind V by 5.6 (distinguished at >= 10)."
+    },
+    "analysis": {
+      "solar_analog_calibration": {
+        "applied": true,
+        "reason": null,
+        "n_stars": 14,
+        "max_abs_correction": 0.11898662610715971,
+        "slope_sigma_per_um": {
+          "SWIR": 0.002289740967574337,
+          "MWIR": 0.001413917081249607
+        }
+      },
+      "temporal_correction": "periodic_lightcurve",
+      "norm_groups": 1,
+      "slope_sys_per_um": 0.162752769439721,
+      "thermal_status": "OK",
+      "thermal_chi2_red": 2.4930939422320337,
+      "diameter_km": 1.0979467121697943,
+      "diameter_err_km": 0.25451406639117685,
+      "taxonomy_top_class": "V",
+      "taxonomy_confidence": "Low",
+      "complex_ranking": [
+        [
+          "V-type",
+          49.69
+        ],
+        [
+          "S-complex",
+          15.69
+        ],
+        [
+          "Q-type",
+          11.56
+        ],
+        [
+          "R-type",
+          11.55
+        ],
+        [
+          "O-type",
+          7.08
+        ]
+      ],
+      "complex_ranking_spectral": [
+        [
+          "S-complex",
+          27.44
+        ],
+        [
+          "V-type",
+          16.85
+        ],
+        [
+          "R-type",
+          12.11
+        ],
+        [
+          "O-type",
+          10.32
+        ],
+        [
+          "C-complex",
+          8.74
+        ]
+      ],
+      "prior": {
+        "albedo": {
+          "pV": 0.3689933453490096,
+          "log10_pv": -0.4329814661018195,
+          "sigma_log10": 0.1091081655904167,
+          "source": "catalogue diameter with current H (urn:nasa:pds:neowise_diameters_albedos::2.0[neos] (http://adsabs.harvard.edu/abs/2016AJ....152...63N))"
+        },
+        "orbit_used": true
+      },
+      "statistical_diameter_km": 1.1983352423668445,
+      "statistical_diameter_68_km": [
+        0.9825698947788837,
+        1.5391697987746291
+      ],
+      "thermal_upper_limit_km": null,
+      "spectrum_file": "/mnt/c/Users/a0102/spherex/spherex-asteroid-analysis/outputs/35107/stage2_spectrum.csv"
+    },
+    "run": {
+      "start": null,
+      "end": null,
+      "max_images": null,
+      "from_saved": true
+    }
+  },
+  {
+    "target": "221",
+    "reference": {
+      "class": "K",
+      "complex": "K-type",
+      "sources": [
+        "DeMeo et al. 2009 (Bus-DeMeo, 0.45-2.45 um), Appendix: K",
+        "JPL SBDB spec_B (SMASSII, Bus & Binzel 2002): K",
+        "JPL SBDB spec_T (Tholen): S"
+      ],
+      "cross_check_sbdb_field": "spec_B",
+      "basis": "visible + near-infrared taxonomy (Bus-DeMeo)",
+      "sbdb_cross_check": {
+        "spec_B": "K"
+      }
+    },
+    "results": {
+      "C1": "INCONCLUSIVE",
+      "C2": "PASS",
+      "C3": "INCONCLUSIVE",
+      "C4": "PASS",
+      "C5": "PASS",
+      "C6": "PASS",
+      "C7": "INCONCLUSIVE",
+      "C8": "PASS",
+      "C9": "INCONCLUSIVE"
+    },
+    "explanations": {
+      "C1": "Data not sensitive enough or region not covered: band shoulders and centre not observed within one normalisation group.",
+      "C2": "Band II evaluated: NOT_DETECTED; not detected; data not sensitive enough to detect a typical band.",
+      "C3": "Observed spectrum: no D-type driven by slope. Counterfactual: band-bearing templates reddened to D-like slope classified as S->S-complex, Sq->S-complex, Sr->S-complex, V->V-type, Q->S-complex; D template -> C-complex. The D-type control is not recovered with this sampling, so the test cannot be made.",
+      "C4": "21 visits over 22.62 d detected; segments never observed together: B1-B2, B2-B3, B3-B4, B4-B5, B5-B6; variability detected.",
+      "C5": "Applied correction 'visit_offsets' meets the support criteria; without repeated observations: 'none' (no repeated observations: a rotational correction cannot be constrained); without rotation period: 'visit_offsets'.",
+      "C6": "Baseline confidence Low (classifier; reported Low); without the 1-um region -> Low; with errors x4 -> Low.",
+      "C7": "Most probable complex K-type (48.8%), reference K-type at rank 1; reference best by deviance; gap to the next complex L-type: 1.4 (distinguished at >= 6); confidence Low.",
+      "C8": "No target names, reference taxonomies or validation files in the analysis/classification code.",
+      "C9": "Most probable class K; reference class first; gap to the next class L: 1.4 (distinguished at >= 10)."
+    },
+    "analysis": {
+      "solar_analog_calibration": {
+        "applied": true,
+        "reason": null,
+        "n_stars": 14,
+        "max_abs_correction": 0.10979016361359384,
+        "slope_sigma_per_um": {
+          "SWIR": 0.002289740967574337,
+          "MWIR": 0.001413917081249607
+        }
+      },
+      "temporal_correction": "visit_offsets",
+      "norm_groups": 5,
+      "slope_sys_per_um": 0.002289740967574337,
+      "thermal_status": "OK",
+      "thermal_chi2_red": 6.785345711349608,
+      "diameter_km": 112.53446740259744,
+      "diameter_err_km": 23.261752370889397,
+      "taxonomy_top_class": "K",
+      "taxonomy_confidence": "Low",
+      "complex_ranking": [
+        [
+          "K-type",
+          48.83
+        ],
+        [
+          "L-type",
+          24.79
+        ],
+        [
+          "X-complex",
+          14.28
+        ],
+        [
+          "C-complex",
+          4.96
+        ],
+        [
+          "T-type",
+          3.36
+        ]
+      ],
+      "complex_ranking_spectral": [
+        [
+          "C-complex",
+          42.18
+        ],
+        [
+          "X-complex",
+          31.94
+        ],
+        [
+          "T-type",
+          7.47
+        ],
+        [
+          "L-type",
+          6.69
+        ],
+        [
+          "K-type",
+          5.97
+        ]
+      ],
+      "prior": {
+        "albedo": {
+          "pV": 0.1597074644682901,
+          "log10_pv": -0.796674785166277,
+          "sigma_log10": 0.10139854453126938,
+          "source": "catalogue diameter with current H (urn:nasa:pds:neowise_diameters_albedos::2.0[mainbelt] (http://adsabs.harvard.edu/abs/2012ApJ...759L...8M))"
+        },
+        "orbit_used": true
+      },
+      "statistical_diameter_km": 115.46220648847878,
+      "statistical_diameter_68_km": [
+        89.35392604948703,
+        162.24157398993842
+      ],
+      "thermal_upper_limit_km": null,
+      "spectrum_file": "/mnt/c/Users/a0102/spherex/spherex-asteroid-analysis/outputs/221/stage2_spectrum.csv"
+    },
+    "run": {
+      "start": null,
+      "end": null,
+      "max_images": null,
+      "from_saved": true
+    }
+  },
+  {
+    "target": "387",
+    "reference": {
+      "class": "L",
+      "complex": "L-type",
+      "sources": [
+        "DeMeo et al. 2009 (Bus-DeMeo, 0.45-2.45 um), Appendix: L",
+        "JPL SBDB spec_B (SMASSII, Bus & Binzel 2002): L",
+        "JPL SBDB spec_T (Tholen): S"
+      ],
+      "cross_check_sbdb_field": "spec_B",
+      "basis": "visible + near-infrared taxonomy (Bus-DeMeo)",
+      "sbdb_cross_check": {
+        "spec_B": "L"
+      }
+    },
+    "results": {
+      "C1": "PASS",
+      "C2": "PASS",
+      "C3": "PASS",
+      "C4": "PASS",
+      "C5": "PASS",
+      "C6": "PASS",
+      "C7": "INCONCLUSIVE",
+      "C8": "PASS",
+      "C9": "INCONCLUSIVE"
+    },
+    "explanations": {
+      "C1": "Reference class has no 1-um band: no band claimed (correct).",
+      "C2": "Band II evaluated: NOT_DETECTED; not detected; data not sensitive enough to detect a typical band.",
+      "C3": "Observed spectrum: no D-type driven by slope. Counterfactual: band-bearing templates reddened to D-like slope classified as S->S-complex, Sq->S-complex, Sr->S-complex, V->V-type, Q->Q-type; D template -> D-type.",
+      "C4": "19 visits over 12.36 d detected; segments never observed together: B1-B2, B2-B3, B3-B4, B4-B5, B5-B6; variability detected.",
+      "C5": "Applied correction 'periodic_lightcurve' meets the support criteria; without repeated observations: 'none' (no repeated observations: a rotational correction cannot be constrained); without rotation period: 'visit_offsets'.",
+      "C6": "Baseline confidence Low (classifier; reported Low); without the 1-um region -> Low; with errors x4 -> Low.",
+      "C7": "Most probable complex L-type (56.1%), reference L-type at rank 1; reference best by deviance; gap to the next complex X-complex: 1.3 (distinguished at >= 6); confidence Low.",
+      "C8": "No target names, reference taxonomies or validation files in the analysis/classification code.",
+      "C9": "Most probable class L; reference class first; gap to the next class Xc: 2.6 (distinguished at >= 10)."
+    },
+    "analysis": {
+      "solar_analog_calibration": {
+        "applied": true,
+        "reason": null,
+        "n_stars": 14,
+        "max_abs_correction": 0.10798721644990028,
+        "slope_sigma_per_um": {
+          "SWIR": 0.002289740967574337,
+          "MWIR": 0.001413917081249607
+        }
+      },
+      "temporal_correction": "periodic_lightcurve",
+      "norm_groups": 1,
+      "slope_sys_per_um": 0.03519412266105774,
+      "thermal_status": "OK",
+      "thermal_chi2_red": 7.856874252683212,
+      "diameter_km": 108.84077525582379,
+      "diameter_err_km": 21.996967295989442,
+      "taxonomy_top_class": "L",
+      "taxonomy_confidence": "Low",
+      "complex_ranking": [
+        [
+          "L-type",
+          56.08
+        ],
+        [
+          "X-complex",
+          29.78
+        ],
+        [
+          "C-complex",
+          5.64
+        ],
+        [
+          "K-type",
+          4.69
+        ],
+        [
+          "T-type",
+          3.58
+        ]
+      ],
+      "complex_ranking_spectral": [
+        [
+          "X-complex",
+          40.23
+        ],
+        [
+          "C-complex",
+          39.23
+        ],
+        [
+          "L-type",
+          12.2
+        ],
+        [
+          "T-type",
+          6.92
+        ],
+        [
+          "K-type",
+          1.14
+        ]
+      ],
+      "prior": {
+        "albedo": {
+          "pV": 0.17645396268870253,
+          "log10_pv": -0.7533685840905656,
+          "sigma_log10": 0.10503254149054037,
+          "source": "catalogue diameter with current H (IRAS-A-FPA-3-RDR-IMPS-V6.0)"
+        },
+        "orbit_used": true
+      },
+      "statistical_diameter_km": 153.88567603961084,
+      "statistical_diameter_68_km": [
+        111.3335536567884,
+        219.9042691912637
+      ],
+      "thermal_upper_limit_km": null,
+      "spectrum_file": "/mnt/c/Users/a0102/spherex/spherex-asteroid-analysis/outputs/387/stage2_spectrum.csv"
+    },
+    "run": {
+      "start": null,
+      "end": null,
+      "max_images": null,
+      "from_saved": true
+    }
+  },
+  {
+    "target": "596",
+    "reference": {
+      "class": "T",
+      "complex": "T-type",
+      "sources": [
+        "DeMeo et al. 2009 (Bus-DeMeo, 0.45-2.45 um), Appendix: T",
+        "JPL SBDB spec_B (SMASSII, Bus & Binzel 2002): T",
+        "JPL SBDB spec_T (Tholen): PCD"
+      ],
+      "cross_check_sbdb_field": "spec_B",
+      "basis": "visible + near-infrared taxonomy (Bus-DeMeo)",
+      "sbdb_cross_check": {
+        "spec_B": "T"
+      }
+    },
+    "results": {
+      "C1": "PASS",
+      "C2": "PASS",
+      "C3": "PASS",
+      "C4": "PASS",
+      "C5": "PASS",
+      "C6": "PASS",
+      "C7": "INCONCLUSIVE",
+      "C8": "PASS",
+      "C9": "INCONCLUSIVE"
+    },
+    "explanations": {
+      "C1": "Reference class has no 1-um band: no band claimed (correct).",
+      "C2": "Band II evaluated: NOT_DETECTED; not detected; a typical band-bearing asteroid would be detectable here.",
+      "C3": "Observed spectrum: no D-type driven by slope. Counterfactual: band-bearing templates reddened to D-like slope classified as S->S-complex, Sq->S-complex, Sr->S-complex, V->V-type, Q->Q-type; D template -> D-type.",
+      "C4": "20 visits over 10.46 d detected; segments never observed together: B1-B2, B2-B3, B3-B4, B4-B5, B5-B6; variability tested.",
+      "C5": "Applied correction 'none' meets the support criteria; without repeated observations: 'none' (no repeated observations: a rotational correction cannot be constrained); without rotation period: 'none'.",
+      "C6": "Baseline confidence Low (classifier; reported Low); without the 1-um region -> Low; with errors x4 -> Low.",
+      "C7": "Most probable complex C-complex (40.5%), reference T-type at rank 4; reference behind C-complex by 2.5 (distinguished at >= 6); confidence Low.",
+      "C8": "No target names, reference taxonomies or validation files in the analysis/classification code.",
+      "C9": "Most probable class Cgh; reference class T at rank 4, behind Cgh by 0.8 (distinguished at >= 10)."
+    },
+    "analysis": {
+      "solar_analog_calibration": {
+        "applied": true,
+        "reason": null,
+        "n_stars": 14,
+        "max_abs_correction": 0.11089506498629276,
+        "slope_sigma_per_um": {
+          "SWIR": 0.002289740967574337,
+          "MWIR": 0.001413917081249607
+        }
+      },
+      "temporal_correction": "none",
+      "norm_groups": 1,
+      "slope_sys_per_um": 0.05026016852835278,
+      "thermal_status": "OK",
+      "thermal_chi2_red": 1.6738918975581982,
+      "diameter_km": 97.05960510630896,
+      "diameter_err_km": 14.75606151623849,
+      "taxonomy_top_class": "C-complex (subclass not determined: Cgh 18%, Ch 15%)",
+      "taxonomy_confidence": "Low",
+      "complex_ranking": [
+        [
+          "C-complex",
+          40.54
+        ],
+        [
+          "X-complex",
+          28.73
+        ],
+        [
+          "D-type",
+          15.14
+        ],
+        [
+          "T-type",
+          11.79
+        ],
+        [
+          "L-type",
+          3.2
+        ]
+      ],
+      "complex_ranking_spectral": [
+        [
+          "X-complex",
+          36.97
+        ],
+        [
+          "C-complex",
+          26.81
+        ],
+        [
+          "T-type",
+          21.23
+        ],
+        [
+          "D-type",
+          5.66
+        ],
+        [
+          "L-type",
+          4.82
+        ]
+      ],
+      "prior": {
+        "albedo": {
+          "pV": 0.01871969335201575,
+          "log10_pv": -1.7277012697335021,
+          "sigma_log10": 0.3445903209564184,
+          "source": "catalogue diameter with current H; catalogue albedo 0.040 disagrees by -0.33 dex beyond the population offset (H revision?): uncertainty increased (urn:nasa:pds:neowise_diameters_albedos::2.0[mainbelt] (http://adsabs.harvard.edu/abs/2012ApJ...759L...8M))"
+        },
+        "orbit_used": true
+      },
+      "statistical_diameter_km": 78.80983174815977,
+      "statistical_diameter_68_km": [
+        56.50474884448166,
+        108.75000645693237
+      ],
+      "thermal_upper_limit_km": null,
+      "spectrum_file": "/mnt/c/Users/a0102/spherex/spherex-asteroid-analysis/outputs/596/stage2_spectrum.csv"
+    },
+    "run": {
+      "start": null,
+      "end": null,
+      "max_images": null,
+      "from_saved": true
+    }
+  },
+  {
+    "target": "16",
+    "reference": {
+      "class": "Xk",
+      "complex": "X-complex",
+      "sources": [
+        "DeMeo et al. 2009 (Bus-DeMeo, 0.45-2.45 um), Appendix: Xk",
+        "JPL SBDB spec_B (SMASSII, Bus & Binzel 2002): X",
+        "JPL SBDB spec_T (Tholen): M"
+      ],
+      "cross_check_sbdb_field": "spec_B",
+      "basis": "visible + near-infrared taxonomy (Bus-DeMeo)",
+      "sbdb_cross_check": {
+        "spec_B": "X"
+      }
+    },
+    "results": {
+      "C1": "PASS",
+      "C2": "PASS",
+      "C3": "PASS",
+      "C4": "PASS",
+      "C5": "PASS",
+      "C6": "PASS",
+      "C7": "INCONCLUSIVE",
+      "C8": "PASS",
+      "C9": "INCONCLUSIVE"
+    },
+    "explanations": {
+      "C1": "Reference class has no 1-um band: no band claimed (correct).",
+      "C2": "Band II evaluated: NOT_DETECTED; not detected; data not sensitive enough to detect a typical band.",
+      "C3": "Observed spectrum: no D-type driven by slope. Counterfactual: band-bearing templates reddened to D-like slope classified as S->S-complex, Sq->S-complex, Sr->S-complex, V->V-type, Q->Q-type; D template -> D-type.",
+      "C4": "21 visits over 12.36 d detected; segments never observed together: B1-B2, B2-B3, B3-B4, B4-B5, B5-B6; variability tested.",
+      "C5": "Applied correction 'none' meets the support criteria; without repeated observations: 'none' (no repeated observations: a rotational correction cannot be constrained); without rotation period: 'none'.",
+      "C6": "Baseline confidence Low (classifier; reported Low); without the 1-um region -> Low; with errors x4 -> Low.",
+      "C7": "Not scored - saturation-limited spectrum (93% of points saturated, limit 20%). Most probable complex T-type (28.9%), reference X-complex at rank 2; reference behind T-type by 0.3 (distinguished at >= 6); confidence Low.",
+      "C8": "No target names, reference taxonomies or validation files in the analysis/classification code.",
+      "C9": "Not scored - saturation-limited spectrum (93% of points saturated). Most probable class T; reference class Xk at rank 4, behind T by 1.8 (distinguished at >= 10)."
+    },
+    "analysis": {
+      "solar_analog_calibration": {
+        "applied": true,
+        "reason": null,
+        "n_stars": 14,
+        "max_abs_correction": 0.11810290152317715,
+        "slope_sigma_per_um": {
+          "SWIR": 0.002289740967574337,
+          "MWIR": 0.001413917081249607
+        }
+      },
+      "temporal_correction": "none",
+      "norm_groups": 1,
+      "slope_sys_per_um": 0.04601098494610143,
+      "thermal_status": "OK",
+      "thermal_chi2_red": 10.734653968594932,
+      "diameter_km": 259.461225779431,
+      "diameter_err_km": 54.492353764483795,
+      "taxonomy_top_class": "T",
+      "taxonomy_confidence": "Low",
+      "complex_ranking": [
+        [
+          "T-type",
+          28.91
+        ],
+        [
+          "X-complex",
+          24.64
+        ],
+        [
+          "K-type",
+          16.51
+        ],
+        [
+          "L-type",
+          13.59
+        ],
+        [
+          "C-complex",
+          12.87
+        ]
+      ],
+      "complex_ranking_spectral": [
+        [
+          "X-complex",
+          35.01
+        ],
+        [
+          "C-complex",
+          34.38
+        ],
+        [
+          "T-type",
+          20.79
+        ],
+        [
+          "L-type",
+          3.52
+        ],
+        [
+          "D-type",
+          2.5
+        ]
+      ],
+      "prior": {
+        "albedo": {
+          "pV": 0.11867083904279954,
+          "log10_pv": -0.9256559870158132,
+          "sigma_log10": 0.10017517415296634,
+          "source": "catalogue diameter with current H (Shepard et al. (2021), The Planetary Science Journal 2, 125)"
+        },
+        "orbit_used": true
+      },
+      "statistical_diameter_km": 258.4857360767316,
+      "statistical_diameter_68_km": [
+        188.6634320406335,
+        355.8461181915625
+      ],
+      "thermal_upper_limit_km": null,
+      "spectrum_file": "/mnt/c/Users/a0102/spherex/spherex-asteroid-analysis/outputs/16/stage2_spectrum.csv"
+    },
+    "run": {
+      "start": null,
+      "end": null,
+      "max_images": null,
+      "from_saved": true
+    }
+  },
+  {
+    "target": "624",
+    "reference": {
+      "class": "D",
+      "complex": "D-type",
+      "sources": [
+        "JPL SBDB spec_T (Tholen): D (not in DeMeo et al. 2009)"
+      ],
+      "cross_check_sbdb_field": "spec_T",
+      "basis": "visible-wavelength taxonomy",
+      "sbdb_cross_check": {
+        "spec_T": "D"
+      }
+    },
+    "results": {
+      "C1": "PASS",
+      "C2": "PASS",
+      "C3": "PASS",
+      "C4": "PASS",
+      "C5": "PASS",
+      "C6": "PASS",
+      "C7": "INCONCLUSIVE",
+      "C8": "PASS",
+      "C9": "INCONCLUSIVE"
+    },
+    "explanations": {
+      "C1": "Reference class has no 1-um band: no band claimed (correct).",
+      "C2": "Band II evaluated: NOT_DETECTED; not detected; data not sensitive enough to detect a typical band.",
+      "C3": "Observed spectrum: no D-type driven by slope. Counterfactual: band-bearing templates reddened to D-like slope classified as S->S-complex, Sq->S-complex, Sr->S-complex, V->V-type, Q->Q-type; D template -> D-type.",
+      "C4": "21 visits over 247.28 d detected; segments never observed together: B1-B2, B2-B3, B3-B4, B4-B5, B5-B6; variability tested.",
+      "C5": "Applied correction 'season_offsets' meets the support criteria; without repeated observations: 'none' (no repeated observations: a rotational correction cannot be constrained); without rotation period: 'season_offsets'.",
+      "C6": "Baseline confidence Low (classifier; reported Low); without the 1-um region -> Low; with errors x4 -> Low.",
+      "C7": "Most probable complex D-type (74.2%), reference D-type at rank 1; reference best by deviance; gap to the next complex T-type: 3.1 (distinguished at >= 6); confidence Low.",
+      "C8": "No target names, reference taxonomies or validation files in the analysis/classification code.",
+      "C9": "Most probable class D; reference class first; gap to the next class T: 3.1 (distinguished at >= 10)."
+    },
+    "analysis": {
+      "solar_analog_calibration": {
+        "applied": true,
+        "reason": null,
+        "n_stars": 14,
+        "max_abs_correction": 0.09225258603880104,
+        "slope_sigma_per_um": {
+          "SWIR": 0.002289740967574337,
+          "MWIR": 0.001413917081249607
+        }
+      },
+      "temporal_correction": "season_offsets",
+      "norm_groups": 1,
+      "slope_sys_per_um": 0.0866489679069862,
+      "thermal_status": "INSUFFICIENT_THERMAL",
+      "thermal_chi2_red": null,
+      "diameter_km": null,
+      "diameter_err_km": null,
+      "taxonomy_top_class": "D",
+      "taxonomy_confidence": "Low",
+      "complex_ranking": [
+        [
+          "D-type",
+          74.17
+        ],
+        [
+          "T-type",
+          15.47
+        ],
+        [
+          "X-complex",
+          7.1
+        ],
+        [
+          "C-complex",
+          2.56
+        ],
+        [
+          "L-type",
+          0.61
+        ]
+      ],
+      "complex_ranking_spectral": [
+        [
+          "D-type",
+          41.86
+        ],
+        [
+          "T-type",
+          24.9
+        ],
+        [
+          "X-complex",
+          18.74
+        ],
+        [
+          "S-complex",
+          8.68
+        ],
+        [
+          "C-complex",
+          4.01
+        ]
+      ],
+      "prior": {
+        "albedo": {
+          "pV": 0.04117986567573624,
+          "log10_pv": -1.3853150743372609,
+          "sigma_log10": 0.23870140142300392,
+          "source": "catalogue diameter with current H; catalogue albedo 0.025 disagrees by +0.22 dex beyond the population offset (H revision?): uncertainty increased (J.G. Williams 9-90)"
+        },
+        "orbit_used": true
+      },
+      "statistical_diameter_km": 187.126488781358,
+      "statistical_diameter_68_km": [
+        140.48484427818397,
+        246.59177555654463
+      ],
+      "thermal_upper_limit_km": 227.60989584341988,
+      "spectrum_file": "/mnt/c/Users/a0102/spherex/spherex-asteroid-analysis/outputs/624/stage2_spectrum.csv"
+    },
+    "run": {
+      "start": null,
+      "end": null,
+      "max_images": null,
+      "from_saved": true
+    }
+  },
+  {
+    "target": "246",
+    "reference": {
+      "class": "A",
+      "complex": "A-type",
+      "sources": [
+        "DeMeo et al. 2009 (Bus-DeMeo, 0.45-2.45 um), Appendix: A",
+        "JPL SBDB spec_B (SMASSII, Bus & Binzel 2002): A",
+        "JPL SBDB spec_T (Tholen): A"
+      ],
+      "cross_check_sbdb_field": "spec_B",
+      "basis": "visible + near-infrared taxonomy (Bus-DeMeo)",
+      "sbdb_cross_check": {
+        "spec_B": "A"
+      }
+    },
+    "results": {
+      "C1": "PASS",
+      "C2": "PASS",
+      "C3": "PASS",
+      "C4": "PASS",
+      "C5": "PASS",
+      "C6": "PASS",
+      "C7": "PASS",
+      "C8": "PASS",
+      "C9": "PASS"
+    },
+    "explanations": {
+      "C1": "Band I detected (full_band) at 1.091 um.",
+      "C2": "Band II evaluated: NOT_DETECTED; not detected; data not sensitive enough to detect a typical band.",
+      "C3": "Observed spectrum: no D-type driven by slope. Counterfactual: band-bearing templates reddened to D-like slope classified as S->S-complex, Sq->S-complex, Sr->S-complex, V->V-type, Q->Q-type; D template -> D-type.",
+      "C4": "22 visits over 11.68 d detected; segments never observed together: B1-B2, B2-B3, B3-B4, B4-B5, B5-B6; variability detected.",
+      "C5": "Applied correction 'periodic_lightcurve' meets the support criteria; without repeated observations: 'none' (no repeated observations: a rotational correction cannot be constrained); without rotation period: 'visit_offsets'.",
+      "C6": "Baseline confidence Medium (classifier; reported High); without the 1-um region -> Low; with errors x4 -> Low.",
+      "C7": "Most probable complex A-type (99.5%), reference A-type at rank 1; reference best by deviance; gap to the next complex S-complex: 10.4 (distinguished at >= 6); confidence High.",
+      "C8": "No target names, reference taxonomies or validation files in the analysis/classification code.",
+      "C9": "Most probable class A; reference class first; gap to the next class Sa: 10.4 (distinguished at >= 10)."
+    },
+    "analysis": {
+      "solar_analog_calibration": {
+        "applied": true,
+        "reason": null,
+        "n_stars": 14,
+        "max_abs_correction": 0.09317368448620522,
+        "slope_sigma_per_um": {
+          "SWIR": 0.002289740967574337,
+          "MWIR": 0.001413917081249607
+        }
+      },
+      "temporal_correction": "periodic_lightcurve",
+      "norm_groups": 1,
+      "slope_sys_per_um": 0.022735262870554985,
+      "thermal_status": "OK",
+      "thermal_chi2_red": 1.7139653832350867,
+      "diameter_km": 57.68148396275851,
+      "diameter_err_km": 10.79304018959187,
+      "taxonomy_top_class": "A",
+      "taxonomy_confidence": "High",
+      "complex_ranking": [
+        [
+          "A-type",
+          99.46
+        ],
+        [
+          "S-complex",
+          0.54
+        ],
+        [
+          "Q-type",
+          0.0
+        ],
+        [
+          "C-complex",
+          0.0
+        ],
+        [
+          "O-type",
+          0.0
+        ]
+      ],
+      "complex_ranking_spectral": [
+        [
+          "A-type",
+          98.44
+        ],
+        [
+          "S-complex",
+          1.56
+        ],
+        [
+          "Q-type",
+          0.0
+        ],
+        [
+          "C-complex",
+          0.0
+        ],
+        [
+          "O-type",
+          0.0
+        ]
+      ],
+      "prior": {
+        "albedo": {
+          "pV": 0.24309050304053906,
+          "log10_pv": -0.6142320076628526,
+          "sigma_log10": 0.141570410232294,
+          "source": "catalogue diameter with current H; catalogue albedo 0.193 disagrees by +0.10 dex beyond the population offset (H revision?): uncertainty increased (urn:nasa:pds:neowise_diameters_albedos::2.0[mainbelt] (http://adsabs.harvard.edu/abs/2014ApJ...791..121M))"
+        },
+        "orbit_used": true
+      },
+      "statistical_diameter_km": 55.42709842462619,
+      "statistical_diameter_68_km": [
+        47.784394992023785,
+        64.53488925625939
+      ],
+      "thermal_upper_limit_km": null,
+      "spectrum_file": "/mnt/c/Users/a0102/spherex/spherex-asteroid-analysis/outputs/246/stage2_spectrum.csv"
+    },
+    "run": {
+      "start": null,
+      "end": null,
+      "max_images": null,
+      "from_saved": true
+    }
+  },
+  {
+    "target": "308",
+    "reference": {
+      "class": "T",
+      "complex": "T-type",
+      "sources": [
+        "DeMeo et al. 2009 (Bus-DeMeo, 0.45-2.45 um), Appendix: T",
+        "JPL SBDB spec_B (SMASSII, Bus & Binzel 2002): T",
+        "JPL SBDB spec_T (Tholen): T"
+      ],
+      "cross_check_sbdb_field": "spec_B",
+      "basis": "visible + near-infrared taxonomy (Bus-DeMeo)",
+      "sbdb_cross_check": {
+        "spec_B": "T"
+      }
+    },
+    "results": {
+      "C1": "PASS",
+      "C2": "PASS",
+      "C3": "PASS",
+      "C4": "PASS",
+      "C5": "PASS",
+      "C6": "PASS",
+      "C7": "INCONCLUSIVE",
+      "C8": "PASS",
+      "C9": "INCONCLUSIVE"
+    },
+    "explanations": {
+      "C1": "Reference class has no 1-um band: no band claimed (correct).",
+      "C2": "Band II evaluated: NOT_DETECTED; not detected; a typical band-bearing asteroid would be detectable here.",
+      "C3": "Observed spectrum: no D-type driven by slope. Counterfactual: band-bearing templates reddened to D-like slope classified as S->S-complex, Sq->S-complex, Sr->S-complex, V->V-type, Q->Q-type; D template -> D-type.",
+      "C4": "20 visits over 28.87 d detected; segments never observed together: B1-B2, B2-B3, B3-B4, B4-B5, B5-B6; variability detected.",
+      "C5": "Applied correction 'periodic_lightcurve' meets the support criteria; without repeated observations: 'none' (no repeated observations: a rotational correction cannot be constrained); without rotation period: 'visit_offsets'.",
+      "C6": "Baseline confidence Low (classifier; reported Low); without the 1-um region -> Low; with errors x4 -> Low.",
+      "C7": "Most probable complex T-type (69.9%), reference T-type at rank 1; reference best by deviance; gap to the next complex D-type: 2.2 (distinguished at >= 6); confidence Low.",
+      "C8": "No target names, reference taxonomies or validation files in the analysis/classification code.",
+      "C9": "Most probable class T; reference class first; gap to the next class D: 2.2 (distinguished at >= 10)."
+    },
+    "analysis": {
+      "solar_analog_calibration": {
+        "applied": true,
+        "reason": null,
+        "n_stars": 14,
+        "max_abs_correction": 0.10994523655923705,
+        "slope_sigma_per_um": {
+          "SWIR": 0.002289740967574337,
+          "MWIR": 0.001413917081249607
+        }
+      },
+      "temporal_correction": "periodic_lightcurve",
+      "norm_groups": 1,
+      "slope_sys_per_um": 0.014464413374551904,
+      "thermal_status": "OK",
+      "thermal_chi2_red": 3.8026418158673865,
+      "diameter_km": 155.69774006507112,
+      "diameter_err_km": 35.65008043101099,
+      "taxonomy_top_class": "T",
+      "taxonomy_confidence": "Low",
+      "complex_ranking": [
+        [
+          "T-type",
+          69.89
+        ],
+        [
+          "D-type",
+          23.69
+        ],
+        [
+          "X-complex",
+          6.24
+        ],
+        [
+          "C-complex",
+          0.15
+        ],
+        [
+          "L-type",
+          0.03
+        ]
+      ],
+      "complex_ranking_spectral": [
+        [
+          "T-type",
+          55.3
+        ],
+        [
+          "D-type",
+          32.48
+        ],
+        [
+          "X-complex",
+          12.01
+        ],
+        [
+          "C-complex",
+          0.16
+        ],
+        [
+          "L-type",
+          0.05
+        ]
+      ],
+      "prior": {
+        "albedo": {
+          "pV": 0.05763902550171561,
+          "log10_pv": -1.2392833703772221,
+          "sigma_log10": 0.13361619174083406,
+          "source": "catalogue diameter with current H (urn:nasa:pds:neowise_diameters_albedos::2.0[mainbelt] (http://adsabs.harvard.edu/abs/2014ApJ...791..121M))"
+        },
+        "orbit_used": true
+      },
+      "statistical_diameter_km": 121.41950090931205,
+      "statistical_diameter_68_km": [
+        93.37885225750206,
+        158.85992575874027
+      ],
+      "thermal_upper_limit_km": null,
+      "spectrum_file": "/mnt/c/Users/a0102/spherex/spherex-asteroid-analysis/outputs/308/stage2_spectrum.csv"
+    },
+    "run": {
+      "start": null,
+      "end": null,
+      "max_images": null,
+      "from_saved": true
+    }
+  },
+  {
+    "target": "653",
+    "reference": {
+      "class": "K",
+      "complex": "K-type",
+      "sources": [
+        "DeMeo et al. 2009 (Bus-DeMeo, 0.45-2.45 um), Appendix: K",
+        "JPL SBDB spec_B (SMASSII, Bus & Binzel 2002): K",
+        "JPL SBDB spec_T (Tholen): S"
+      ],
+      "cross_check_sbdb_field": "spec_B",
+      "basis": "visible + near-infrared taxonomy (Bus-DeMeo)",
+      "sbdb_cross_check": {
+        "spec_B": "K"
+      }
+    },
+    "results": {
+      "C1": "FAIL",
+      "C2": "PASS",
+      "C3": "PASS",
+      "C4": "PASS",
+      "C5": "PASS",
+      "C6": "PASS",
+      "C7": "INCONCLUSIVE",
+      "C8": "PASS",
+      "C9": "INCONCLUSIVE"
+    },
+    "explanations": {
+      "C1": "A typical band would be detectable with these data, but none was detected.",
+      "C2": "Band II evaluated: NOT_DETECTED; not detected; data not sensitive enough to detect a typical band.",
+      "C3": "Observed spectrum: no D-type driven by slope. Counterfactual: band-bearing templates reddened to D-like slope classified as S->S-complex, Sq->S-complex, Sr->S-complex, V->V-type, Q->Q-type; D template -> D-type.",
+      "C4": "18 visits over 11.41 d detected; segments never observed together: B1-B2, B2-B3, B3-B4, B4-B5, B5-B6; variability detected.",
+      "C5": "Applied correction 'periodic_lightcurve' meets the support criteria; without repeated observations: 'none' (no repeated observations: a rotational correction cannot be constrained); without rotation period: 'visit_offsets'.",
+      "C6": "Baseline confidence Low (classifier; reported Low); without the 1-um region -> Low; with errors x4 -> Low.",
+      "C7": "Most probable complex K-type (81.9%), reference K-type at rank 1; reference best by deviance; gap to the next complex L-type: 3.9 (distinguished at >= 6); confidence Low.",
+      "C8": "No target names, reference taxonomies or validation files in the analysis/classification code.",
+      "C9": "Most probable class K; reference class first; gap to the next class L: 3.9 (distinguished at >= 10)."
+    },
+    "analysis": {
+      "solar_analog_calibration": {
+        "applied": true,
+        "reason": null,
+        "n_stars": 14,
+        "max_abs_correction": 0.10798750161611315,
+        "slope_sigma_per_um": {
+          "SWIR": 0.002289740967574337,
+          "MWIR": 0.001413917081249607
+        }
+      },
+      "temporal_correction": "periodic_lightcurve",
+      "norm_groups": 1,
+      "slope_sys_per_um": 0.021223668756447225,
+      "thermal_status": "OK",
+      "thermal_chi2_red": 3.6771444405230107,
+      "diameter_km": 45.47753225972469,
+      "diameter_err_km": 9.111047720029369,
+      "taxonomy_top_class": "K",
+      "taxonomy_confidence": "Low",
+      "complex_ranking": [
+        [
+          "K-type",
+          81.92
+        ],
+        [
+          "L-type",
+          11.79
+        ],
+        [
+          "X-complex",
+          2.72
+        ],
+        [
+          "C-complex",
+          2.05
+        ],
+        [
+          "S-complex",
+          1.45
+        ]
+      ],
+      "complex_ranking_spectral": [
+        [
+          "K-type",
+          30.93
+        ],
+        [
+          "C-complex",
+          26.5
+        ],
+        [
+          "X-complex",
+          15.9
+        ],
+        [
+          "L-type",
+          15.3
+        ],
+        [
+          "S-complex",
+          10.8
+        ]
+      ],
+      "prior": {
+        "albedo": {
+          "pV": 0.12963234453470124,
+          "log10_pv": -0.887286624234281,
+          "sigma_log10": 0.2087986001381589,
+          "source": "catalogue diameter with current H; catalogue albedo 0.085 disagrees by +0.18 dex beyond the population offset (H revision?): uncertainty increased (urn:nasa:pds:neowise_diameters_albedos::2.0[mainbelt] (http://adsabs.harvard.edu/abs/2014ApJ...791..121M))"
+        },
+        "orbit_used": true
+      },
+      "statistical_diameter_km": 49.96218005100656,
+      "statistical_diameter_68_km": [
+        41.942402940579036,
+        60.41895376004373
+      ],
+      "thermal_upper_limit_km": null,
+      "spectrum_file": "/mnt/c/Users/a0102/spherex/spherex-asteroid-analysis/outputs/653/stage2_spectrum.csv"
+    },
+    "run": {
+      "start": null,
+      "end": null,
+      "max_images": null,
+      "from_saved": true
+    }
+  },
+  {
+    "target": "2045",
+    "reference": {
+      "class": "V",
+      "complex": "V-type",
+      "sources": [
+        "DeMeo et al. 2009 (Bus-DeMeo, 0.45-2.45 um), Appendix: V",
+        "JPL SBDB spec_B (SMASSII, Bus & Binzel 2002): V"
+      ],
+      "cross_check_sbdb_field": "spec_B",
+      "basis": "visible + near-infrared taxonomy (Bus-DeMeo)",
+      "sbdb_cross_check": {
+        "spec_B": "V"
+      }
+    },
+    "results": {
+      "C1": "PASS",
+      "C2": "PASS",
+      "C3": "PASS",
+      "C4": "PASS",
+      "C5": "PASS",
+      "C6": "PASS",
+      "C7": "PASS",
+      "C8": "PASS",
+      "C9": "PASS"
+    },
+    "explanations": {
+      "C1": "Band I detected (within_segment) at 0.919 um.",
+      "C2": "Band II evaluated: DETECTED; detected by within_segment.",
+      "C3": "Observed spectrum: no D-type driven by slope. Counterfactual: band-bearing templates reddened to D-like slope classified as S->S-complex, Sq->S-complex, Sr->S-complex, V->V-type, Q->Q-type; D template -> D-type.",
+      "C4": "25 visits over 361.12 d detected; segments never observed together: B1-B2, B2-B3, B3-B4, B4-B5, B5-B6; variability detected.",
+      "C5": "Applied correction 'periodic_lightcurve' meets the support criteria; without repeated observations: 'none' (no repeated observations: a rotational correction cannot be constrained); without rotation period: 'visit_offsets'.",
+      "C6": "Baseline confidence High (classifier; reported High); without the 1-um region -> Low; with errors x4 -> Low.",
+      "C7": "Most probable complex V-type (100.0%), reference V-type at rank 1; reference best by deviance; gap to the next complex R-type: 28.0 (distinguished at >= 6); confidence High.",
+      "C8": "No target names, reference taxonomies or validation files in the analysis/classification code.",
+      "C9": "Most probable class V; reference class first; gap to the next class R: 28.0 (distinguished at >= 10)."
+    },
+    "analysis": {
+      "solar_analog_calibration": {
+        "applied": true,
+        "reason": null,
+        "n_stars": 14,
+        "max_abs_correction": 0.10962074929783605,
+        "slope_sigma_per_um": {
+          "SWIR": 0.002289740967574337,
+          "MWIR": 0.001413917081249607
+        }
+      },
+      "temporal_correction": "periodic_lightcurve",
+      "norm_groups": 1,
+      "slope_sys_per_um": 0.0673878346986204,
+      "thermal_status": "OK",
+      "thermal_chi2_red": 1.626351897500537,
+      "diameter_km": 10.519931052949167,
+      "diameter_err_km": 2.1394723667704616,
+      "taxonomy_top_class": "V",
+      "taxonomy_confidence": "High",
+      "complex_ranking": [
+        [
+          "V-type",
+          100.0
+        ],
+        [
+          "R-type",
+          0.0
+        ],
+        [
+          "S-complex",
+          0.0
+        ],
+        [
+          "O-type",
+          0.0
+        ],
+        [
+          "X-complex",
+          0.0
+        ]
+      ],
+      "complex_ranking_spectral": [
+        [
+          "V-type",
+          100.0
+        ],
+        [
+          "R-type",
+          0.0
+        ],
+        [
+          "S-complex",
+          0.0
+        ],
+        [
+          "C-complex",
+          0.0
+        ],
+        [
+          "O-type",
+          0.0
+        ]
+      ],
+      "prior": {
+        "albedo": {
+          "pV": 0.26105746671529084,
+          "log10_pv": -0.5832638806686495,
+          "sigma_log10": 0.10208701687216397,
+          "source": "catalogue diameter with current H (urn:nasa:pds:neowise_diameters_albedos::2.0[mainbelt] (http://adsabs.harvard.edu/abs/2014ApJ...791..121M))"
+        },
+        "orbit_used": true
+      },
+      "statistical_diameter_km": 9.282096800581646,
+      "statistical_diameter_68_km": [
+        8.02511460600052,
+        10.77646323249185
+      ],
+      "thermal_upper_limit_km": null,
+      "spectrum_file": "/mnt/c/Users/a0102/spherex/spherex-asteroid-analysis/outputs/2045/stage2_spectrum.csv"
+    },
+    "run": {
+      "start": null,
+      "end": null,
+      "max_images": null,
+      "from_saved": true
+    }
+  },
+  {
+    "target": "2566",
+    "reference": {
+      "class": "V",
+      "complex": "V-type",
+      "sources": [
+        "DeMeo et al. 2009 (Bus-DeMeo, 0.45-2.45 um), Appendix: V",
+        "JPL SBDB spec_B (SMASSII, Bus & Binzel 2002): V"
+      ],
+      "cross_check_sbdb_field": "spec_B",
+      "basis": "visible + near-infrared taxonomy (Bus-DeMeo)",
+      "sbdb_cross_check": {
+        "spec_B": "V"
+      }
+    },
+    "results": {
+      "C1": "PASS",
+      "C2": "PASS",
+      "C3": "PASS",
+      "C4": "PASS",
+      "C5": "PASS",
+      "C6": "PASS",
+      "C7": "PASS",
+      "C8": "PASS",
+      "C9": "PASS"
+    },
+    "explanations": {
+      "C1": "Band I detected (full_band, within_segment) at 0.927 um.",
+      "C2": "Band II evaluated: DETECTED; detected by within_segment.",
+      "C3": "Observed spectrum: no D-type driven by slope. Counterfactual: band-bearing templates reddened to D-like slope classified as S->S-complex, Sq->S-complex, Sr->S-complex, V->V-type, Q->Q-type; D template -> D-type.",
+      "C4": "20 visits over 14.06 d detected; segments never observed together: B1-B2, B2-B3, B3-B4, B4-B5, B5-B6; variability detected.",
+      "C5": "Applied correction 'periodic_lightcurve' meets the support criteria; without repeated observations: 'none' (no repeated observations: a rotational correction cannot be constrained); without rotation period: 'visit_offsets'.",
+      "C6": "Baseline confidence High (classifier; reported High); without the 1-um region -> Low; with errors x4 -> Low.",
+      "C7": "Most probable complex V-type (100.0%), reference V-type at rank 1; reference best by deviance; gap to the next complex R-type: 35.6 (distinguished at >= 6); confidence High.",
+      "C8": "No target names, reference taxonomies or validation files in the analysis/classification code.",
+      "C9": "Most probable class V; reference class first; gap to the next class R: 35.6 (distinguished at >= 10)."
+    },
+    "analysis": {
+      "solar_analog_calibration": {
+        "applied": true,
+        "reason": null,
+        "n_stars": 14,
+        "max_abs_correction": 0.110425836410315,
+        "slope_sigma_per_um": {
+          "SWIR": 0.002289740967574337,
+          "MWIR": 0.001413917081249607
+        }
+      },
+      "temporal_correction": "periodic_lightcurve",
+      "norm_groups": 1,
+      "slope_sys_per_um": 0.04295526326547341,
+      "thermal_status": "INSUFFICIENT_THERMAL",
+      "thermal_chi2_red": null,
+      "diameter_km": null,
+      "diameter_err_km": null,
+      "taxonomy_top_class": "V",
+      "taxonomy_confidence": "High",
+      "complex_ranking": [
+        [
+          "V-type",
+          100.0
+        ],
+        [
+          "R-type",
+          0.0
+        ],
+        [
+          "S-complex",
+          0.0
+        ],
+        [
+          "C-complex",
+          0.0
+        ],
+        [
+          "X-complex",
+          0.0
+        ]
+      ],
+      "complex_ranking_spectral": [
+        [
+          "V-type",
+          100.0
+        ],
+        [
+          "R-type",
+          0.0
+        ],
+        [
+          "C-complex",
+          0.0
+        ],
+        [
+          "S-complex",
+          0.0
+        ],
+        [
+          "X-complex",
+          0.0
+        ]
+      ],
+      "prior": {
+        "albedo": {
+          "pV": 0.3055489956124699,
+          "log10_pv": -0.5149191395359692,
+          "sigma_log10": 0.11844543511052859,
+          "source": "catalogue diameter with current H (urn:nasa:pds:neowise_diameters_albedos::2.0[mainbelt] (http://adsabs.harvard.edu/abs/2011ApJ...741...68M))"
+        },
+        "orbit_used": true
+      },
+      "statistical_diameter_km": 8.39231835672049,
+      "statistical_diameter_68_km": [
+        7.255830020917642,
+        9.743435362675552
+      ],
+      "thermal_upper_limit_km": 7.0223811490878365,
+      "spectrum_file": "/mnt/c/Users/a0102/spherex/spherex-asteroid-analysis/outputs/2566/stage2_spectrum.csv"
+    },
+    "run": {
+      "start": null,
+      "end": null,
+      "max_images": null,
+      "from_saved": true
+    }
+  },
+  {
+    "target": "2851",
+    "reference": {
+      "class": "V",
+      "complex": "V-type",
+      "sources": [
+        "DeMeo et al. 2009 (Bus-DeMeo, 0.45-2.45 um), Appendix: V",
+        "JPL SBDB spec_B (SMASSII, Bus & Binzel 2002): V"
+      ],
+      "cross_check_sbdb_field": "spec_B",
+      "basis": "visible + near-infrared taxonomy (Bus-DeMeo)",
+      "sbdb_cross_check": {
+        "spec_B": "V"
+      }
+    },
+    "results": {
+      "C1": "PASS",
+      "C2": "PASS",
+      "C3": "PASS",
+      "C4": "PASS",
+      "C5": "PASS",
+      "C6": "PASS",
+      "C7": "PASS",
+      "C8": "PASS",
+      "C9": "PASS"
+    },
+    "explanations": {
+      "C1": "Band I detected (within_segment) at 0.906 um (sensitivity marginal).",
+      "C2": "Band II evaluated: NOT_DETECTED; not detected; data not sensitive enough to detect a typical band.",
+      "C3": "Observed spectrum: no D-type driven by slope. Counterfactual: band-bearing templates reddened to D-like slope classified as S->S-complex, Sq->S-complex, Sr->S-complex, V->V-type, Q->S-complex; D template -> D-type.",
+      "C4": "20 visits over 9.99 d detected; segments never observed together: B1-B2, B2-B3, B3-B4, B4-B5, B5-B6; variability tested.",
+      "C5": "Applied correction 'none' meets the support criteria; without repeated observations: 'none' (no repeated observations: a rotational correction cannot be constrained); without rotation period: 'none'.",
+      "C6": "Baseline confidence High (classifier; reported High); without the 1-um region -> Low; with errors x4 -> Low.",
+      "C7": "Most probable complex V-type (100.0%), reference V-type at rank 1; reference best by deviance; gap to the next complex R-type: 18.6 (distinguished at >= 6); confidence High.",
+      "C8": "No target names, reference taxonomies or validation files in the analysis/classification code.",
+      "C9": "Most probable class V; reference class first; gap to the next class R: 18.6 (distinguished at >= 10)."
+    },
+    "analysis": {
+      "solar_analog_calibration": {
+        "applied": true,
+        "reason": null,
+        "n_stars": 14,
+        "max_abs_correction": 0.09443843867842405,
+        "slope_sigma_per_um": {
+          "SWIR": 0.002289740967574337,
+          "MWIR": 0.001413917081249607
+        }
+      },
+      "temporal_correction": "none",
+      "norm_groups": 1,
+      "slope_sys_per_um": 0.07044369070267807,
+      "thermal_status": "OK",
+      "thermal_chi2_red": 1.986101783303196,
+      "diameter_km": 9.361685419386415,
+      "diameter_err_km": 1.949845052915272,
+      "taxonomy_top_class": "V",
+      "taxonomy_confidence": "High",
+      "complex_ranking": [
+        [
+          "V-type",
+          99.99
+        ],
+        [
+          "R-type",
+          0.01
+        ],
+        [
+          "S-complex",
+          0.0
+        ],
+        [
+          "Q-type",
+          0.0
+        ],
+        [
+          "D-type",
+          0.0
+        ]
+      ],
+      "complex_ranking_spectral": [
+        [
+          "V-type",
+          99.98
+        ],
+        [
+          "R-type",
+          0.02
+        ],
+        [
+          "S-complex",
+          0.01
+        ],
+        [
+          "Q-type",
+          0.0
+        ],
+        [
+          "D-type",
+          0.0
+        ]
+      ],
+      "prior": {
+        "albedo": {
+          "pV": 0.2434119902873142,
+          "log10_pv": -0.6136580325670848,
+          "sigma_log10": 0.1951153672100948,
+          "source": "catalogue diameter with current H; catalogue albedo 0.358 disagrees by -0.17 dex beyond the population offset (H revision?): uncertainty increased (urn:nasa:pds:neowise_diameters_albedos::2.0[mainbelt] (http://adsabs.harvard.edu/abs/2012ApJ...759L...8M))"
+        },
+        "orbit_used": true
+      },
+      "statistical_diameter_km": 8.64543773591538,
+      "statistical_diameter_68_km": [
+        7.474667625238889,
+        10.03729975124032
+      ],
+      "thermal_upper_limit_km": null,
+      "spectrum_file": "/mnt/c/Users/a0102/spherex/spherex-asteroid-analysis/outputs/2851/stage2_spectrum.csv"
+    },
+    "run": {
+      "start": null,
+      "end": null,
+      "max_images": null,
+      "from_saved": true
+    }
+  },
+  {
+    "target": "433",
+    "reference": {
+      "class": "S",
+      "complex": "S-complex",
+      "sources": [
+        "JPL SBDB spec_B (SMASSII, Bus & Binzel 2002): S",
+        "JPL SBDB spec_T (Tholen): S",
+        "DeMeo et al. 2009 (Bus-DeMeo, 0.45-2.45 um), Appendix: Sw (S with a high slope; class S)"
+      ],
+      "cross_check_sbdb_field": "spec_B",
+      "sbdb_cross_check": {
+        "spec_B": "S"
+      }
+    },
+    "results": {
+      "C1": "INCONCLUSIVE",
+      "C2": "PASS",
+      "C3": "PASS",
+      "C4": "PASS",
+      "C5": "PASS",
+      "C6": "PASS",
+      "C7": "INCONCLUSIVE",
+      "C8": "PASS",
+      "C9": "INCONCLUSIVE"
+    },
+    "explanations": {
+      "C1": "Data not sensitive enough or region not covered: band shoulders and centre not observed within one normalisation group.",
+      "C2": "Band II evaluated: NOT_DETECTED; not detected; data not sensitive enough to detect a typical band.",
+      "C3": "Observed spectrum: no D-type driven by slope. Counterfactual: band-bearing templates reddened to D-like slope classified as S->S-complex, Sq->S-complex, Sr->S-complex, V->V-type, Q->Q-type; D template -> D-type.",
+      "C4": "31 visits over 24.66 d detected; segments never observed together: B1-B2, B2-B3, B3-B4, B4-B5, B5-B6; variability detected.",
+      "C5": "Applied correction 'visit_offsets' meets the support criteria; without repeated observations: 'none' (no repeated observations: a rotational correction cannot be constrained); without rotation period: 'visit_offsets'.",
+      "C6": "Baseline confidence Low (classifier; reported Low); without the 1-um region -> Low; with errors x4 -> Low.",
+      "C7": "Most probable complex S-complex (82.8%), reference S-complex at rank 1; reference best by deviance; gap to the next complex Q-type: 4.2 (distinguished at >= 6); confidence Low.",
+      "C8": "No target names, reference taxonomies or validation files in the analysis/classification code.",
+      "C9": "Most probable class Sq; reference class S at rank 2, behind Sq by 1.8 (distinguished at >= 10)."
+    },
+    "analysis": {
+      "solar_analog_calibration": {
+        "applied": true,
+        "reason": null,
+        "n_stars": 14,
+        "max_abs_correction": 0.12364396377807285,
+        "slope_sigma_per_um": {
+          "SWIR": 0.002289740967574337,
+          "MWIR": 0.001413917081249607
+        }
+      },
+      "temporal_correction": "visit_offsets",
+      "norm_groups": 8,
+      "slope_sys_per_um": 0.002289740967574337,
+      "thermal_status": "OK",
+      "thermal_chi2_red": 2.4324373027966186,
+      "diameter_km": 24.11945125898892,
+      "diameter_err_km": 5.3035889565087135,
+      "taxonomy_top_class": "S-complex (subclass not determined: Sq 49%, S 20%)",
+      "taxonomy_confidence": "Low",
+      "complex_ranking": [
+        [
+          "S-complex",
+          82.79
+        ],
+        [
+          "Q-type",
+          10.03
+        ],
+        [
+          "A-type",
+          4.13
+        ],
+        [
+          "K-type",
+          1.2
+        ],
+        [
+          "X-complex",
+          0.91
+        ]
+      ],
+      "complex_ranking_spectral": [
+        [
+          "S-complex",
+          80.97
+        ],
+        [
+          "Q-type",
+          5.91
+        ],
+        [
+          "X-complex",
+          4.19
+        ],
+        [
+          "C-complex",
+          3.21
+        ],
+        [
+          "K-type",
+          1.71
+        ]
+      ],
+      "prior": {
+        "albedo": {
+          "pV": 0.4308893772839075,
+          "log10_pv": -0.36563421244179756,
+          "sigma_log10": 0.25670439988813926,
+          "source": "catalogue diameter with current H; catalogue albedo 0.250 disagrees by +0.24 dex beyond the population offset (H revision?): uncertainty increased (Yeomans et al. (2000) Science v.289,pp.2085-2088)"
+        },
+        "orbit_used": true
+      },
+      "statistical_diameter_km": 23.645793643152466,
+      "statistical_diameter_68_km": [
+        20.081485795640592,
+        28.27668833334885
+      ],
+      "thermal_upper_limit_km": null,
+      "spectrum_file": "/mnt/c/Users/a0102/spherex/spherex-asteroid-analysis/outputs/433/stage2_spectrum.csv"
+    },
+    "run": {
+      "start": null,
+      "end": null,
+      "max_images": null,
+      "from_saved": true
+    }
+  },
+  {
+    "target": "64",
+    "reference": {
+      "class": "Xe",
+      "complex": "X-complex",
+      "sources": [
+        "DeMeo et al. 2009 (Bus-DeMeo, 0.45-2.45 um), Appendix: Xe",
+        "JPL SBDB spec_B (SMASSII, Bus & Binzel 2002): Xe",
+        "JPL SBDB spec_T (Tholen): E"
+      ],
+      "cross_check_sbdb_field": "spec_B",
+      "basis": "visible + near-infrared taxonomy (Bus-DeMeo)",
+      "sbdb_cross_check": {
+        "spec_B": "Xe"
+      }
+    },
+    "results": {
+      "C1": "PASS",
+      "C2": "PASS",
+      "C3": "PASS",
+      "C4": "PASS",
+      "C5": "PASS",
+      "C6": "PASS",
+      "C7": "INCONCLUSIVE",
+      "C8": "PASS",
+      "C9": "INCONCLUSIVE"
+    },
+    "explanations": {
+      "C1": "Reference class has no 1-um band: no band claimed (correct).",
+      "C2": "Band II evaluated: NOT_DETECTED; not detected; data not sensitive enough to detect a typical band.",
+      "C3": "Observed spectrum: no D-type driven by slope. Counterfactual: band-bearing templates reddened to D-like slope classified as S->S-complex, Sq->S-complex, Sr->S-complex, V->V-type, Q->Q-type; D template -> D-type.",
+      "C4": "18 visits over 163.20 d detected; segments never observed together: B1-B2, B2-B3, B3-B4, B4-B5, B5-B6; variability tested.",
+      "C5": "Applied correction 'season_offsets' meets the support criteria; without repeated observations: 'none' (no repeated observations: a rotational correction cannot be constrained); without rotation period: 'season_offsets'.",
+      "C6": "Baseline confidence Low (classifier; reported Low); without the 1-um region -> Low; with errors x4 -> Low.",
+      "C7": "Most probable complex L-type (51.6%), reference X-complex at rank 2; reference behind L-type by 0.9 (distinguished at >= 6); confidence Low.",
+      "C8": "No target names, reference taxonomies or validation files in the analysis/classification code.",
+      "C9": "Most probable class L; reference class Xe at rank 5, behind L by 5.0 (distinguished at >= 10)."
+    },
+    "analysis": {
+      "solar_analog_calibration": {
+        "applied": true,
+        "reason": null,
+        "n_stars": 14,
+        "max_abs_correction": 0.11070533698387042,
+        "slope_sigma_per_um": {
+          "SWIR": 0.002289740967574337,
+          "MWIR": 0.001413917081249607
+        }
+      },
+      "temporal_correction": "season_offsets",
+      "norm_groups": 1,
+      "slope_sys_per_um": 0.04035308448942668,
+      "thermal_status": "INSUFFICIENT_THERMAL",
+      "thermal_chi2_red": null,
+      "diameter_km": null,
+      "diameter_err_km": null,
+      "taxonomy_top_class": "L",
+      "taxonomy_confidence": "Low",
+      "complex_ranking": [
+        [
+          "L-type",
+          51.56
+        ],
+        [
+          "X-complex",
+          33.16
+        ],
+        [
+          "C-complex",
+          7.16
+        ],
+        [
+          "K-type",
+          4.07
+        ],
+        [
+          "S-complex",
+          3.97
+        ]
+      ],
+      "complex_ranking_spectral": [
+        [
+          "X-complex",
+          41.51
+        ],
+        [
+          "C-complex",
+          32.93
+        ],
+        [
+          "L-type",
+          19.98
+        ],
+        [
+          "K-type",
+          3.02
+        ],
+        [
+          "S-complex",
+          1.7
+        ]
+      ],
+      "prior": {
+        "albedo": {
+          "pV": 0.4244553866086442,
+          "log10_pv": -0.37216795057408086,
+          "sigma_log10": 0.11466866333998108,
+          "source": "catalogue diameter with current H (urn:nasa:pds:neowise_diameters_albedos::2.0[mainbelt] (http://adsabs.harvard.edu/abs/2014ApJ...791..121M))"
+        },
+        "orbit_used": true
+      },
+      "statistical_diameter_km": 120.35861660615728,
+      "statistical_diameter_68_km": [
+        90.98468113994453,
+        171.8640601785778
+      ],
+      "thermal_upper_limit_km": 47.19959021058409,
+      "spectrum_file": "/mnt/c/Users/a0102/spherex/spherex-asteroid-analysis/outputs/64/stage2_spectrum.csv"
+    },
+    "run": {
+      "start": null,
+      "end": null,
+      "max_images": null,
+      "from_saved": true
+    }
+  }
+]

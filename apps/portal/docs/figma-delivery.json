@@ -1,0 +1,33 @@
+{
+  "fileKey": "qfMk705uYxT5V0fmrD3sN9",
+  "url": "https://www.figma.com/design/qfMk705uYxT5V0fmrD3sN9?node-id=2-37",
+  "desktop": {
+    "nodeId": "2:37",
+    "width": 1440,
+    "height": 1660
+  },
+  "navigationCardComponent": "2:30",
+  "uiStructure": "Native editable text, auto-layout frames, component instances, SVG vectors, color variables and text styles",
+  "rasterContent": "Only the discrete NASA sky background image",
+  "webFonts": [
+    "SF Pro via -apple-system",
+    "Apple SD Gothic Neo"
+  ],
+  "designFont": "Noto Sans KR",
+  "designFontReason": "The Figma server accepted SF Pro but rendered its glyphs with zero-width metrics. The working Korean font was applied and screenshots visually verified.",
+  "screenshots": [
+    "screenshots/figma-liquid-glass-desktop.png",
+    "screenshots/figma-liquid-glass-editor.jpg"
+  ],
+  "nativeCardEffect": {
+    "type": "GLASS",
+    "lightAngle": -45,
+    "lightIntensity": 0.75,
+    "refraction": 0.7,
+    "depth": 24,
+    "dispersion": 0.06,
+    "frost": 4
+  },
+  "layout": "Three editable cards in a vertical stack; full-bleed cropped sky",
+  "editingAccess": "User-owned Figma draft, edited directly in Chrome"
+}

@@ -1,0 +1,256 @@
+{
+ "title": "SPHEREx Sky Lab · 소행성 분석 3D 배경과 행성 지도 출처",
+ "copiedFrom": "the team's earlier integration: the apps/experience/web/assets folder of https://github.com/sel00000/Apogee; metadata from apps/experience/web/data/asset-sources.json in that repository, retrieved 2026-09-23",
+ "use": "Display only. The background is oriented from Galactic coordinates (Galactic -> ICRS -> J2000 ecliptic, obliquity 23.4392911 deg) and shown with a display stretch (black point 0.25, factor 0.45, mipmapped with a 2.5x sampling footprint). Planet maps are drawn on spheres at illustrative sizes with a fixed IAU pole direction; spin (prime meridian) is not modelled. Unobserved regions marked by the coverage masks are filled with the map's mean observed colour, which is not data. Saturn's ring is a schematic from NSSDCA radii, not a photograph.",
+ "files": [
+  {
+   "file": "earth.jpg",
+   "kind": "texture",
+   "title": "Blue Marble Next Generation, July 2004 base map",
+   "credit": "NASA Earth Observatory; Reto Stöckli",
+   "license": "NASA imagery guidelines; educational/informational use with source acknowledgment",
+   "licenseUrl": "https://www.nasa.gov/nasa-brand-center/images-and-media/",
+   "sourcePage": "https://science.nasa.gov/earth/earth-observatory/blue-marble-next-generation/base-map/",
+   "download": "https://assets.science.nasa.gov/content/dam/science/esd/eo/images/bmng/bmng-base/july/world.200407.3x5400x2700.jpg",
+   "projection": "Global 2:1 latitude-longitude map",
+   "notes": "Monthly MODIS land-surface composite, July 2004. NASA supplies a uniform deep-ocean color; cloud screening and compositing are part of the source product. Resized from 5400x2700 to 2048x1024. No added clouds or invented continents.",
+   "sha256": "c8b0df16e4b1c3965f93ce011222b58b75d4ea3516b14ff961be7a4130ca8e76",
+   "bytes": 300956
+  },
+  {
+   "file": "gaia-sky-2k.jpg",
+   "kind": "sky-map",
+   "title": "Gaia EDR3 observed all-sky brightness and color (phone resolution)",
+   "credit": "ESA/Gaia/DPAC; Acknowledgement: A. Moitinho.",
+   "license": "CC BY-SA 3.0 IGO; downscaling and JPEG conversion are a modified version. Retain attribution and license for this image and its further adaptations.",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/igo/",
+   "projection": "Identical to gaia-sky: equirectangular in Galactic longitude and latitude, Galactic center at image center; north up; longitude increases to the left. Same pixelCoordinates formula and galacticToICRS matrix.",
+   "notes": "polish9 (2026-10-03): gaia-sky.jpg resampled to 2000x1000 (libvips Lanczos3) and encoded as mozjpeg quality 85, 4:4:4 chroma, for phones, where the 4000x2000 map is 4.45 MB on the boot path. No other change.",
+   "sourcePage": "https://www.esa.int/ESA_Multimedia/Images/2020/12/The_colour_of_the_sky_from_Gaia_s_Early_Data_Release_32",
+   "derivedFrom": "gaia-sky.jpg",
+   "sha256": "95cde8141f5fd0d510b8710b7d330c7683d410f0ad7385b66684c69972b97491",
+   "bytes": 318603
+  },
+  {
+   "file": "gaia-sky.jpg",
+   "kind": "sky-map",
+   "title": "Gaia EDR3 observed all-sky brightness and color",
+   "credit": "ESA/Gaia/DPAC; Acknowledgement: A. Moitinho.",
+   "license": "CC BY-SA 3.0 IGO; conversion to JPEG is a modified version. Retain attribution and license for this image and its further adaptations.",
+   "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/igo/",
+   "sourcePage": "https://www.esa.int/ESA_Multimedia/Images/2020/12/The_colour_of_the_sky_from_Gaia_s_Early_Data_Release_32",
+   "download": "https://www.esa.int/var/esa/storage/images/esa_multimedia/images/2020/12/the_colour_of_the_sky_from_gaia_s_early_data_release_32/22358132-1-eng-GB/The_colour_of_the_sky_from_Gaia_s_Early_Data_Release_3.png",
+   "projection": "Equirectangular in Galactic longitude and latitude, Galactic center at image center; north up; longitude increases to the left.",
+   "pixelCoordinates": "For u=(x+0.5)/width, v=(y+0.5)/height: l=180-360*u degrees (wrap to 0..360), b=90-180*v degrees. Direction checked against Galactic center and lower-right Magellanic Clouds; ESA explicitly confirms equirectangular projection.",
+   "galacticToICRS": [
+    [
+     -0.0548755604162154,
+     0.4941094278755837,
+     -0.8676661490190047
+    ],
+    [
+     -0.873437090234885,
+     -0.4448296299600112,
+     -0.1980763734312015
+    ],
+    [
+     -0.4838350155487132,
+     0.746982244497219,
+     0.4559837761750669
+    ]
+   ],
+   "transformationSource": "https://gea.esac.esa.int/archive/documentation/GEDR3/Data_processing/chap_cu3ast/sec_cu3ast_intro/ssec_cu3ast_intro_tansforms.html",
+   "notes": "Brightness and color integrated from over 1.8 billion observed sources, released 2020-12-03; not a single camera photograph. Only PNG-to-JPEG format conversion at the unchanged 4000x2000 resolution. No sky filling or procedural stars. The map must be oriented from Galactic coordinates rather than used as an ecliptic texture.",
+   "sha256": "f4d5d71774f847cf589d3a434e524fe8629fd9a4d7cd8a3aa53646aae409a9bd",
+   "bytes": 4453758
+  },
+  {
+   "file": "jupiter.jpg",
+   "kind": "texture",
+   "title": "Cassini global cylindrical Jupiter cloud map, PIA07782",
+   "credit": "NASA/JPL/Space Science Institute",
+   "license": "JPL image use policy; credit required, no endorsement implied",
+   "licenseUrl": "https://www.jpl.nasa.gov/jpl-image-use-policy/",
+   "sourcePage": "https://www.jpl.nasa.gov/images/pia07782-cassinis-best-maps-of-jupiter-cylindrical-map/",
+   "download": "https://d2pn8kiwq2w21t.cloudfront.net/original_images/jpegPIA07782.jpg",
+   "projection": "Equal planetocentric latitude/longitude increments, full 180 by 360 degrees",
+   "notes": "Cloud observations from 36 Cassini images on 11–12 Dec 2000 using 750 nm and 451 nm bands; approximately natural colors. Atmosphere, not solid ground. Polar detail is less reliable. Resized 3601x1801 to 2048x1024.",
+   "sha256": "01a77209e12d13219e15750305519627631f3528744783c395b21adff5ee953a",
+   "bytes": 351289
+  },
+  {
+   "file": "mars.jpg",
+   "kind": "texture",
+   "title": "Mars Viking MDIM 2.1 colorized mosaic",
+   "credit": "NASA Ames / USGS Astrogeology Science Center; Viking Orbiter",
+   "license": "Public domain; no use constraints stated by USGS",
+   "sourcePage": "https://astrogeology.usgs.gov/search/map/mars_viking_colorized_global_mosaic_232m",
+   "download": "https://astrogeology.usgs.gov/ckan/dataset/7131d503-cdc9-45a5-8f83-5126c0fd397e/resource/5ea881c6-01b3-41fa-a7af-42d2131b54f1/download/mars_viking_mdim21_clrmosaic_1km.jpg",
+   "projection": "Equirectangular, planetocentric latitude, positive-east longitude, -180 to +180 degrees",
+   "notes": "Observation-based grayscale MDIM2.1 blended with a NASA Ames artistically colorized Viking mosaic. Colors are processed; this is not a single photograph or an elevation map. Local conversion only resized JPEG to 2048x1024.",
+   "sha256": "0f116c04e70f6534e1a6ccaace0b32b9509d1439d8bfab0f280afdfedc9c2178",
+   "bytes": 691959
+  },
+  {
+   "file": "mercury.jpg",
+   "kind": "texture",
+   "title": "MESSENGER MDIS global color mosaic, official 1024-pixel preview",
+   "credit": "NASA / MESSENGER Team / Arizona State University / USGS Astrogeology",
+   "license": "Public domain; USGS requests authors be cited",
+   "sourcePage": "https://astrogeology.usgs.gov/search/map/mercury_messenger_mdis_global_color_mosaic_665m",
+   "download": "https://astrogeology.usgs.gov/ckan/dataset/b8ad92a0-5cb2-4db9-ae66-d0ef3a747bb7/resource/4f5968f1-cae7-4b6a-9967-d576c10f9475/download/mercury_messenger_clrmosaic_global_1024.jpg",
+   "projection": "Equirectangular, positive-east longitude, -180 to 180 degrees",
+   "notes": "1000 nm, 750 nm and 430 nm mapped to RGB. This is processed multispectral color, not human-eye natural color. Official 1024x512 preview downloaded unchanged.",
+   "sha256": "bc2bf58aab24ce1db82c9310cdd8c4b208117139100b6333d3e4e959a6c076c6",
+   "bytes": 122556
+  },
+  {
+   "file": "neptune-coverage.png",
+   "kind": "coverage-mask",
+   "maskOf": "neptune.jpg",
+   "title": "Neptune Hubble OPAL observed atmospheric map — coverage mask",
+   "credit": "NASA/ESA Hubble Space Telescope; Amy Simon and OPAL team; STScI/MAST",
+   "license": "STScI content use policy: freely usable as in public domain unless specifically noted; acknowledgment requested. No specific copyright restriction found in this product.",
+   "sourcePage": "https://archive.stsci.edu/hlsp/opal/opal-neptune-cycle-32",
+   "encoding": "255 = RGB source observation; 0 = missing source color coverage. Require all RGB channels of all four bilinear contributors to be nonzero, conservatively removing color-channel coverage fringes. This derived mask is not an official science quality mask.",
+   "notes": "Derived mask, not an official science quality mask. Used here to fill unobserved regions with the map's mean observed colour (fill is not data).",
+   "licenseUrl": "https://www.stsci.edu/copyright",
+   "sha256": "355c83aade7a455ef05054996aaa341449a8b5965991088aa58b287045c0aaf9",
+   "bytes": 4422
+  },
+  {
+   "file": "neptune.jpg",
+   "kind": "texture",
+   "title": "Neptune Hubble OPAL observed atmospheric map",
+   "credit": "NASA/ESA Hubble Space Telescope; Amy Simon and OPAL team; STScI/MAST",
+   "license": "STScI content use policy: freely usable as in public domain unless specifically noted; acknowledgment requested. No specific copyright restriction found in this product.",
+   "licenseUrl": "https://www.stsci.edu/copyright",
+   "sourcePage": "https://archive.stsci.edu/hlsp/opal/opal-neptune-cycle-32",
+   "download": "https://archive.stsci.edu/missions/hlsp/opal/cycle32/neptune/hlsp_opal_hst_wfc3-uvis_neptune-2025b_f467m-f547m-f657n_v1_globalmap.tif",
+   "doi": "https://doi.org/10.17909/T9G593",
+   "acknowledgment": "This work used data acquired from the NASA/ESA HST Space Telescope, associated with OPAL program (PI: Simon, GO13937), and archived by the Space Telescope Science Institute, which is operated by the Association of Universities for Research in Astronomy, Inc., under NASA contract NAS 5-26555. All maps are available at http://dx.doi.org/10.17909/T9G593.",
+   "observed": "2025-08-24/2025-08-25",
+   "projection": "Equirectangular; planetocentric latitude +90 to -90 top to bottom, longitude -180 to +180 east left to right",
+   "notes": "RGB filter composite with source contrast enhancement, photometric limb correction and interpolated mosaic seams. Atmosphere, not solid terrain; do not claim exact natural color. Northern polar region is unobserved and remains blank. Boundary color fringes are retained source artifacts. Reprojected using the source ellipsoid radii, then sampled at 2048x1024. Upsampling adds no new observed detail. No missing-region fill or invented clouds.",
+   "sha256": "ac890935b8cb191ac67bbf5d8a91a21fcd33817f92e5fe8ce583a147baa96b7a",
+   "bytes": 170476
+  },
+  {
+   "file": "saturn-coverage.png",
+   "kind": "coverage-mask",
+   "maskOf": "saturn.jpg",
+   "title": "Saturn Hubble OPAL observed atmospheric map — coverage mask",
+   "credit": "NASA/ESA Hubble Space Telescope; Amy Simon and OPAL team; STScI/MAST",
+   "license": "STScI content use policy: freely usable as in public domain unless specifically noted; acknowledgment requested. No specific copyright restriction found in this product.",
+   "sourcePage": "https://archive.stsci.edu/hlsp/opal/opal-saturn-cycle-32",
+   "encoding": "255 = RGB source observation; 0 = missing source color coverage. Require all RGB channels of all four bilinear contributors to be nonzero, conservatively removing color-channel coverage fringes. This derived mask is not an official science quality mask.",
+   "notes": "Derived mask, not an official science quality mask. Used here to fill unobserved regions with the map's mean observed colour (fill is not data).",
+   "licenseUrl": "https://www.stsci.edu/copyright",
+   "sha256": "d74afe7b159a67494589de9d1c7ca4a8c9a23ba3b6335d58dadebad01b419137",
+   "bytes": 6325
+  },
+  {
+   "file": "saturn.jpg",
+   "kind": "texture",
+   "title": "Saturn Hubble OPAL observed atmospheric map",
+   "credit": "NASA/ESA Hubble Space Telescope; Amy Simon and OPAL team; STScI/MAST",
+   "license": "STScI content use policy: freely usable as in public domain unless specifically noted; acknowledgment requested. No specific copyright restriction found in this product.",
+   "licenseUrl": "https://www.stsci.edu/copyright",
+   "sourcePage": "https://archive.stsci.edu/hlsp/opal/opal-saturn-cycle-32",
+   "download": "https://archive.stsci.edu/missions/hlsp/opal/cycle32/saturn/hlsp_opal_hst_wfc3-uvis_saturn-2025a_f395n-f502n-f631n_v1_globalmap.tif",
+   "doi": "https://doi.org/10.17909/T9G593",
+   "acknowledgment": "This work used data acquired from the NASA/ESA HST Space Telescope, associated with OPAL program (PI: Simon, GO13937), and archived by the Space Telescope Science Institute, which is operated by the Association of Universities for Research in Astronomy, Inc., under NASA contract NAS 5-26555. All maps are available at http://dx.doi.org/10.17909/T9G593.",
+   "observed": "2025-08-29",
+   "projection": "Equirectangular; planetocentric latitude +90 to -90 top to bottom, longitude -180 to +180 east left to right",
+   "notes": "RGB filter composite with source contrast enhancement, photometric limb correction and interpolated mosaic seams. Atmosphere, not solid terrain; do not claim exact natural color. Polar coverage gaps and ring obstruction remain. Moon transits and shadows may appear. Reprojected using the source ellipsoid radii, then sampled at 2048x1024. Upsampling adds no new observed detail. No missing-region fill or invented clouds.",
+   "sha256": "75402059981d9f0bf33331bb3ee868eeb366786ced67e616af2e9eacbf1b34d3",
+   "bytes": 257901
+  },
+  {
+   "file": "uranus-coverage.png",
+   "kind": "coverage-mask",
+   "maskOf": "uranus.jpg",
+   "title": "Uranus Hubble OPAL observed atmospheric map — coverage mask",
+   "credit": "NASA/ESA Hubble Space Telescope; Amy Simon and OPAL team; STScI/MAST",
+   "license": "STScI content use policy: freely usable as in public domain unless specifically noted; acknowledgment requested. No specific copyright restriction found in this product.",
+   "sourcePage": "https://archive.stsci.edu/hlsp/opal/opal-uranus-cycle-22",
+   "encoding": "255 = RGB source observation; 0 = missing source color coverage. Require all RGB channels of all four bilinear contributors to be nonzero, conservatively removing color-channel coverage fringes. This derived mask is not an official science quality mask.",
+   "notes": "Derived mask, not an official science quality mask. Used here to fill unobserved regions with the map's mean observed colour (fill is not data).",
+   "licenseUrl": "https://www.stsci.edu/copyright",
+   "sha256": "93940ae82fc1001c4a3bc88b6f0228ab94792652db222fc1435e1c271312d2ab",
+   "bytes": 5776
+  },
+  {
+   "file": "uranus.jpg",
+   "kind": "texture",
+   "title": "Uranus Hubble OPAL observed atmospheric map",
+   "credit": "NASA/ESA Hubble Space Telescope; Amy Simon and OPAL team; STScI/MAST",
+   "license": "STScI content use policy: freely usable as in public domain unless specifically noted; acknowledgment requested. No specific copyright restriction found in this product.",
+   "licenseUrl": "https://www.stsci.edu/copyright",
+   "sourcePage": "https://archive.stsci.edu/hlsp/opal/opal-uranus-cycle-22",
+   "download": "https://archive.stsci.edu/hlsps/opal/cycle22/uranus/hlsp_opal_hst_wfc3-uvis_uranus-2014a_f467m-f547m-f658n_v1_globalmap.tif",
+   "doi": "https://doi.org/10.17909/T9G593",
+   "acknowledgment": "This work used data acquired from the NASA/ESA HST Space Telescope, associated with OPAL program (PI: Simon, GO13937), and archived by the Space Telescope Science Institute, which is operated by the Association of Universities for Research in Astronomy, Inc., under NASA contract NAS 5-26555. All maps are available at http://dx.doi.org/10.17909/T9G593.",
+   "observed": "2014-11-08/2014-11-09",
+   "projection": "Equirectangular; planetocentric latitude +90 to -90 top to bottom, longitude -180 to +180 east left to right",
+   "notes": "RGB filter composite with source contrast enhancement, photometric limb correction and interpolated mosaic seams. Atmosphere, not solid terrain; do not claim exact natural color. Southern polar region is unobserved and remains blank. Boundary color fringes are retained source artifacts. Reprojected using the source ellipsoid radii, then sampled at 2048x1024. Upsampling adds no new observed detail. No missing-region fill or invented clouds.",
+   "sha256": "b1cf51e168fa4d3a170191de98e517a5bcb96da425a9a9dfc88a31df85711476",
+   "bytes": 273867
+  },
+  {
+   "file": "venus-coverage.png",
+   "kind": "coverage-mask",
+   "maskOf": "venus.jpg",
+   "title": "Venus Magellan C3-MDIR global radar mosaic — coverage mask",
+   "credit": "NASA/JPL Magellan; USGS Astrogeology Science Center",
+   "license": "Public domain; USGS product states no use constraints",
+   "sourcePage": "https://astrogeology.usgs.gov/search/map/venus_magellan_global_c3_mdir_mosaic_2025m",
+   "encoding": "255 = source coverage; 0 = missing. Explicit GeoTIFF NODATA=0 transformed with box sampling, requiring 255 in the downsampled validity map.",
+   "notes": "Derived mask, not an official science quality mask. Used here to fill unobserved regions with the map's mean observed colour (fill is not data).",
+   "sha256": "76136a02a058f7505160d589864af224ed63d3cb329a5d44a9b21a4ad33d7ba1",
+   "bytes": 19425
+  },
+  {
+   "file": "venus.jpg",
+   "kind": "texture",
+   "title": "Venus Magellan C3-MDIR global radar mosaic",
+   "credit": "NASA/JPL Magellan; USGS Astrogeology Science Center",
+   "license": "Public domain; USGS product states no use constraints",
+   "sourcePage": "https://astrogeology.usgs.gov/search/map/venus_magellan_global_c3_mdir_mosaic_2025m",
+   "download": "https://planetarymaps.usgs.gov/mosaic/Venus_Magellan_C3-MDIR_Global_Mosaic_2025m.tif",
+   "projection": "Equirectangular; planetocentric latitude +90 to -90, longitude -180 to +180 east",
+   "notes": "Observed synthetic-aperture radar backscatter, not optical surface color and not elevation. C3 product averages Magellan F-BIDR data through successive 3x3 stages. Local file downsampled with Lanczos to 2048x1024, then missing regions are masked black; no colorization or gap filling. Dark missing strips remain. Full untouched GeoTIFF is preserved.",
+   "sha256": "e169f222f9389ffeed536695df57f87747ac21aa92f6f8483bb79c6be93e1981",
+   "bytes": 683551
+  }
+ ],
+ "ringGeometry": {
+  "source": "https://nssdc.gsfc.nasa.gov/planetary/factsheet/satringfact.html",
+  "credit": "NASA Goddard / NSSDCA, David R. Williams",
+  "saturnEquatorialRadiusKm": 60268,
+  "radiiFromCenterKm": {
+   "D": [
+    66900,
+    74510
+   ],
+   "C": [
+    74658,
+    91975
+   ],
+   "B": [
+    91975,
+    117507
+   ],
+   "Cassini division": [
+    117507,
+    122340
+   ],
+   "A": [
+    122340,
+    136780
+   ]
+  },
+  "note": "Reference annuli only; no invented photographic texture. The division contains some material. Do not call a schematic ring rendering an observational image.",
+  "useHere": "Saturn's schematic ring: D, C, B, Cassini division and A annuli scaled by the illustrative Saturn display radius; uniform colour, fixed opacities chosen for display. Not an observational image."
+ }
+}

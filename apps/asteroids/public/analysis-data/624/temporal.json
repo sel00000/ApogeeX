@@ -1,0 +1,435 @@
+{
+  "n_points": 113,
+  "n_exposures": 60,
+  "n_visits": 21,
+  "time_span_days": 247.2784097449985,
+  "n_seasons": 2,
+  "season_offsets": {
+    "0": {
+      "offset_mag": -0.037928367241751096,
+      "err_mag": 0.014037893106655845
+    }
+  },
+  "visits": [
+    {
+      "visit": 0,
+      "mjd_start": 60790.776961548,
+      "mjd_end": 60790.781438307,
+      "bands": [
+        "B1",
+        "B4"
+      ],
+      "family": "B1+B4",
+      "n_points": 8,
+      "rot_phase": 0.1782243088928226
+    },
+    {
+      "visit": 1,
+      "mjd_start": 60791.052477694,
+      "mjd_end": 60791.052477705,
+      "bands": [
+        "B1",
+        "B4"
+      ],
+      "family": "B1+B4",
+      "n_points": 2,
+      "rot_phase": 0.12538083667459432
+    },
+    {
+      "visit": 2,
+      "mjd_start": 60791.32483171,
+      "mjd_end": 60791.32483171,
+      "bands": [
+        "B2",
+        "B5"
+      ],
+      "family": "B2+B5",
+      "n_points": 2,
+      "rot_phase": 0.06933556366129778
+    },
+    {
+      "visit": 3,
+      "mjd_start": 60792.202312231,
+      "mjd_end": 60792.206789002,
+      "bands": [
+        "B2",
+        "B5"
+      ],
+      "family": "B2+B5",
+      "n_points": 8,
+      "rot_phase": 0.11836211337868008
+    },
+    {
+      "visit": 4,
+      "mjd_start": 60795.667359569,
+      "mjd_end": 60795.67183634,
+      "bands": [
+        "B2",
+        "B5"
+      ],
+      "family": "B2+B5",
+      "n_points": 7,
+      "rot_phase": 0.12826161615417472
+    },
+    {
+      "visit": 5,
+      "mjd_start": 60796.347702752,
+      "mjd_end": 60796.352179511,
+      "bands": [
+        "B1",
+        "B4"
+      ],
+      "family": "B1+B4",
+      "n_points": 8,
+      "rot_phase": 0.48589597863610834
+    },
+    {
+      "visit": 6,
+      "mjd_start": 60796.55692024,
+      "mjd_end": 60796.55692024,
+      "bands": [
+        "B3",
+        "B6"
+      ],
+      "family": "B3+B6",
+      "n_points": 2,
+      "rot_phase": 0.20326540418318473
+    },
+    {
+      "visit": 7,
+      "mjd_start": 60813.876474789,
+      "mjd_end": 60813.877967046,
+      "bands": [
+        "B1",
+        "B4"
+      ],
+      "family": "B1+B4",
+      "n_points": 4,
+      "rot_phase": 0.23362974285555538
+    },
+    {
+      "visit": 8,
+      "mjd_start": 61031.944676826,
+      "mjd_end": 61031.949153585,
+      "bands": [
+        "B1",
+        "B4"
+      ],
+      "family": "B1+B4",
+      "n_points": 8,
+      "rot_phase": 0.10637063359172316
+    },
+    {
+      "visit": 9,
+      "mjd_start": 61033.43796193,
+      "mjd_end": 61033.442438712,
+      "bands": [
+        "B1",
+        "B4"
+      ],
+      "family": "B1+B4",
+      "n_points": 8,
+      "rot_phase": 0.28287943629402434
+    },
+    {
+      "visit": 10,
+      "mjd_start": 61034.319653539,
+      "mjd_end": 61034.321145796,
+      "bands": [
+        "B1",
+        "B4"
+      ],
+      "family": "B1+B4",
+      "n_points": 4,
+      "rot_phase": 0.3341120729019167
+    },
+    {
+      "visit": 11,
+      "mjd_start": 61034.454826942,
+      "mjd_end": 61034.459303712,
+      "bands": [
+        "B1",
+        "B4"
+      ],
+      "family": "B1+B4",
+      "n_points": 7,
+      "rot_phase": 0.8082364104796268
+    },
+    {
+      "visit": 12,
+      "mjd_start": 61034.589431884,
+      "mjd_end": 61034.589431884,
+      "bands": [
+        "B1",
+        "B4"
+      ],
+      "family": "B1+B4",
+      "n_points": 2,
+      "rot_phase": 0.2667188906634692
+    },
+    {
+      "visit": 13,
+      "mjd_start": 61034.724125599,
+      "mjd_end": 61034.724125599,
+      "bands": [
+        "B1",
+        "B4"
+      ],
+      "family": "B1+B4",
+      "n_points": 2,
+      "rot_phase": 0.7336379635089543
+    },
+    {
+      "visit": 14,
+      "mjd_start": 61034.792325217,
+      "mjd_end": 61034.792325217,
+      "bands": [
+        "B1",
+        "B4"
+      ],
+      "family": "B1+B4",
+      "n_points": 2,
+      "rot_phase": 0.9700536209857091
+    },
+    {
+      "visit": 15,
+      "mjd_start": 61034.863260622,
+      "mjd_end": 61034.867737381,
+      "bands": [
+        "B2",
+        "B5"
+      ],
+      "family": "B2+B5",
+      "n_points": 6,
+      "rot_phase": 0.22285012449719943
+    },
+    {
+      "visit": 16,
+      "mjd_start": 61035.745076571,
+      "mjd_end": 61035.74955333,
+      "bands": [
+        "B2",
+        "B5"
+      ],
+      "family": "B2+B5",
+      "n_points": 7,
+      "rot_phase": 0.2816575302983568
+    },
+    {
+      "visit": 17,
+      "mjd_start": 61036.764553099,
+      "mjd_end": 61036.769047636,
+      "bands": [
+        "B2",
+        "B5"
+      ],
+      "family": "B2+B5",
+      "n_points": 8,
+      "rot_phase": 0.8146051054500276
+    },
+    {
+      "visit": 18,
+      "mjd_start": 61037.172400541,
+      "mjd_end": 61037.176877335,
+      "bands": [
+        "B2",
+        "B5"
+      ],
+      "family": "B2+B5",
+      "n_points": 8,
+      "rot_phase": 0.22840300459574792
+    },
+    {
+      "visit": 19,
+      "mjd_start": 61037.846686583,
+      "mjd_end": 61037.848463064,
+      "bands": [
+        "B2",
+        "B5"
+      ],
+      "family": "B2+B5",
+      "n_points": 3,
+      "rot_phase": 0.5621784106285
+    },
+    {
+      "visit": 20,
+      "mjd_start": 61038.050894534,
+      "mjd_end": 61038.055371293,
+      "bands": [
+        "B3",
+        "B6"
+      ],
+      "family": "B3+B6",
+      "n_points": 7,
+      "rot_phase": 0.2726157774616565
+    }
+  ],
+  "families": {
+    "B1": "B1+B4",
+    "B2": "B2+B5",
+    "B3": "B3+B6",
+    "B4": "B1+B4",
+    "B5": "B2+B5",
+    "B6": "B3+B6"
+  },
+  "band_epochs": {
+    "B1": {
+      "n": 27,
+      "n_visits": 11,
+      "mjd_min": 60790.77696156,
+      "mjd_max": 61034.792325217,
+      "mjd_median": 61031.94766134
+    },
+    "B2": {
+      "n": 23,
+      "n_visits": 8,
+      "mjd_min": 60791.32483171,
+      "mjd_max": 61037.848463064,
+      "mjd_median": 61035.746568817
+    },
+    "B3": {
+      "n": 5,
+      "n_visits": 2,
+      "mjd_min": 60796.55692024,
+      "mjd_max": 61038.055371293,
+      "mjd_median": 61038.052386791
+    },
+    "B4": {
+      "n": 28,
+      "n_visits": 11,
+      "mjd_min": 60790.776961548,
+      "mjd_max": 61034.792325217,
+      "mjd_median": 61031.9484074625
+    },
+    "B5": {
+      "n": 26,
+      "n_visits": 8,
+      "mjd_min": 60791.32483171,
+      "mjd_max": 61037.848463064,
+      "mjd_median": 61035.745822694
+    },
+    "B6": {
+      "n": 4,
+      "n_visits": 2,
+      "mjd_min": 60796.55692024,
+      "mjd_max": 61038.053879048,
+      "mjd_median": 61038.0516406685
+    }
+  },
+  "segment_time_offsets": [
+    {
+      "segments": "B1-B2",
+      "median_dt_days": 3.798907477001194,
+      "shared_visits": 0
+    },
+    {
+      "segments": "B2-B3",
+      "median_dt_days": 2.3058179740037303,
+      "shared_visits": 0
+    },
+    {
+      "segments": "B3-B4",
+      "median_dt_days": -6.103979328501737,
+      "shared_visits": 0
+    },
+    {
+      "segments": "B4-B5",
+      "median_dt_days": 3.797415231500054,
+      "shared_visits": 0
+    },
+    {
+      "segments": "B5-B6",
+      "median_dt_days": 2.3058179744984955,
+      "shared_visits": 0
+    }
+  ],
+  "geometry_ranges": {
+    "phase_deg": [
+      10.6031,
+      11.3239
+    ],
+    "r_au": [
+      5.148695144903,
+      5.151222370668
+    ],
+    "delta_au": [
+      4.72373458675697,
+      5.14714972414444
+    ]
+  },
+  "lambda_time_correlation": {
+    "B1": 0.028083028083028084,
+    "B2": 0.20355731225296442,
+    "B3": 0.9999999999999999,
+    "B4": 0.058018609742747675,
+    "B5": 0.18974358974358974,
+    "B6": 1
+  },
+  "n_repeat_bins": 34,
+  "n_repeat_points": 78,
+  "components": [
+    [
+      1,
+      5,
+      10,
+      12
+    ],
+    [
+      8,
+      13
+    ],
+    [
+      7,
+      9
+    ],
+    [
+      0,
+      11,
+      14
+    ],
+    [
+      2,
+      4,
+      17
+    ],
+    [
+      3,
+      15,
+      18,
+      19
+    ]
+  ],
+  "variability": {
+    "tested": true,
+    "n_repeat_bins": 34,
+    "n_repeat_points": 78,
+    "chi2_constant": 74.2264563218004,
+    "dof_constant": 43,
+    "p_constant": 0.002168171764095917,
+    "chi2_visit_offsets": 19.97796156242143,
+    "dof_visit_offsets": 31,
+    "detected": false,
+    "visit_offset_rms_mag": 0.06371468798456886,
+    "n_components": 6,
+    "photometric_floor_frac": 0.02,
+    "null_model": "constant within observing seasons",
+    "n_seasons": 2,
+    "season_offsets_mag": {
+      "0": -0.037928367241751096
+    }
+  },
+  "lightcurve": {
+    "period_h": 6.924,
+    "supported": false,
+    "reason": "no significant variability between visits within observing seasons"
+  },
+  "correction": "season_offsets",
+  "cross_visit_verified": true,
+  "n_norm_groups": 1,
+  "warnings": [
+    "Spectrum assembled from 21 visits over 247.28 d (phase angle 10.6-11.3 deg).",
+    "Adjacent spectral segments never observed together (B1-B2, B2-B3, B3-B4, B4-B5, B5-B6): their relative brightness depends on variability between visits.",
+    "Observations span 2 observing seasons (gaps > 30 d): viewing geometry and aspect differ between them, so one brightness offset per season is fitted to the 29 repeat bins that link seasons (season 0: -0.04 +- 0.01 mag); variability is tested within seasons.",
+    "Brightness consistent between visits on 34 repeat bins (p = 0.0022): no correction applied. Visit-to-visit uncertainty kept in the error covariance: 0.064 mag for the 4 visits linked by repeats to the largest group, 0.10 mag (untested prior) for 17 visits not linked to it (14 of them linked only within smaller groups)."
+  ]
+}

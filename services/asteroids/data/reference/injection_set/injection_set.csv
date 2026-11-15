@@ -1,0 +1,191 @@
+number,name,busdemeo_class,classes_tholen_bus_busdemeo,smass_file,url
+1,Ceres,C,G C C,dm04/a000001.dm04.txt,http://smass.mit.edu/data/spex/dm04/a000001.dm04.txt
+2,Pallas,B,B B B,sp89/a000002.sp89.txt,http://smass.mit.edu/data/spex/sp89/a000002.sp89.txt
+3,Juno,Sq,S Sk Sq,sp96/a000003.sp96.txt,http://smass.mit.edu/data/spex/sp96/a000003.sp96.txt
+5,Astraea,S,S S S,sp28/a000005.sp28.txt,http://smass.mit.edu/data/spex/sp28/a000005.sp28.txt
+7,Iris,S,S S S,sp28/a000007.sp28.txt,http://smass.mit.edu/data/spex/sp28/a000007.sp28.txt
+10,Hygiea,C,C C C,sp111/a000010.sp111.txt,http://smass.mit.edu/data/spex/sp111/a000010.sp111.txt
+11,Parthenope,Sq,S Sk Sq,sp47/a000011.sp47.txt,http://smass.mit.edu/data/spex/sp47/a000011.sp47.txt
+13,Egeria,Ch,G Ch Ch,sp41/a000013.sp41.txt,http://smass.mit.edu/data/spex/sp41/a000013.sp41.txt
+14,Irene,S,S S S,sp25/a000014.sp25.txt,http://smass.mit.edu/data/spex/sp25/a000014.sp25.txt
+15,Eunomia,K,S S K,sp28/a000015.sp28.txt,http://smass.mit.edu/data/spex/sp28/a000015.sp28.txt
+16,Psyche,Xk,M X Xk,sp58/a000016.sp58.txt,http://smass.mit.edu/data/spex/sp58/a000016.sp58.txt
+17,Thetis,S,S Sl S,sp96/a000017.sp96.txt,http://smass.mit.edu/data/spex/sp96/a000017.sp96.txt
+19,Fortuna,Ch,G Ch Ch,sp48/a000019.sp48.txt,http://smass.mit.edu/data/spex/sp48/a000019.sp48.txt
+20,Massalia,S,S S S,sp96/a000020.sp96.txt,http://smass.mit.edu/data/spex/sp96/a000020.sp96.txt
+21,Lutetia,Xc,M Xk Xc,sp31/a000021.sp31.txt,http://smass.mit.edu/data/spex/sp31/a000021.sp31.txt
+22,Kalliope,X,M X X,sp55/a000022.sp55.txt,http://smass.mit.edu/data/spex/sp55/a000022.sp55.txt
+24,Themis,C,C B C,sp45/a000024.sp45.txt,http://smass.mit.edu/data/spex/sp45/a000024.sp45.txt
+25,Phocaea,S,S S S,sp94/a000025.sp94.txt,http://smass.mit.edu/data/spex/sp94/a000025.sp94.txt
+26,Proserpina,S,S S S,sp92/a000026.sp92.txt,http://smass.mit.edu/data/spex/sp92/a000026.sp92.txt
+27,Euterpe,S,S S S,sp31/a000027.sp31.txt,http://smass.mit.edu/data/spex/sp31/a000027.sp31.txt
+29,Amphitrite,S,S S S,sp92/a000029.sp92.txt,http://smass.mit.edu/data/spex/sp92/a000029.sp92.txt
+30,Urania,S,S Sl S,sp92/a000030.sp92.txt,http://smass.mit.edu/data/spex/sp92/a000030.sp92.txt
+32,Pomona,Sw,S S Sw,sp76/a000032.sp76.txt,http://smass.mit.edu/data/spex/sp76/a000032.sp76.txt
+34,Circe,Ch,C Ch Ch,sp28/a000034.sp28.txt,http://smass.mit.edu/data/spex/sp28/a000034.sp28.txt
+37,Fides,S,S S S,sp94/a000037.sp94.txt,http://smass.mit.edu/data/spex/sp94/a000037.sp94.txt
+38,Leda,Cgh,C Cgh Cgh,sp100/a000038.sp100.txt,http://smass.mit.edu/data/spex/sp100/a000038.sp100.txt
+39,Laetitia,Sqw,S S Sqw,sp92/a000039.sp92.txt,http://smass.mit.edu/data/spex/sp92/a000039.sp92.txt
+40,Harmonia,S,S S S,sp32/a000040.sp32.txt,http://smass.mit.edu/data/spex/sp32/a000040.sp32.txt
+41,Daphne,Ch,C Ch Ch,sp70/a000041.sp70.txt,http://smass.mit.edu/data/spex/sp70/a000041.sp70.txt
+43,Ariadne,Sq,S Sk Sq,sp48/a000043.sp48.txt,http://smass.mit.edu/data/spex/sp48/a000043.sp48.txt
+48,Doris,Ch,CG Ch Ch,sp45/a000048.sp45.txt,http://smass.mit.edu/data/spex/sp45/a000048.sp45.txt
+50,Virginia,Ch,X Ch Ch,sp265/a000050.sp265.txt,http://smass.mit.edu/data/spex/sp265/a000050.sp265.txt
+51,Nemausa,Cgh,CU Ch Cgh,sp29/a000051.sp29.txt,http://smass.mit.edu/data/spex/sp29/a000051.sp29.txt
+52,Europa,C,CF C C,sp52/a000052.sp52.txt,http://smass.mit.edu/data/spex/sp52/a000052.sp52.txt
+55,Pandora,Xk,M X Xk,sp48/a000055.sp48.txt,http://smass.mit.edu/data/spex/sp48/a000055.sp48.txt
+56,Melete,Xk,P Xk Xk,sp31/a000056.sp31.txt,http://smass.mit.edu/data/spex/sp31/a000056.sp31.txt
+57,Mnemosyne,S,S S S,sp92/a000057.sp92.txt,http://smass.mit.edu/data/spex/sp92/a000057.sp92.txt
+58,Concordia,Ch,C Ch Ch,sp265/a000058.sp265.txt,http://smass.mit.edu/data/spex/sp265/a000058.sp265.txt
+61,Danae,S,S S S,sp94/a000061.sp94.txt,http://smass.mit.edu/data/spex/sp94/a000061.sp94.txt
+63,Ausonia,Sw,S Sa Sw,sp25/a000063.sp25.txt,http://smass.mit.edu/data/spex/sp25/a000063.sp25.txt
+65,Cybele,Xk,P Xc Xk,sp25/a000065.sp25.txt,http://smass.mit.edu/data/spex/sp25/a000065.sp25.txt
+66,Maja,Ch,C Ch Ch,sp46/a000066.sp46.txt,http://smass.mit.edu/data/spex/sp46/a000066.sp46.txt
+67,Asia,S,S S S,sp111/a000067.sp111.txt,http://smass.mit.edu/data/spex/sp111/a000067.sp111.txt
+69,Hesperia,Xk,M X Xk,sp111/a000069.sp111.txt,http://smass.mit.edu/data/spex/sp111/a000069.sp111.txt
+73,Klytia,S,S S,sp26/a000073.sp26.txt,http://smass.mit.edu/data/spex/sp26/a000073.sp26.txt
+76,Freia,C,P X C,sp44/a000076.sp44.txt,http://smass.mit.edu/data/spex/sp44/a000076.sp44.txt
+77,Frigga,Xe,MU Xe Xe,sp55/a000077.sp55.txt,http://smass.mit.edu/data/spex/sp55/a000077.sp55.txt
+78,Diana,Ch,C Ch Ch,sp46/a000078.sp46.txt,http://smass.mit.edu/data/spex/sp46/a000078.sp46.txt
+82,Alkmene,S,S Sq S,sp92/a000082.sp92.txt,http://smass.mit.edu/data/spex/sp92/a000082.sp92.txt
+87,Sylvia,X,P X X,sp44/a000087.sp44.txt,http://smass.mit.edu/data/spex/sp44/a000087.sp44.txt
+90,Antiope,C,C C C,sp44/a000090.sp44.txt,http://smass.mit.edu/data/spex/sp44/a000090.sp44.txt
+96,Aegle,T,T T T,sp49/a000096.sp49.txt,http://smass.mit.edu/data/spex/sp49/a000096.sp49.txt
+97,Klotho,Xc,M X Xc,sp45/a000097.sp45.txt,http://smass.mit.edu/data/spex/sp45/a000097.sp45.txt
+99,Dike,Xk,C Xk Xk,sp47/a000099.sp47.txt,http://smass.mit.edu/data/spex/sp47/a000099.sp47.txt
+101,Helena,S,S S S,sp57/a000101.sp57.txt,http://smass.mit.edu/data/spex/sp57/a000101.sp57.txt
+103,Hera,S,S S S,sp92/a000103.sp92.txt,http://smass.mit.edu/data/spex/sp92/a000103.sp92.txt
+105,Artemis,Ch,C Ch Ch,sp25/a000105.sp25.txt,http://smass.mit.edu/data/spex/sp25/a000105.sp25.txt
+108,Hecuba,Sw,S Sl Sw,sp92/a000108.sp92.txt,http://smass.mit.edu/data/spex/sp92/a000108.sp92.txt
+110,Lydia,Xk,M X Xk,sp64/a000110.sp64.txt,http://smass.mit.edu/data/spex/sp64/a000110.sp64.txt
+111,Ate,Ch,C Ch Ch,sp31/a000111.sp31.txt,http://smass.mit.edu/data/spex/sp31/a000111.sp31.txt
+114,Kassandra,K,T Xk K,sp52/a000114.sp52.txt,http://smass.mit.edu/data/spex/sp52/a000114.sp52.txt
+119,Althaea,S,S Sl S,sp92/a000119.sp92.txt,http://smass.mit.edu/data/spex/sp92/a000119.sp92.txt
+131,Vala,K,SU Xc K,sp53/a000131.sp53.txt,http://smass.mit.edu/data/spex/sp53/a000131.sp53.txt
+132,Aethra,Xe,M Xe Xe,sp44/a000132.sp44.txt,http://smass.mit.edu/data/spex/sp44/a000132.sp44.txt
+151,Abundantia,Sw,S Sl Sw,sp47/a000151.sp47.txt,http://smass.mit.edu/data/spex/sp47/a000151.sp47.txt
+153,Hilda,X,P X X,sp40/a000153.sp40.txt,http://smass.mit.edu/data/spex/sp40/a000153.sp40.txt
+158,Koronis,S,S S S,sp94/a000158.sp94.txt,http://smass.mit.edu/data/spex/sp94/a000158.sp94.txt
+175,Andromache,Cg,C Cg Cg,sp47/a000175.sp47.txt,http://smass.mit.edu/data/spex/sp47/a000175.sp47.txt
+180,Garumna,Sr,S Sq Sr,sp92/a000180.sp92.txt,http://smass.mit.edu/data/spex/sp92/a000180.sp92.txt
+181,Eucharis,Xk,S Xk Xk,sp25/a000181.sp25.txt,http://smass.mit.edu/data/spex/sp25/a000181.sp25.txt
+191,Kolga,Cb,XC: Cb Cb,sp38/a000191.sp38.txt,http://smass.mit.edu/data/spex/sp38/a000191.sp38.txt
+192,Nausikaa,Sw,S Sl Sw,sp50/a000192.sp50.txt,http://smass.mit.edu/data/spex/sp50/a000192.sp50.txt
+201,Penelope,Xk,M X Xk,sp28/a000201.sp28.txt,http://smass.mit.edu/data/spex/sp28/a000201.sp28.txt
+210,Isabella,Cb,CF Cb Cb,sp47/a000210.sp47.txt,http://smass.mit.edu/data/spex/sp47/a000210.sp47.txt
+216,Kleopatra,Xe,M Xe Xe,sp127/a000216.sp127.txt,http://smass.mit.edu/data/spex/sp127/a000216.sp127.txt
+234,Barbara,L,S Ld L,sp57/a000234.sp57.txt,http://smass.mit.edu/data/spex/sp57/a000234.sp57.txt
+236,Honoria,L,S L L,sp50/a000236.sp50.txt,http://smass.mit.edu/data/spex/sp50/a000236.sp50.txt
+237,Coelestina,Sr,S S Sr,sp95/a000237.sp95.txt,http://smass.mit.edu/data/spex/sp95/a000237.sp95.txt
+244,Sita Sa,Sw,Sw,sp69/a000244.sp69.txt,http://smass.mit.edu/data/spex/sp69/a000244.sp69.txt
+246,Asporina,A,A A A,sp37/a000246.sp37.txt,http://smass.mit.edu/data/spex/sp37/a000246.sp37.txt
+250,Bettina,Xk,M Xk Xk,sp26/a000250.sp26.txt,http://smass.mit.edu/data/spex/sp26/a000250.sp26.txt
+264,Libussa,S,S S S,sp41/a000264.sp41.txt,http://smass.mit.edu/data/spex/sp41/a000264.sp41.txt
+266,Aline,Ch,C Ch Ch,sp44/a000266.sp44.txt,http://smass.mit.edu/data/spex/sp44/a000266.sp44.txt
+269,Justitia Ld,D,D,sp306/a000269.sp306.txt,http://smass.mit.edu/data/spex/sp306/a000269.sp306.txt
+279,Thule,D,D X D,sp35/a000279.sp35.txt,http://smass.mit.edu/data/spex/sp35/a000279.sp35.txt
+288,Glauke,S,S S S,sp92/a000288.sp92.txt,http://smass.mit.edu/data/spex/sp92/a000288.sp92.txt
+308,Polyxo,T,T T T,sp39/a000308.sp39.txt,http://smass.mit.edu/data/spex/sp39/a000308.sp39.txt
+345,Tercidina,Ch,C Ch Ch,sp45/a000345.sp45.txt,http://smass.mit.edu/data/spex/sp45/a000345.sp45.txt
+354,Eleonora,A,S Sl A,dm02/a000354.dm02.txt,http://smass.mit.edu/data/spex/dm02/a000354.dm02.txt
+371,Bohemia,S,QSV S S,sp92/a000371.sp92.txt,http://smass.mit.edu/data/spex/sp92/a000371.sp92.txt
+389,Industria,S,S S S,sp94/a000389.sp94.txt,http://smass.mit.edu/data/spex/sp94/a000389.sp94.txt
+403,Cyane,S,S S S,sp93/a000403.sp93.txt,http://smass.mit.edu/data/spex/sp93/a000403.sp93.txt
+433,Eros,Sw,S S Sw,sp101/a000433.sp101.txt,http://smass.mit.edu/data/spex/sp101/a000433.sp101.txt
+512,Taurinensis,Sqw,S S Sqw,sp32/a000512.sp32.txt,http://smass.mit.edu/data/spex/sp32/a000512.sp32.txt
+532,Herculina,S,S S S,sp76/a000532.sp76.txt,http://smass.mit.edu/data/spex/sp76/a000532.sp76.txt
+570,Kythera,D,ST T D,sp28/a000570.sp28.txt,http://smass.mit.edu/data/spex/sp28/a000570.sp28.txt
+596,Scheila,T,PCD T T,sp292/a000596.sp292.txt,http://smass.mit.edu/data/spex/sp292/a000596.sp292.txt
+631,Philippina,S,S S S,sp101/a000631.sp101.txt,http://smass.mit.edu/data/spex/sp101/a000631.sp101.txt
+679,Pax,L,I K L,sp89/a000679.sp89.txt,http://smass.mit.edu/data/spex/sp89/a000679.sp89.txt
+699,Hela,S,S Sq S,sp35/a000699.sp35.txt,http://smass.mit.edu/data/spex/sp35/a000699.sp35.txt
+706,Hirundo Cgh,Cgh,Cgh,sp48/a000706.sp48.txt,http://smass.mit.edu/data/spex/sp48/a000706.sp48.txt
+719,Albert,S,S,sp08/a000719.sp08.txt,http://smass.mit.edu/data/spex/sp08/a000719.sp08.txt
+720,Bohlinia,Sq,S Sq Sq,sp97/a000720.sp97.txt,http://smass.mit.edu/data/spex/sp97/a000720.sp97.txt
+773,Irmintraud,T,D T T,sp31/a000773.sp31.txt,http://smass.mit.edu/data/spex/sp31/a000773.sp31.txt
+776,Berbericia,Cgh,C Cgh Cgh,sp38/a000776.sp38.txt,http://smass.mit.edu/data/spex/sp38/a000776.sp38.txt
+785,Zwetana,Cb,M Cb Cb,sp41/a000785.sp41.txt,http://smass.mit.edu/data/spex/sp41/a000785.sp41.txt
+793,Arizona,S,DU: S S,sp92/a000793.sp92.txt,http://smass.mit.edu/data/spex/sp92/a000793.sp92.txt
+808,Merxia Sq,Sr,Sr,sp92/a000808.sp92.txt,http://smass.mit.edu/data/spex/sp92/a000808.sp92.txt
+863,Benkoela,A,A A A,sp76/a000863.sp76.txt,http://smass.mit.edu/data/spex/sp76/a000863.sp76.txt
+908,Buda,D,L D,sp53/a000908.sp53.txt,http://smass.mit.edu/data/spex/sp53/a000908.sp53.txt
+925,Alphonsina,S,S S S,sp102/a000925.sp102.txt,http://smass.mit.edu/data/spex/sp102/a000925.sp102.txt
+944,Hidalgo,D,D D,sp31/a000944.sp31.txt,http://smass.mit.edu/data/spex/sp31/a000944.sp31.txt
+984,Gretia Sr,Sa,Sa,sp92/a000984.sp92.txt,http://smass.mit.edu/data/spex/sp92/a000984.sp92.txt
+1036,Ganymed,S,S S S,dm04/a001036.dm04.txt,http://smass.mit.edu/data/spex/dm04/a001036.dm04.txt
+1065,Amundsenia,S,S S,sp37/a001065.sp37.txt,http://smass.mit.edu/data/spex/sp37/a001065.sp37.txt
+1131,Porzia,S,S S,sp28/a001131.sp28.txt,http://smass.mit.edu/data/spex/sp28/a001131.sp28.txt
+1139,Atami,Sw,S S Sw,sp29/a001139.sp29.txt,http://smass.mit.edu/data/spex/sp29/a001139.sp29.txt
+1143,Odysseus,D,D D,sp42/a001143.sp42.txt,http://smass.mit.edu/data/spex/sp42/a001143.sp42.txt
+1204,Renzia,Sw,S Sw,sp37/a001204.sp37.txt,http://smass.mit.edu/data/spex/sp37/a001204.sp37.txt
+1300,Marcelle Cg,Cgh,Cgh,sp55/a001300.sp55.txt,http://smass.mit.edu/data/spex/sp55/a001300.sp55.txt
+1332,Marconia Ld,L,L,sp42/a001332.sp42.txt,http://smass.mit.edu/data/spex/sp42/a001332.sp42.txt
+1374,Isora Sq,Sq,Sq,sp28/a001374.sp28.txt,http://smass.mit.edu/data/spex/sp28/a001374.sp28.txt
+1494,Savo Sa,Sqw,Sqw,sp55/a001494.sp55.txt,http://smass.mit.edu/data/spex/sp55/a001494.sp55.txt
+1508,Kemi,B,BCF C B,sp28/a001508.sp28.txt,http://smass.mit.edu/data/spex/sp28/a001508.sp28.txt
+1542,Schalen,D,D D,sp39/a001542.sp39.txt,http://smass.mit.edu/data/spex/sp39/a001542.sp39.txt
+1565,Lemaitre Sq,S,S,sp36/a001565.sp36.txt,http://smass.mit.edu/data/spex/sp36/a001565.sp36.txt
+1620,Geographos,S,S S S,sp03/a001620.sp03.txt,http://smass.mit.edu/data/spex/sp03/a001620.sp03.txt
+1640,Nemo,S,S S,sp37/a001640.sp37.txt,http://smass.mit.edu/data/spex/sp37/a001640.sp37.txt
+1660,Wood,S,S S,sp37/a001660.sp37.txt,http://smass.mit.edu/data/spex/sp37/a001660.sp37.txt
+1685,Toro,Sq,S S Sq,sp13/a001685.sp13.txt,http://smass.mit.edu/data/spex/sp13/a001685.sp13.txt
+1862,Apollo,Q,Q Q Q,sp48/a001862.sp48.txt,http://smass.mit.edu/data/spex/sp48/a001862.sp48.txt
+1864,Daedalus,Sq,SQ Sr Sq,sp05/a001864.sp05.txt,http://smass.mit.edu/data/spex/sp05/a001864.sp05.txt
+1866,Sisyphus,Sw,S Sw,sp314/a001866.sp314.txt,http://smass.mit.edu/data/spex/sp314/a001866.sp314.txt
+1916,Boreas,Sw,S Sw,sp07/a001916.sp07.txt,http://smass.mit.edu/data/spex/sp07/a001916.sp07.txt
+1943,Anteros,Sw,S Sw,sp09/a001943.sp09.txt,http://smass.mit.edu/data/spex/sp09/a001943.sp09.txt
+1980,Tezcatlipoca,Sw,SU Sl Sw,sp55/a001980.sp55.txt,http://smass.mit.edu/data/spex/sp55/a001980.sp55.txt
+2063,Bacchus Sq,Sq,Sq,sp41/a002063.sp41.txt,http://smass.mit.edu/data/spex/sp41/a002063.sp41.txt
+2064,Thomsen,Sqw,S Sqw,sp52/a002064.sp52.txt,http://smass.mit.edu/data/spex/sp52/a002064.sp52.txt
+2074,Shoemaker,Sw,Sw,sp25/a002074.sp25.txt,http://smass.mit.edu/data/spex/sp25/a002074.sp25.txt
+2099,Opik,Ch,S Ch Ch,sp45/a002099.sp45.txt,http://smass.mit.edu/data/spex/sp45/a002099.sp45.txt
+2107,Ilmari,Sw,S Sw,sp49/a002107.sp49.txt,http://smass.mit.edu/data/spex/sp49/a002107.sp49.txt
+2246,Bowell,D,D D D,sp39/a002246.sp39.txt,http://smass.mit.edu/data/spex/sp39/a002246.sp39.txt
+2335,James,S,S,sp45/a002335.sp45.txt,http://smass.mit.edu/data/spex/sp45/a002335.sp45.txt
+2378,Pannekoek Cgh,Cgh,Cgh,sp40/a002378.sp40.txt,http://smass.mit.edu/data/spex/sp40/a002378.sp40.txt
+2579,Spartacus,V,V V,sp323/a002579.sp323.txt,http://smass.mit.edu/data/spex/sp323/a002579.sp323.txt
+3102,Krok,Sqw,S Sqw,sp02/a003102.sp02.txt,http://smass.mit.edu/data/spex/sp02/a003102.sp02.txt
+3103,Eger Xe,Xe,Xe,sp06/a003103.sp06.txt,http://smass.mit.edu/data/spex/sp06/a003103.sp06.txt
+3122,Florence,Sqw,S Sqw,sp27/a003122.sp27.txt,http://smass.mit.edu/data/spex/sp27/a003122.sp27.txt
+3199,Nefertiti,K,S Sq K,sp03/a003199.sp03.txt,http://smass.mit.edu/data/spex/sp03/a003199.sp03.txt
+3200,Phaethon,B,F B B,sp19/a003200.sp19.txt,http://smass.mit.edu/data/spex/sp19/a003200.sp19.txt
+3248,Farinella,D,D D,sp39/a003248.sp39.txt,http://smass.mit.edu/data/spex/sp39/a003248.sp39.txt
+3317,Paris,D,T D,sp50/a003317.sp50.txt,http://smass.mit.edu/data/spex/sp50/a003317.sp50.txt
+3402,Wisdom,S,S,sp25/a003402.sp25.txt,http://smass.mit.edu/data/spex/sp25/a003402.sp25.txt
+3628,Boznemcova,O,O O,sp50/a003628.sp50.txt,http://smass.mit.edu/data/spex/sp50/a003628.sp50.txt
+3635,Kreutz,Srw,S Srw,sp47/a003635.sp47.txt,http://smass.mit.edu/data/spex/sp47/a003635.sp47.txt
+3753,Cruithne,Q,Q Q,sp17/a003753.sp17.txt,http://smass.mit.edu/data/spex/sp17/a003753.sp17.txt
+3858,Dorchester Sa,Srw,Srw,sp28/a003858.sp28.txt,http://smass.mit.edu/data/spex/sp28/a003858.sp28.txt
+3873,Roddy,Sw,S Sw,sp32/a003873.sp32.txt,http://smass.mit.edu/data/spex/sp32/a003873.sp32.txt
+3908,Nyx,V,V V,sp30/a003908.sp30.txt,http://smass.mit.edu/data/spex/sp30/a003908.sp30.txt
+4055,Magellan,V,V V,sp208/a004055.sp208.txt,http://smass.mit.edu/data/spex/sp208/a004055.sp208.txt
+4179,Toutatis Sk,Sq,Sq,sp03/a004179.sp03.txt,http://smass.mit.edu/data/spex/sp03/a004179.sp03.txt
+4197,1982 TA,Sq,Sq Sq,sp25/a004197.sp25.txt,http://smass.mit.edu/data/spex/sp25/a004197.sp25.txt
+4558,Janesick,Sr,S Sr,sp29/a004558.sp29.txt,http://smass.mit.edu/data/spex/sp29/a004558.sp29.txt
+4688,1980 WF,Q,QU Q,sp03/a004688.sp03.txt,http://smass.mit.edu/data/spex/sp03/a004688.sp03.txt
+5143,Heracles,Q,O Q,sp287/a005143.sp287.txt,http://smass.mit.edu/data/spex/sp287/a005143.sp287.txt
+5261,Eureka Sr,Sa,Sa,sp41/a005261.sp41.txt,http://smass.mit.edu/data/spex/sp41/a005261.sp41.txt
+5407,1992 AX,S,Sk S,sp337/a005407.sp337.txt,http://smass.mit.edu/data/spex/sp337/a005407.sp337.txt
+5587,1990 SB,Sr,Sq Sr,sp05/a005587.sp05.txt,http://smass.mit.edu/data/spex/sp05/a005587.sp05.txt
+5604,1992 FE,V,V,sp05/a005604.sp05.txt,http://smass.mit.edu/data/spex/sp05/a005604.sp05.txt
+5641,McCleese,Sw,A Sw,sp25/a005641.sp25.txt,http://smass.mit.edu/data/spex/sp25/a005641.sp25.txt
+5660,1974 MA,Q,Q Q,sp43/a005660.sp43.txt,http://smass.mit.edu/data/spex/sp43/a005660.sp43.txt
+5817,Robertfrazer,Sr,S Sr,sp31/a005817.sp31.txt,http://smass.mit.edu/data/spex/sp31/a005817.sp31.txt
+6239,Minos,Sqw,Sqw,sp27/a006239.sp27.txt,http://smass.mit.edu/data/spex/sp27/a006239.sp27.txt
+6411,Tamaga,B,B,sp28/a006411.sp28.txt,http://smass.mit.edu/data/spex/sp28/a006411.sp28.txt
+6455,1992 HE,Srw,S Srw,sp107/a006455.sp107.txt,http://smass.mit.edu/data/spex/sp107/a006455.sp107.txt
+7341,1991 VK,Q,Sq Q,sp103/a007341.sp103.txt,http://smass.mit.edu/data/spex/sp103/a007341.sp103.txt
+8444,Popovich,S,S,sp25/a008444.sp25.txt,http://smass.mit.edu/data/spex/sp25/a008444.sp25.txt
+17274,2000 LC16,D,D,sp02/a017274.sp02.txt,http://smass.mit.edu/data/spex/sp02/a017274.sp02.txt
+18736,1998 NU,Sw,Sw,sp03/a018736.sp03.txt,http://smass.mit.edu/data/spex/sp03/a018736.sp03.txt
+19127,Olegefremov,Srw,Srw,sp25/a019127.sp25.txt,http://smass.mit.edu/data/spex/sp25/a019127.sp25.txt
+19356,1997 GH3,Sq,S Sq,sp03/a019356.sp03.txt,http://smass.mit.edu/data/spex/sp03/a019356.sp03.txt
+20790,2000 SE45,S,S,sp03/a020790.sp03.txt,http://smass.mit.edu/data/spex/sp03/a020790.sp03.txt
+22771,1999 CU3,S,S,sp26/a022771.sp26.txt,http://smass.mit.edu/data/spex/sp26/a022771.sp26.txt
+24475,2000 VN2,Sw,Sw,sp05/a024475.sp05.txt,http://smass.mit.edu/data/spex/sp05/a024475.sp05.txt
+25330,1999 KV4,Xk:,Xk:,sp19/a025330.sp19.txt,http://smass.mit.edu/data/spex/sp19/a025330.sp19.txt
+35107,1991 VH,Sq,Sk Sq,sp20/a035107.sp20.txt,http://smass.mit.edu/data/spex/sp20/a035107.sp20.txt
+36284,2000 DM8,K,K,sp11/a036284.sp11.txt,http://smass.mit.edu/data/spex/sp11/a036284.sp11.txt
+53435,1999 VM40,Srw,Srw,sp272/a053435.sp272.txt,http://smass.mit.edu/data/spex/sp272/a053435.sp272.txt
+98943,2001 CC21,Sw,Sw,sp320/a098943.sp320.txt,http://smass.mit.edu/data/spex/sp320/a098943.sp320.txt
+99907,1989 VA,Sr,Sq Sr,sp65/a099907.sp65.txt,http://smass.mit.edu/data/spex/sp65/a099907.sp65.txt
