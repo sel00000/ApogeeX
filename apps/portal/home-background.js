@@ -47,7 +47,17 @@ export function mountHomeBackground(canvas,imageURL=ORIGINAL_SKY,callbacks={}) {
    this._awaitLayout=false;this._kick();
   }
   _seed(){if(this._awaitLayout){this._pendingSeed=true;return;}super._seed();}
+  // Adaptive pixel budget: if the page has been running slower than ~48 fps for two seconds, shrink the
+  // lens buffer by 30% (never below 0.9 Mpx) and keep it there. One-way, so quality never pumps up and down.
+  // Only the drawing buffer changes; physics, light speed and mass units are in CSS px and stay the same.
+  _govern(t){
+   const dt=t-(this._govT??t);this._govT=t;this._govStart??=t;if(t-this._govStart<4||!(dt>0&&dt<0.25)||this.drag)return; // ignore page-load frames
+   this._govAcc=(this._govAcc||0)+dt;this._govN=(this._govN||0)+1;
+   if(this._govAcc<2)return;const avg=this._govAcc/this._govN;this._govAcc=this._govN=0;
+   if(avg>1/48&&this.MAX_PIXELS>900000){this.MAX_PIXELS=Math.max(900000,Math.round(this.MAX_PIXELS*0.7));this._resize();}
+  }
   _draw(t){
+   this._govern(t);
    // Physics still steps every display frame; the sky is drawn at most 30 times a second
    // (60 only while a hole is held), keeping the GPU free for pointer, cards and scrolling.
    if(!this.drag&&this._shownAt!==undefined&&t-this._shownAt<1/30-0.002&&t>=this._shownAt)return;

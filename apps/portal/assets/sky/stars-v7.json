@@ -1,0 +1,14 @@
+{
+ "count": 15527,
+ "layout": "float32 x4: galactic l deg, b deg, V mag, B-V",
+ "max_vmag": 7.0,
+ "source": "Stellarium Web Engine test sky data (Hipparcos/Gaia), planetarium-original/vendor/stellarium-web-engine/apps/test-skydata/stars",
+ "frame": "ICRS J2000 -> galactic (astropy)",
+ "check": {
+  "Sirius_l_b": [
+   227.227,
+   -8.889
+  ],
+  "brightest_mag": -1.44
+ }
+}

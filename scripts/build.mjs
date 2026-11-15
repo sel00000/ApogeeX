@@ -15,7 +15,7 @@ try {
   await npm(['run', 'build'], { cwd: join(projectRoot, 'packages/search') });
   const excluded = new Set(['node_modules', 'dist', '.git', '.venv', '__pycache__', 'tests', 'verification', 'package.json', 'package-lock.json', 'server.py', 'launch_preview.py', 'Start-Web.cmd']);
   const filter = path => !excluded.has(basename(path)) && !/\.test\.(?:mjs|js|ts)$/.test(path);
-  for (const name of ['index.html','app.js','routing.js','styles.css','glass.js','home-background.js','home-waveform.js','home-story.js','i18n.js','i18n','adapters','assets','vendor','moving']) {
+  for (const name of ['index.html','app.js','routing.js','styles.css','glass.js','home-background.js','home-waveform.js','home-story.js','home-lab.js','home-v3.css','i18n.js','i18n','adapters','assets','vendor','moving']) {
     await cp(join(projectRoot, 'apps/portal', name), join(stage, name), { recursive: true, filter });
   }
   for (const name of ['planetarium', 'analysis', 'asteroids']) await cp(join(projectRoot, 'apps', name, 'dist'), join(stage, name), { recursive: true });

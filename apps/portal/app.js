@@ -4,6 +4,7 @@ import {mountHomeWaveform} from './home-waveform.js';
 import {mountHomeStory} from './home-story.js';
 import {VIEWS, HOME_ANCHORS, parseRoute, routeHash, analysisParams, childURL, trustedFrameMessage, headerCurrent, headerStage, skyReturnHash, skyViewFocus, viewTitle, documentTitle} from './routing.js';
 import {startI18n, t, getLang, setLang, applyI18n, onLangChange} from './i18n.js';
+import {mountHomeLab} from './home-lab.js';
 startI18n();
 const $=s=>document.querySelector(s),reduce=matchMedia('(prefers-reduced-motion:reduce)');
 const homeWave=mountHomeWaveform(document.querySelector('#home-wave'));
@@ -33,7 +34,13 @@ async function loadModel(stage){
  const model=mod.mountMissionModel(host,{url:new URL(lite?'assets/model/spherex-lite.glb':'assets/model/spherex-hero.glb',import.meta.url).href,quality:lite?'lite':'hero',ariaLabel:t('model.aria'),lostMessage:t('model.lost'),
   onReady:()=>stage.classList.add('is-ready'),
   onError:e=>{console.warn('[home] model',e);fail('model.failed');},
-  onUserOrbit:()=>btn('spin').setAttribute('aria-pressed','false')});
+  onUserOrbit:()=>{const pz=stage.querySelector('.model-pause');if(pz){pz.textContent='▶';pz.setAttribute('aria-pressed','false');}}});
+ // Auto-rotate by default; a small pause button (lower left) stops and resumes it.
+ const pause=stage.querySelector('.model-pause');
+ const syncPause=on=>{if(!pause)return;pause.setAttribute('aria-pressed',String(on));pause.textContent=on?'Ⅱ':'▶';pause.setAttribute('aria-label',t(on?'v3.model.pause':'v3.model.play'));};
+ model.setAutoRotate(!reduce.matches);syncPause(!reduce.matches);
+ if(pause)pause.onclick=()=>{const on=!model.autoRotate;model.setAutoRotate(on);syncPause(on);};
+ onLangChange(()=>syncPause(model.autoRotate));
  stage.addEventListener('model-progress',()=>btn('cutaway').setAttribute('aria-pressed',String(model.cutaway)));
  host.addEventListener('model-error',()=>{fail('model.lost');stage.classList.remove('is-ready');});
  onLangChange(()=>model.setLabels?.({ariaLabel:t('model.aria'),lostMessage:t('model.lost')}));
@@ -49,9 +56,13 @@ async function loadModel(stage){
 }
 let disposeStory=()=>{};
 try{disposeStory=mountHomeStory(document.querySelector('#home-view'),{reducedMotion:reduce,loadModel});}catch(e){console.warn('[home] story',e);}
+// Home labs: LVF scan, 102-colour spectrum, 4 Vesta blink (real SPHEREx data; see home-lab.js)
+let disposeLab=()=>{};try{disposeLab=mountHomeLab(document.querySelector('#home-view'),{reducedMotion:reduce});}catch(e){console.warn('[home] lab',e);}
+// Pointer light on panels: one layer per panel, moved with transform only, at most once per frame
+let lightEv=null,lightRaf=0;document.addEventListener('pointermove',e=>{lightEv=e;if(!lightRaf)lightRaf=requestAnimationFrame(()=>{lightRaf=0;const ev=lightEv,p=ev.target.closest?.('.panel');if(!p)return;const r=p.getBoundingClientRect();p.style.setProperty('--px',(ev.clientX-r.left)+'px');p.style.setProperty('--py',(ev.clientY-r.top)+'px');});},{passive:true});
 let dialogFocus=null;
 function openDialog(dialog){dialogFocus=document.activeElement;if(!dialog.open)dialog.showModal();updateMotion();}
-$('#credits-open').onclick=()=>openDialog($('#credits-dialog'));
+const creditsOpen=$('#credits-open');if(creditsOpen)creditsOpen.onclick=()=>openDialog($('#credits-dialog'));
 for(const dialog of document.querySelectorAll('dialog')){
  dialog.querySelector('.dialog-x')?.addEventListener('click',()=>dialog.close());
  dialog.addEventListener('close',()=>{if(dialog.id==='search-dialog')searchController?.close?.();updateMotion();dialogFocus?.focus?.({preventScroll:true});});
@@ -300,7 +311,7 @@ document.addEventListener('visibilitychange',updateMotion);
 window.addEventListener('pagehide',event=>{
  ++generation;
  home?.setActive(false);window.__spherexModel?.setActive?.(false);feature?.dispose?.();feature=null;
- if(!event.persisted){searchController?.destroy();disposeGlass();disposeStory();homeWave.dispose();home?.dispose?.();window.__spherexModel?.dispose();}
+ if(!event.persisted){searchController?.destroy();disposeGlass();disposeStory();disposeLab();homeWave.dispose();home?.dispose?.();window.__spherexModel?.dispose();}
 });
 window.addEventListener('pageshow',event=>{if(event.persisted){route='';navigate();}});
 window.__spherexApp={

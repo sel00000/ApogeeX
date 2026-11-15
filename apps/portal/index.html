@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#06080c"><meta name="description" content="A citizen-science app: learn basic astronomy with scientists, then look for changes in the sky yourself in real NASA SPHEREx observations."><title>SPHEREx for Everyone</title><script>try{if(localStorage.getItem('spherex-lang')==='ko'&&!/[?&]lang=en(&|$)/.test(location.hash)||/[?&]lang=ko(&|$)/.test(location.hash)){document.documentElement.classList.add('lang-pending');setTimeout(function(){document.documentElement.classList.remove('lang-pending')},2500)}}catch(e){}</script><link rel="icon" href="assets/brand/apogeex-favicon-32.png" sizes="32x32" type="image/png"><link rel="icon" href="assets/brand/apogeex-favicon.png" sizes="192x192" type="image/png"><link rel="preload" as="image" href="assets/blackhole/sky_spherex_full.webp" fetchpriority="high"><link rel="stylesheet" href="styles.css"></head>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#06080c"><meta name="description" content="A citizen-science app: learn basic astronomy with scientists, then look for changes in the sky yourself in real NASA SPHEREx observations."><title>SPHEREx for Everyone</title><script>try{if(localStorage.getItem('spherex-lang')==='ko'&&!/[?&]lang=en(&|$)/.test(location.hash)||/[?&]lang=ko(&|$)/.test(location.hash)){document.documentElement.classList.add('lang-pending');setTimeout(function(){document.documentElement.classList.remove('lang-pending')},2500)}}catch(e){}</script><link rel="icon" href="assets/brand/apogeex-favicon-32.png" sizes="32x32" type="image/png"><link rel="icon" href="assets/brand/apogeex-favicon.png" sizes="192x192" type="image/png"><link rel="preload" as="image" href="assets/blackhole/sky_spherex_full.webp" fetchpriority="high"><link rel="stylesheet" href="styles.css"><link rel="stylesheet" href="home-v3.css"></head>
 <body>
 <a class="skip-link" href="#main" data-i18n="skip">Skip to main content</a>
 <header class="site-header" data-tutorial="navigation">
@@ -16,6 +16,7 @@
  <div class="home-hero" id="home-hero">
   <div class="sky-backdrop" aria-hidden="true"></div><canvas id="home-lens" aria-hidden="true"></canvas><div class="hero-shade" aria-hidden="true"></div>
   <div class="hero-content">
+   <img class="hero-logo" src="assets/brand/apogeex-logo-ivory.png" alt="ApogeeX" width="268" height="64" draggable="false">
    <h1 class="hero-title"><span class="ht-name" aria-hidden="true"><span>SP</span><span>HERE</span><span>x</span></span><span class="ht-sub" aria-hidden="true">for Everyone</span><span class="sr-only" data-i18n="brand.name">SPHEREx for Everyone</span></h1>
   </div>
   <div class="home-tools" aria-label="Explore" data-i18n-attr="aria-label:home.tools">
@@ -28,78 +29,87 @@
   <div id="home-wave" class="home-wave" aria-hidden="true"><div class="home-wave-head"><b data-stage>INSPIRAL</b><span data-note></span><span data-value></span></div><canvas width="552" height="112" aria-hidden="true"></canvas><div class="home-wave-legend"><span>h₊</span><span>h×</span></div></div>
  </div>
 
- <section class="mission" id="mission" aria-labelledby="mission-title">
-  <h2 class="sr-only" id="mission-title" data-i18n="mission.title">SPHEREx and its mission</h2>
-  <p class="statement" data-words data-i18n-key="mission.statement">SPHEREx is NASA’s infrared space telescope that photographs the whole sky in 102 colours. Every six months, with no gaps.</p>
+ <section class="mission sec" id="mission" aria-labelledby="mission-title">
+  <header class="sec-head">
+   <h2 id="mission-title" class="duo" data-i18n-html="v3.mission.h">SPHEREx is NASA’s infrared space telescope that photographs the whole sky in 102 colours. <span>Every six months it maps the entire sky again, without gaps.</span></h2>
+   <dl class="fact-strip"><div><dt data-i18n="v3.f1.dt">11 Mar 2025</dt><dd data-i18n="v3.f1.dd">Launch</dd></div><div><dt data-i18n="v3.f2.dt">~700 km</dt><dd data-i18n="v3.f2.dd">Polar orbit altitude</dd></div><div><dt data-i18n="v3.f3.dt">6 months</dt><dd data-i18n="v3.f3.dd">One full-sky map</dd></div><div><dt>6.15″</dt><dd data-i18n="v3.f4.dd">Sky per pixel</dd></div></dl>
+  </header>
   <div class="mission-track" id="mission-track">
-   <div class="mission-stage">
-    <div class="mission-copy">
-     <article class="m-step" data-step="0">
-      <h3 data-i18n-html="m0.h">A spectroscopic telescope <br>for the whole sky.</h3>
-      <p data-i18n="m0.p">It was launched on 11 March 2025. It orbits at an altitude of about 700 km, passing over Earth’s north and south poles, and sweeps the sky in strips to photograph the whole sky once every six months.</p>
-      <dl class="m-facts"><div><dt data-i18n="m0.f1.dt">11 Mar 2025</dt><dd data-i18n="m0.f1.dd">Launch</dd></div><div><dt data-i18n="m0.f2.dt">~700 km</dt><dd data-i18n="m0.f2.dd">Orbit altitude</dd></div><div><dt data-i18n="m0.f3.dt">6 months</dt><dd data-i18n="m0.f3.dd">One whole-sky pass</dd></div></dl>
-     </article>
-     <article class="m-step" data-step="1">
-      <h3 data-i18n-html="m1.h">It set off with <br>three questions.</h3>
-      <ol class="m-goals">
+   <div class="mission-stage" data-step="0">
+    <ol class="mission-copy" aria-label="Meet SPHEREx" data-i18n-attr="aria-label:v3.mission.list">
+     <li class="m-step on" data-step="0"><button class="m-head" type="button" aria-expanded="true" data-i18n="v3.m0.h">A spectral camera for the whole sky</button>
+      <div class="m-body"><div><p data-i18n="v3.m0.p">It orbits over the poles and sweeps the sky in strips. In six months it covers the entire sky.</p></div></div></li>
+     <li class="m-step" data-step="1"><button class="m-head" type="button" aria-expanded="false" data-i18n="v3.m1.h">Three questions</button>
+      <div class="m-body"><div><ul class="m-goals">
        <li><b data-i18n="m1.g1.b">The first moment of the universe</b><span data-i18n="m1.g1.s">With a 3D map of hundreds of millions of galaxies, it looks for traces of the rapid expansion of the universe just after the Big Bang.</span></li>
        <li><b data-i18n="m1.g2.b">How galaxies got here</b><span data-i18n="m1.g2.s">It gathers the light given off by all the galaxies in the universe to trace back how brightly galaxies shone in each era.</span></li>
-       <li><b data-i18n="m1.g3.b">The ingredients of life</b><span data-i18n="m1.g3.s">It looks for water, carbon dioxide and carbon monoxide ice in the cold clouds of our Galaxy.</span></li>
-      </ol>
-     </article>
-     <article class="m-step" data-step="2">
-      <h3 data-i18n-html="m2.h">A cold eye inside <br>three shields.</h3>
-      <p data-i18n="m2.p">Three cone-shaped shields block the heat of the Sun and Earth. Inside them, the 20 cm telescope cools to around −210 °C without a cooler, so it can gather even very faint infrared light.</p>
-     </article>
-     <article class="m-step" data-step="3">
-      <h3 data-i18n-html="m3.h">Now turn it <br>yourself.</h3>
-      <p data-i18n-html="m3.p">Drag to turn it, and open the shields to look inside. Press <b>Full view</b> to move it freely across the whole screen.</p>
-      <p class="m-note" data-i18n="m3.note">This is a reference model rebuilt from public material. It is not a flight design model supplied by NASA.</p>
-     </article>
-    </div>
+       <li><b data-i18n="m1.g3.b">The ingredients of life</b><span data-i18n="m1.g3.s">It looks for water, carbon dioxide and carbon monoxide ice in the cold clouds of our Galaxy.</span></li></ul></div></div></li>
+     <li class="m-step" data-step="2"><button class="m-head" type="button" aria-expanded="false" data-i18n="v3.m2.h">A cold eye inside three shields</button>
+      <div class="m-body"><div><p data-i18n="m2.p">Three cone-shaped shields block the heat of the Sun and Earth. Inside them, the 20 cm telescope cools to around −210 °C without a cooler, so it can gather even very faint infrared light.</p></div></div></li>
+    </ol>
     <div class="model-stage" id="model-stage">
      <img class="model-poster" src="assets/model/spherex-hero-poster.webp" alt="" width="893" height="900" decoding="async" loading="lazy">
      <div class="model-host" id="model-host"></div>
      <p class="model-status" id="model-status" role="status" data-i18n="model.status">Preparing the 3D model</p>
-     <div class="model-dock glass-pill" role="toolbar" aria-label="3D model controls" data-i18n-attr="aria-label:model.dock">
-      <button type="button" data-model="cutaway" aria-pressed="false" data-i18n="model.cutaway">Inside view</button>
-      <button type="button" data-model="back" data-i18n="model.back">Solar panel</button>
-      <button type="button" data-model="spin" aria-pressed="false" data-i18n="model.spin">Auto-rotate</button>
-      <button type="button" data-model="reset" data-i18n="model.reset">Reset view</button>
-      <button type="button" data-model="free" class="dock-free" aria-pressed="false"><span class="free-on" data-i18n="model.free">Full view</span><span class="free-off" data-i18n="model.close">Close</span></button>
+     <button type="button" class="model-pause" aria-pressed="true" aria-label="Pause rotation" data-i18n-attr="aria-label:v3.model.pause">Ⅱ</button>
+     <div class="model-dock" role="toolbar" aria-label="3D model controls" data-i18n-attr="aria-label:model.dock">
+      <button type="button" data-model="cutaway" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7l8-4 8 4M4 7v10l8 4 8-4V7M12 11v10M4 7l8 4 8-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="model.cutaway">Inside view</span></button>
+      <button type="button" data-model="back"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 8h18v8H3zM9 8v8M15 8v8M12 16v4M8 20h8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="model.back">Solar panel</span></button>
      </div>
-     <p class="model-hint"><span class="hint-mouse" data-i18n="model.hint.mouse">Drag to turn · ⌘ or Ctrl + scroll to zoom</span><span class="hint-free" data-i18n="model.hint.free">Drag to turn · scroll to zoom · right button to move · Esc to close</span></p>
     </div>
-    <div class="mission-rail" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
    </div>
   </div>
  </section>
 
- <section class="light" id="light" aria-labelledby="light-title">
-  <div class="light-track" id="light-track">
-   <div class="light-stage">
-    <h2 id="light-title" class="duo" data-i18n-html="light.h">It starts where the eye stops. <span>The human eye sees light only from 0.38–0.75 µm. SPHEREx photographs from just beyond that up to 5 µm, split into 102 colours.</span></h2>
-    <figure class="spectrum" id="spectrum" aria-label="A band of wavelengths from 0.38 µm to 5 µm. The narrow rainbow at the left end is the light the human eye sees; SPHEREx’s 102 observed colours run from 0.75 µm to 5 µm." data-i18n-attr="aria-label:light.fig">
-     <div class="spec-plot">
-      <div class="spec-visible" aria-hidden="true"><span data-i18n="light.visible">Visible light</span></div>
-      <div class="spec-ticks" id="spec-ticks" aria-hidden="true"></div>
-      <div class="spec-marks" aria-hidden="true">
-       <span class="mk ice" style="--w:3.05" data-row="0" data-i18n-html="mk.water"><b>Water ice</b>3.05 µm</span>
-       <span class="mk dust" style="--w:3.4" data-row="1" data-i18n-html="mk.dust"><b>Dust (PAH)</b>about 3.4 µm</span>
-       <span class="mk gas" style="--w:4.05" data-row="0" data-i18n-html="mk.gas"><b>Hot hydrogen</b>about 4 µm</span>
-       <span class="mk ice" style="--w:4.27" data-row="1" data-i18n-html="mk.co2"><b>CO₂ ice</b>4.27 µm</span>
-       <span class="mk ice" style="--w:4.67" data-row="0" data-i18n-html="mk.co"><b>CO ice</b>4.67 µm</span>
-      </div>
-      <div class="spec-axis" aria-hidden="true"><span style="--w:.5">0.5</span><span style="--w:1">1</span><span style="--w:2">2</span><span style="--w:3">3</span><span style="--w:4">4</span><span style="--w:5">5 µm</span></div>
-     </div>
-     <figcaption class="spec-count"><strong id="spec-count">0</strong><span data-i18n-html="light.count">colours<br><small>6 detectors × 17 colours</small></span></figcaption>
-    </figure>
-    <p class="light-foot" data-i18n="light.foot">Measure how bright an object is in each colour, join the points, and you get a spectrum. From the shape of the spectrum we read the distance to a galaxy and ingredients such as ice and dust.</p>
+ <section class="lab sec" id="light" aria-labelledby="lvf-title">
+  <header class="sec-head">
+   <h2 id="lvf-title" class="duo" data-i18n-html="v3.lvf.h">Many exposures of one spot add up to 102 colours. <span>The Linear Variable Filter (LVF) in front of each detector passes a slightly different colour at every position.<br>As the telescope steps across the sky, one spot crosses the filter strip by strip and is photographed once in each colour.</span></h2>
+  </header>
+  <div class="lvf panel" id="lvf">
+   <div class="lvf-stage"><span class="target-tag">RW Aurigae</span><canvas class="lvf-sky" aria-label="View from just behind SPHEREx along its line of sight" data-i18n-attr="aria-label:v3.lvf.aria"></canvas><canvas class="lvf-overlay" aria-hidden="true"></canvas></div>
+   <div class="lvf-side">
+    <div class="lvf-shots"><figure><canvas data-shot="0" width="80" height="80"></canvas><figcaption data-um="0">—</figcaption></figure><figure><canvas data-shot="1" width="80" height="80"></canvas><figcaption data-um="1">—</figcaption></figure></div>
+    <div class="lvf-cube-head"><b><span data-count>0</span></b></div>
+    <div class="lvf-grid"><div class="lvf-rows" aria-hidden="true"></div><canvas class="lvf-cube-canvas" aria-hidden="true"></canvas></div>
    </div>
   </div>
  </section>
 
- <section class="sky" id="sky" aria-labelledby="sky-title">
+ <section class="lab sec" id="spectrum" aria-labelledby="spec-title">
+  <header class="sec-head">
+   <h2 id="spec-title" class="duo" data-i18n-html="v3.spec.h">One patch of sky, 102 colours. <span>Flip through real SPHEREx images around the young star RW Aurigae, taken during September 2026, in order of wavelength.<br>Stars visible at short wavelengths fade at long ones, while the central star gets brighter.</span></h2>
+  </header>
+  <div class="spec-view" id="spec-view">
+   <figure class="spec-frame panel"><span class="target-tag">RW Aurigae</span>
+    <canvas class="spec-frame-canvas" width="80" height="80" aria-label="Real SPHEREx image at the chosen wavelength" data-i18n-attr="aria-label:v3.spec.img"></canvas>
+    <figcaption class="spec-read"><b data-um>—</b></figcaption>
+   </figure>
+   <div class="spec-side">
+    <div class="spec-chart panel">
+     <canvas class="spec-chart-canvas" aria-label="Brightness by wavelength. Drag or hover to choose a wavelength." data-i18n-attr="aria-label:v3.spec.chart"></canvas>
+     <input class="spec-range" type="range" min="0" max="100" step="1" value="0" aria-label="Choose wavelength" data-i18n-attr="aria-label:v3.spec.range">
+     <div class="spec-chart-foot"><span data-flux></span></div>
+    </div>
+   </div>
+  </div>
+ </section>
+
+ <section class="lab sec" id="blink" aria-labelledby="blink-title">
+  <header class="sec-head">
+   <h2 id="blink-title" class="duo" data-i18n-html="v3.blink.h">Blink, and what moves stands out. <span>Alternate images of the same sky taken at different times: the stars stay put, only nearby bodies move.<br>SPHEREx photographed the asteroid 4&nbsp;Vesta three times in 26 hours.</span></h2>
+  </header>
+  <div class="blink" id="blink-demo">
+   <figure class="blink-frame panel">
+    <canvas class="blink-canvas" width="384" height="384" aria-label="Three real SPHEREx images of 4 Vesta, blinking. North up, east left." data-i18n-attr="aria-label:v3.blink.aria"></canvas>
+   </figure>
+   <div class="blink-side">
+    <ol class="blink-frames" aria-label="Exposure times" data-i18n-attr="aria-label:v3.blink.times"></ol>
+    <dl class="blink-facts"><div><dt data-blink-move>—</dt><dd data-i18n="v3.blink.dd1">Distance moved in 26 hours</dd></div><div><dt>4.42–5.00 µm</dt><dd data-i18n="v3.blink.dd2">Detector D6</dd></div></dl>
+   </div>
+  </div>
+ </section>
+
+  <section class="sky" id="sky" aria-labelledby="sky-title">
   <header class="sky-head">
    <h2 id="sky-title" class="duo" data-i18n-html="sky.h">Same sky, different light. <span>On the left is the whole sky as Gaia saw it in visible light; on the right, as SPHEREx saw it in infrared. Slide the handle in the middle.</span></h2>
   </header>
@@ -120,29 +130,11 @@
     <button type="button" role="radio" aria-checked="false" data-layer="dust" data-i18n="sky.seg.dust">Dust and gas</button>
     <button type="button" role="radio" aria-checked="false" data-layer="all" data-i18n="sky.seg.all">Both together</button>
    </div>
-   <p class="sky-caption" id="sky-caption" aria-live="polite"></p>
   </div>
-  <p class="sky-credit" data-i18n="sky.credit">Visible: ESA/Gaia/DPAC, Gaia EDR3 sky colour map (CC BY-SA 3.0 IGO). To line it up with the SPHEREx map we changed its Hammer–Aitoff projection to a Mollweide projection, and we publish the changed image under the same terms. Infrared: NASA/JPL-Caltech, SPHEREx all-sky map (2025). Both maps are in galactic coordinates, with the centre of our Galaxy in the middle.</p>
+  <p class="sky-credit">ESA/Gaia/DPAC (CC BY-SA 3.0 IGO) · NASA/JPL-Caltech SPHEREx</p>
  </section>
 
- <section class="about" id="about">
-  <div class="about-lead">
-   <h2 data-i18n-html="about.h">Where a small question<br>becomes citizen science</h2>
-   <div>
-    <p data-i18n="about.p1">SPHEREx for Everyone is an app that makes this data readable for anyone. First learn the basics, then find objects in the sky, and check for yourself what has changed in real observations.</p>
-    <p data-i18n="about.p2">Measured values are kept separate from model estimates, and you can check the sources and quality flags alongside them.</p>
-   </div>
-  </div>
-  <h3 class="guide-title" data-i18n="guide.title">New here? Go in this order</h3>
-  <ol class="guide">
-   <li><span>1</span><div><h4 data-i18n="guide.1.h">Tutorial</h4><p data-i18n="guide.1.p">Famous scientists take you through the brightness, distance and colour of stars, one step at a time.</p></div></li>
-   <li><span>2</span><div><h4 data-i18n="guide.2.h">Planetarium</h4><p data-i18n="guide.2.p">Find objects among the constellations and see basic details such as distance and magnitude.</p></div></li>
-   <li><span>3</span><div><h4 data-i18n="guide.3.h">Armchair Astronomer</h4><p data-i18n="guide.3.p">Blink the same object across dates to compare it, and check for changes in 3D and in its spectrum.</p></div></li>
-   <li><span>4</span><div><h4 data-i18n="guide.4.h">Record a discovery</h4><p data-i18n="guide.4.p">Save the changes you find together with the evidence. Every discovery is treated as a candidate that needs checking.</p></div></li>
-  </ol>
-  <p class="source-note"><span data-i18n="source.lead">Observation data: NASA/IPAC IRSA SPHEREx DR1·QR3 · Background: NASA/JPL-Caltech SPHEREx all-sky map · </span><button id="credits-open" data-i18n="credits.open">Data and licences</button></p>
-  <div class="back-top-wrap"><button id="back-top" class="back-top" aria-label="Back to the top to choose a menu" data-i18n-attr="aria-label:backtop.aria"><i aria-hidden="true">↑</i></button><span data-i18n="backtop.text">Back to top</span></div>
- </section>
+ <div class="back-top-wrap"><button id="back-top" class="back-top" aria-label="Back to top" data-i18n-attr="aria-label:backtop.text"><i aria-hidden="true">↑</i></button></div>
  <footer><span class="brand-small"><span class="brand-logo brand-logo-small" aria-hidden="true"><img src="assets/mark.svg" alt="" width="16" height="16"></span><span data-i18n-html="footer.brand"><b>SPHEREx</b> for Everyone</span></span><span>NASA Space Apps Challenge 2026 · Planet X and SPHEREx</span></footer>
 </section>
 <section id="workspace-view" class="page-view" hidden><div class="workspace-top" hidden><span id="workspace-kicker"></span><h1 id="workspace-title"></h1><a href="#home" class="workspace-back" data-i18n="workspace.home">Home</a></div><nav id="sky-navigation" class="workspace-tabs" aria-label="Sky view" data-i18n-attr="aria-label:skynav.label" hidden><a href="#analysis?view=sky" data-sky-nav="spherex" data-i18n="skynav.spherex">SPHEREx sky</a><a href="#planetarium" data-sky-nav="planetarium" aria-current="page" data-i18n="skynav.planetarium">Planetarium</a></nav><nav id="asteroid-navigation" class="workspace-tabs" aria-label="Asteroid Analysis screens" data-i18n-attr="aria-label:astnav.label" hidden><a href="#asteroids?tab=orbit" data-asteroid-tab="orbit" data-i18n="astnav.orbit">Orbit 3D</a><a href="#asteroids?tab=research" data-asteroid-tab="research" data-i18n="astnav.research">Results</a><a href="#asteroids?tab=observations" data-asteroid-tab="observations" data-i18n="astnav.observations">Observations</a></nav><div id="workspace-body" data-tutorial="workspace"></div></section>

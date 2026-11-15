@@ -6,6 +6,8 @@ import path from 'node:path';
 import fs from 'node:fs';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const { build } = await import(pathToFileURL(path.join(root, '../analysis/node_modules/vite/dist/node/index.js')).href);
+// drop chunks from earlier builds (the hash changes when Three.js or the entries change)
+for (const f of fs.readdirSync(path.join(root, 'assets/model'))) if (/^three-.*\.js$/.test(f)) fs.rmSync(path.join(root, 'assets/model', f));
 await build({
   configFile: false, logLevel: 'warn', root,
   resolve: { alias: [
@@ -14,9 +16,10 @@ await build({
   ] },
   build: {
     outDir: path.join(root, 'assets/model'), emptyOutDir: false, minify: true, sourcemap: false, target: 'es2022',
-    lib: { entry: path.join(root, 'home-src/mission-model.js'), formats: ['es'], fileName: () => 'mission-model.js' },
+    // two entries share one Three.js chunk, so the home page downloads Three.js once
+    lib: { entry: { 'mission-model': path.join(root, 'home-src/mission-model.js'), 'sky-scan': path.join(root, 'home-src/sky-scan.js') }, formats: ['es'], fileName: (_, name) => `${name}.js` },
+    rollupOptions: { output: { chunkFileNames: 'three-[hash].js' } },
   },
 });
 fs.copyFileSync(path.join(root, 'vendor/three/LICENSE'), path.join(root, 'assets/model/THREE-LICENSE.txt'));
-const size = fs.statSync(path.join(root, 'assets/model/mission-model.js')).size;
-console.log(`assets/model/mission-model.js ${(size / 1024).toFixed(0)} KiB`);
+for (const f of fs.readdirSync(path.join(root, 'assets/model')).filter(f => f.endsWith('.js'))) console.log(`assets/model/${f} ${(fs.statSync(path.join(root, 'assets/model', f)).size / 1024).toFixed(0)} KiB`);

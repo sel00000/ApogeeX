@@ -86,7 +86,8 @@ export function mountMissionModel(host, { url, onReady = () => {}, onError = () 
     invalidate();
   }
   const resizeObserver = new ResizeObserver(resize); resizeObserver.observe(host);
-  const io = new IntersectionObserver(([e]) => { state.visible = e.isIntersecting; if (state.visible) invalidate(); }, { rootMargin: '120px' });
+  // coming into view: redraw at the current resolution (resizing the drawing buffer here stalled scrolling ~200 ms)
+  const io = new IntersectionObserver(([e]) => { state.visible = e.isIntersecting; if (state.visible && !state.frame && state.alive) { state.settle = 2; state.frame = requestAnimationFrame(tick); } }, { rootMargin: '120px' });
   io.observe(host);
   const onVisibility = () => { if (!document.hidden) invalidate(); };
   document.addEventListener('visibilitychange', onVisibility);
@@ -96,7 +97,7 @@ export function mountMissionModel(host, { url, onReady = () => {}, onError = () 
   // Exactly one render per display frame. While a frame is being drawn state.frame is -1, so the
   // 'change' events that controls.update() raises only extend the loop instead of starting another.
   // Moving frames draw at a lighter pixel ratio; once still for a moment, one sharp frame is drawn.
-  const HI_DPR = Math.min(window.devicePixelRatio || 1, DPR_CAP), LO_DPR = Math.min(HI_DPR, 1.25);
+  let HI_DPR = Math.min(window.devicePixelRatio || 1, DPR_CAP, 1.6), LO_DPR = Math.min(HI_DPR, 1);
   let sharpTimer = 0;
   function setDpr(v) {
     if (renderer.getPixelRatio() === v) return;
@@ -117,6 +118,10 @@ export function mountMissionModel(host, { url, onReady = () => {}, onError = () 
   function tick(t) {
     state.frame = -1;
     if (!state.alive || !state.hostActive || !state.visible || document.hidden) { state.frame = 0; state.last = 0; return; }
+    const raw = state.last ? (t - state.last) / 1000 : 0;
+    // adaptive: if moving frames keep running slow, lower the sharp-frame resolution for this session
+    if (raw > 0 && raw < 0.25) { state.govAcc = (state.govAcc || 0) + raw; state.govN = (state.govN || 0) + 1;
+      if (state.govAcc > 1.5) { const avg = state.govAcc / state.govN; state.govAcc = state.govN = 0; if (avg > 1 / 48 && HI_DPR > 1) { HI_DPR = Math.max(1, HI_DPR - 0.3); LO_DPR = Math.min(LO_DPR, HI_DPR); } } }
     const dt = state.last ? Math.min((t - state.last) / 1000, 0.05) : 1 / 60;
     state.last = t;
     // critically-damped follow of the scroll pose: weighty, never springy
@@ -127,13 +132,12 @@ export function mountMissionModel(host, { url, onReady = () => {}, onError = () 
     pivot.position.y = state.lift;
     // shields peel outward layer by layer
     const target = state.userCutaway ?? state.openTarget;
-    state.open += (target - state.open) * (1 - Math.exp(-dt * 5));
+    state.open += (target - state.open) * (1 - Math.exp(-dt * 2.4));
     if (Math.abs(target - state.open) < 0.001) state.open = target;
     for (const layer of state.layers) {
       const local = Math.min(1, Math.max(0, (state.open - layer.delay) / (1 - layer.delay)));
       const e = ease(local);
       layer.node.position.copy(layer.base).addScaledVector(layer.dir, e * layer.reach);
-      layer.node.visible = local < 0.995;
     }
     if (state.tween) {
       const u = Math.min(1, (t - state.tween.start) / 900), e = 1 - Math.pow(1 - u, 4);
@@ -157,10 +161,13 @@ export function mountMissionModel(host, { url, onReady = () => {}, onError = () 
     model.updateMatrixWorld(true);
     // every cutaway half slides away from the axis; outer layer first, inner last
     const center = new THREE.Vector3(), box = new THREE.Box3();
+    // measure "outward" from the cone's own axis (model centre), not from the world origin
+    const whole = new THREE.Box3().setFromObject(model), axis = whole.getCenter(new THREE.Vector3());
+    const radius = Math.max(whole.max.x - whole.min.x, whole.max.z - whole.min.z) / 2;
     model.traverse(node => {
       if (node.userData?.cutaway !== true) return;
       box.setFromObject(node).getCenter(center);
-      const dir = new THREE.Vector3(center.x, 0, center.z);
+      const dir = new THREE.Vector3(center.x - axis.x, 0, center.z - axis.z);
       if (dir.lengthSq() < 1e-6) dir.set(0, 0, 1);
       dir.normalize();
       // convert the world direction into the node's parent space
@@ -168,12 +175,16 @@ export function mountMissionModel(host, { url, onReady = () => {}, onError = () 
       const localDir = dir.clone().transformDirection(parentInv);
       const name = node.name || '';
       const order = name.includes('Outer') ? 0 : name.includes('Middle') ? 1 : 2;
-      state.layers.push({ node, base: node.position.clone(), dir: localDir, reach: [2.2, 1.7, 1.25][order], delay: [0, 0.14, 0.28][order] });
+      // reach is in world units along localDir (unit length after transformDirection): far enough to leave the frame
+      const scale = node.parent.getWorldScale(new THREE.Vector3()).x || 1;
+      state.layers.push({ node, base: node.position.clone(), dir: localDir, reach: radius * [1.9, 1.6, 1.35][order] / scale, delay: [0, 0.14, 0.28][order] });
     });
     resize();
-    onReady();
-    invalidate();
-    sharpen();
+    // compile every shader in the background now, so the first frame on screen does not stall scrolling
+    const compiled = renderer.compileAsync ? renderer.compileAsync(scene, camera).catch(() => {}) : Promise.resolve();
+    // upload textures to the GPU up front as well (first-frame uploads also stall scrolling)
+    model.traverse(o => { for (const m of [].concat(o.material || [])) for (const k of ['map', 'normalMap', 'roughnessMap', 'metalnessMap', 'emissiveMap', 'aoMap']) if (m[k]) renderer.initTexture(m[k]); });
+    compiled.then(() => { if (!state.alive) return; onReady(); invalidate(); sharpen(); });
   }).catch(error => { if (state.alive) onError(error); });
 
   function free(root) {
