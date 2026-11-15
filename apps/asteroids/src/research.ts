@@ -30,7 +30,7 @@ export function mountResearch(host: HTMLElement, options: {
       <button id="research-orbit" data-i18n="r.orbit"></button>
       <form id="analysis-form" data-tutorial="asteroid-run"><h2 data-i18n="r.newTitle"></h2>
         <label for="job-target" data-i18n="r.jobTarget"></label><input id="job-target" maxlength="80" data-i18n-ph="r.jobTargetPh" required autocomplete="off">
-        <div class="date-fields"><label><span data-i18n="r.start"></span><input id="job-start" type="date" value="2025-06-01" min="1900-01-01" max="2100-12-31" required></label><label><span data-i18n="r.end"></span><input id="job-end" type="date" value="2025-08-01" min="1900-01-01" max="2100-12-31" required></label></div>
+        <div class="date-fields"><label><span data-i18n="r.start"></span><input id="job-start" type="text" inputmode="numeric" pattern="\\d{4}-\\d{2}-\\d{2}" placeholder="YYYY-MM-DD" maxlength="10" autocomplete="off" value="2025-06-01" required></label><label><span data-i18n="r.end"></span><input id="job-end" type="text" inputmode="numeric" pattern="\\d{4}-\\d{2}-\\d{2}" placeholder="YYYY-MM-DD" maxlength="10" autocomplete="off" value="2025-08-01" required></label></div>
         <label for="job-limit" data-i18n="r.limit"></label><input id="job-limit" type="number" min="1" max="360" step="1" value="120" required>
         <p class="form-note" data-i18n="r.formNote"></p>
         <button id="job-submit" type="submit" disabled data-i18n="r.submit"></button><p id="capabilities" role="status"></p><button id="server-retry" type="button" data-i18n="r.serverRetry"></button>
@@ -119,13 +119,16 @@ export function mountResearch(host: HTMLElement, options: {
       <section class="result-card"><h3>${t('r.diamTitle')}</h3><p>${t('r.diamText')}</p><div class="table-scroll"><table><thead><tr><th>${t('r.thMethod')}</th><th>${t('r.thDiam')}</th><th>${t('r.th68')}</th><th>${t('r.thSource')}</th></tr></thead><tbody>${diameterRows.map(row => `<tr><th>${esc(row[0])}</th><td>${esc(number(row[1]))}</td><td>${esc(interval(row[2]))}</td><td>${esc(row[3] || t('r.notProvided'))}</td></tr>`).join('')}</tbody></table></div><p>${esc(t('r.bestSource',{s:String(r.diameter_best_source || t('r.notProvided')),c:confident(r.diameter_best_confidence)}))}</p></section>
       <section class="result-card"><h3>${t('r.physTitle')}</h3><dl class="physical-values"><dt>${t('r.albedo')}</dt><dd>${esc(number(r.geometric_albedo_pV,3))} ± ${esc(number(r.albedo_uncertainty,3))} · ${esc(r.albedo_status || t('r.notProvided'))}</dd><dt>${t('r.mass')}</dt><dd>${esc(scientific(r.mass_kg))} ± ${esc(scientific(r.mass_uncertainty))}</dd><dt>${t('r.massSource')}</dt><dd>${esc(r.mass_method || t('r.notProvided'))}${t('r.massNote')}</dd><dt>${t('r.density')}</dt><dd>${esc(number(r.density,0))} ± ${esc(number(r.density_uncertainty,0))}${densityOnHold?` · <strong>${t('r.densityHold')}</strong>`:''}</dd><dt>${t('r.shape')}</dt><dd>${esc(text('shape_assumption'))}</dd></dl></section>
       <section class="result-card"><h3>${t('r.limitsTitle')}</h3>${limits.length?`<ul>${limits.map(v=>`<li>${esc(v)}</li>`).join('')}</ul>`:`<p>${t('r.noLimits')}</p>`}</section>
-      <section class="result-card"><h3>${t('r.reproTitle')}</h3><div id="result-downloads" class="download-links"></div><p>${esc(t('r.repro',{a:String(r.analysis_timestamp || t('r.notProvided')),m:String(r.model_version || t('r.notProvided'))}))}</p><details><summary>${t('r.inputs')}</summary><pre>${esc(JSON.stringify(r.input_data_sources ?? [],null,2))}</pre></details><details><summary>${t('r.prior')}</summary><pre>${esc(JSON.stringify(r.classification_prior ?? null,null,2))}</pre></details><details><summary>${t('r.fullJson')}</summary><pre>${esc(JSON.stringify(result,null,2))}</pre></details></section>`;
+      <section class="result-card"><h3>${t('r.reproTitle')}</h3><div id="result-downloads" class="download-links"></div><p>${esc(t('r.repro',{a:String(r.analysis_timestamp || t('r.notProvided')),m:String(r.model_version || t('r.notProvided'))}))}</p></section>`;
     const downloads = el('result-downloads');
     for (const [key,label] of [['report',t('r.dlReport')],['observations',t('r.dlObs')],['spectrum',t('r.dlSpec')],['components',t('r.dlComp')],['temporal',t('r.dlTemporal')]]) {
       const file = result.assets?.[key as keyof NonNullable<AnalysisResult['assets']>];
       if (typeof file !== 'string') continue;
       try { const a = document.createElement('a'); a.href=artifactUrl(url,file); a.textContent=label+' ↗'; a.target='_blank'; a.rel='noopener'; downloads.append(a); } catch { /* Invalid artifact paths are never opened. */ }
     }
+    // The inputs' sources, the priors and every number are in the result file itself: offered as a
+    // file to open, not printed on the page as raw JSON.
+    { const a = document.createElement('a'); a.href=url; a.textContent=t('r.fullJson')+' ↗'; a.target='_blank'; a.rel='noopener'; downloads.append(a); }
   }
   async function loadResult(url: string, expectedId?: string) {
     const ownGeneration = ++generation;
